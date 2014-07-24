@@ -1,10 +1,18 @@
+var webpack = require('webpack');
+
 module.exports = {
-  entry: './scripts/example',
+  entry: [
+    'webpack/hot/dev-server',
+    './scripts/example'
+  ],
   output: {
     path: __dirname,
     filename: 'example.js',
     publicPath: '/scripts/'
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
   resolve: {
     extensions: ['', '.js', '.jsx']
   },

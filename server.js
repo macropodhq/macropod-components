@@ -30,7 +30,8 @@ app.post('/comments.json', function(req, res) {
 app.listen(3001);
 
 new WebpackDevServer(webpack(config), {
-  publicPath: config.output.publicPath
+  publicPath: config.output.publicPath,
+  hot: true
 }).listen(3000, 'localhost', function (err, result) {
   if (err) {
     console.log(err);
