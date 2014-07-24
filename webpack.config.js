@@ -8,7 +8,7 @@ module.exports = {
   ],
   output: {
     path: __dirname,
-    filename: 'example.js',
+    filename: 'bundle.js',
     publicPath: '/scripts/'
   },
   plugins: [
