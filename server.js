@@ -4,7 +4,7 @@ var app = express();
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config');
-var cors = require('cors')
+var cors = require('cors');
 
 var comments = [{author: 'Pete Hunt', text: 'Hey there!'},
   {author: 'Justin Gordon', text: 'Aloha from @railsonmaui'}
@@ -12,7 +12,7 @@ var comments = [{author: 'Pete Hunt', text: 'Hey there!'},
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(cors())
+app.use(cors());
 
 app.get('/comments.json', function(req, res) {
   res.setHeader('Content-Type', 'application/json');
