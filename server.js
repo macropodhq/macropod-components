@@ -4,15 +4,17 @@ var app = express();
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config');
+var cors = require('cors')
 
-var comments = [{author: 'Pete Hunt', text: 'Hey there!'}];
+var comments = [{author: 'Pete Hunt', text: 'Hey there!'},
+  {author: 'Justin Gordon', text: 'Aloha from @railsonmaui'}
+];
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(cors())
 
 app.all('/*', function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-  res.header('Access-Control-Allow-Headers', 'X-Requested-With');
   next();
 });
 
