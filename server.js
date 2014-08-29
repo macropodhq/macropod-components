@@ -14,10 +14,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors())
 
-app.all('/*', function(req, res, next) {
-  next();
-});
-
 app.get('/comments.json', function(req, res) {
   res.setHeader('Content-Type', 'application/json');
   res.send(JSON.stringify(comments));
