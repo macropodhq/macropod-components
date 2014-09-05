@@ -1,19 +1,29 @@
-# About this fork
+# React Playground
 
-This is a fork of react-tutorial that supports live editing via **[react-hot-loader](https://github.com/gaearon/react-hot-loader)**.
-This means you can edit `CommentBox.jsx` after running the server, and it will update without reload.
+This is a staging area and will be a library of components that we use at
+BugHerd. It's put together so that changes made to the components contained
+therein are reflected instantly in your browser. This shortens the development
+cycle for new components and makes debugging existing components easier.
 
---------------------
+## Installation
 
-# React comment box example
+First off, make sure you have node installed. This is easy on MacOS X; just
+use homebrew and do `brew install nodejs`. Ensure that it's working by running
+`node -v` and `npm -v`. Both of these commands should output a version number.
+If you get an error, node isn't isntalled properly and you should cry deeply
+until someone takes pity on you and your poor life decisions.
 
-This is the React comment box example from [the React tutorial](http://facebook.github.io/react/docs/tutorial.html).
+Now that you've got node working, and you're all pumped up on endorphins from
+the crying, you're going to want to run `npm install` in the directory you
+cloned this repository into.
 
-## To use
+If that finished correctly, you should be able to run `npm start` and open
+[localhost:3000](http://localhost:3000/) in your browser. If you already have
+something else running on port 3000 (as this is the default rails development
+port), try doing `PORT=8080 npm start` (or any other port you like). You'll
+have to amend the port in the URL you use in your browser to match the one you
+specified.
 
-```
-npm install
-node server.js
-```
+## Usage
 
-And visit http://localhost:3000/. Try opening multiple tabs!
+TODO
