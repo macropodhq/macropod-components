@@ -1,9 +1,15 @@
 /** @jsx React.DOM */
 
-var CommentBox = require('./comment-box'),
-    React = require('react');
+var react = require('react');
 
-React.renderComponent(
-  <CommentBox />,
-  document.getElementById('content')
-);
+var CommentBox = require('./comment-box');
+
+var modules = [
+	CommentBox,
+];
+
+modules.forEach(function(m) {
+	var el = document.createElement('div');
+	document.body.appendChild(el);
+	react.renderComponent(new m(), el);
+});
