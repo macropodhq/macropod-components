@@ -21,8 +21,5 @@ module.exports = {
     loaders: [
       { test: /\.jsx$/, loaders: ['react-hot', 'jsx'] },
     ]
-  },
-  externals: {
-    'showdown': 'window.Showdown'
   }
 };

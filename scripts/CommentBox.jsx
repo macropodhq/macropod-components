@@ -1,13 +1,12 @@
 /** @jsx React.DOM */
 
-var Showdown = require('showdown'),
+var marked = require('marked'),
     $ = require('jquery'),
-    React = require('react'),
-    converter = new Showdown.converter();
+    React = require('react');
 
 var Comment = React.createClass({
   render: function() {
-    var rawMarkup = converter.makeHtml(this.props.children.toString());
+    var rawMarkup = marked(this.props.children.toString());
     return (
       <div className="comment">
         <h2 className="commentAuthor">

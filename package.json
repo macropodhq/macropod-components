@@ -8,6 +8,7 @@
     "cors": "^2.4.1",
     "express": "^4.8.6",
     "jquery": "^1.11.1",
+    "marked": "^0.3.2",
     "react": "^0.11.0"
   },
   "devDependencies": {
