@@ -9,6 +9,7 @@ var marked = require('marked'),
 var Comment = React.createClass({
   render: function() {
     var rawMarkup = marked(this.props.children.toString());
+
     return (
       <div className="comment">
         <h2 className="commentAuthor">
@@ -27,7 +28,6 @@ var CommentBox = React.createClass({
   render: function() {
     return (
       <div className="commentBox">
-        <h1>Comments</h1>
         <CommentList data={this.state.data} />
         <CommentForm onCommentSubmit={this.handleCommentSubmit} />
       </div>
