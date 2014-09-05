@@ -10,7 +10,7 @@ var server = new WebpackDevServer(webpack(config), {
   hot: true,
 });
 
-server.listen(3000, function(err) {
+server.listen(process.env.PORT || 3000, function(err) {
   if (err) {
     return console.warn(err);
   }
