@@ -1,17 +1,14 @@
 {
-  "name": "react-tutorial",
+  "name": "react-playground",
   "version": "0.0.0",
-  "description": "Code from the React tutorial.",
-  "main": "server.js",
+  "description": "BugHerd react stuff",
   "dependencies": {
     "css-loader": "^0.7.1",
     "jquery": "^1.11.1",
     "marked": "^0.3.2",
     "react": "^0.11.0",
     "sass-loader": "^0.2.0",
-    "style-loader": "^0.7.1"
-  },
-  "devDependencies": {
+    "style-loader": "^0.7.1",
     "jsx-loader": "^0.11.0",
     "react-hot-loader": "^0.4.2",
     "webpack": "^1.4.0-beta1",
@@ -22,18 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/reactjs/react-tutorial.git"
+    "url": "https://github.com/BugHerd/react-playground.git"
   },
-  "keywords": [
-    "react",
-    "tutorial",
-    "comment",
-    "example"
-  ],
-  "author": "petehunt",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/reactjs/react-tutorial/issues"
-  },
-  "homepage": "https://github.com/reactjs/react-tutorial"
+  "homepage": "https://github.com/BugHerd/react-playground"
 }
