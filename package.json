@@ -4,9 +4,6 @@
   "description": "Code from the React tutorial.",
   "main": "server.js",
   "dependencies": {
-    "body-parser": "^1.6.6",
-    "cors": "^2.4.1",
-    "express": "^4.8.6",
     "jquery": "^1.11.1",
     "marked": "^0.3.2",
     "react": "^0.11.0"
