@@ -4,22 +4,22 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/dev-server',
-    './scripts/example'
+    './components',
   ],
   output: {
     path: __dirname,
     filename: 'bundle.js',
-    publicPath: '/scripts/'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', '.scss'],
   },
   module: {
     loaders: [
       { test: /\.jsx$/, loaders: ['react-hot', 'jsx'] },
-    ]
-  }
+      { test: /\.scss$/, loaders: ['style', 'css', 'sass'] },
+    ],
+  },
 };

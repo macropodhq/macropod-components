@@ -1,5 +1,7 @@
 /** @jsx React.DOM */
 
+require('./style');
+
 var marked = require('marked'),
     $ = require('jquery'),
     React = require('react');

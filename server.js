@@ -6,8 +6,8 @@ var webpack = require('webpack'),
 var config = require('./webpack.config');
 
 var server = new WebpackDevServer(webpack(config), {
-  publicPath: config.output.publicPath,
-  hot: true
+  contentBase: __dirname + "/public",
+  hot: true,
 });
 
 server.listen(3000, function(err) {
