@@ -10,7 +10,6 @@ var ButtonComponent = React.createClass({
       type: 'default'
     };
   },
-
   render: function() {
     var buttonClass = 'Button Button--' + this.props.type;
 
