@@ -1,5 +1,7 @@
-@import "_variables"
-@import "_variables-override"
+@import "_mixins";
+@import "_mixins-override";
+@import "_variables";
+@import "_variables-override";
 
 $component-name: "Button";
 
