@@ -4,10 +4,10 @@ var React = require('react');
 
 require("./index.scss");
 
-var Playground = React.createClass({
+var Component = React.createClass({
   render: function() {
     return (
-      <div className="playground">
+      <div className="playground-component">
       	<h2>{this.props.name}</h2>
       	<div>{this.props.children}</div>
     	</div>
@@ -30,7 +30,7 @@ var getContainer = function getContainer(name) {
 };
 
 var render = function render(name, content) {
-	React.renderComponent(<Playground name={name}>{content}</Playground>, getContainer(name.replace(/\s/g, "-")));
+	React.renderComponent(<Component name={name}>{content}</Component>, getContainer(name.replace(/\s/g, "-")));
 };
 
 // START DOING STUFF HERE
