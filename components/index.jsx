@@ -35,6 +35,4 @@ var render = function render(name, content) {
 
 // START DOING STUFF HERE
 
-var CommentBox = require('./comment-box');
 
-render("Comment Box", <CommentBox data={[]}/>)
