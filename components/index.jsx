@@ -35,4 +35,6 @@ var render = function render(name, content) {
 
 // START DOING STUFF HERE
 
+var Button = require("./button");
 
+render("Button", <Button>what what</Button>);
