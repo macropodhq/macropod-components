@@ -4,7 +4,9 @@
   "description": "BugHerd react stuff",
   "dependencies": {
     "css-loader": "^0.7.1",
+    "fluxxor": "^1.4.0",
     "jquery": "^1.11.1",
+    "lodash": "^2.4.1",
     "marked": "^0.3.2",
     "react": "^0.11.0",
     "sass-loader": "^0.2.0",

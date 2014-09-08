@@ -38,3 +38,7 @@ var render = function render(name, content) {
 var Button = require("./button");
 
 render("Button", <Button>what what</Button>);
+
+var ToDo = require("./todo");
+
+render("ToDo", <ToDo/>);

@@ -1,0 +1,137 @@
+$component-name: "ToDo";
+
+.#{$component-name} {
+  margin-top: 20px;
+  padding: 5px 0 20px 10px;
+
+  &-controls {
+    padding: 10px;
+
+    &-create {
+      cursor: pointer;
+
+      .is-creating > & {
+        display: none;
+      }
+    }
+
+    &-new {
+      display: none;
+
+      .is-creating > & {
+        display: inherit;
+      }
+    }
+
+    input {
+      width: 100%;
+    }
+
+    &-add {
+      background: #52a2dc;
+      padding: 5px 10px;
+      border-radius: 3px;
+      display: inline-block;
+      margin: 10px 10px 0px 0px;
+      color: #fff; 
+
+      &:hover {
+        text-decoration: none;
+        background: #106099;
+        cursor: pointer;
+      }
+    }
+
+    &-cancel {
+      color: #666;
+
+      &:hover {
+        color: #333;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &-list {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+
+    &--complete {
+      margin-top: 10px;
+    }
+    &--complete &-item > span {
+      color: #999999;
+      text-decoration: line-through;
+    }
+
+    &-item {
+      padding: 10px;
+      border-top: 1px solid #ccc;
+
+      input[type="checkbox"] {
+        margin-right: 5px;
+      }
+
+      &-name {
+        &:hover {
+          cursor: pointer;
+        }
+
+        .is-editing & {
+          display: none;
+        }
+      }
+
+      input[type="text"] {
+        margin-right: 5px;
+        display: none;
+      }
+
+      &.is-editing input[type="text"] {
+        display: inline-block;
+      }
+
+      &-save, &-cancel {
+        display: none;
+
+        .is-editing & {
+          display: inline-block;
+        }
+      }
+
+      &-save {
+        background: #52a2dc;
+        padding: 5px 10px;
+        border-radius: 3px;
+        margin: 10px 10px 10px 0;
+        color: #fff;
+
+        &:hover {
+          text-decoration: none;
+          background: #106099;
+          cursor: pointer;
+          color: #fff;
+        }
+      }
+
+      &-cancel {
+        color: #666;
+
+        &:hover {
+          color: #333;
+          cursor: pointer;
+        }
+      }
+
+      &-delete {
+        float: right;
+        font-size: 11px;
+        display: none;
+        cursor: pointer;
+      }
+      &:hover &-delete {
+        display: inline-block;
+      }
+    }
+  }
+}
