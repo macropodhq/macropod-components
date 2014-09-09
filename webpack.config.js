@@ -4,7 +4,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/dev-server',
-    './components',
+    './packages',
   ],
   output: {
     path: __dirname,
@@ -24,7 +24,7 @@ module.exports = {
         loaders: [
           'style',
           'css',
-          'sass?includePaths[]=./components/base/style',
+          'sass?includePaths[]=./packages/base/style',
         ],
       },
     ],
