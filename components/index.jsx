@@ -2,13 +2,14 @@
 
 var React = require('react');
 
-require("./index.scss");
+require('./index.scss');
 
 var Component = React.createClass({
   render: function() {
     return (
-      <div className="playground-component">
+      <div className="Playground">
       	<h2>{this.props.name}</h2>
+        <div>{this.props.readme}</div>
       	<div>{this.props.children}</div>
     	</div>
     );
@@ -16,12 +17,12 @@ var Component = React.createClass({
 });
 
 var getContainer = function getContainer(name) {
-	var id = ["container", name].join("-");
+	var id = ['container', name].join('-');
 
 	var el = document.getElementById(id);
 
 	if (!el) {
-		el = document.createElement("div");
+		el = document.createElement('div');
 		el.id = id;
 		document.body.appendChild(el);
 	}
@@ -29,16 +30,22 @@ var getContainer = function getContainer(name) {
 	return el;
 };
 
-var render = function render(name, content) {
-	React.renderComponent(<Component name={name}>{content}</Component>, getContainer(name.replace(/\s/g, "-")));
-};
+var components = [ // requireDir or something would be cool?
+  require('./todo'),
+  require('./button'),
+  require('./base')
+];
 
-// START DOING STUFF HERE
+function renderComponents(components, el) {
+  React.renderComponent(
+    <div>
+      {_.map(components,
+        function(component) {
+          return <Component name={component.name} readme={component.readme}><component.Example/></Component>;
+        }
+      )}
+    </div>,
+   el);
+}
 
-var Button = require("./button");
-
-render("Button", <Button>what what</Button>);
-
-var ToDo = require("./todo");
-
-render("ToDo", <ToDo/>);
+renderComponents(components, getContainer('lol'));
