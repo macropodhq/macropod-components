@@ -1,4 +1,4 @@
-$component-name: "ToDo";
+$component-name: "Todo";
 
 .#{$component-name} {
   margin-top: 20px;
@@ -33,7 +33,7 @@ $component-name: "ToDo";
       border-radius: 3px;
       display: inline-block;
       margin: 10px 10px 0px 0px;
-      color: #fff; 
+      color: #fff;
 
       &:hover {
         text-decoration: none;
@@ -52,7 +52,7 @@ $component-name: "ToDo";
     }
   }
 
-  &-list {
+  &List {
     border-bottom: 1px solid #ccc;
     margin-bottom: 10px;
 
