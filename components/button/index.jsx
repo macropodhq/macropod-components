@@ -4,12 +4,13 @@ require('./style');
 
 var React = require('react');
 
-var ButtonComponent = React.createClass({
+var Button = React.createClass({
   getDefaultProps: function() {
     return {
       type: 'default'
     };
   },
+  
   render: function() {
     var buttonClass = 'Button Button--' + this.props.type;
 
@@ -18,4 +19,6 @@ var ButtonComponent = React.createClass({
     );
   }
 });
-module.exports = ButtonComponent;
+module.exports = {
+  Component: Button,
+};
