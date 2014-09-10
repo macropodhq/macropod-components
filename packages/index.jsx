@@ -1,5 +1,6 @@
 /** @jsx React.DOM */
 
+var _ = require('lodash');
 var React = require('react');
 
 require('./index.scss');
