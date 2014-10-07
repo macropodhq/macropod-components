@@ -4,6 +4,7 @@
   "description": "BugHerd react stuff",
   "dependencies": {
     "fluxxor": "^1.4.0",
+    "keymaster": "^1.6.2",
     "lodash": "^2.4.1",
     "react": "^0.11.0"
   },
