@@ -143,7 +143,4 @@ var StyleGuide = React.createClass({
   }
 });
 
-module.exports = {
-  name: 'StyleGuide',
-  Example: StyleGuide
-};
+module.exports = StyleGuide;

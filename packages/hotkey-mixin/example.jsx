@@ -2,7 +2,7 @@
 
 var React = require('react');
 
-var HotkeyMixin = require('./hotkey-mixin.js');
+var HotkeyMixin = require('./');
 
 var hotkeys = HotkeyMixin({
   scope: 'example',

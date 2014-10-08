@@ -2,7 +2,7 @@
 
 var React = require('react');
 
-var ToDo = require('./todo-list');
+var TodoList = require('./');
 
 var TodoExample = React.createClass({
   getInitialState: function() {
@@ -34,7 +34,7 @@ var TodoExample = React.createClass({
 
   render: function() {
     return (
-      <ToDo
+      <TodoList
         subtasks={this.state.subtasks}
         onCreate={this.handleCreate}
         onChange={this.handleChange}

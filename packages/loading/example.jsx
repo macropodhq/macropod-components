@@ -2,7 +2,7 @@
 
 var React = require('react');
 
-var Loading = require('./loading');
+var Loading = require('./');
 
 var LoadingExample = React.createClass({
   render: function() {
