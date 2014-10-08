@@ -1,0 +1,43 @@
+@import "_mixins";
+@import "_mixins-override";
+@import "_variables";
+@import "_variables-override";
+
+$component-name: 'Loading';
+$default-size: 40px;
+
+.#{$component-name} {
+  text-align: center;
+  width: 100%;
+  opacity: 0.6;
+
+  svg {
+    width: $default-size;
+    height: $default-size;
+  }
+
+  &--small {
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .top {
+    animation: fadeloop 1.5s infinite 0.4s;
+  }
+
+  .middle {
+    animation: fadeloop 1.5s infinite 0.2s;
+  }
+
+  .bottom {
+    animation: fadeloop 1.5s infinite 0s;
+  }
+}
+
+@keyframes fadeloop {
+  0%   {opacity: 0;}
+  50%   {opacity: 1;}
+  100% {opacity: 0;}
+}

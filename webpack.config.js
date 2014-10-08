@@ -24,6 +24,7 @@ module.exports = {
         loaders: [
           'style',
           'css',
+          'autoprefixer',
           'sass?includePaths[]=./packages/base/style',
         ],
       },
