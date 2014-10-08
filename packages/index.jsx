@@ -30,7 +30,7 @@ var getContainer = function getContainer(name) {
 	return el;
 };
 
-var components = [
+var packageNames = [
   'hotkey-mixin',
   'loading',
   'todo',
@@ -38,14 +38,14 @@ var components = [
   'base',
 ];
 
-function renderComponents(components, el) {
+function renderComponents(packageNames, el) {
   React.renderComponent(
     <div>
-      {_.map(components, function(component) {
-        var example = require('./' + component + '/example');
-        var name = component.split(/[ -]+/).map(function(e) {
+      {_.map(packageNames, function(packageName) {
+        var example = require('./' + packageName + '/example');
+        var name = packageName.split(/[ -]+/).map(function(e) {
           return e[0].toUpperCase() + e.substr(1);
-        }).join(" ") + " (" + component + ")";
+        }).join(" ") + " (" + packageName + ")";
 
         return <Component name={name}><example /></Component>;
       })}
@@ -53,4 +53,4 @@ function renderComponents(components, el) {
    el);
 }
 
-renderComponents(components, getContainer('lol'));
+renderComponents(packageNames, getContainer('lol'));
