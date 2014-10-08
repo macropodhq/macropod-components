@@ -33,6 +33,7 @@ var getContainer = function getContainer(name) {
 
 var components = [ // requireDir or something would be cool?
   require('./hotkey-mixin'),
+  require('./loading'),
   require('./todo'),
   require('./button'),
   require('./base')
