@@ -10,7 +10,6 @@ var Component = React.createClass({
     return (
       <div className="Playground">
       	<h2>{this.props.name}</h2>
-        <div>{this.props.readme}</div>
       	<div>{this.props.children}</div>
     	</div>
     );
@@ -31,22 +30,25 @@ var getContainer = function getContainer(name) {
 	return el;
 };
 
-var components = [ // requireDir or something would be cool?
-  require('./hotkey-mixin'),
-  require('./loading'),
-  require('./todo'),
-  require('./button'),
-  require('./base')
+var components = [
+  'hotkey-mixin',
+  'loading',
+  'todo',
+  'button',
+  'base',
 ];
 
 function renderComponents(components, el) {
   React.renderComponent(
     <div>
-      {_.map(components,
-        function(component) {
-          return <Component name={component.name} readme={component.readme}><component.Example/></Component>;
-        }
-      )}
+      {_.map(components, function(component) {
+        var example = require('./' + component + '/example');
+        var name = component.split(/[ -]+/).map(function(e) {
+          return e[0].toUpperCase() + e.substr(1);
+        }).join(" ") + " (" + component + ")";
+
+        return <Component name={name}><example /></Component>;
+      })}
     </div>,
    el);
 }
