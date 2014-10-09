@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 
-var React = require('react');
+var React = require('react/addons');
 require('./loading.scss');
 
 var Loading = module.exports = React.createClass({
@@ -8,8 +8,13 @@ var Loading = module.exports = React.createClass({
     this.mainColor = this.props.mainColor || '#FFF';
     this.secondaryColor = this.props.secondaryColor || '#CCC';
 
+    var classes = React.addons.classSet({
+      'Loading': true,
+      'Loading--small': this.props.size === 'small'
+    });
+
     return (
-      <div className={'Loading Loading--' + this.props.size}>
+      <div className={classes}>
         <svg version='1.1' id='Layer_1' x='0px' y='0px' viewBox='0 0 600 600'>
         <g>
           <path className='top' fill-rule='evenodd' clip-rule='evenodd' fill={this.mainColor} d='M561.5,119H181.1c-5.2,0-10.4-0.6-19.4,6.1L48,209.5
