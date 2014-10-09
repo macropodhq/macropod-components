@@ -38,6 +38,7 @@ var packageNames = [
   'button',
   'modal',
   'steps',
+  'guider',
   'base',
 ];
 
