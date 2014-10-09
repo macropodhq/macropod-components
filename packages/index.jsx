@@ -37,6 +37,7 @@ var packageNames = [
   'todo',
   'button',
   'modal',
+  'steps',
   'base',
 ];
 
