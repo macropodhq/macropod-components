@@ -9,25 +9,25 @@ var Component = React.createClass({
   render: function() {
     return (
       <div className="Playground">
-      	<h2>{this.props.name}</h2>
-      	<div>{this.props.children}</div>
-    	</div>
+        <h2>{this.props.name}</h2>
+        <div>{this.props.children}</div>
+      </div>
     );
   },
 });
 
 var getContainer = function getContainer(name) {
-	var id = ['container', name].join('-');
+  var id = ['container', name].join('-');
 
-	var el = document.getElementById(id);
+  var el = document.getElementById(id);
 
-	if (!el) {
-		el = document.createElement('div');
-		el.id = id;
-		document.body.appendChild(el);
-	}
+  if (!el) {
+    el = document.createElement('div');
+    el.id = id;
+    document.body.appendChild(el);
+  }
 
-	return el;
+  return el;
 };
 
 var packageNames = [
