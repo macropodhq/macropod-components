@@ -1,0 +1,56 @@
+$avatar-s: 20px;
+$avatar-m: 35px;
+$avatar-l: 50px;
+
+.Avatar-container {
+  position: relative;
+  border-radius: 2px;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  font-size: 0.01px;
+
+  .Avatar {
+    margin: 0;
+    border-radius: 2px;
+    display: inline-block;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid rgba(0,0,0,.05);
+    z-index: 2;
+    border-radius: 2px;
+  }
+
+  &--circle {
+    .Avatar, &, &:after {
+      border-radius: 50%;
+    }
+  }
+}
+
+@mixin avatarSizing($classes, $size) {
+  @each $class in $classes {
+    .#{$class} {
+      width: $size;
+      height: $size;
+      line-height: $size - 1px;
+      .Avatar {
+        width: $size;
+        height: $size;
+        line-height: $size - 1px;
+      }
+    }
+  }
+}
+
+@include avatarSizing(('avatar-s', 'Avatar-s'), $avatar-s);
+@include avatarSizing(('avatar-m', 'Avatar-m'), $avatar-m);
+@include avatarSizing(('avatar-l', 'Avatar-l'), $avatar-l);
