@@ -35,6 +35,7 @@ var packageNames = [
   'loading',
   'todo',
   'button',
+  'modal',
   'base',
 ];
 

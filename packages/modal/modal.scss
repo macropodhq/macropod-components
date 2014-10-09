@@ -1,0 +1,81 @@
+$component-name: "Modal";
+
+$modal-max-width: 1280px;
+$modal-main-breakpoint: 1045px;
+$modal-padding: 15px;
+
+.#{$component-name} {
+  overflow: auto;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  transition: all 0.2s ease;
+
+  &--visible {
+    opacity: 1;
+  }
+
+  @media (max-width: $modal-main-breakpoint) {
+    width: 200%;
+    overflow: hidden;
+  }
+}
+
+.#{$component-name}-dialog {
+  transition: all 0.2s ease;
+  height: calc(100% - 60px);
+  box-shadow: 0 3px 9px rgba(0,0,0,0.5);
+  min-height: 500px;
+  background: #FFF;
+  border-radius: 5px;
+  overflow: hidden;
+  max-width: $modal-max-width;
+  width: 95%;
+  margin: 30px auto;
+  margin-top: 30px;
+
+  .#{$component-name}--visible & {
+    animation: scaleIn 0.2s;
+  }
+
+  .#{$component-name}--invisible & {
+    animation: scaleOut 0.2s;
+  }
+
+  // TODO: this should not be
+  &--newTask {
+    max-width: 850px;
+
+    .Task-attributes *, .Task-attributes *:hover {
+      cursor: default !important;
+    }
+  }
+
+  @media (max-width: $modal-main-breakpoint) {
+    margin: 0 !important;
+    border-radius: 0px;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    min-height: 1px;
+    border: 0;
+  }
+}
+
+@keyframes scaleIn {
+  0%   {transform: scale(0.95);}
+  99%  {transform: scale(1);}
+  100% {transform: none;}
+}
+
+@keyframes scaleOut {
+  0%   {transform: scale(1);}
+  99%  {transform: scale(0.95);}
+  100% {transform: none;}
+}
