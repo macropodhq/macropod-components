@@ -33,6 +33,7 @@ var getContainer = function getContainer(name) {
 var packageNames = [
   'avatar',
   'hotkey-mixin',
+  'icon',
   'loading',
   'todo',
   'button',
