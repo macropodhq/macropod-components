@@ -1,10 +1,16 @@
-$component-name: "Modal";
+@import "colors";
 
 $modal-max-width: 1280px;
 $modal-main-breakpoint: 1045px;
 $modal-padding: 15px;
 
-.#{$component-name} {
+$color-dialog-background: $color-white;
+$color-modal-box-shadow: rgba($color-black, 0.5);
+$color-modal-background: rgba($color-black, 0.4);
+
+$transition-length: 0.2s;
+
+.Modal {
   overflow: auto;
   overflow-y: scroll;
   position: fixed;
@@ -13,11 +19,11 @@ $modal-padding: 15px;
   bottom: 0;
   left: 0;
   z-index: 1050;
-  background: rgba(0,0,0,0.4);
+  background: $color-modal-background;
   opacity: 0;
-  transition: all 0.2s ease;
+  transition: all $transition-length ease;
 
-  &--visible {
+  &.Modal--visible {
     opacity: 1;
   }
 
@@ -27,12 +33,12 @@ $modal-padding: 15px;
   }
 }
 
-.#{$component-name}-dialog {
-  transition: all 0.2s ease;
+.Modal-dialog {
+  transition: all $transition-length ease;
   height: calc(100% - 60px);
-  box-shadow: 0 3px 9px rgba(0,0,0,0.5);
+  box-shadow: 0 3px 9px $color-modal-box-shadow;
   min-height: 500px;
-  background: #FFF;
+  background: $color-dialog-background;
   border-radius: 5px;
   overflow: hidden;
   max-width: $modal-max-width;
@@ -40,16 +46,16 @@ $modal-padding: 15px;
   margin: 30px auto;
   margin-top: 30px;
 
-  .#{$component-name}--visible & {
-    animation: scaleIn 0.2s;
+  .Modal--visible & {
+    animation: scaleIn $transition-length;
   }
 
-  .#{$component-name}--invisible & {
-    animation: scaleOut 0.2s;
+  .Modal--invisible & {
+    animation: scaleOut $transition-length;
   }
 
   // TODO: this should not be
-  &--newTask {
+  &.Modal-dialog--newTask {
     max-width: 850px;
 
     .Task-attributes *, .Task-attributes *:hover {

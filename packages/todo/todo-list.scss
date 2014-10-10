@@ -1,24 +1,49 @@
-$component-name: "Todo";
+@import "colors";
 
-.#{$component-name} {
-  margin-top: 20px;
-  padding: 5px 0 20px 10px;
+$color-item-done: $color-gull-gray;
+$color-item-border: $color-catskill-white;
+$color-todo-new: $color-scorpion;
+$color-todo-new-background: $color-white;
+$color-todo-new-border: $color-catskill-white;
+$color-todo-cancel: $color-silver-chalice;
+$color-todo-cancel-hover: $color-mine-shaft;
+$color-item-cancel: $color-scorpion;
+$color-item-cancel-hover: $color-mine-shaft;
 
-  &-controls {
+.Todo {
+  padding: 5px 0 20px 0;
+
+  .Todo-controls {
     padding: 10px;
 
-    &-create {
+    .Todo-controls-create {
       cursor: pointer;
+      padding: 10px;
+    }
 
-      .is-creating > & {
-        display: none;
+    .Todo-controls-new {
+      display: none;
+
+      input {
+        display: block;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: $color-todo-new;
+        background-color: $color-todo-new-background;
+        background-image: none;
+        border: 1px solid $color-todo-new-border;
+        border-radius: 4px;
+        box-shadow: inset 0 1px 1px rgba($color-black, 0.075);
       }
     }
 
-    &-new {
-      display: none;
+    &.is-creating {
+      .Todo-controls-create {
+        display: none;
+      }
 
-      .is-creating > & {
+      .Todo-controls-new {
         display: inherit;
       }
     }
@@ -27,52 +52,48 @@ $component-name: "Todo";
       width: 100%;
     }
 
-    &-add {
-      background: #52a2dc;
+    .Todo-controls-add {
+      @extend .btn;
+      @extend .btn-primary;
       padding: 5px 10px;
-      border-radius: 3px;
-      display: inline-block;
       margin: 10px 10px 0px 0px;
-      color: #fff;
-
-      &:hover {
-        text-decoration: none;
-        background: #106099;
-        cursor: pointer;
-      }
     }
 
-    &-cancel {
-      color: #666;
+    .Todo-controls-cancel {
+      display: inline-block;
+      vertical-align: middle;
+      height: 31px;
+      padding: 5px;
+      margin: 10px 10px 0px 0px;
+      color: $color-todo-cancel;
 
       &:hover {
-        color: #333;
+        color: $color-todo-cancel-hover;
         cursor: pointer;
       }
     }
   }
 
-  &List {
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 10px;
+  .Todo-list {
+    margin-bottom: 20px;
 
-    &--complete {
+    &.Todo-list--complete {
       margin-top: 10px;
     }
-    &--complete &-item > span {
-      color: #999999;
+    &.Todo-list--complete .Todo-list-item > span {
+      color: $color-item-done;
       text-decoration: line-through;
     }
 
-    &-item {
+    .Todo-list-item {
       padding: 10px;
-      border-top: 1px solid #ccc;
+      border-bottom: 1px solid $color-item-border;
 
       input[type="checkbox"] {
         margin-right: 5px;
       }
 
-      &-name {
+      .Todo-list-item-name {
         &:hover {
           cursor: pointer;
         }
@@ -91,7 +112,7 @@ $component-name: "Todo";
         display: inline-block;
       }
 
-      &-save, &-cancel {
+      .Todo-list-item-save, .Todo-list-item-cancel {
         display: none;
 
         .is-editing & {
@@ -99,37 +120,28 @@ $component-name: "Todo";
         }
       }
 
-      &-save {
-        background: #52a2dc;
+      .Todo-list-item-save {
         padding: 5px 10px;
-        border-radius: 3px;
         margin: 10px 10px 10px 0;
-        color: #fff;
-
-        &:hover {
-          text-decoration: none;
-          background: #106099;
-          cursor: pointer;
-          color: #fff;
-        }
       }
 
-      &-cancel {
-        color: #666;
+      .Todo-list-item-cancel {
+        color: $color-item-cancel;
 
         &:hover {
-          color: #333;
+          color: $color-item-cancel-hover;
           cursor: pointer;
         }
       }
 
-      &-delete {
+      .Todo-list-item-delete {
         float: right;
         font-size: 11px;
         display: none;
         cursor: pointer;
       }
-      &:hover &-delete {
+
+      &:hover .Todo-list-item-delete {
         display: inline-block;
       }
     }
