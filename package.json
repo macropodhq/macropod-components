@@ -6,7 +6,8 @@
     "fluxxor": "^1.4.0",
     "keymaster": "^1.6.2",
     "lodash": "^2.4.1",
-    "react": "^0.11.0"
+    "react": "^0.11.0",
+    "react-widgets": "^1.3.0"
   },
   "devDependencies": {
     "autoprefixer-loader": "^1.0.0",

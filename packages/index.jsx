@@ -40,6 +40,7 @@ var packageNames = [
   'modal',
   'steps',
   'guider',
+  'calendar',
   'base',
 ];
 
