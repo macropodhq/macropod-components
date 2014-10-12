@@ -1,0 +1,60 @@
+@import "media-queries";
+
+@mixin gradient-horizontal($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient(left, color-stop($start-color $start-percent), color-stop($end-color $end-percent)); // Safari 5.1-6, Chrome 10+
+  background-image:  linear-gradient(to right, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=1); // IE9 and down
+}
+
+@mixin gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Safari 5.1-6, Chrome 10+
+  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down
+}
+
+// TODO: move this to task/components/button.scss
+@mixin button-variant($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-bottom: 2px solid $border;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 7px 10px;
+  letter-spacing: .5px;
+  -webkit-font-smoothing: subpixel-antialiased;
+
+  &:hover, &:focus, &:active, &.active {
+    color: $color;
+    background-color: darken($background, 2%);
+    outline: none !important;
+  }
+
+  .open & {
+    &.dropdown-toggle {
+      color: $color;
+      background-color: darken($background, 8%);
+      border-color: darken($border, 12%);
+      border-bottom-color: darken($border, 25%);
+    }
+  }
+
+  &:active, &.active {
+    background-image: none;
+    border-bottom-color: darken($border, 15%);
+  }
+
+  .open & {
+    &.dropdown-toggle {
+      background-image: none;
+    }
+  }
+
+  &.disabled, &[disabled], fieldset[disabled] & {
+    &, &:hover, &:focus, &:active, &.active {
+      background-color: $background;
+      border-color: $border;
+    }
+  }
+}

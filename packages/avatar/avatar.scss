@@ -30,7 +30,7 @@ $avatar-l: 50px;
   }
 
   &--circle {
-    .Avatar, &, &:after {
+    &, .Avatar, &:after {
       border-radius: 50%;
     }
   }

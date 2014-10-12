@@ -84,7 +84,7 @@ var TodoList = React.createClass({
   render: function() {
     return (
       <div className="Todo">
-        <div className="TodoList">
+        <div className="Todo-list">
           {_.where(this.get(), {completed: false}).map(this.renderSubtask)}
         </div>
         <div className={'Todo-controls' + (this.state.isCreating ? ' is-creating' : '')}>
@@ -95,7 +95,7 @@ var TodoList = React.createClass({
           </div>
           <a className="Todo-controls-create" onClick={this.handleAddClick}><span>+</span> Add a To-do</a>
         </div>
-        <div className="TodoList TodoList--complete">
+        <div className="Todo-list Todo-list--complete">
           {_.where(this.get(), {completed: true}).map(this.renderSubtask)}
         </div>
       </div>

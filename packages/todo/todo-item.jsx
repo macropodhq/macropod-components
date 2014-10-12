@@ -98,13 +98,13 @@ var TodoItem = React.createClass({
 
   render: function(subtask) {
     return (
-      <div className={'TodoList-item' + (this.state.isEditing ? ' is-editing' : '')} draggable="true">
+      <div className={'Todo-list-item' + (this.state.isEditing ? ' is-editing' : '')} draggable="true">
         <input checked={this.get().completed} onChange={this.handleToggle} type="checkbox" />
-        <span className="TodoList-item-name" onClick={!this.state.isEditing && this.handleClick}>{this.get().name}</span>
+        <span className="Todo-list-item-name" onClick={!this.state.isEditing && this.handleClick}>{this.get().name}</span>
         <input type="text" ref="textInput" value={this.state.editValue || this.get().name} onChange={this.handleChange} onKeyUp={this.handleKeyUp} />
-        <a className="TodoList-item-save" onClick={this.handleSaveClick}>Save</a>
-        <a className="TodoList-item-cancel" onClick={this.handleCancelClick}>Cancel</a>
-        <a className="TodoList-item-delete" onClick={this.handleDelete}>Delete…</a>
+        <a className="Todo-list-item-save" onClick={this.handleSaveClick}>Save</a>
+        <a className="Todo-list-item-cancel" onClick={this.handleCancelClick}>Cancel</a>
+        <a className="Todo-list-item-delete" onClick={this.handleDelete}>Delete…</a>
       </div>
     );
   }
