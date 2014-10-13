@@ -1,7 +1,0 @@
-@import "mixins";
-
-// TODO: Combine this with task/components/button.scss so we have one component and use it everywhere.
-
-.btn-secondary {
-  @include button-variant(#fff, darken($gray-lighter, 5%), darken($gray-lighter, 10%));
-}

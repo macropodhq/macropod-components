@@ -25,7 +25,7 @@ module.exports = {
           'style',
           'css',
           'autoprefixer',
-          'sass?includePaths[]=./packages/base/style',
+          'sass?includePaths[]=./style',
         ],
       },
       { test: /\.png$/,   loader: "url-loader?limit=100000" },

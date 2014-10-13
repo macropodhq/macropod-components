@@ -41,7 +41,6 @@ var packageNames = [
   'steps',
   'guider',
   'calendar',
-  'base',
 ];
 
 function renderComponents(packageNames, el) {

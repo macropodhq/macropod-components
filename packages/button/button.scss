@@ -1,0 +1,78 @@
+@import "colors";
+
+$color-button-default-border: $color-silver-chalice;
+$color-button-default-background: $color-gallery;
+$color-button-success-background: $color-sushi;
+$color-button: $color-white;
+$color-button-success-border: darken($color-button-success-background, 5%);
+
+$button-font-size: 13px;
+
+@mixin button-variant($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-bottom: 2px solid $border;
+  font-weight: 600;
+  font-size: $button-font-size;
+  padding: 7px 10px;
+  letter-spacing: .5px;
+  -webkit-font-smoothing: subpixel-antialiased;
+
+  &:hover, &:focus, &:active, &.active {
+    color: $color;
+    background-color: darken($background, 2%);
+    outline: none !important;
+  }
+
+  .open & {
+    &.dropdown-toggle {
+      color: $color;
+      background-color: darken($background, 8%);
+      border-color: darken($border, 12%);
+      border-bottom-color: darken($border, 25%);
+    }
+  }
+
+  &:active, &.active {
+    background-image: none;
+    border-bottom-color: darken($border, 15%);
+  }
+
+  .open & {
+    &.dropdown-toggle {
+      background-image: none;
+    }
+  }
+
+  &.disabled, &[disabled], fieldset[disabled] & {
+    &, &:hover, &:focus, &:active, &.active {
+      background-color: $background;
+      border-color: $border;
+    }
+  }
+}
+
+.Button {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  user-select: none;
+  padding: 6px 10px;
+  font-size: $button-font-size;
+  line-height: 1.428571429;
+  border-radius: 3px;
+
+  &.Button--default {
+    @include button-variant($color-button, $color-button-default-background, lighten($color-button-default-border, 20%));
+  }
+
+  &.Button--success {
+    @include button-variant($color-button, $color-button-success-background, $color-button-success-border);
+  }
+}
