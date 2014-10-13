@@ -86,19 +86,13 @@ var StyleGuide = React.createClass({
 
         <h3>Bivouac on a mountain side.</h3>
         <pre>
-  I see before me now a traveling army halting,
-  Below a fertile valley spread, with barns and the orchards of
-         summer,
-  Behind, the terraced sides of a mountain, abrupt, in places rising
-         high,
-  Broken, with rocks, with clinging cedars, with tall shapes dingily
-         seen,
-  The numerous camp-fires scatter'd near and far, some away up on
-         the mountain,
-  The shadowy forms of men and horses, looming, large-sized,
-         flickering,
-  And over all the sky—the sky! far, far out of reach, studded,
-         breaking out, the eternal stars.
+          I see before me now a traveling army halting,<br />
+          Below a fertile valley spread, with barns and the orchards of summer,<br />
+          Behind, the terraced sides of a mountain, abrupt, in places rising high,<br />
+          Broken, with rocks, with clinging cedars, with tall shapes dingily seen,<br />
+          The numerous camp-fires scatter'd near and far, some away up on the mountain,<br />
+          The shadowy forms of men and horses, looming, large-sized, flickering,<br />
+          And over all the sky—the sky! far, far out of reach, studded, breaking out, the eternal stars.
         </pre>
 
         <blockquote>
@@ -110,17 +104,17 @@ var StyleGuide = React.createClass({
         <h1 id="code">Code</h1>
         <pre>
           <code ref="code">
-              @include border-radius(3px);
-              @include force-wrap();
-              background: gray(90%);
-              border: 1px solid gray(80%);
-              display: inline;
-              font-family: Inconsolata, monospace, serif;
-              font-size: 16px;
-              line-height: 20px;
-              max-width: 100%;
-              overflow: auto;
-              padding: 0 rhythm(0.125);
+            @include border-radius(3px);<br />
+            @include force-wrap();<br />
+            background: gray(90%);<br />
+            border: 1px solid gray(80%);<br />
+            display: inline;<br />
+            font-family: Inconsolata, monospace, serif;<br />
+            font-size: 16px;<br />
+            line-height: 20px;<br />
+            max-width: 100%;<br />
+            overflow: auto;<br />
+            padding: 0 rhythm(0.125);
           </code>
         </pre>
 
