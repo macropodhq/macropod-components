@@ -1,16 +1,14 @@
-$component-name: "Guider";
-
 $guider-body-text-color: #2e3842;
 $guider-actions-background-color: #f4f7fa;
 
-.#{$component-name} {
+.Guider {
   .Modal-dialog {
     width: 400px;
     height: initial;
     min-height: 0px;
   }
 
-  &-header {
+  .Guider-header {
     padding: 20px 20px 0px;
 
     a {
@@ -31,7 +29,7 @@ $guider-actions-background-color: #f4f7fa;
     }
   }
 
-  &-body {
+  .Guider-body {
     margin: 0px;
     line-height: 1.2;
     padding: 10px 20px;
@@ -42,7 +40,7 @@ $guider-actions-background-color: #f4f7fa;
     }
   }
 
-  &-actions {
+  .Guider-actions {
     margin: 25px -20px -10px;
     padding: 10px 20px;
     text-align: right;

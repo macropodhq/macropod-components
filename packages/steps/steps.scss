@@ -1,45 +1,43 @@
-$component-name: "Steps";
-
 $steps-step-background-color: rgb(196, 209, 221);
 $steps-step-text-color: #fff;
 $steps-step-active-background-color: rgb(82, 162, 220);
 $steps-step-active-text-color: #fff;
 
-.#{$component-name} {
-	&-step {
-		display: inline-block;
-		border-radius: 100%;
-		background-color: $steps-step-background-color;
-		color: $steps-step-text-color;
-		width: 20px;
-		height: 20px;
-		line-height: 21px;
-		font-size: 12px;
-		text-align: center;
-		margin-right: 14px;
+.Steps {
+  .Steps-step {
+    display: inline-block;
+    border-radius: 100%;
+    background-color: $steps-step-background-color;
+    color: $steps-step-text-color;
+    width: 20px;
+    height: 20px;
+    line-height: 21px;
+    font-size: 12px;
+    text-align: center;
+    margin-right: 14px;
 
-		&.is-active {
-			background-color: $steps-step-active-background-color;
-			color: $steps-step-active-text-color;
-		}
+    &.is-active {
+      background-color: $steps-step-active-background-color;
+      color: $steps-step-active-text-color;
+    }
 
-		&::after {
-			content: '';
-			display: block;
-			width: 10px;
-			height: 2px;
-			border-radius: 4px;
-			background-color: $steps-step-background-color;
-			margin-left: 22px;
-			margin-top: -12px;
-		}
+    &::after {
+      content: '';
+      display: block;
+      width: 10px;
+      height: 2px;
+      border-radius: 4px;
+      background-color: $steps-step-background-color;
+      margin-left: 22px;
+      margin-top: -12px;
+    }
 
-		&:last-child {
-			margin-right: 0px;
+    &:last-child {
+      margin-right: 0px;
 
-			&::after {
-				display: none;
-			}
-		}
-	}
+      &::after {
+        display: none;
+      }
+    }
+  }
 }
