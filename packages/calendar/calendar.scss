@@ -1,0 +1,72 @@
+@import "colors";
+
+$color-calendar: $color-scorpion;
+$color-calendar-selected-date: $color-gull-gray;
+$color-calendar-hover-date: $color-gallery;
+
+.rw-calendar {
+  color: $color-calendar;
+  font-size: 12px;
+
+  .rw-header {
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  .rw-btn:hover {
+    background: $color-calendar-hover-date;
+    border-radius: 4px;
+  }
+
+  .rw-btn-view {
+    background: none;
+    border: none;
+    font-weight: bold;
+  }
+
+  .rw-btn-left, .rw-btn-right {
+    background: none;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .rw-btn-left:after {
+    content: "\2039"
+  }
+
+  .rw-btn-right:after {
+    content: "\203A"
+  }
+
+  .rw-calendar-grid {
+    width: 100%;
+
+    thead th {
+      font-weight: bold;
+      border: none;
+      background: none;
+      text-align: center;
+    }
+
+    tbody {
+      td button {
+        border: none;
+        background: none;
+        padding-top: 4px;
+        padding-bottom: 2px;
+
+        &.rw-off-range {
+          opacity: 0.5;
+        }
+
+        &.rw-state-selected, &.rw-state-selected:hover {
+          border-radius: 4px;
+          background: $color-calendar-selected-date;
+          color: $color-white;
+          cursor: default;
+        }
+      }
+    }
+  }
+}
