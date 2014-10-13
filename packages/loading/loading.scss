@@ -1,7 +1,6 @@
-$component-name: 'Loading';
 $default-size: 40px;
 
-.#{$component-name} {
+.Loading {
   text-align: center;
   width: 100%;
   opacity: 0.6;
@@ -11,7 +10,7 @@ $default-size: 40px;
     height: $default-size;
   }
 
-  &--small {
+  &.Loading--small {
     svg {
       width: 16px;
       height: 16px;

@@ -29,7 +29,7 @@ $avatar-l: 50px;
     border-radius: 2px;
   }
 
-  &--circle {
+  &.Avatar-container--circle {
     &, .Avatar, &:after {
       border-radius: 50%;
     }
