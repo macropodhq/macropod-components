@@ -2,13 +2,13 @@ body {
   font-family: Helvetica;
   font-size: 15px;
   padding: 0px;
-  max-width: 1200px;
+  width: 1200px;
+  max-width: 100%;
+  padding: 0 1em;
   margin: auto;
 }
 
 .Playground {
   box-sizing: border-box;
-  border: 1px solid #ddd;
   margin: 0px;
-  padding: 5px;
 }

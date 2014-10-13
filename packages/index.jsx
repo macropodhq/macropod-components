@@ -9,7 +9,8 @@ var Component = React.createClass({
   render: function() {
     return (
       <div className="Playground">
-        <h2>{this.props.name}</h2>
+        <hr />
+        <h2 id={this.props.package.name}>{this.props.package.friendlyName} ({this.props.package.name})</h2>
         <div>{this.props.children}</div>
       </div>
     );
@@ -45,15 +46,27 @@ var packageNames = [
 ];
 
 function renderComponents(packageNames, el) {
+  var packages = _.map(packageNames, function(packageName) {
+    return {
+      friendlyName: packageName.split(/[ -]+/).map(function(e) {
+        return e[0].toUpperCase() + e.substr(1);
+      }).join(" "),
+      name: packageName
+    };
+  });
   React.renderComponent(
     <div>
-      {_.map(packageNames, function(packageName) {
-        var example = require('./' + packageName + '/example');
-        var name = packageName.split(/[ -]+/).map(function(e) {
-          return e[0].toUpperCase() + e.substr(1);
-        }).join(" ") + " (" + packageName + ")";
+      <h1>React Playground</h1>
+      <h2>Table of Contents</h2>
+      <ul>
+        {_.map(packages, function(package) {
+          return <li><a href={"#" + package.name}>{package.friendlyName}</a></li>;
+        })}
+      </ul>
+      {_.map(packages, function(package) {
+        var example = require('./' + package.name + '/example');
 
-        return <Component name={name}><example /></Component>;
+        return <Component package={package} ><example /></Component>;
       })}
     </div>,
    el);
