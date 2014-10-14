@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 
-require('./style');
+require('./button.scss');
 
 var React = require('react');
 
