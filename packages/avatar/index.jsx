@@ -3,6 +3,12 @@ React = require('react/addons');
 require('./avatar.scss');
 
 var Avatar = React.createClass({
+  getDefaultProps: function() {
+    return {
+      size: 'm'
+    };
+  },
+
   render: function() {
     var classSet = React.addons.classSet;
     var src = this.props.src ? this.props.src : '/favicon-32x32.png';
