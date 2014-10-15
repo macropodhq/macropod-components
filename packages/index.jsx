@@ -31,44 +31,35 @@ var getContainer = function getContainer(name) {
   return el;
 };
 
-var packageNames = [
-  'avatar',
-  'hotkey-mixin',
-  'icon',
-  'loading',
-  'todo',
-  'button',
-  'modal',
-  'steps',
-  'guider',
-  'calendar',
-];
+var packageRequire = require.context('./', true, /example\.jsx/);
 
-function renderComponents(packageNames, el) {
-  var packages = _.map(packageNames, function(packageName) {
-    return {
-      friendlyName: packageName.split(/[ -]+/).map(function(e) {
-        return e[0].toUpperCase() + e.substr(1);
-      }).join(" "),
-      name: packageName
-    };
-  });
-  React.renderComponent(
-    <div>
-      <h1>React Playground</h1>
-      <h2>Table of Contents</h2>
-      <ul>
-        {_.map(packages, function(package) {
-          return <li><a href={"#" + package.name}>{package.friendlyName}</a></li>;
-        })}
-      </ul>
+var packages = _.map(packageRequire.keys(), function(packagePath) {
+
+  var packageName = packagePath.split(/\//)[1];
+
+  return {
+    friendlyName: packageName.split(/[ -]+/).map(function(e) {
+      return e[0].toUpperCase() + e.substr(1);
+    }).join(' '),
+    name: packageName,
+    path: packagePath
+  };
+
+});
+
+React.renderComponent(
+  <div>
+    <h1>React Playground</h1>
+    <h2>Table of Contents</h2>
+    <ul>
       {_.map(packages, function(package) {
-        var example = require('./' + package.name + '/example');
-
-        return <Component package={package} ><example /></Component>;
+        return <li><a href={'#' + package.name}>{package.friendlyName}</a></li>;
       })}
-    </div>,
-   el);
-}
+    </ul>
+    {_.map(packages, function(package) {
+      var example = packageRequire(package.path);
 
-renderComponents(packageNames, getContainer('lol'));
+      return <Component package={package} ><example /></Component>;
+    })}
+  </div>,
+ getContainer('lol'));
