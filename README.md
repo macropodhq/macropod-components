@@ -1,29 +1,65 @@
 # React Playground
 
-This is a staging area and will be a library of components that we use at
-BugHerd. It's put together so that changes made to the components contained
-therein are reflected instantly in your browser. This shortens the development
-cycle for new components and makes debugging existing components easier.
+This is a library of components that we use at BugHerd.
 
-## Installation
+It includes a debug server so that changes made to the components are reflected instantly in your browser. This shortens the development cycle for new components and makes debugging existing components easier.
 
-First off, make sure you have node installed. This is easy on MacOS X; just
-use homebrew and do `brew install nodejs`. Ensure that it's working by running
-`node -v` and `npm -v`. Both of these commands should output a version number.
-If you get an error, node isn't isntalled properly and you should cry deeply
-until someone takes pity on you and your poor life decisions.
+## Requirements
 
-Now that you've got node working, and you're all pumped up on endorphins from
-the crying, you're going to want to run `npm install` in the directory you
-cloned this repository into.
+### [Node.js](http://nodejs.org/download/)
 
-If that finished correctly, you should be able to run `npm start` and open
-[localhost:3000](http://localhost:3000/) in your browser. If you already have
-something else running on port 3000 (as this is the default rails development
-port), try doing `PORT=8080 npm start` (or any other port you like). You'll
-have to amend the port in the URL you use in your browser to match the one you
-specified.
+On OS X, we recommend installing via [Homebrew](https://brew.sh) using `brew install nodejs`.
+
+To check you have it installed, you can run `node -v` and `npm -v`. Both should output a version number.
 
 ## Usage
 
-TODO
+To use the Playground packages in a Node.js-based project, you can do the following;
+
+_**Note**: at this point, it is expected that you have [SSH access to GitHub configured](https://help.github.com/articles/generating-ssh-keys/) and access to the repository._
+
+```sh
+npm install --save-dev "git+ssh://git@github.com/BugHerd/react-playground.git#d8f3545"
+```
+
+_**Note**: You can substitute `d8f3545` in this command for the commit sha1 of any version of the project you want to use._
+
+You can then import the modules into your project by name using `require`;
+
+```javascript
+var Avatar = require('react-playground/packages/avatar');
+var Button = require('react-playground/packages/button');
+```
+
+## Running the Playground
+
+To install the playground's dependencies, run `npm install` from the root directory of this repository.
+
+If that completes without showing any errors, `npm start` will run the development server, and you can then access the playground in your browser at <http://localhost:3000>.
+
+Port 3000 is shared with some other projects and services, so if you get an error about the port being taken, you can prepend `PORT=` and a different port number to the `npm start` command to change it. For example, `PORT=8080 npm start` will launch it on port 8000, meaning the playground would be accessible in your browser at <http://localhost:8080>.
+
+## Contributing Packages
+
+Creating a new package is easy, simply create a directory within `packages` with the name you want to use for your component, within it, you should create at least two files;
+
+* `index.jsx`, the main, re-usable package code.
+* `example.jsx`, an example to display from the development server, and to serve as an implementation suggestion.
+
+`index.jsx` within the main `packages` directory will automatically find any new `example.jsx` files within the package and import them into the demo page.
+
+If your package includes stylesheets, it is recommended that they are implemented as `[package-name].scss` within the package's directory.
+
+Assignment to `module.exports` should be done separately from the assignment of the package's name, as doing so in one line confuses the webpack compiler, and causes the module to be called `exports` when debugging; i.e.
+
+```javascript
+var MyPackage = React.createClass({});
+
+module.exports = MyPackage;
+```
+
+is preferred over
+
+```javascript
+var MyPackage = module.exports = React.createClass({});
+```
