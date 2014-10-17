@@ -2,7 +2,7 @@ $avatar-s: 20px;
 $avatar-m: 35px;
 $avatar-l: 50px;
 
-.Avatar-container {
+.Avatar {
   position: relative;
   border-radius: 2px;
   display: inline-block;
@@ -10,7 +10,7 @@ $avatar-l: 50px;
   margin: 0;
   font-size: 0.01px;
 
-  .Avatar {
+  .Avatar-image {
     margin: 0;
     border-radius: 2px;
     display: inline-block;
@@ -29,8 +29,8 @@ $avatar-l: 50px;
     border-radius: 2px;
   }
 
-  &.Avatar-container--circle {
-    &, .Avatar, &:after {
+  &.Avatar--circle {
+    &, .Avatar-image, &:after {
       border-radius: 50%;
     }
   }
@@ -42,7 +42,7 @@ $avatar-l: 50px;
       width: $size;
       height: $size;
       line-height: $size - 1px;
-      .Avatar {
+      .Avatar-image {
         width: $size;
         height: $size;
         line-height: $size - 1px;
@@ -51,6 +51,6 @@ $avatar-l: 50px;
   }
 }
 
-@include avatarSizing(('avatar-s', 'Avatar-s'), $avatar-s);
-@include avatarSizing(('avatar-m', 'Avatar-m'), $avatar-m);
-@include avatarSizing(('avatar-l', 'Avatar-l'), $avatar-l);
+@include avatarSizing(('avatar-s', 'Avatar--s'), $avatar-s);
+@include avatarSizing(('avatar-m', 'Avatar--m'), $avatar-m);
+@include avatarSizing(('avatar-l', 'Avatar--l'), $avatar-l);
