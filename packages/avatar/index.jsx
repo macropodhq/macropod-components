@@ -14,20 +14,16 @@ var Avatar = React.createClass({
     var src = this.props.src ? this.props.src : '/favicon-32x32.png';
 
     var containerClass = classSet({
-      'Avatar-container--circle': this.props.circle,
-      'Avatar-container': true,
-      'Avatar-s': this.props.size.toLowerCase() === 's',
-      'Avatar-m': this.props.size.toLowerCase() === 'm',
-      'Avatar-l': this.props.size.toLowerCase() === 'l'
-    });
-
-    var avatarClass = classSet({
-      'Avatar': true
+      'Avatar--circle': this.props.circle,
+      'Avatar': true,
+      'Avatar--s': this.props.size.toLowerCase() === 's',
+      'Avatar--m': this.props.size.toLowerCase() === 'm',
+      'Avatar--l': this.props.size.toLowerCase() === 'l'
     });
 
     return (
       <span className={containerClass}>
-        <img className={avatarClass} src={src} title={this.props.title} alt={this.props.title}></img>
+        <img className="Avatar-image" src={src} title={this.props.title} alt={this.props.title}></img>
       </span>
     );
   }
