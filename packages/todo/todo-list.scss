@@ -51,27 +51,6 @@ $color-item-cancel-hover: $color-mine-shaft;
     input {
       width: 100%;
     }
-
-    .Todo-controls-add {
-      @extend .btn;
-      @extend .btn-primary;
-      padding: 5px 10px;
-      margin: 10px 10px 0px 0px;
-    }
-
-    .Todo-controls-cancel {
-      display: inline-block;
-      vertical-align: middle;
-      height: 31px;
-      padding: 5px;
-      margin: 10px 10px 0px 0px;
-      color: $color-todo-cancel;
-
-      &:hover {
-        color: $color-todo-cancel-hover;
-        cursor: pointer;
-      }
-    }
   }
 
   .Todo-list {

@@ -6,6 +6,7 @@ var _ = require('lodash');
 require('./todo-list.scss');
 
 var TodoItem = require('./todo-item');
+var Button = require('../button');
 
 var TodoList = React.createClass({
   getDefaultProps: function() {
@@ -90,8 +91,8 @@ var TodoList = React.createClass({
         <div className={'Todo-controls' + (this.state.isCreating ? ' is-creating' : '')}>
           <div className="Todo-controls-new">
             <input ref="NewInput" type="text" value={this.state.currentInput} onChange={this.handleInput} onKeyUp={this.handleInputKey} />
-            <a className="Todo-controls-add" onClick={this.handleCreate}>Add to-do</a>
-            <a className="Todo-controls-cancel" onClick={this.handleCancel}>Cancel</a>
+            <Button onClick={this.handleCreate}>Add to-do</Button>
+            <Button type="skeleton" onClick={this.handleCancel}>Cancel</Button>
           </div>
           <a className="Todo-controls-create" onClick={this.handleAddClick}><span>+</span> Add a To-do</a>
         </div>
