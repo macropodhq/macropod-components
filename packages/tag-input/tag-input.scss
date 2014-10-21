@@ -1,0 +1,93 @@
+@import "colors";
+@import "placeholders";
+
+$color-border: $color-catskill-white;
+$color-option-hover: $color-gallery;
+$color-option-text: $color-scorpion;
+$color-glow: $color-border;
+
+.rw-select-list {
+  position: relative;
+
+  &:focus, *:focus {
+    outline: none;
+  }
+
+  .rw-input {
+    border: none;
+    display: inline;
+    float: left;
+    background: none;
+  }
+
+  .rw-select-wrapper {
+    border: 1px solid $color-border;
+    border-radius: 3px;
+    padding: 5px;
+    width: 100%;
+    @extend %clearfix;
+  }
+
+  .rw-tag-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: $color-option-text;
+
+    li {
+      background: $color-option-hover;
+      border-radius: 3px;
+      height: inherit;
+      display: inline-block;
+      padding: 0 5px;
+      margin: 0 5px 5px 0;
+      white-space: nowrap;
+      float: left;
+
+      .rw-btn {
+        background: none;
+        border: none;
+      }
+
+      .rw-sr {
+        display: none;
+      }
+    }
+  }
+
+  .rw-popup-container {
+    width: 100% !important;
+    left: 0 !important;
+    border: 1px solid $color-border;
+    border-radius: 0 0 3px 3px;
+    border-top: none;
+    background: $color-white;
+    box-shadow: 0 2px 5px $color-glow;
+    overflow: auto !important;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 5px;
+
+      li {
+        padding: 5px;
+        color: $color-option-text;
+
+        &:hover, &.rw-state-focus {
+          background: $color-option-hover;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  &.rw-open {
+    .rw-select-wrapper {
+      box-shadow: 0 0px 5px $color-glow;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+  }
+
+}
