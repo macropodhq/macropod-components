@@ -1,0 +1,66 @@
+@import "colors";
+@import "variables";
+@import "placeholders";
+
+$app-actions-background: $color-cornflower-blue;
+$nav-secondary-height: $nav-secondary-height;
+
+.ActionsBar {
+  background: $app-actions-background;
+  @extend %clearfix;
+  padding: 0 $app-base-padding;
+
+  .ActionsBar-title {
+    float: left;
+    @extend %header-primary-heights;
+    margin: 0 20px 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 300;
+    color: #fff;
+    outline: 0;
+    height: $nav-secondary-height;
+    line-height: $nav-secondary-height;
+    font-size: 21px;
+    width: 200px;
+    cursor: pointer;
+  }
+
+  .ActionsBar-Navigation {
+    float: left;
+
+    .ActionsBar-Navigation-link {
+      height: $nav-secondary-height;
+      line-height: $nav-secondary-height;
+      display: inline-block;
+      color: rgba(#fff, .7);
+      margin: 0 12px 0 0;
+      text-decoration: none;
+      @extend %header-secondary-heights;
+      &:hover, &--active {
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .ActionsBar-actions {
+    float: right;
+
+    .ActionsBar-actions-control {
+      height: $nav-secondary-height;
+      line-height: $nav-secondary-height;
+      @extend %header-block;
+      @extend %header-secondary-heights;
+      color: rgba(#fff, .6);
+      padding: 0 5px;
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+        cursor: pointer;
+        color: #fff;
+      }
+    }
+  }
+}
