@@ -11,24 +11,29 @@ var TodoExample = React.createClass({
     };
   },
 
-  handleCreate: function(subtask) {
+  handleCreate: function(name) {
     var subtasks = this.state.subtasks;
-    subtask.id = Math.random(); // perhaps i could do this by identity somehow?
-    subtasks.push(subtask);
+    subtasks.push({id: Math.random(), name: name, completed: false});
     this.setState({subtasks: subtasks});
   },
 
-  handleChange: function(subtask) {
+  handleNameChange: function(subtaskId, name) {
     var subtasks = this.state.subtasks;
-    var record = _.findWhere(subtasks, {id: subtask.id});
-    record.name = subtask.name;
-    record.completed = subtask.completed;
+    var record = _.findWhere(subtasks, {id: subtaskId});
+    record.name = name;
     this.setState({subtasks: subtasks});
   },
 
-  handleDelete: function(subtask) {
+  handleCompletionChange: function(subtaskId, state) {
     var subtasks = this.state.subtasks;
-    subtasks = _.without(subtasks,_.findWhere(subtasks, {id: subtask.id}));
+    var record = _.findWhere(subtasks, {id: subtaskId});
+    record.completed = state;
+    this.setState({subtasks: subtasks});
+  },
+
+  handleDelete: function(subtaskId) {
+    var subtasks = this.state.subtasks;
+    subtasks = _.without(subtasks,_.findWhere(subtasks, {id: subtaskId}));
     this.setState({subtasks: subtasks});
   },
 
@@ -37,7 +42,8 @@ var TodoExample = React.createClass({
       <TodoList
         subtasks={this.state.subtasks}
         onCreate={this.handleCreate}
-        onChange={this.handleChange}
+        onNameChange={this.handleNameChange}
+        onCompletionChange={this.handleCompletionChange}
         onDelete={this.handleDelete}
       />
     );
