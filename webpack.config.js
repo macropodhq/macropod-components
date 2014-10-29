@@ -14,7 +14,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx', '.scss'],
+    extensions: ['', '.js', '.jsx', '.scss', '.css'],
   },
   module: {
     loaders: [
@@ -28,6 +28,7 @@ module.exports = {
           'sass?includePaths[]=./style',
         ],
       },
+      { test: /\.css$/,   loader: "style-loader!css-loader" },
       { test: /\.png$/,   loader: "url-loader?limit=100000" },
       { test: /\.woff$/,  loader: "url-loader?limit=10000&mimetype=application/font-woff" },
       { test: /\.ttf$/,   loader: "file-loader" },

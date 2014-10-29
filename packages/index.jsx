@@ -4,6 +4,7 @@ var _ = require('lodash');
 var React = require('react');
 
 require('open-sans/scss/open-sans.scss');
+require('normalize.css/normalize.css')
 require('./index.scss');
 
 var Component = React.createClass({
