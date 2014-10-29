@@ -3,6 +3,7 @@
 var _ = require('lodash');
 var React = require('react');
 
+require('open-sans/scss/open-sans.scss');
 require('./index.scss');
 
 var Component = React.createClass({
