@@ -15,6 +15,7 @@ $color-gradient-dark-stop: $color-alto;
 .rw-dropdown-list {
   position: relative;
   cursor: pointer;
+  overflow: hidden;
 
   &:focus, *:focus {
     outline: none;
@@ -29,6 +30,8 @@ $color-gradient-dark-stop: $color-alto;
   }
 
   &.rw-open {
+    overflow: visible;
+
     .rw-input, .rw-dropdownlist-picker {
       @include gradient-vertical($start-color: $color-gradient-light-stop, $end-color: $color-gradient-light-start);
       border-bottom-left-radius: 0;
@@ -95,5 +98,8 @@ $color-gradient-dark-stop: $color-alto;
 
   .rw-popup-container {
     left: 0 !important;
+    position: absolute !important;
+    right: 0 !important;
+    z-index: 100;
   }
 }
