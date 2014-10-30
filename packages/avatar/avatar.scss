@@ -8,7 +8,7 @@ $avatar-l: 50px;
   display: inline-block;
   padding: 0;
   margin: 0;
-  font-size: 0.01px;
+  font-size: 0;
 
   .Avatar-image {
     margin: 0;
@@ -16,19 +16,26 @@ $avatar-l: 50px;
     display: inline-block;
   }
 
-  &:after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 1px solid rgba(0,0,0,.05);
-    z-index: 2;
-    border-radius: 2px;
+  .Avatar-initials {
+    color: #fff;
+    font-weight: 300;
+    display: inline-block;
+    text-align: center;
   }
-
+  &.Avatar--bordered {
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 1px solid rgba(0,0,0,.05);
+      z-index: 2;
+      border-radius: 2px;
+    }
+  }
   &.Avatar--circle {
     &, .Avatar-image, &:after {
       border-radius: 50%;
@@ -46,6 +53,11 @@ $avatar-l: 50px;
         width: $size;
         height: $size;
         line-height: $size - 1px;
+      }
+      .Avatar-initials {
+        font-size: $size / 2.25;
+        line-height: $size;
+        width: $size;
       }
     }
   }
