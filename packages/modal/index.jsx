@@ -1,12 +1,15 @@
 /** @jsx React.DOM */
 
 var React = require('react/addons');
+var LayeredComponentMixin = require('react-components/js/layered-component-mixin');
 
 var animationCallback = require('../style-utilities').animationCallback;
 
 require('./modal.scss');
 
 var Modal = React.createClass({
+  mixins: [LayeredComponentMixin],
+
   getDefaultProps: function() {
     return {
       onClose: function() {},
@@ -25,12 +28,15 @@ var Modal = React.createClass({
       showModal: true
     });
     this.setVisibleState();
-    animationCallback(this.refs.dialog.getDOMNode(), this.setVisibleState);
+  },
+
+  layerDidMount: function() {
+    animationCallback(this._layer.querySelector('.Modal-dialog'), this.setVisibleState);
 
     window.addEventListener('keyup', this.handleKeyUp);
   },
 
-  componentWillUnmount: function() {
+  layerWillUnmount: function() {
     window.removeEventListener('keyup', this.handleKeyUp);
   },
 
@@ -47,13 +53,13 @@ var Modal = React.createClass({
     });
   },
 
-  handleClose: function(e) {
+  handleClose: function() {
     if (!this.isMounted()) return;
     this.setState({
       showModal: false
     });
 
-    animationCallback(this.refs.dialog.getDOMNode(), this.props.onClose);
+    animationCallback(this._layer.querySelector('.Modal-dialog'), this.props.onClose);
     return false;
   },
 
@@ -61,27 +67,33 @@ var Modal = React.createClass({
     event.stopPropagation();
   },
 
-  render: function() {
-    var cx = React.addons.classSet;
-    var modalClasses = cx({
+  renderLayer: function() {
+    var classSet = React.addons.classSet;
+    var modalClasses = classSet({
       'Modal': true,
       'Modal--visible': this.state.showModal,
       'Modal--invisible': !this.state.showModal
     });
 
-    var dialogClasses = cx({
+    var dialogClassObject = {
       'Modal-dialog': true
-    });
+    };
 
-    dialogClasses[this.props.dialogClassName] = true;
+    dialogClassObject[this.props.dialogClassName] = (typeof this.props.dialogClassName === 'string');
+
+    var dialogClasses = classSet(dialogClassObject);
 
     return (
       <div className={modalClasses} onClick={this.handleClose}>
-        <div className={dialogClasses} ref="dialog" onClick={this.stopPropagation}>
+        <div className={dialogClasses} onClick={this.stopPropagation}>
           {this.props.children}
         </div>
       </div>
     );
+  },
+
+  render: function() {
+    return null;
   }
 });
 

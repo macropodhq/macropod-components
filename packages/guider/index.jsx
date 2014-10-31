@@ -37,8 +37,8 @@ var Guider = module.exports = React.createClass({
 
   render: function() {
     return (
-      <div className="Guider">
-        <Modal onClose={this.handleClose}>
+      <div>
+        <Modal dialogClassName="Guider" onClose={this.handleClose}>
           <div className="Guider-header">
             <a href="#" onClick={this.handleClose}>×</a>
             <h3>{this.props.title}</h3>
