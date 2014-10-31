@@ -2,11 +2,9 @@ $guider-body-text-color: #2e3842;
 $guider-actions-background-color: #f4f7fa;
 
 .Guider {
-  .Modal-dialog {
-    width: 400px;
-    height: initial;
-    min-height: 0px;
-  }
+  width: 400px;
+  height: initial;
+  min-height: 0px;
 
   .Guider-header {
     padding: 20px 20px 0px;
