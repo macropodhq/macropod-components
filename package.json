@@ -1,6 +1,6 @@
 {
   "name": "react-playground",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "BugHerd react stuff",
   "dependencies": {
     "fluxxor": "^1.4.0",
