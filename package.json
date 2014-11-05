@@ -3,9 +3,12 @@
   "version": "1.0.3",
   "description": "BugHerd react stuff",
   "dependencies": {
+    "MD5": "^1.2.1",
     "fluxxor": "^1.4.0",
     "keymaster": "^1.6.2",
     "lodash": "^2.4.1",
+    "normalize.css": "~3.0.2",
+    "open-sans": "git://github.com/bungeshea/open-sans.git",
     "react": "^0.11.0",
     "react-components": "git://github.com/BugHerd/react-components.git#fb9011e9",
     "react-widgets": "^1.4.4",

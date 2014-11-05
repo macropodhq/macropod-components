@@ -1,29 +1,48 @@
 /** @jsx React.DOM */
+
+var md5 = require('MD5');
 React = require('react/addons');
 require('./avatar.scss');
 
 var Avatar = React.createClass({
   getDefaultProps: function() {
     return {
-      size: 'm'
+      size: 'm',
+      lastName: '',
     };
+  },
+
+  stringToColor: function(str) {
+    return 'hsl(' + parseInt(md5(str).substr(2, 4), 16) + ', 80%, 45%)';
+  },
+
+  renderAvatar: function(firstName, lastName) {
+    if (this.props.src) { // if the user has an avatar
+      return <img className="Avatar-image" src={this.props.src} title={firstName} alt={firstName + '’s avatar'}/>;
+    }
+
+    var initials = firstName.charAt(0).toUpperCase() + lastName.charAt(0).toUpperCase();
+    return <span className="Avatar-initials" title={firstName}>{initials}</span>;
   },
 
   render: function() {
     var classSet = React.addons.classSet;
-    var src = this.props.src ? this.props.src : '/favicon-32x32.png';
 
     var containerClass = classSet({
-      'Avatar--circle': this.props.circle,
       'Avatar': true,
+      'Avatar--circle': !!this.props.circle,
+      'Avatar--bordered': !!this.props.src,
       'Avatar--s': this.props.size.toLowerCase() === 's',
       'Avatar--m': this.props.size.toLowerCase() === 'm',
       'Avatar--l': this.props.size.toLowerCase() === 'l'
     });
 
+    var firstName = this.props.title || this.props.firstName;
+    var lastName = this.props.lastName;
+
     return (
-      <span className={containerClass}>
-        <img className="Avatar-image" src={src} title={this.props.title} alt={this.props.title}></img>
+      <span className={containerClass} style={{'background': this.stringToColor(firstName + lastName)}}>
+        {this.renderAvatar(firstName, lastName)}
       </span>
     );
   }
