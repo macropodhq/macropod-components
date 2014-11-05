@@ -1,0 +1,93 @@
+@import 'colors.scss';
+
+$color-lightbox-background: $color-mine-shaft;
+$color-details-background: $color-onyx;
+$color-lightbox-title: $color-alto;
+$color-control: $color-white;
+$color-control-background: $color-mine-shaft;
+$color-counter: $color-scorpion;
+
+$lightbox-padding: 0;
+$asset-padding: 15px;
+$details-padding: 10px;
+
+.Lightbox {
+  width: 100%;
+  height: 100%;
+  background: $color-lightbox-background;
+  padding: $lightbox-padding;
+  z-index: 10;
+
+  .Lightbox-asset {
+    user-select: none;
+    .Lightbox-file {
+      padding: $asset-padding;
+    }
+
+    .Lightbox-file > * {
+      display: block;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  .Lightbox-details {
+    background: $color-details-background;
+    padding: $details-padding;
+    overflow: hidden;
+  }
+
+  .Lightbox-title {
+    margin: 0;
+    font-weight: 500;
+    color: $color-lightbox-title;
+    float: left;
+    padding: 3px 0;
+  }
+
+  .Lightbox-controls {
+    float: right;
+
+    .Lightbox-counter {
+      color: $color-counter;
+      display: inline-block;
+      margin-right: 0.6em;
+    }
+
+    .Lightbox-controls-previous, .Lightbox-controls-next, .Lightbox-controls-close {
+      display: inline-block;
+      cursor: pointer;
+      color: $color-control;
+      background: $color-control-background;
+      font-size: 16px;
+      font-weight: 100;
+      border-radius: 2px;
+      text-align: center;
+      margin-left: 5px;
+      height: 23px;
+      line-height: 23px;
+      width: 23px;
+
+      &:hover {
+        background: $color-control;
+        color: $color-control-background;
+      }
+    }
+  }
+
+  &.Lightbox--multiple {
+    padding: 0px;
+
+    .Lightbox-file {
+      padding: $asset-padding $asset-padding * 2;
+    }
+  }
+
+  &.Lightbox--fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
