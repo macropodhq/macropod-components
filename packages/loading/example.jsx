@@ -9,7 +9,9 @@ var LoadingExample = React.createClass({
     return (
       <div>
         <Loading />
+        <Loading type='circle' />
         <Loading size='small' />
+        <Loading type='circle' size='small' />
       </div>
     );
   }

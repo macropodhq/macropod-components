@@ -4,14 +4,22 @@ var React = require('react/addons');
 require('./loading.scss');
 
 var Loading = module.exports = React.createClass({
+
+  getDefaultProps: function() {
+    return {
+      type: "stack"
+    }
+  },
+
   render: function() {
     var classes = React.addons.classSet({
       'Loading': true,
       'Loading--small': this.props.size === 'small'
     });
 
-    return (
+    return ( 
       <div className={classes}>
+      {(this.props.type === "stack") &&
         <svg version='1.1' id='Layer_1' x='0px' y='0px' viewBox='0 0 600 600'>
         <g>
           <path className='Loading-top Loading-main' clip-rule='evenodd' d='M561.5,119H181.1c-5.2,0-10.4-0.6-19.4,6.1L48,209.5
@@ -30,6 +38,12 @@ var Loading = module.exports = React.createClass({
             c2.4-1.8,3.4-3.6,3.4-5.1c0-4.2-6.9-7.1-10.7-7.1H166.9C166.1,373.4,165.3,373.4,164.4,373.4'/>
         </g>
         </svg>
+      }
+      {(this.props.type === "circle") &&
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50">
+          <path fill="#000" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z"></path>
+        </svg>
+      }
       </div>
     );
   }
