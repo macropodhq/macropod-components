@@ -8,6 +8,7 @@ var Avatar = React.createClass({
   getDefaultProps: function() {
     return {
       size: 'm',
+      firstName: '',
       lastName: '',
     };
   },
