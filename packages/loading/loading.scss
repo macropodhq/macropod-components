@@ -1,4 +1,8 @@
+@import "colors";
+
 $default-size: 40px;
+$color-main: $color-alto;
+$color-secondary: $color-silver-chalice;
 
 .Loading {
   text-align: center;
@@ -10,6 +14,14 @@ $default-size: 40px;
     height: $default-size;
   }
 
+  .Loading-main {
+    fill: $color-main;
+  }
+
+  .Loading-secondary {
+    fill: $color-secondary;
+  }
+
   &.Loading--small {
     svg {
       width: 16px;
@@ -17,15 +29,15 @@ $default-size: 40px;
     }
   }
 
-  .top {
+  .Loading-top {
     animation: fadeloop 1.5s infinite 0.4s;
   }
 
-  .middle {
+  .Loading-middle {
     animation: fadeloop 1.5s infinite 0.2s;
   }
 
-  .bottom {
+  .Loading-bottom {
     animation: fadeloop 1.5s infinite 0s;
   }
 }
