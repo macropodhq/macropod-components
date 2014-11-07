@@ -3,7 +3,7 @@
 var React = require('react');
 
 var Lightbox = require('./');
-var Button = require('../Button');
+var Button = require('../button');
 
 var assets = [
   {
