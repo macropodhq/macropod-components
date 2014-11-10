@@ -13,6 +13,25 @@ var Avatar = React.createClass({
     };
   },
 
+  checkModelProps: function() {
+    if (this.props.model) {
+      var name = _.has(this.props.model, 'name') ? this.props.model.name : '';
+      this.props.firstName = _.has(this.props.model, 'firstName') ? this.props.model.firstName : name;
+      this.props.lastName = _.has(this.props.model, 'lastName') ? this.props.model.lastName : '';
+      if (!this.props.src) {
+        this.props.src = _.has(this.props.model, 'avatar_url') ? this.props.model.avatar_url : '';
+      }
+    }
+  },
+
+  componentWillMount: function() {
+    this.checkModelProps();
+  },
+
+  componentWillUpdate: function() {
+    this.checkModelProps();
+  },
+
   stringToColor: function(str) {
     return 'hsl(' + parseInt(md5(str).substr(2, 4), 16) + ', 80%, 45%)';
   },
@@ -39,7 +58,7 @@ var Avatar = React.createClass({
     });
 
     var firstName = this.props.title || this.props.firstName;
-    var lastName = this.props.lastName;
+    var lastName = this.props.lastName || '';
 
     return (
       <span className={containerClass} style={{'background': this.stringToColor(firstName + lastName)}}>
