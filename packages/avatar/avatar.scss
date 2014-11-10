@@ -9,18 +9,16 @@ $avatar-l: 50px;
   padding: 0;
   margin: 0;
   font-size: 0;
+  vertical-align: middle;
 
-  .Avatar-image {
+  .Avatar-image, .Avatar-initials {
+    color: #fff;
+    font-weight: 300;
+    text-align: center;
     margin: 0;
     border-radius: 2px;
     display: inline-block;
-  }
-
-  .Avatar-initials {
-    color: #fff;
-    font-weight: 300;
-    display: inline-block;
-    text-align: center;
+    vertical-align: middle;
   }
   &.Avatar--bordered {
     &:after {
@@ -37,7 +35,7 @@ $avatar-l: 50px;
     }
   }
   &.Avatar--circle {
-    &, .Avatar-image, &:after {
+    &, .Avatar-image, .Avatar-initials, &:after {
       border-radius: 50%;
     }
   }
@@ -48,16 +46,11 @@ $avatar-l: 50px;
     .#{$class} {
       width: $size;
       height: $size;
-      line-height: $size - 1px;
-      .Avatar-image {
+      line-height: $size;
+      .Avatar-image, .Avatar-initials {
+        font-size: $size / 2.25;
         width: $size;
         height: $size;
-        line-height: $size - 1px;
-      }
-      .Avatar-initials {
-        font-size: $size / 2.25;
-        line-height: $size;
-        width: $size;
       }
     }
   }
