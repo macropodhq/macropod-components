@@ -38,6 +38,7 @@ var Modal = React.createClass({
 
   layerWillUnmount: function() {
     window.removeEventListener('keyup', this.handleKeyUp);
+    document.body.classList.remove('isUnscrollable');
   },
 
   handleKeyUp: function(e) {
@@ -60,7 +61,6 @@ var Modal = React.createClass({
     });
 
     animationCallback(this._layer.querySelector('.Modal-dialog'), this.props.onClose);
-    document.body.classList.remove('isUnscrollable');
     return false;
   },
 
