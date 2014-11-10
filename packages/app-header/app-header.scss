@@ -1,0 +1,57 @@
+@import "colors";
+@import "variables";
+@import "placeholders";
+
+$app-header-bg: $color-indigo;
+$nav-primary-height: $nav-primary-height;
+
+%header-primary-heights {
+  line-height: $nav-primary-height;
+  height: $nav-primary-height;
+}
+
+.AppHeader {
+  background: $app-header-bg;
+  margin-top: 0;
+  transition: margin-top .5s;
+
+  .AppHeader-brand {
+    @extend %clearfix;
+    padding: 0 $app-base-padding;
+    background: rgba(#000, .55);
+    box-shadow: inset 0 -1px 0 rgba(#000, .1), 0 1px 0 rgba(#000, .1);
+    position: relative;
+
+    .AppHeader-brand-title {
+      float: left;
+      @extend %header-primary-heights;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-weight: 300;
+      font-size: 14px;
+      color: #fff;
+      outline: 0;
+    }
+
+    .AppHeader-brand-navigation {
+      float: right;
+
+      .AppHeader-brand-navigation-link {
+        float: left;
+        padding: 0 15px;
+        @extend %header-block;
+        @extend %header-primary-heights;
+        border-left: 1px solid rgba(#000, .2);
+        color: rgba(#fff, .7);
+        font-weight: 300;
+        text-decoration: none;
+
+        &:hover {
+          color: #FFF;
+        }
+      }
+    }
+  }
+}
