@@ -28,11 +28,11 @@ var Modal = React.createClass({
       showModal: true
     });
     this.setVisibleState();
+    document.body.classList.add('isUnscrollable');
   },
 
   layerDidMount: function() {
     animationCallback(this._layer.querySelector('.Modal-dialog'), this.setVisibleState);
-
     window.addEventListener('keyup', this.handleKeyUp);
   },
 
@@ -50,7 +50,7 @@ var Modal = React.createClass({
     if (!this.isMounted()) return;
     this.setState({
       modalVisible: true
-    });
+    }); 
   },
 
   handleClose: function() {
@@ -60,6 +60,7 @@ var Modal = React.createClass({
     });
 
     animationCallback(this._layer.querySelector('.Modal-dialog'), this.props.onClose);
+    document.body.classList.remove('isUnscrollable');
     return false;
   },
 
@@ -76,7 +77,9 @@ var Modal = React.createClass({
     });
 
     var dialogClassObject = {
-      'Modal-dialog': true
+      'Modal-dialog': true,
+      'Modal-dialog--withHeader': this.props.title,
+      'Modal-dialog--withFooter': this.props.footer
     };
 
     dialogClassObject[this.props.dialogClassName] = (typeof this.props.dialogClassName === 'string');
@@ -84,9 +87,27 @@ var Modal = React.createClass({
     var dialogClasses = classSet(dialogClassObject);
 
     return (
-      <div className={modalClasses} onClick={this.handleClose}>
-        <div className={dialogClasses} onClick={this.stopPropagation}>
-          {this.props.children}
+      <div className={modalClasses} onClick={this.handleClose} onScroll={this.stopPropagation}>
+        <div className={dialogClasses} onClick={this.stopPropagation} style={{maxWidth: this.props.maxWidth, maxHeight: this.props.maxHeight}}>          
+          {this.props.closeButton && 
+            <a className="Modal-close" href="#" onClick={this.handleClose}> &#215; </a>
+          }
+          {this.props.title && 
+            <div className="Modal-header">
+              <h2 className="Modal-title">{this.props.title}</h2>
+            </div>
+          }
+
+          <div className="Modal-content">
+            {this.props.children}
+          </div>
+
+          {this.props.footer && 
+            <div className="Modal-footer">
+              {this.props.footer}
+            </div>
+          }
+
         </div>
       </div>
     );
