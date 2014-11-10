@@ -31,10 +31,10 @@ $guider-actions-background-color: #f4f7fa;
     margin: 0px;
     line-height: 1.2;
     padding: 10px 20px;
+    color: $guider-body-text-color;
 
     p {
       margin: 0px 0px 10px;
-      color: $guider-body-text-color;
     }
 
     input[type=text] {
