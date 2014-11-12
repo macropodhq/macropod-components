@@ -104,8 +104,9 @@ $transition-easing: cubic-bezier(1.000, 0.000, 0.000, 1.000);
 }
 
 .Modal-header {
-  padding: 10px 20px 0;
+  padding: 10px 20px;
   height: $modal-header-height;
+  line-height: $modal-header-height - 20px;
   h2 {
     display: inlline-block;
     margin: 0;
@@ -120,6 +121,7 @@ $transition-easing: cubic-bezier(1.000, 0.000, 0.000, 1.000);
   right: 10px;
   text-decoration: none;
   color: $color-modal-close;
+  line-height: $modal-header-height - 20px;
   &:hover {
     color: $color-modal-close-hover;
   }
