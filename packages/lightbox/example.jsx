@@ -23,11 +23,13 @@ var assets = [
 var LoadingExample = React.createClass({
   getInitialState: function() {
     return {
-      open: false
+      open: false,
+      activeAsset: 0
     };
   },
 
   toggleFullscreenLightbox: function() {
+    this.setState({activeAsset: this.refs.assetSwitcher.getDOMNode().value})
     this.setState({open: !this.state.open});
   },
 
@@ -46,7 +48,14 @@ var LoadingExample = React.createClass({
 
         <h3>Fullscreen</h3>
         <Button onClick={this.toggleFullscreenLightbox}>Open lightbox</Button>
-        <Lightbox className="Lightbox--fullscreen" hide={!this.state.open} assets={assets} onClose={this.toggleFullscreenLightbox}/>
+        &nbsp; image number: <select ref="assetSwitcher">
+          <option value="0" selected>1</option>
+          <option value="1">2</option>
+          <option value="2">3</option>
+        </select>
+        {this.state.open && 
+          <Lightbox className="Lightbox--fullscreen" hide={!this.state.open} assets={assets} initialIndex={this.state.activeAsset} onClose={this.toggleFullscreenLightbox}/>
+        }
       </div>
     );
   }
