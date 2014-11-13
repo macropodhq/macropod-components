@@ -12,18 +12,19 @@ var Lightbox = React.createClass({
   getDefaultProps: function() {
     return {
       displayComponent: React.DOM.img,
+      initialIndex: 0,
       onChange: function(){}
     }
   },
 
   getInitialState: function() {
     return {
-      currentAssetIndex: 0
+      currentAssetIndex: parseInt(this.props.initialIndex,10)
     };
   },
 
-  getCurrentAsset: function(index) {
-    return this.props.assets[index || this.state.currentAssetIndex];
+  getCurrentAsset: function() {
+    return this.props.assets[this.state.currentAssetIndex];
   },
 
   handlePrevious: function() {
