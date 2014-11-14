@@ -3,11 +3,11 @@
 $default-size: 40px;
 $color-main: $color-alto;
 $color-secondary: $color-silver-chalice;
+$color-path: $color-scorpion;
 
 .Loading {
-  text-align: center;
   width: 100%;
-  opacity: 0.6;
+  text-align: center;
 
   svg {
     width: $default-size;
@@ -20,6 +20,12 @@ $color-secondary: $color-silver-chalice;
 
   .Loading-secondary {
     fill: $color-secondary;
+  }
+
+  svg path {
+    animation: rotate 0.8s infinite linear;
+    transform-origin: 50% 100%;
+    fill: $color-path;
   }
 
   &.Loading--small {
@@ -46,4 +52,9 @@ $color-secondary: $color-silver-chalice;
   0%   {opacity: 0;}
   50%   {opacity: 1;}
   100% {opacity: 0;}
+}
+
+@keyframes rotate {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(359deg); }
 }
