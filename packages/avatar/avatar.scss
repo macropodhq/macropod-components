@@ -10,16 +10,26 @@ $avatar-l: 50px;
   margin: 0;
   font-size: 0;
   vertical-align: middle;
+  overflow: hidden;
 
   .Avatar-image, .Avatar-initials {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     color: #fff;
     font-weight: 300;
     text-align: center;
     margin: 0;
-    border-radius: 2px;
     display: inline-block;
     vertical-align: middle;
   }
+
+  .Avatar-image {
+    background-size: 100%;
+  }
+
   &.Avatar--bordered {
     &:after {
       content: "";
@@ -34,8 +44,9 @@ $avatar-l: 50px;
       border-radius: 2px;
     }
   }
+
   &.Avatar--circle {
-    &, .Avatar-image, .Avatar-initials, &:after {
+    &, &:after {
       border-radius: 50%;
     }
   }
