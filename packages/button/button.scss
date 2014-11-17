@@ -13,14 +13,14 @@
   user-select: none;
   padding: 0;
   border-radius: 3px;
-  box-shadow: 0 1px 0 rgba(#000,.8);
   font-weight: 400;
   .Button-internal {
     display: inline-block;
-    background: linear-gradient(to bottom, rgba(#000,0) 20%, rgba(#000,.2) 100%);
+    background: linear-gradient(to bottom, rgba(#000,0) 50%, rgba(#000,.1) 100%);
     padding: 0 15px;
     height: 35px;
     line-height: 35px;
+    text-shadow: 0 1px 0 rgba(#000, .15);
   }
 
   &:hover {
