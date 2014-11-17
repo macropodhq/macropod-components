@@ -67,11 +67,7 @@ var Prompt = React.createClass({
   render: function() {
     return (
       <div>
-        <Modal dialogClassName="Prompt" onClose={this.handleCancel}>
-          <div className="Prompt-header">
-            {this.props.cancelable && <a href="#" onClick={this.handleCancel}>×</a>}
-            <h3>{this.props.title}</h3>
-          </div>
+        <Modal dialogClassName="Prompt" onClose={this.handleCancel} title={this.props.title} closeButton={true}>
           <div className="Prompt-body">
             <p>{this.props.content}</p>
             <input type="text" ref="promptInput" onChange={this.handleValueChange} value={this.state.value} onKeyUp={this.handleKeyUp} defaultValue={this.props.defaultValue} />

@@ -5,26 +5,8 @@ $guider-actions-background-color: #f4f7fa;
   width: 400px;
   height: initial;
   min-height: 0px;
-
-  .Prompt-header {
-    padding: 20px 20px 0px;
-
-    a {
-      float: right;
-      margin-top: -2px;
-      font-size: 21px;
-      font-weight: bold;
-      line-height: 1;
-      color: black;
-      opacity: 0.2;
-    }
-
-    h3 {
-      margin: 0px;
-      line-height: 1.42;
-      font-size: 18px;
-      font-weight: 600;
-    }
+  .Modal-content {
+    padding: 0;
   }
 
   .Prompt-body {
