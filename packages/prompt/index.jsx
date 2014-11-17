@@ -48,14 +48,14 @@ var Prompt = React.createClass({
     }
   },
 
-  handleCancel: function(event) {
-    event.preventDefault();
+  handleCancel: function() {
     this.props.onCancel();
+    return false;
   },
 
   handleOk: function(event) {
-    event.preventDefault();
     this.props.onOk(this.state.value);
+    return false;
   },
 
   handleValueChange: function(event) {
