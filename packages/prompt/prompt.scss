@@ -5,7 +5,9 @@ $guider-actions-background-color: #f4f7fa;
   width: 400px;
   height: initial;
   min-height: 0px;
-
+  .Modal-content {
+    padding: 0;
+  }
   .Prompt-header {
     padding: 20px 20px 0px;
 
