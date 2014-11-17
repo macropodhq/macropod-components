@@ -20,7 +20,7 @@ var assets = [
   }
 ];
 
-var LoadingExample = React.createClass({
+var LightboxExample = React.createClass({
   getInitialState: function() {
     return {
       open: false,
@@ -54,11 +54,11 @@ var LoadingExample = React.createClass({
           <option value="2">3</option>
         </select>
         {this.state.open && 
-          <Lightbox className="Lightbox--fullscreen" hide={!this.state.open} assets={assets} initialIndex={this.state.activeAsset} onClose={this.toggleFullscreenLightbox}/>
+          <Lightbox fullscreen={true} hide={!this.state.open} assets={assets} initialIndex={this.state.activeAsset} onClose={this.toggleFullscreenLightbox}/>
         }
       </div>
     );
   }
 });
 
-module.exports = LoadingExample;
+module.exports = LightboxExample;

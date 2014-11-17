@@ -2,18 +2,27 @@
 React = require('react/addons');
 require('./lightbox.scss');
 
+var noop = function(){};
+
 var Lightbox = React.createClass({
   displayName: 'Lightbox',
 
   propTypes: {
-    assets: React.PropTypes.array.isRequired
+    assets: React.PropTypes.array.isRequired,
+    fullscreen: React.PropTypes.bool,
+    hide: React.PropTypes.bool,
+    initialIndex: React.PropTypes.number,
+    onChange: React.PropTypes.func,
+    onClose: React.PropTypes.func,
+    style: React.PropTypes.object
   },
 
   getDefaultProps: function() {
     return {
       displayComponent: React.DOM.img,
       initialIndex: 0,
-      onChange: function(){}
+      onChange: noop,
+      style: {}
     }
   },
 
@@ -54,43 +63,49 @@ var Lightbox = React.createClass({
   },
 
   render: function() {
-    var hideLightbox = this.props.hide === true;
+    if (this.props.hide === true) {
+      return null;
+    }
+
     var multipleAssets = this.props.assets.length > 1;
-    var cx = React.addons.classSet;
-    var lightboxClass = cx({
+
+    var lightboxClassObject = {
       'Lightbox': true,
-      'Lightbox--multiple': multipleAssets
-    });
+      'Lightbox--multiple': multipleAssets,
+      'Lightbox--fullscreen': !!this.props.fullscreen
+    };
+
+    if (typeof this.props.className === 'string') {
+      lightboxClassObject[this.props.className] = true;
+    }
+
+    var lightboxClass = React.addons.classSet(lightboxClassObject);
 
     return (
-      !hideLightbox ?
-        this.transferPropsTo(
-            <div className={lightboxClass}>
-              <div className="Lightbox-asset">
+      <div className={lightboxClass} style={this.props.style}>
+        <div className="Lightbox-asset">
 
-                <div className="Lightbox-details">
-                  <h4 className="Lightbox-title">{this.getCurrentAsset().title}</h4>
-                  <div className="Lightbox-controls">
-                    { multipleAssets && 
-                      <span>
-                        <span className="Lightbox-counter">{this.state.currentAssetIndex + 1} of {this.props.assets.length}</span>
-                        <span onClick={this.handlePrevious} className="Lightbox-controls-previous">&lt;</span>
-                        <span onClick={this.handleNext} className="Lightbox-controls-next">&gt;</span>
-                      </span>
-                    }
-                    {this.props.onClose && <span onClick={this.props.onClose} className="Lightbox-controls-close">&times;</span>}
-                  </div>
-                </div>
-
-                <div className="Lightbox-file">
-                  <this.props.displayComponent src={this.getCurrentAsset().path} />
-                </div>
-                
-              </div>
+          <div className="Lightbox-details">
+            <h4 className="Lightbox-title">{this.getCurrentAsset().title}</h4>
+            <div className="Lightbox-controls">
+              { multipleAssets &&
+                <span>
+                  <span className="Lightbox-counter">{this.state.currentAssetIndex + 1} of {this.props.assets.length}</span>
+                  <span className="Lightbox-controls-previous" onClick={this.handlePrevious}>&lt;</span>
+                  <span className="Lightbox-controls-next" onClick={this.handleNext}>&gt;</span>
+                </span>
+              }
+              {this.props.onClose && <span className="Lightbox-controls-close" onClick={this.props.onClose}>&times;</span>}
             </div>
-        )
-      : null
-    )
+          </div>
+
+          <div className="Lightbox-file">
+            <this.props.displayComponent src={this.getCurrentAsset().path} />
+          </div>
+
+        </div>
+      </div>
+    );
   }
 });
 
