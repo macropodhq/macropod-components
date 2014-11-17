@@ -9,19 +9,20 @@ var Lightbox = React.createClass({
 
   propTypes: {
     assets: React.PropTypes.array.isRequired,
-    displayComponent: React.PropTypes.component,
     fullscreen: React.PropTypes.bool,
     hide: React.PropTypes.bool,
     initialIndex: React.PropTypes.number,
     onChange: React.PropTypes.func,
-    onClose: React.PropTypes.func
+    onClose: React.PropTypes.func,
+    style: React.PropTypes.object
   },
 
   getDefaultProps: function() {
     return {
       displayComponent: React.DOM.img,
       initialIndex: 0,
-      onChange: noop
+      onChange: noop,
+      style: {}
     }
   },
 
@@ -101,7 +102,7 @@ var Lightbox = React.createClass({
           <div className="Lightbox-file">
             <this.props.displayComponent src={this.getCurrentAsset().path} />
           </div>
-          
+
         </div>
       </div>
     );

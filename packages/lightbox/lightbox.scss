@@ -20,6 +20,9 @@ $details-padding: 10px;
 
   .Lightbox-asset {
     user-select: none;
+    overflow: auto;
+    max-height: 100%;
+
     .Lightbox-file {
       padding: $asset-padding;
     }
