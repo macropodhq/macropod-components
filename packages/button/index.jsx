@@ -15,7 +15,7 @@ var Button = React.createClass({
     var buttonClass = 'Button Button--' + this.props.type;
 
     return (
-      this.transferPropsTo(<button className={buttonClass}><span className="Button-internal">{this.props.children}</span></button>)
+      this.transferPropsTo(<button className={buttonClass}>{this.props.children}</button>)
     );
   }
 });
