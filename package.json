@@ -12,7 +12,6 @@
     "react": "^0.11.0",
     "react-components": "git://github.com/BugHerd/react-components.git#fb9011e9",
     "react-widgets": "^1.4.4",
-    "open-sans": "git://github.com/bungeshea/open-sans.git",
     "normalize.css": "~3.0.2",
     "react-data-components": "^0.0.5"
   },
