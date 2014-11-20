@@ -3,7 +3,7 @@
 var React = require('react');
 var _ = require('lodash');
 var Comments = require('./');
-var Button = require('../Button');
+var Button = require('../button');
 
 
 var authors = [
