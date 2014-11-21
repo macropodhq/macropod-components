@@ -1,3 +1,7 @@
+$button-font-family: 'Open Sans', 'Helvetica Neue', 'Arial', 'Helvetica', 'sans-serif' !default;
+$button-font-weight: 400 !default;
+$button-font-size: .8em !default;
+
 .Button {
   display: inline-block;
   border: 0;
@@ -6,8 +10,9 @@
   padding: 0 1.5em;
   height: 3em;
   line-height: 3em;
-  font-size: .8em;
-  font-weight: 400;
+  font-size: $button-font-size;
+  font-family: $button-font-family;
+  font-weight: $button-font-weight;
   text-align: center;
   text-shadow: 0 1px 0 rgba(#000, .15);
   color: white;
