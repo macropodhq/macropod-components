@@ -43,10 +43,10 @@ var Avatar = React.createClass({
 
   render: function() {
     var name;
-    var firstName;
-    var lastName;
-    var email;
-    var src;
+    var firstName = this.props.firstName;
+    var lastName = this.props.lastName;
+    var email = this.props.email;
+    var src = this.props.src;
 
     if (this.props.model) {
       name = _.has(this.props.model, 'name') ? this.props.model.name : '';

@@ -8,10 +8,9 @@ var CommentReply = React.createClass({
   render: function() {
     return (
       <div className="Comment-reply">
-        <Avatar src={this.props.comment.author.avatar} title={this.props.comment.author.name} size="m" circle={true} />
+        <Avatar model={this.props.comment.author} title={this.props.comment.author.name} size="m" circle={true} />
         <div className="Comment-author">
-          <strong>{this.props.comment.author.name}</strong> <br/>
-          {this.props.comment.author.position} &middot; {this.props.comment.author.company}
+          <strong>{this.props.comment.author.name}</strong>
         </div>
         <p className="Comment-text">
           {this.props.comment.entry}

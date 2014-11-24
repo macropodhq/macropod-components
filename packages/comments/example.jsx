@@ -7,9 +7,9 @@ var Button = require('../button');
 
 
 var authors = [
-  {name: 'Nathan', avatar: 'http://www.gravatar.com/avatar/82dccacb221d0a037aa2b60f3cf94d5d', position: 'Developer', company: 'BugHerd'},
-  {name: 'Conrad', avatar: 'http://www.gravatar.com/avatar/d27bae51ba163785869161126434ea56', position: 'Developer', company: 'BugHerd'},
-  {name: 'Geoff', avatar: 'http://www.gravatar.com/avatar/e4f66a7241674482fc1ebe610597225f', position: 'Developer', company: 'BugHerd'},
+  {name: 'Nathan', avatar_url: 'http://www.gravatar.com/avatar/82dccacb221d0a037aa2b60f3cf94d5d', position: 'Developer', company: 'BugHerd'},
+  {name: 'Conrad', avatar_url: 'http://www.gravatar.com/avatar/d27bae51ba163785869161126434ea56', position: 'Developer', company: 'BugHerd'},
+  {name: 'Geoff', avatar_url: 'http://www.gravatar.com/avatar/e4f66a7241674482fc1ebe610597225f', position: 'Developer', company: 'BugHerd'},
 ];
 
 var CommentsExample = React.createClass({

@@ -70,6 +70,8 @@ var Comment = React.createClass({
       'Comment--starred': this.state.stared
     });
 
+    var replies = this.props.replies ? this.props.replies.reverse() : null;
+
     return (
       <div className={commentClass}>
         <a href="#" className="Comment-dropdownToggle" ref="menuAnchor" onClick={this.handleMenuToggle}>
@@ -77,23 +79,22 @@ var Comment = React.createClass({
         </a>
         <DropdownMenu className="DropdownMenu" anchor={this.refs.menuAnchor} visible={this.state.showMenu} close={this.handleMenuToggle}>
           <dl>
-            <dd><a href="#" onClick={this.handleStarToggle}>{this.state.stared ? "Unstar" : "Star"} this discussion</a></dd>
+            {this.props.starable && <dd><a href="#" onClick={this.handleStarToggle}>{this.state.stared ? "Unstar" : "Star"} this discussion</a></dd>}
             <dd><a href="#" onClick={this.handleEditToggle}>Edit discussion</a></dd>
             <dd><a href="#" onClick={this.handleDelete}>Delete discussion</a></dd>
           </dl>
         </DropdownMenu>
-        <Avatar src={this.props.comment.author.avatar} title={this.props.comment.author.name} size="m" circle={true} />
+        <Avatar model={this.props.comment.author} title={this.props.comment.author.name} size="m" circle={true} />
         <div className="Comment-author">
-          <strong>{this.props.comment.author.name}</strong> <br/>
-          {this.props.comment.author.position} &middot; {this.props.comment.author.company}
+          <strong>{this.props.comment.author.name}</strong>
         </div>
         <p className="Comment-text" ref="commentText">
-          {this.state.editing ? <input ref="editInput" defaultValue={this.props.comment.entry} onKeyPress={this.handleKeyPress.bind(null, this.handleEdit)} /> : this.props.comment.entry}
+          {this.state.editing ? <input ref="editInput" className="Comment-editInput" defaultValue={this.props.comment.entry} onKeyPress={this.handleKeyPress.bind(null, this.handleEdit)} /> : this.props.comment.entry}
         </p>
 
         <div className="Comment-replies">
           {
-            this.props.replies && this.props.replies.map(function(comment) {
+            replies && replies.map(function(comment) {
               return (
                 <CommentReply comment={comment} />
               );
