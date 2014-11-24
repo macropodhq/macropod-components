@@ -21,40 +21,12 @@ var Avatar = React.createClass({
     };
   },
 
-  checkModelProps: function() {
-
-    if (this.props.model) {
-
-      var name = _.has(this.props.model, 'name') ? this.props.model.name : '';
-      this.props.firstName = _.has(this.props.model, 'firstName') ? this.props.model.firstName : name;
-      this.props.lastName = _.has(this.props.model, 'lastName') ? this.props.model.lastName : '';
-
-      if (this.props.email === '') {
-        this.props.email = _.has(this.props.model, 'email') ? this.props.model.email : '';
-      }
-
-      if (this.props.src === '') {
-        this.props.src = _.has(this.props.model, 'avatar_url') ? this.props.model.avatar_url : '';
-      }
-
-    }
-
-  },
-
-  componentWillMount: function() {
-    this.checkModelProps();
-  },
-
-  componentWillUpdate: function() {
-    this.checkModelProps();
-  },
-
-  getBackgroundImage: function() {
+  getBackgroundImage: function(src, email) {
     var ratio = window.devicePixelRatio || 1;
-    if (this.props.src !== '') {
-      url = this.props.src;
-    } else if (this.props.email !== '') {
-      url = '//www.gravatar.com/avatar/' + md5(this.props.email) + '?d=blank&s=' + (sizes[this.props.size] * ratio).toString(10)
+    if (src !== '') {
+      url = src;
+    } else if (email !== '') {
+      url = '//www.gravatar.com/avatar/' + md5(email) + '?d=blank&s=' + (sizes[this.props.size] * ratio).toString(10)
     } else {
       return '';
     }
@@ -70,26 +42,46 @@ var Avatar = React.createClass({
   },
 
   render: function() {
+    var name;
+    var firstName;
+    var lastName;
+    var email;
+    var src;
+
+    if (this.props.model) {
+      name = _.has(this.props.model, 'name') ? this.props.model.name : '';
+      firstName = _.has(this.props.model, 'firstName') ? this.props.model.firstName : name;
+      lastName = _.has(this.props.model, 'lastName') ? this.props.model.lastName : '';
+
+      if (this.props.email === '') {
+        email = _.has(this.props.model, 'email') ? this.props.model.email : '';
+      }
+
+      if (this.props.src === '') {
+        src = _.has(this.props.model, 'avatar_url') ? this.props.model.avatar_url : '';
+      }
+    }
+
     var classSet = React.addons.classSet;
 
     var containerClass = classSet({
       'Avatar': true,
       'Avatar--circle': !!this.props.circle,
-      'Avatar--bordered': !!this.props.src,
+      'Avatar--bordered': !!src,
       'Avatar--s': this.props.size.toLowerCase() === 's',
       'Avatar--m': this.props.size.toLowerCase() === 'm',
       'Avatar--l': this.props.size.toLowerCase() === 'l'
     });
 
-    var firstName = this.props.title || this.props.firstName;
-    var lastName = this.props.lastName || '';
+    firstName = this.props.title || firstName;
+    lastName = lastName || '';
 
     return (
       <span title={firstName + '’s avatar'}
         className={containerClass}
         style={{'background-color': this.getColor(firstName + lastName)}}>
         <span className="Avatar-initials" aria-hidden="true">{this.getInitials(firstName, lastName)}</span>
-        <span className="Avatar-image" aria-hidden="true" style={{'background-image': this.getBackgroundImage()}}></span>
+        <span className="Avatar-image" aria-hidden="true" style={{'background-image': this.getBackgroundImage(src, email)}}></span>
       </span>
     );
   }
