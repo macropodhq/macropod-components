@@ -8,15 +8,15 @@ var Icon = React.createClass({
     return {
       type: 'arrow-down',
       font: true,
-      width: 32,
+      size: 32,
     };
   },
 
   componentDidMount: function() {
     if (!this.props.font) {
-      var width = this.props.width;
+      var size = this.props.size;
       this.getDOMNode().innerHTML = require('./svgs/icon-' + this.props.type + '.svg');
-      this.getDOMNode().firstElementChild.style.width = width + 'px';
+      this.getDOMNode().firstElementChild.style.width = size + 'px';
     }
   },
 
@@ -26,7 +26,7 @@ var Icon = React.createClass({
 
     if (this.props.font) {
       props['data-am-icon'] = this.props.type;
-      props.style = {width: this.props.width};
+      props.style = {fontSize: this.props.size};
     }
 
     return this.transferPropsTo(component(props));

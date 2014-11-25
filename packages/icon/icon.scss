@@ -9,6 +9,10 @@
   font-style: normal;
 }
 
+.Icon {
+  display: inline-block;
+}
+
 /* Use the following CSS code if you want to use data attributes for inserting your icons */
 [data-am-icon]:before {
   font-family: 'Simple-Line-Icons';

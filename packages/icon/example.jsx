@@ -16,7 +16,10 @@ var IconExample = React.createClass({
         <Icon type="speech" />
 
         SVG:
-        <Icon type="shield" font={false}/>
+        <Icon type="shield" font={false} size={16} />
+        <Icon type="twitter" font={false}/>
+        <Icon type="magnet" font={false}/>
+
       </div>
     );
   }
