@@ -13,9 +13,7 @@ var Icon = React.createClass({
 
   componentDidMount: function() {
     if (!this.props.font) {
-      var size = this.props.size;
       this.getDOMNode().innerHTML = require('./svgs/icon-' + this.props.type + '.svg');
-      this.getDOMNode().firstElementChild.style.width = '1em';
     }
   },
 
@@ -25,7 +23,6 @@ var Icon = React.createClass({
 
     if (this.props.font) {
       props['data-am-icon'] = this.props.type;
-      props.style = {fontSize: '1em'};
     }
 
     return this.transferPropsTo(component(props));
