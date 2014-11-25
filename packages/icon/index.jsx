@@ -7,8 +7,7 @@ var Icon = React.createClass({
   getDefaultProps: function() {
     return {
       type: 'arrow-down',
-      font: true,
-      size: 32,
+      font: true
     };
   },
 
@@ -16,7 +15,7 @@ var Icon = React.createClass({
     if (!this.props.font) {
       var size = this.props.size;
       this.getDOMNode().innerHTML = require('./svgs/icon-' + this.props.type + '.svg');
-      this.getDOMNode().firstElementChild.style.width = size + 'px';
+      this.getDOMNode().firstElementChild.style.width = '1em';
     }
   },
 
@@ -26,7 +25,7 @@ var Icon = React.createClass({
 
     if (this.props.font) {
       props['data-am-icon'] = this.props.type;
-      props.style = {fontSize: this.props.size};
+      props.style = {fontSize: '1em'};
     }
 
     return this.transferPropsTo(component(props));
