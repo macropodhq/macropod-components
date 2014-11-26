@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: 'RwWidgets';
-  src: url('~react-widgets/dist/fonts/rw-widgets.eot?v=4.1.0');
-  src: url('~react-widgets/dist/fonts/rw-widgets.eot?#iefix&v=4.1.0') format('embedded-opentype'),
-       url('~react-widgets/dist/fonts/rw-widgets.woff?v=4.1.0') format('woff'),
-       url('~react-widgets/dist/fonts/rw-widgets.ttf?v=4.1.0') format('truetype'),
-       url('~react-widgets/dist/fonts/rw-widgets.svg?v=4.1.0#fontawesomeregular') format('svg');
+  src: url('~react-widgets/dist/fonts/rw-widgets.eot');
+  src: url('~react-widgets/dist/fonts/rw-widgets.eot#iefix') format('embedded-opentype'),
+       url('~react-widgets/dist/fonts/rw-widgets.woff') format('woff'),
+       url('~react-widgets/dist/fonts/rw-widgets.ttf') format('truetype'),
+       url('~react-widgets/dist/fonts/rw-widgets.svg#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
