@@ -70,7 +70,7 @@ var Comment = React.createClass({
       'Comment--starred': this.state.stared
     });
 
-    var replies = this.props.replies ? this.props.replies.reverse() : null;
+    var replies = _.clone(this.props.replies).reverse();
 
     return (
       <div className={commentClass}>
@@ -94,7 +94,7 @@ var Comment = React.createClass({
 
         <div className="Comment-replies">
           {
-            replies && replies.map(function(comment) {
+            replies.map(function(comment) {
               return (
                 <CommentReply comment={comment} />
               );
