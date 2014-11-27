@@ -13,7 +13,7 @@ var Icon = React.createClass({
 
   componentDidMount: function() {
     if (!this.props.font) {
-      this.getDOMNode().innerHTML = require('./svgs/icon-' + this.props.type + '.svg');
+      this.getDOMNode().innerHTML = require('!raw!./svgs/icon-' + this.props.type + '.svg');
     }
   },
 
