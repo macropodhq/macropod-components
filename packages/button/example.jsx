@@ -3,6 +3,7 @@
 var React = require('react');
 
 var Button = require('./');
+require('./example.scss');
 
 var ButtonExample = module.exports = React.createClass({
   getInitialState: function() {
@@ -22,7 +23,9 @@ var ButtonExample = module.exports = React.createClass({
         <br/>
         Clicked {this.state.count} time{this.state.count === 1 ? '' : 's'}
         <br/><br/>
-        <Button disabled={true}>Can't click me</Button>
+        <Button type="huedemo">Has background-color support</Button>
+        <br/>
+        <Button type="huedemo" disabled={true}>Can be disabled!</Button>
       </div>
     );
   }
