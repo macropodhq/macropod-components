@@ -51,7 +51,7 @@ var CommentsExample = React.createClass({
     this.setState({comments: updatedComments})
   },
 
-  handleKeyPress: function(e) {
+  handleKeyDown: function(e) {
     if (!e) e = window.event;
     var keyCode = e.keyCode || e.which;
     if (keyCode == '13'){
@@ -81,7 +81,7 @@ var CommentsExample = React.createClass({
   render: function() {
     return (
       <div>
-        <input ref="newDiscussionInput" onKeyPress={this.handleKeyPress} placeholder="add new discussion" />
+        <input ref="newDiscussionInput" onKeyDown={this.handleKeyDown} placeholder="add new discussion" />
         <Comments comments={this.state.comments} onReply={this.handleNewComment} onDelete={this.handleDelete} onEdit={this.handleEdit} />
       </div>
     );

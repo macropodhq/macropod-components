@@ -34,7 +34,7 @@ var Comment = React.createClass({
     e.preventDefault();
   },
 
-  handleKeyPress: function(callback, e) {
+  handleKeyDown: function(callback, e) {
     if (!e) e = window.event;
     var keyCode = e.keyCode || e.which;
     if (keyCode == '13'){
@@ -89,7 +89,7 @@ var Comment = React.createClass({
           <strong>{this.props.comment.author.name}</strong>
         </div>
         <p className="Comment-text" ref="commentText">
-          {this.state.editing ? <input ref="editInput" className="Comment-editInput" defaultValue={this.props.comment.entry} onKeyPress={this.handleKeyPress.bind(null, this.handleEdit)} /> : this.props.comment.entry}
+          {this.state.editing ? <input ref="editInput" className="Comment-editInput" defaultValue={this.props.comment.entry} onKeyDown={this.handleKeyDown.bind(null, this.handleEdit)} /> : this.props.comment.entry}
         </p>
 
         <div className="Comment-replies">
@@ -102,7 +102,7 @@ var Comment = React.createClass({
           }
 
           <div className="Comment-replies-new">
-              <textarea ref="replyInput" onKeyPress={this.handleKeyPress.bind(null, this.handleNewReply)} className="Comment-replies-new-input" placeholder="add a reply"></textarea>
+            <textarea ref="replyInput" onKeyDown={this.handleKeyDown.bind(null, this.handleNewReply)} className="Comment-replies-new-input" placeholder="add a reply"></textarea>
           </div>
         </div>
       </div>
