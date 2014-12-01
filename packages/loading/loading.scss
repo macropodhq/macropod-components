@@ -22,10 +22,13 @@ $color-path: $color-scorpion;
     fill: $color-secondary;
   }
 
-  svg path {
+  .Loading--circle {
     animation: rotate 0.8s infinite linear;
-    transform-origin: 50% 100%;
-    fill: $color-path;
+    transform-origin: center;
+
+    path {
+      fill: $color-path;
+    }
   }
 
   &.Loading--small {
@@ -50,7 +53,7 @@ $color-path: $color-scorpion;
 
 @keyframes fadeloop {
   0%   {opacity: 0;}
-  50%   {opacity: 1;}
+  50%  {opacity: 1;}
   100% {opacity: 0;}
 }
 
