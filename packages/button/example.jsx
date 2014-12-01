@@ -19,7 +19,10 @@ var ButtonExample = module.exports = React.createClass({
     return (
       <div>
         <Button onClick={this.handleClick}>What what?</Button>
-        {this.state.count}
+        <br/>
+        Clicked {this.state.count} time{this.state.count === 1 ? '' : 's'}
+        <br/><br/>
+        <Button disabled={true}>Can't click me</Button>
       </div>
     );
   }
