@@ -21,7 +21,16 @@ var LoadingExample = React.createClass({
         <Button ref="menuAnchor" onClick={this.toggleMenu}>
           My Fancy Menu
         </Button>
-        <DropdownMenu className="DropdownMenu--account" anchor={this.refs.menuAnchor} visible={this.state.showMenu} close={this.toggleMenu}>
+        <DropdownMenu
+          className="DropdownMenu--account"
+          anchor={this.refs.menuAnchor}
+          visible={this.state.showMenu}
+          close={this.toggleMenu}
+          footer={
+            <dl>
+              <dd><a href="#">Footer</a></dd>
+            </dl>
+          }>
           <dl>
             <dt>Tasks</dt>
             <dd><a href="#">Reticulate Splines</a></dd>

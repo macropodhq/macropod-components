@@ -36,12 +36,22 @@ var PopoverContent = React.createClass({
   },
 
   setDropdownStyle: function() {
+    var bodyTop = document.documentElement.scrollTop || document.body.scrollTop;
+    var dropdownTop = bodyTop + this.anchorRect.top + this.anchorRect.height;
+    var dropdownHeight = this.getHeight();
+    var dropdownBottom = dropdownTop + dropdownHeight;
+    var dropdownOffscreenBottom = (dropdownBottom - (bodyTop + window.innerHeight));
+
+    if (dropdownOffscreenBottom > 0) {
+      dropdownHeight = dropdownHeight - (dropdownOffscreenBottom + 10);
+    }
+
     var nextStyleState = {
       left: this.getLeft(),
-      top: document.body.scrollTop + this.anchorRect.top + this.anchorRect.height,
+      top: dropdownTop,
       position: 'absolute',
       zIndex: 10000,
-      height: this.getHeight(),
+      height: dropdownHeight,
       width: this.getWidth()
     };
 
@@ -94,10 +104,23 @@ var PopoverContent = React.createClass({
       zIndex: 1000
     };
 
+    var popoverClass = {
+      'Popover': true,
+      'Popover--withFooter': !!this.props.footer
+    };
+
+    popoverClass[this.props.className] = true;
+
     return  (
       <div style={this.overlayStyle} onClick={this.props.close}>
-        <div className={this.props.className + ' Popover'} ref="Popover" style={this.state.style}>
+        <div className={React.addons.classSet(popoverClass)} ref="Popover" style={this.state.style}>
           {this.props.children}
+
+          { this.props.footer &&
+            <div className={'Popover-footer'}>
+              {this.props.footer}
+            </div>
+          }
         </div>
       </div>
     )
@@ -117,7 +140,7 @@ var Popover = React.createClass({
 
   renderLayer: function() {
     if (this.props.visible) {
-      return <PopoverContent className={this.props.className} anchor={this.props.anchor} children={this.props.children} close={this.props.close} align={this.props.align} />;
+      return <PopoverContent className={this.props.className} anchor={this.props.anchor} children={this.props.children} close={this.props.close} align={this.props.align} footer={this.props.footer} />;
     } else {
       return null;
     }

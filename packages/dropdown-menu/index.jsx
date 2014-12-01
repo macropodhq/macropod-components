@@ -9,7 +9,9 @@ var DropdownMenu = React.createClass({
  render: function() {
     return this.transferPropsTo(
       <Popover className="DropdownMenu">
-        {this.props.children}
+        <div className="DropdownMenu-internal">
+          {this.props.children}
+        </div>
       </Popover>
     )
   }
