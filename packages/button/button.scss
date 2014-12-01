@@ -19,8 +19,17 @@ $button-font-size: .8em !default;
   background-color: grey;
   background-image: linear-gradient(to bottom, rgba(#000, 0) 50%, rgba(#000, .1) 100%);
   white-space: nowrap;
-  cursor: pointer;
   user-select: none;
+
+  &[disabled] {
+    color: transparentize(white, 0.2);
+    background-image: linear-gradient(to bottom, rgba(#ccc, .6) 0%, rgba(#ccc, .6) 100%);
+
+    &:hover {
+      opacity: 1;
+      cursor: not-allowed;
+    }
+  }
 
   &:hover {
     opacity: .9;
