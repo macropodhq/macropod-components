@@ -36,12 +36,22 @@ var PopoverContent = React.createClass({
   },
 
   setDropdownStyle: function() {
+    var bodyTop = document.documentElement.scrollTop || document.body.scrollTop;
+    var dropdownTop = bodyTop + this.anchorRect.top + this.anchorRect.height;
+    var dropdownHeight = this.getHeight();
+    var dropdownBottom = dropdownTop + dropdownHeight;
+    var dropdownOffscreenBottom = (dropdownBottom - (bodyTop + window.innerHeight));
+
+    if (dropdownOffscreenBottom > 0) {
+      dropdownHeight = dropdownHeight - (dropdownOffscreenBottom + 10);
+    }
+
     var nextStyleState = {
       left: this.getLeft(),
-      top: document.body.scrollTop + this.anchorRect.top + this.anchorRect.height,
+      top: dropdownTop,
       position: 'absolute',
       zIndex: 10000,
-      height: this.getHeight(),
+      height: dropdownHeight,
       width: this.getWidth()
     };
 
