@@ -1,6 +1,6 @@
 {
   "name": "react-playground",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "BugHerd react stuff",
   "dependencies": {
     "MD5": "^1.2.1",
