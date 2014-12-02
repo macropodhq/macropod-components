@@ -2,7 +2,7 @@
 
 var React = require('react/addons');
 
-var Modal = require('../modal');
+var Alert = require('../alert');
 var Button = require('../button');
 
 require('./prompt.scss');
@@ -49,7 +49,7 @@ var Prompt = React.createClass({
   },
 
   handleCancel: function() {
-    this.props.onCancel();
+    this.props.onCancel(this.state.value);
     return false;
   },
 
@@ -66,18 +66,16 @@ var Prompt = React.createClass({
 
   render: function() {
     return (
-      <div>
-        <Modal dialogClassName="Prompt" onClose={this.handleCancel} title={this.props.title} closeButton={true}>
-          <div className="Prompt-body">
-            <p>{this.props.content}</p>
-            <input type="text" ref="promptInput" onChange={this.handleValueChange} onKeyUp={this.handleKeyUp} defaultValue={this.props.defaultValue} />
-            <div className="Prompt-actions">
-              {this.props.cancelable && <Button onClick={this.handleCancel}>{this.props.cancelText}</Button>}
-              <Button onClick={this.handleOk}>{this.props.okText}</Button>
-            </div>
-          </div>
-        </Modal>
-      </div>
+      <Alert
+        onOk={this.handleOk}
+        onCancel={this.handleCancel}
+        cancelable={this.props.cancelable}
+        title={this.props.title}
+        cancelText={this.props.cancelText}
+        okText={this.props.okText}>
+        <p>{this.props.content}</p>
+        <input type="text" ref="promptInput" onChange={this.handleValueChange} onKeyUp={this.handleKeyUp} defaultValue={this.props.defaultValue} placeholder={this.props.placeholder} />
+      </Alert>
     );
   },
 });

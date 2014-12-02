@@ -64,12 +64,6 @@ var PromptExample = module.exports = React.createClass({
     })
   },
 
-  handlePromptValueChange: function(value) {
-    this.setState({
-      promptValue: value
-    })
-  },
-
   render: function() {
     return (
       <div>
