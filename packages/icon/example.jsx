@@ -1,6 +1,7 @@
 /** @jsx React.DOM */
 
 var React = require('react');
+var _ = require('lodash');
 
 var Icon = require('./');
 
@@ -171,107 +172,71 @@ var fontIcons = [
   'wrench',
 ];
 
-svgIcons = [
-  'academic',
-  'addressbook',
-  'anchor',
-  'area',
-  'arrow-down',
-  'arrow-left',
-  'arrow-right',
-  'arrow-up',
-  'badge',
-  'bag',
-  'beaker',
-  'bell',
-  'bezier',
-  'cd',
-  'chat',
-  'creditcard',
-  'cross',
-  'dribbble',
-  'drop',
-  'dropbox',
-  'earth',
-  'facebook',
-  'film',
-  'flame',
-  'flash',
-  'folder',
-  'gamepad',
-  'gauge',
-  'ghost',
-  'glasses',
-  'globe',
-  'headphones',
-  'headset',
-  'hourglass',
-  'inbox',
-  'jigsaw',
-  'layers',
-  'magnet',
-  'mail-letter',
-  'mail-open',
-  'map',
-  'mouse',
-  'moustache',
-  'move',
-  'nav-down',
-  'nav-left',
-  'nav-right',
-  'nav-up',
-  'people',
-  'person-add',
-  'person-approve',
-  'person-man',
-  'person-remove',
-  'person-woman',
-  'phone-horizontal',
-  'phone-vertical',
-  'picture',
-  'pin',
-  'plane',
-  'playlist',
-  'present',
-  'printer',
-  'resize',
-  'shield',
-  'smiley',
-  'sort-disabled',
-  'sort-down',
-  'sort-up',
-  'sort',
-  'subscribe',
-  'tablet',
-  'tick',
-  'trophy',
-  'tumblr',
-  'twitter',
-  'wallet',
-  'wand',
-  'youtube',
-];
+var svgIcons = require.context('./svgs', true, /\.svg$/).keys().map(function(name) {
+  return name.replace(/.\/icon-/i, '').replace(/.svg$/i, '');
+}).sort();
+
+var commonIcons = _.intersection(fontIcons, svgIcons);
+
+fontIcons = _.difference(fontIcons, commonIcons);
 
 var IconExample = React.createClass({
   render: function() {
+    var svgContent;
+    if (svgIcons.length > 0) {
+      svgContent = (
+        <div>
+          <h3>SVG-based</h3>
+          <ul className="IconExample">
+            {svgIcons.map(function(iconName) {
+              return (<li>
+                <Icon className="IconExample--large" type={iconName} font={false} /><Icon type={iconName} font={false} /><code>{iconName}</code>
+              </li>);
+            })}
+          </ul>
+        </div>
+      );
+    }
+
+    var fontContent;
+    if (fontIcons.length > 0) {
+      fontContent = (
+        <div>
+          <h3>Font-based Only</h3>
+          <p>These icons either need to be migrated to SVG, or considered deprecated.</p>
+          <ul className="IconExample">
+            {fontIcons.map(function(iconName) {
+              return (<li>
+                <Icon className="IconExample--large" type={iconName} /><Icon type={iconName} /><code>{iconName}</code>
+              </li>);
+            })}
+          </ul>
+        </div>
+      );
+    }
+
+    var commonContent;
+    if (commonIcons.length > 0) {
+      commonContent = (
+        <div>
+          <h3>Font-based Duplicates</h3>
+          <p>These icons are included as SVGs, and use as fonts is considered deprecated.</p>
+          <ul className="IconExample">
+            {commonIcons.map(function(iconName) {
+              return (<li>
+                <Icon type={iconName} /><code>{iconName}</code>
+              </li>);
+            })}
+          </ul>
+        </div>
+      );
+    }
+
     return (
       <div>
-        <h3>Font-based</h3>
-        <ul className="IconExample">
-          {fontIcons.map(function(iconName) {
-            return (<li>
-              <Icon className="IconExample--large" type={iconName} /><Icon type={iconName} /><code>{iconName}</code>
-            </li>);
-          })}
-        </ul>
-        <h3>SVG-based</h3>
-        <ul className="IconExample">
-          {svgIcons.map(function(iconName) {
-            return (<li>
-              <Icon className="IconExample--large" type={iconName} font={false} /><Icon type={iconName} font={false} /><code>{iconName}</code>
-            </li>);
-          })}
-        </ul>
+        {svgContent}
+        {fontContent}
+        {commonContent}
       </div>
     );
   }
