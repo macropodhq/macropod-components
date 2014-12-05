@@ -4,23 +4,23 @@ var React = require('react');
 
 require('./app-header.scss');
 
-var AppHeader = React.createClass({
-  /*
-   TODO:
-    move this to packages
-    support some kind of menu array and header section system?
-    lol I think I don't know css.. not sure whats missing?
-   */
 
+var AppHeader = React.createClass({
   render: function() {
     return (
       <header className="AppHeader">
-        <section className="AppHeader-brand">
-          <h2 className="AppHeader-brand-title">{this.props.title}</h2>
-
-          <nav className="AppHeader-brand-navigation">
-            {this.props.children}
-          </nav>
+        <section className="AppHeader-primary">
+          <h2 className="AppHeader-primary-title">{this.props.title}</h2>
+          {this.props.navLeft &&
+            <nav className="AppHeader-primary-nav AppHeader-primary-nav--left">
+              {this.props.navLeft}
+            </nav>
+          }
+          {this.props.navRight &&
+            <nav className="AppHeader-primary-nav AppHeader-primary-nav--right">
+              {this.props.navRight}
+            </nav>
+          }
         </section>
       </header>
     );
