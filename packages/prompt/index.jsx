@@ -18,10 +18,13 @@ var Prompt = React.createClass({
     placeholder: React.PropTypes.string,
     cancelText: React.PropTypes.string,
     okText: React.PropTypes.string,
+    validateInput: React.PropTypes.func,
   },
 
   getInitialState: function() {
-    return {};
+    return {
+      valid: true
+    };
   },
 
   componentDidMount: function() {
@@ -39,11 +42,12 @@ var Prompt = React.createClass({
       content: "",
       cancelText: "Cancel",
       okText: "OK",
+      validateInput: function() {return true}
     };
   },
 
   handleKeyUp: function(event) {
-    if (event.keyCode == 13) {
+    if (this.state.valid && event.keyCode == 13) {
       this.props.onOk(this.state.value);
     }
   },
@@ -60,7 +64,8 @@ var Prompt = React.createClass({
 
   handleValueChange: function(event) {
     this.setState({
-      value: event.target.value
+      value: event.target.value,
+      valid: this.props.validateInput(event.target.value),
     });
   },
 
@@ -72,7 +77,8 @@ var Prompt = React.createClass({
         cancelable={this.props.cancelable}
         title={this.props.title}
         cancelText={this.props.cancelText}
-        okText={this.props.okText}>
+        okText={this.props.okText}
+        okDisabled={!this.state.valid}>
         <p>{this.props.content}</p>
         <input type="text" ref="promptInput" onChange={this.handleValueChange} onKeyUp={this.handleKeyUp} defaultValue={this.props.defaultValue} placeholder={this.props.placeholder} />
       </Alert>

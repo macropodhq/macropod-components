@@ -16,6 +16,7 @@ var Alert = React.createClass({
     cancelable: React.PropTypes.boolean,
     cancelText: React.PropTypes.string,
     okText: React.PropTypes.string,
+    okDisabled: React.PropTypes.boolean
   },
 
   getInitialState: function() {
@@ -31,6 +32,7 @@ var Alert = React.createClass({
       children: "",
       cancelText: "Cancel",
       okText: "OK",
+      okDisabled: false,
     };
   },
 
@@ -57,7 +59,7 @@ var Alert = React.createClass({
           {this.props.children}
           <div className="Alert-actions">
             {this.props.cancelable && <Button onClick={this.handleCancel}>{this.props.cancelText}</Button>}
-            <Button onClick={this.handleOk}>{this.props.okText}</Button>
+            <Button onClick={this.handleOk} disabled={this.props.okDisabled}>{this.props.okText}</Button>
           </div>
         </div>
       </Modal>

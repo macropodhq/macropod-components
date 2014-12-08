@@ -14,6 +14,7 @@ var PromptExample = module.exports = React.createClass({
       promptContent: 'How much wood would a Woodchuck chuck if a Woodchuck could chuck wood?',
       promptDefaultValue: "A lot!",
       promptCancelable: true,
+      promptValidateInput: true,
       promptValue: ''
     };
   },
@@ -64,6 +65,19 @@ var PromptExample = module.exports = React.createClass({
     })
   },
 
+  handleValidateInputChange: function(event) {
+    this.setState({
+      promptValidateInput: event.target.checked
+    })
+  },
+
+  validateInput: function(value) {
+    if (this.state.promptValidateInput === false) {
+      return true;
+    }
+    return value.length > 0 && value.length % 2 === 0;
+  },
+
   render: function() {
     return (
       <div>
@@ -74,6 +88,8 @@ var PromptExample = module.exports = React.createClass({
         <input type="text" onChange={this.handleDefaultValueChange} value={this.state.promptDefaultValue} />
         <br />
         <label><input type="checkbox" onChange={this.handleCancelableChange} checked={this.state.promptCancelable}></input> Cancelable</label>
+        <br />
+        <label><input type="checkbox" onChange={this.handleValidateInputChange} checked={this.state.promptValidateInput}></input> Validate (require even lengthed input)</label>
         <br />
         <Button onClick={this.handleClick}>Show Prompt</Button>
 
@@ -90,7 +106,8 @@ var PromptExample = module.exports = React.createClass({
             onOk={this.handleOk}
             onCancel={this.handleCancel}
             defaultValue={this.state.promptDefaultValue}
-            />
+            validateInput={this.validateInput.bind(this)}
+          />
         }
       </div>
     );
