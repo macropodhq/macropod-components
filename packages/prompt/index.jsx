@@ -29,6 +29,9 @@ var Prompt = React.createClass({
 
   componentDidMount: function() {
     this.refs.promptInput.getDOMNode().focus();
+    this.setState({
+      valid: this.props.validateInput(this.props.defaultValue),
+    });
   },
 
   getDefaultProps: function() {
