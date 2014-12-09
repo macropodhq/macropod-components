@@ -1,5 +1,11 @@
 # React Playground Changelog
 
+## [v1.3.2](https://github.com/BugHerd/react-playground/releases/tag/1.3.2)
+
+### Fixes
+
+* [#111](https://github.com/BugHerd/react-playground/pull/111): Change prompt button cancel to cancel type.
+
 ## [v1.3.1](https://github.com/BugHerd/react-playground/releases/tag/1.3.1)
 
 ### Fixes
