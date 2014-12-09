@@ -58,7 +58,7 @@ var Alert = React.createClass({
         <div className="Alert-body">
           {this.props.children}
           <div className="Alert-actions">
-            {this.props.cancelable && <Button onClick={this.handleCancel}>{this.props.cancelText}</Button>}
+            {this.props.cancelable && <Button type="cancel" onClick={this.handleCancel}>{this.props.cancelText}</Button>}
             <Button onClick={this.handleOk} disabled={this.props.okDisabled}>{this.props.okText}</Button>
           </div>
         </div>
