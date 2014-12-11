@@ -1,5 +1,11 @@
 # React Playground Changelog
 
+## [v1.3.3](https://github.com/BugHerd/react-playground/releases/tag/1.3.3)
+
+### Changes
+
+* [#113](https://github.com/BugHerd/react-playground/pull/113): Pass classname to modal.
+
 ## [v1.3.2](https://github.com/BugHerd/react-playground/releases/tag/1.3.2)
 
 ### Fixes
