@@ -70,11 +70,17 @@ var Modal = React.createClass({
 
   renderLayer: function() {
     var classSet = React.addons.classSet;
-    var modalClasses = classSet({
+    var modalClasses = {
       'Modal': true,
       'Modal--visible': this.state.showModal,
       'Modal--invisible': !this.state.showModal
-    });
+    };
+
+    if (this.props.className) {
+      modalClasses[this.props.className] = true;
+    }
+
+    modalClasses = classSet(modalClasses);
 
     var dialogClassObject = {
       'Modal-dialog': true,
@@ -88,8 +94,8 @@ var Modal = React.createClass({
 
     return (
       <div className={modalClasses} onClick={this.handleClose} onScroll={this.stopPropagation}>
-        <div className={dialogClasses} onClick={this.stopPropagation} style={{maxWidth: this.props.maxWidth, maxHeight: this.props.maxHeight}}>          
-          {this.props.closeButton && 
+        <div className={dialogClasses} onClick={this.stopPropagation} style={{maxWidth: this.props.maxWidth, maxHeight: this.props.maxHeight}}>
+          {this.props.closeButton &&
             <a className="Modal-close" href="#" onClick={this.handleClose}> &#215; </a>
           }
           {this.props.title && 
