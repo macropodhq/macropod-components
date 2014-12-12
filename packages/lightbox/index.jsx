@@ -4,11 +4,32 @@ require('./lightbox.scss');
 
 var noop = function(){};
 
+var AssetImage = React.createClass({
+  render: function() {
+    // TODO: Scaling / Panning
+    return (
+      <img src={this.props.asset.path} />
+    );
+  }
+});
+
+var AssetIframe = React.createClass({
+  render: function() {
+    return (
+      <iframe src={this.props.asset.path} frameBorder="0" />
+    );
+  }
+});
+
 module.exports = React.createClass({
   displayName: 'Lightbox',
 
+  statics: {
+    AssetImage: AssetImage,
+    AssetIframe: AssetIframe
+  },
+
   propTypes: {
-    assets: React.PropTypes.array.isRequired,
     fullscreen: React.PropTypes.bool,
     hide: React.PropTypes.bool,
     initialIndex: React.PropTypes.number,
@@ -19,6 +40,7 @@ module.exports = React.createClass({
 
   getDefaultProps: function() {
     return {
+      children: [],
       displayComponent: React.DOM.img,
       initialIndex: 0,
       onChange: noop,
@@ -33,13 +55,25 @@ module.exports = React.createClass({
   },
 
   getCurrentAsset: function() {
-    return this.props.assets[this.state.currentAssetIndex];
+    var desiredIndex = this.state.currentAssetIndex;
+    var child = this.props.children;
+
+    if (React.Children.count(this.props.children) > 1) {
+      React.Children.forEach(this.props.children, function(currentChild, currentIndex) {
+        if (currentIndex === desiredIndex){
+          child = currentChild;
+          return false;
+        }
+      });
+    }
+
+    return child;
   },
 
   handlePrevious: function() {
     var nextIndex = this.state.currentAssetIndex - 1;
     if (nextIndex < 0) {
-      nextIndex = this.props.assets.length - 1;
+      nextIndex = React.Children.count(this.props.children) - 1;
     }
 
     this.updateCurrentAssetIndex(nextIndex);
@@ -47,7 +81,7 @@ module.exports = React.createClass({
 
   handleNext: function() {
     var nextIndex = this.state.currentAssetIndex + 1;
-    if (this.props.assets.length === nextIndex) {
+    if (React.Children.count(this.props.children) === nextIndex) {
       nextIndex = 0;
     }
 
@@ -67,7 +101,7 @@ module.exports = React.createClass({
       return null;
     }
 
-    var multipleAssets = this.props.assets.length > 1;
+    var multipleAssets = React.Children.count(this.props.children) > 1;
 
     var lightboxClassObject = {
       'Lightbox': true,
@@ -81,16 +115,18 @@ module.exports = React.createClass({
 
     var lightboxClass = React.addons.classSet(lightboxClassObject);
 
+    var currentAsset = this.getCurrentAsset();
+
     return (
       <div className={lightboxClass} style={this.props.style}>
         <div className="Lightbox-asset">
 
           <div className="Lightbox-details">
-            <h4 className="Lightbox-title">{this.getCurrentAsset().title}</h4>
+            <h4 className="Lightbox-title">{currentAsset && currentAsset.props && currentAsset.props.asset ? currentAsset.props.asset.title : '' /* TODO: make this less horrible */}</h4>
             <div className="Lightbox-controls">
               { multipleAssets &&
                 <span>
-                  <span className="Lightbox-counter">{this.state.currentAssetIndex + 1} of {this.props.assets.length}</span>
+                  <span className="Lightbox-counter">{this.state.currentAssetIndex + 1} of {React.Children.count(this.props.children)}</span>
                   <span className="Lightbox-controls-previous" onClick={this.handlePrevious}>&lt;</span>
                   <span className="Lightbox-controls-next" onClick={this.handleNext}>&gt;</span>
                 </span>
@@ -100,7 +136,7 @@ module.exports = React.createClass({
           </div>
 
           <div className="Lightbox-file">
-            <this.props.displayComponent src={this.getCurrentAsset().path} />
+            {currentAsset}
           </div>
 
         </div>
