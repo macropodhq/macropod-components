@@ -15,21 +15,35 @@ module.exports = React.createClass({
     ];
   },
 
+  title: function() {
+    return 'Action Bar';
+  },
+
+
+  links: function() {
+    return [
+      <span className={ActionsBar.NAVIGATION_TITLE_CLASSNAME}>TASKS:</span>,
+      <a href="#" className={ActionsBar.NAVIGATION_ITEM_CLASSNAME + ' active'}>Open</a>,
+      <a href="#" className={ActionsBar.NAVIGATION_ITEM_CLASSNAME}>Closed</a>
+    ];
+  },
+
+  actions: function() {
+    return [
+      <a href="#" className={ActionsBar.ACTION_ITEM_CLASSNAME}><Icon type="plus" font={false} /></a>,
+      <a href="#" className={ActionsBar.ACTION_ITEM_CLASSNAME}><Icon type="settings" font={false} /></a>,
+      <a href="#" className={ActionsBar.ACTION_ITEM_CLASSNAME}><Icon type="energy" font={false} /></a>,
+      <input className={ActionsBar.ACTION_SEARCH_CLASSNAME} type="text" />
+    ];
+  },
+
   render: function() {
     return (
-      <ActionsBar title="Actions Bar" links={this.links}>
-        <a href="#" title="Add a new column" className="ActionsBar-actions-control">
-          <Icon type="plus" />
-        </a>
-
-        <a href="#" title="Project settings" className="ActionsBar-actions-control">
-          <Icon type="settings" />
-        </a>
-
-        <a href="#"title="People on this project" className="ActionsBar-actions-control">
-          <Icon type="users" />
-        </a>
-      </ActionsBar>
+      <ActionsBar
+        title={this.title()}
+        links={this.links()}
+        actions={this.actions()}
+      ></ActionsBar>
     );
   }
 });

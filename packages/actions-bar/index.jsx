@@ -4,45 +4,31 @@ var React = require('react');
 
 require('./actions-bar.scss');
 
-var ActionsBarNavigation = React.createClass({
-  displayName: 'ActionsBarNavigation',
-
-  render: function() {
-    return (
-      <nav className="ActionsBar-Navigation">
-      {
-        this.props.links.map(function(link) {
-          return (
-            <a href="#" className="ActionsBar-Navigation-link">{link.displayName}</a>
-          );
-        })
-      }
-      </nav>
-    )
-  }
-});
 
 module.exports = React.createClass({
   displayName: 'ActionsBar',
-
-  navigation: function() {
-    var navigation = this.props.links.map(function(link) {
-      return (
-        <a href="#">link.displayName</a>
-      );
-    });
-
-    return navigation;
+  
+  statics: {
+    NAVIGATION_ITEM_CLASSNAME: 'ActionsBar-navigation-link',
+    NAVIGATION_TITLE_CLASSNAME: 'ActionsBar-navigation-title',
+    ACTION_ITEM_CLASSNAME: 'ActionsBar-actions-control',
+    ACTION_SEARCH_CLASSNAME: 'ActionsBar-actions-search'
   },
 
   render: function() {
     return (
       <section className="ActionsBar">
+
         <h1 className="ActionsBar-title">{this.props.title}</h1>
-        <ActionsBarNavigation links={this.props.links()}/>
-        <div className="ActionsBar-actions">
-          {this.props.children}
-        </div>
+
+        <nav className="ActionsBar-navigation">
+          {this.props.links}
+        </nav>
+
+        <nav className="ActionsBar-actions">
+          {this.props.actions}
+        </nav>
+
       </section>
     );
   }
