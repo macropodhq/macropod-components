@@ -2,16 +2,16 @@
 
 ## [v1.4.0](https://github.com/macropodhq/react-playground/releases/tag/1.4.0)
 
-# Features
+### Features
 
 * [#116](https://github.com/macropodhq/react-playground/pull/116): Add support for non-image assets in lightbox.
 * [#114](https://github.com/macropodhq/react-playground/pull/114): Refactored actions bar.
 
-# Improvements
+### Improvements
 
 * [#115](https://github.com/macropodhq/react-playground/pull/115): Update module naming syntax.
 
-# Fixes
+### Fixes
 
 * [#117](https://github.com/macropodhq/react-playground/pull/117): Fix ActionsBar component exports.
 
