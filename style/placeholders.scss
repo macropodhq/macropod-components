@@ -1,3 +1,5 @@
+@import "variables";
+
 %absolute-full {
   position: absolute;
   top: 0;
@@ -29,7 +31,21 @@
 }
 
 %disable-select {
-  webkit-touch-callout: none;
+  -webkit-touch-callout: none;
   user-select: none;
   cursor: default;
+}
+
+// Component Placeholders
+%header-block {
+  display: inline-block;
+  vertical-align: top;
+}
+%header-primary-heights {
+  line-height: $nav-primary-height;
+  height: $nav-primary-height;
+}
+%header-secondary-heights {
+  line-height: $nav-secondary-height;
+  height: $nav-secondary-height;
 }
