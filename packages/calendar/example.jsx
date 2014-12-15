@@ -4,7 +4,9 @@ var React = require('react');
 
 var Calendar = require('./');
 
-var CalendarExample = module.exports = React.createClass({
+module.exports = React.createClass({
+  displayName: 'CalendarExample',
+
   getInitialState: function() {
     return {
       selectedDate: new Date(),

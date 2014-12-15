@@ -4,8 +4,9 @@ var React = require('react');
 
 require('./actions-bar.scss');
 
-var Navigation = React.createClass({
-  displayName: 'Navigation',
+module.exports = React.createClass({
+  displayName: 'ActionsBar',
+  
   render: function() {
     return (
       <nav className="ActionsBar-Navigation">
@@ -44,5 +45,3 @@ var ActionsBar = React.createClass({
     );
   }
 });
-
-module.exports = ActionsBar;

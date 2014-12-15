@@ -11,7 +11,9 @@ var hotkeys = HotkeyMixin({
   }
 });
 
-var HotkeyMixinExample = React.createClass({
+module.exports = React.createClass({
+  displayName: 'HotkeyMixinExample',
+
   mixins: [hotkeys],
 
   test: function(a) {
@@ -22,5 +24,3 @@ var HotkeyMixinExample = React.createClass({
     return <input value="press escape" ref="example"/>
   }
 });
-
-module.exports = HotkeyMixinExample;

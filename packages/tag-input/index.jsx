@@ -6,10 +6,10 @@ var Widgets = require('react-widgets');
 
 require('./tag-input.scss');
 
-var TagInput = React.createClass({
+module.exports = React.createClass({
+  displayName: 'TagInput',
+
   render: function() {
     return this.transferPropsTo(<Widgets.Select />);
   }
 });
-
-module.exports = TagInput;

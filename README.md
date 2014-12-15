@@ -50,16 +50,10 @@ Creating a new package is easy, simply create a directory within `packages` with
 
 If your package includes stylesheets, it is recommended that they are implemented as `[package-name].scss` within the package's directory.
 
-Assignment to `module.exports` should be done separately from the assignment of the package's name, as doing so in one line confuses the webpack compiler, and causes the module to be called `exports` when debugging; i.e.
+The package name should be explicitly set as the `displayName` property on React components;
 
 ```javascript
-var MyPackage = React.createClass({});
-
-module.exports = MyPackage;
-```
-
-is preferred over
-
-```javascript
-var MyPackage = module.exports = React.createClass({});
+module.exports = React.createClass({
+  displayName: 'MyPackage'
+});
 ```

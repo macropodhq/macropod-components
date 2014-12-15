@@ -2,8 +2,8 @@
 var React = require('react/addons');
 var Avatar = require('../avatar');
 
-var CommentReply = React.createClass({
-  displayName: 'Comment Reply',
+module.exports = React.createClass({
+  displayName: 'CommentReply',
 
   render: function() {
     return (
@@ -19,5 +19,3 @@ var CommentReply = React.createClass({
     )
   }
 });
-
-module.exports = CommentReply;

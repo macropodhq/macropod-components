@@ -180,7 +180,9 @@ var commonIcons = _.intersection(fontIcons, svgIcons);
 
 fontIcons = _.difference(fontIcons, commonIcons);
 
-var IconExample = React.createClass({
+module.exports = React.createClass({
+  displayName: 'IconExample',
+
   render: function() {
     var svgContent;
     if (svgIcons.length > 0) {
@@ -241,5 +243,3 @@ var IconExample = React.createClass({
     );
   }
 });
-
-module.exports = IconExample;

@@ -4,8 +4,9 @@ var React = require('react');
 
 require('./app-header.scss');
 
+module.exports = React.createClass({
+  displayName: 'AppHeader',
 
-var AppHeader = React.createClass({
   render: function() {
     return (
       <header className="AppHeader">
@@ -26,5 +27,3 @@ var AppHeader = React.createClass({
     );
   }
 });
-
-module.exports = AppHeader;

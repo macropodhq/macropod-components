@@ -5,7 +5,9 @@ var React = require('react');
 var Button = require('../button');
 var Steps = require('./');
 
-var StepsExample = module.exports = React.createClass({
+module.exports = React.createClass({
+  displayName: 'StepsExample',
+
   getInitialState: function() {
     return {
       totalSteps: 4,

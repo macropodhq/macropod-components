@@ -5,7 +5,9 @@ var React = require('react');
 var CovertHeader = require('./');
 var Button = require('../button');
 
-var LoadingExample = React.createClass({
+module.exports = React.createClass({
+  displayName: 'CovertHeaderExample',
+
   getInitialState: function() {
     return {
       show: false
@@ -28,5 +30,3 @@ var LoadingExample = React.createClass({
     );
   }
 });
-
-module.exports = LoadingExample;

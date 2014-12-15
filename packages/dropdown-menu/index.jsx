@@ -5,8 +5,10 @@ var Layer = require('react-components/js/layered-component-mixin');
 var Popover = require('../popover');
 require('./dropdown-menu.scss');
 
-var DropdownMenu = React.createClass({
- render: function() {
+module.exports = React.createClass({
+  displayName: 'DropdownMenu',
+
+  render: function() {
 
     var dropdownMenuClass = {
       'DropdownMenu': true,
@@ -30,5 +32,3 @@ var DropdownMenu = React.createClass({
     )
   }
 });
-
-module.exports = DropdownMenu;

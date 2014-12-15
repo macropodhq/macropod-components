@@ -4,7 +4,9 @@ var React = require('react/addons');
 
 require('./steps.scss');
 
-var Steps = module.exports = React.createClass({
+module.exports = React.createClass({
+  displayName: 'Steps',
+
   render: function() {
     var children = [];
 

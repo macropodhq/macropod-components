@@ -5,7 +5,9 @@ var React = require('react');
 var Button = require('./');
 require('./example.scss');
 
-var ButtonExample = module.exports = React.createClass({
+module.exports = React.createClass({
+  displayName: 'ButtonExample',
+
   getInitialState: function() {
     return {
       count: 0

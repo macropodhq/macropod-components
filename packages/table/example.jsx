@@ -46,7 +46,9 @@ var data = [
   {episode: 'Felina', number: 62, director: 'Vince Gilligan', status: 'Upcoming', thumbnail: require('./images/8.jpg')}
 ];
 
-var TableExample = module.exports = React.createClass({
+module.exports = React.createClass({
+  displayName: 'TableExample',
+
   render: function() {
     return (
       <Table

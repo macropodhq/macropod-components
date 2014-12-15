@@ -20,7 +20,9 @@ var assets = [
   }
 ];
 
-var LightboxExample = React.createClass({
+module.exports = React.createClass({
+  displayName: 'LightboxExample',
+
   getInitialState: function() {
     return {
       open: false,
@@ -61,4 +63,3 @@ var LightboxExample = React.createClass({
   }
 });
 
-module.exports = LightboxExample;

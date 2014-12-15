@@ -7,7 +7,9 @@ var Button = require('../button');
 
 require('./prompt.scss');
 
-var Prompt = React.createClass({
+module.exports = React.createClass({
+  displayName: 'Prompt',
+
   propType: {
     onCancel: React.PropTypes.func,
     onOk: React.PropTypes.func.isRequired,
@@ -88,5 +90,3 @@ var Prompt = React.createClass({
     );
   },
 });
-
-module.exports = Prompt;

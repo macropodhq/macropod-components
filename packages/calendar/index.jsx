@@ -6,12 +6,12 @@ var Widgets = require('react-widgets');
 require('./calendar.scss');
 
 // TODO: handle null date
-var Calendar = React.createClass({
+module.exports = React.createClass({
+  displayName: 'Calendar',
+
   render: function() {
     return this.transferPropsTo(
       <Widgets.Calendar />
     );
   }
 });
-
-module.exports = Calendar;

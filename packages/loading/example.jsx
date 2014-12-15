@@ -4,7 +4,9 @@ var React = require('react');
 
 var Loading = require('./');
 
-var LoadingExample = React.createClass({
+module.exports = React.createClass({
+  displayName: 'LoadingExample',
+
   render: function() {
     return (
       <div>
@@ -16,5 +18,3 @@ var LoadingExample = React.createClass({
     );
   }
 });
-
-module.exports = LoadingExample;

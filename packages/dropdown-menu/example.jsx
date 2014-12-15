@@ -6,7 +6,9 @@ var DropdownMenu = require('./');
 var Button = require('../button');
 require('./example.scss');
 
-var LoadingExample = React.createClass({
+module.exports = React.createClass({
+  displayName: 'DropdownMenuExample',
+
   getInitialState: function() {
     return {
       showFirstMenu: false,
@@ -71,5 +73,3 @@ var LoadingExample = React.createClass({
     );
   }
 });
-
-module.exports = LoadingExample;

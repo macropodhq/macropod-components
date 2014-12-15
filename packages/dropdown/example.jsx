@@ -23,7 +23,9 @@ var options = [
   }
 ];
 
-var DropdownExample = module.exports = React.createClass({
+module.exports = React.createClass({
+  displayName: 'DropdownExample',
+
   getInitialState: function() {
     return {
       selection: 1

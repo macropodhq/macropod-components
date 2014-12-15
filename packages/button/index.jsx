@@ -4,7 +4,9 @@ require('./button.scss');
 
 var React = require('react');
 
-var Button = React.createClass({
+module.exports = React.createClass({
+  displayName: 'Button',
+
   getDefaultProps: function() {
     return {
       type: 'default'
@@ -19,5 +21,3 @@ var Button = React.createClass({
     );
   }
 });
-
-module.exports = Button;

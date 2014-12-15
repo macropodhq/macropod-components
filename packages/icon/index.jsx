@@ -3,7 +3,9 @@
 var React = require('react/addons');
 require('./icon.scss');
 
-var Icon = React.createClass({
+module.exports = React.createClass({
+  displayName: 'Icon',
+
   getDefaultProps: function() {
     return {
       type: 'arrow-down',
@@ -28,5 +30,3 @@ var Icon = React.createClass({
     return this.transferPropsTo(component(props));
   }
 });
-
-module.exports = Icon;

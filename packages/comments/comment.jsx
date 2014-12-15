@@ -6,7 +6,7 @@ var CommentReply = require('./comment-reply');
 
 require('./comment.scss');
 
-var Comment = React.createClass({
+module.exports = React.createClass({
   displayName: 'Comment',
 
   getDefaultProps: function() {
@@ -109,5 +109,3 @@ var Comment = React.createClass({
     )
   }
 });
-
-module.exports = Comment;

@@ -2,7 +2,7 @@
 var React = require('react/addons');
 var Comment = require('./comment');
 
-var CommentThread = React.createClass({
+module.exports = React.createClass({
   displayName: 'CommentThread',
 
   render: function() {
@@ -13,5 +13,3 @@ var CommentThread = React.createClass({
     )
   }
 });
-
-module.exports = CommentThread;

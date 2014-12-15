@@ -9,7 +9,9 @@ var scrollevent = ScrollEventMixin({
   timeout: 300
 });
 
-var ScrollEventMixinExample = React.createClass({
+module.exports = React.createClass({
+  displayName: 'ScrollEventMixinExample',
+
   mixins: [scrollevent],
 
   getInitialState: function() {
@@ -32,5 +34,3 @@ var ScrollEventMixinExample = React.createClass({
     );
   }
 });
-
-module.exports = ScrollEventMixinExample;

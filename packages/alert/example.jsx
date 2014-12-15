@@ -5,7 +5,9 @@ var React = require('react');
 var Button = require('../button');
 var Alert = require('./');
 
-var AlertExample = module.exports = React.createClass({
+module.exports = React.createClass({
+  displayName: 'AlertExample',
+
   getInitialState: function() {
     return {
       showAlert: false,

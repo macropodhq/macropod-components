@@ -4,7 +4,9 @@ var React = require('react');
 
 var TodoList = require('./');
 
-var TodoExample = React.createClass({
+module.exports = React.createClass({
+  displayName: 'TodoExample',
+
   getInitialState: function() {
     return {
       subtasks: []
@@ -49,5 +51,3 @@ var TodoExample = React.createClass({
     );
   }
 });
-
-module.exports = TodoExample;
