@@ -4,9 +4,9 @@ var React = require('react');
 
 require('./actions-bar.scss');
 
-module.exports = React.createClass({
-  displayName: 'ActionsBar',
-  
+var ActionsBarNavigation = React.createClass({
+  displayName: 'ActionsBarNavigation',
+
   render: function() {
     return (
       <nav className="ActionsBar-Navigation">
@@ -22,7 +22,9 @@ module.exports = React.createClass({
   }
 });
 
-var ActionsBar = React.createClass({
+module.exports = React.createClass({
+  displayName: 'ActionsBar',
+
   navigation: function() {
     var navigation = this.props.links.map(function(link) {
       return (
@@ -37,7 +39,7 @@ var ActionsBar = React.createClass({
     return (
       <section className="ActionsBar">
         <h1 className="ActionsBar-title">{this.props.title}</h1>
-        <Navigation links={this.props.links()}/>
+        <ActionsBarNavigation links={this.props.links()}/>
         <div className="ActionsBar-actions">
           {this.props.children}
         </div>
