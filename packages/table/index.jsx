@@ -8,7 +8,9 @@ var DataTable = require('react-data-components').DataTable;
 
 require('./table.scss');
 
-var Table = React.createClass({
+module.exports = React.createClass({
+  displayName: 'Table',
+
   propTypes: {
     columns: React.PropTypes.array.isRequired,
     initialData: React.PropTypes.array.isRequired,
@@ -30,5 +32,3 @@ var Table = React.createClass({
     />);
   }
 });
-
-module.exports = Table;

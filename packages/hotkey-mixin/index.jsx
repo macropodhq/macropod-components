@@ -1,7 +1,7 @@
 var keymaster = require('keymaster');
 var _ = require('lodash');
 
-var HotkeyMixin = function(options) {
+module.exports = function(options) {
   return {
     componentDidMount: function() {
       _.each(options.keys,
@@ -20,5 +20,3 @@ var HotkeyMixin = function(options) {
     }
   };
 };
-
-module.exports = HotkeyMixin;

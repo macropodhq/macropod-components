@@ -5,7 +5,9 @@ var React = require('react');
 var Button = require('../button');
 var Guider = require('./');
 
-var GuiderExample = module.exports = React.createClass({
+module.exports = React.createClass({
+  displayName: 'GuiderExample',
+
   getInitialState: function() {
     return {
       showGuider: false,

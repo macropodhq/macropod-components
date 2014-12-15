@@ -12,7 +12,9 @@ var authors = [
   {name: 'Jessica', avatar_url: 'http://www.gravatar.com/avatar/a11cf2d27c3f0a82f1b0cc12cdb0a2e5', position: 'Developer', company: 'BugHerd'},
 ];
 
-var CommentsExample = React.createClass({
+module.exports = React.createClass({
+  displayName: 'CommentsExample',
+
   getInitialState: function() {
     return {
       comments: [
@@ -87,5 +89,3 @@ var CommentsExample = React.createClass({
     );
   }
 });
-
-module.exports = CommentsExample;

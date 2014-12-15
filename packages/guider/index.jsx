@@ -8,7 +8,9 @@ var Button = require('../button');
 
 require('./guider.scss');
 
-var Guider = module.exports = React.createClass({
+module.exports = React.createClass({
+  displayName: 'Guider',
+
   propType: {
     onClose: React.PropTypes.func.isRequired,
     onNext: React.PropTypes.func.isRequired,

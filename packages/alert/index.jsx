@@ -7,7 +7,9 @@ var Button = require('../button');
 
 require('./alert.scss');
 
-var Alert = React.createClass({
+module.exports = React.createClass({
+  displayName: 'Alert',
+
   propType: {
     onCancel: React.PropTypes.func,
     onOk: React.PropTypes.func.isRequired,
@@ -66,5 +68,3 @@ var Alert = React.createClass({
     );
   },
 });
-
-module.exports = Alert;

@@ -5,7 +5,9 @@ var React = require('react');
 var ActionsBar = require('./');
 var Icon = require('../icon');
 
-var Example = React.createClass({
+module.exports = React.createClass({
+  displayName: 'ActionsBarExample',
+
   links: function() {
     return [
       {'to':'board','params':{'boardId':'2'},'query':{'open':true},'displayName':'Open'},
@@ -31,5 +33,3 @@ var Example = React.createClass({
     );
   }
 });
-
-module.exports = Example;

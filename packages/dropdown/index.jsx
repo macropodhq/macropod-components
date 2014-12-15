@@ -6,10 +6,10 @@ var Widgets = require('react-widgets');
 
 require('./dropdown.scss');
 
-var Dropdown = React.createClass({
+module.exports = React.createClass({
+  displayName: 'Dropdown',
+
   render: function() {
     return this.transferPropsTo(<Widgets.DropDownlist />);
   }
 });
-
-module.exports = Dropdown;

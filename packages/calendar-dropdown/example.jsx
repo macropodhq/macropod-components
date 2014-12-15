@@ -4,7 +4,9 @@ var React = require('react');
 
 var CalendarDropdown = require('./');
 
-var CalendarDropdownExample = module.exports = React.createClass({
+module.exports = React.createClass({
+  displayName: 'CalendarDropdownExample',
+
   getInitialState: function() {
     return {
       selectedDate: new Date(),

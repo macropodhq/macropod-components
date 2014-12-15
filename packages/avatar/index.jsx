@@ -10,7 +10,9 @@ var sizes = {
   'l': 50
 };
 
-var Avatar = React.createClass({
+module.exports = React.createClass({
+  displayName: 'Avatar',
+
   getDefaultProps: function() {
     return {
       size: 'm',
@@ -86,5 +88,3 @@ var Avatar = React.createClass({
     );
   }
 });
-
-module.exports = Avatar;

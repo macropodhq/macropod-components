@@ -39,22 +39,24 @@ var options = [
   }
 ];
 
-var TagInputExample = React.createClass({
+module.exports = React.createClass({
+  displayName: 'TagInputExample',
+
   getInitialState: function() {
     return {
       value: null
     };
   },
+
   handleChange: function(selection) {
     this.setState({
       value: selection
     });
   },
+
   render: function() {
     return (
       <TagInput onChange={this.handleChange} data={options} placeholder="Make some breakfast..." duration={0} textField="name" valueField="id" value={this.state.value}/>
     );
   }
 });
-
-module.exports = TagInputExample;

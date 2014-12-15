@@ -7,7 +7,9 @@ var animationCallback = require('../style-utilities').animationCallback;
 
 require('./modal.scss');
 
-var Modal = React.createClass({
+module.exports = React.createClass({
+  displayName: 'Modal',
+
   mixins: [LayeredComponentMixin],
 
   getDefaultProps: function() {
@@ -123,5 +125,3 @@ var Modal = React.createClass({
     return null;
   }
 });
-
-module.exports = Modal;

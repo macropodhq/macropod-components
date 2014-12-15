@@ -1,6 +1,6 @@
 var _ = require('lodash');
 
-var ScrollEventMixin = function(options) {
+module.exports = function(options) {
   var defaults = {
     interval: 100,
     timeout: 200
@@ -73,5 +73,3 @@ var ScrollEventMixin = function(options) {
     }
   };
 };
-
-module.exports = ScrollEventMixin;

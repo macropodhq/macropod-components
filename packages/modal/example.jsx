@@ -5,7 +5,9 @@ var React = require('react');
 var Button = require('../button');
 var Modal = require('./');
 
-var ModalExample = module.exports = React.createClass({
+module.exports = React.createClass({
+  displayName: 'ModalExample',
+
   getInitialState: function() {
     return {
       showModal: false,

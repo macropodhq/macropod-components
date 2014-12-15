@@ -4,7 +4,9 @@ var React = require('react');
 
 var Avatar = require('./');
 
-var LoadingExample = React.createClass({
+module.exports = React.createClass({
+  displayName: 'AvatarExample',
+
   render: function() {
     var person = {
       avatar_url: "http://gravatar.com/avatar/57e7abbdae964dbab015cdadf581ad22",
@@ -42,5 +44,3 @@ var LoadingExample = React.createClass({
     );
   }
 });
-
-module.exports = LoadingExample;

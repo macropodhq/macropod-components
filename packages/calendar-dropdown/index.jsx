@@ -7,12 +7,12 @@ require('./calendar-dropdown.scss');
 require('../calendar/calendar.scss');
 
 // TODO: handle null date
-var CalendarDropdown = React.createClass({
+module.exports = React.createClass({
+  displayName: 'CalendarDropdown',
+
   render: function() {
     return this.transferPropsTo(
       <Widgets.DateTimePicker />
     );
   }
 });
-
-module.exports = CalendarDropdown;

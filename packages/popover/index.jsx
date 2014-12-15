@@ -5,6 +5,8 @@ var Layer = require('react-components/js/layered-component-mixin');
 require('./popover.scss');
 
 var PopoverContent = React.createClass({
+  displayName: 'PopoverContent',
+
   getInitialState: function() {
     return {
       showDropdown: false,
@@ -114,9 +116,9 @@ var PopoverContent = React.createClass({
   }
 });
 
-module.exports = PopoverContent;
+module.exports = React.createClass({
+  displayName: 'Popover',
 
-var Popover = React.createClass({
   mixins: [Layer],
 
   propTypes: {
@@ -137,5 +139,3 @@ var Popover = React.createClass({
     return null;
   }
 });
-
-module.exports = Popover;

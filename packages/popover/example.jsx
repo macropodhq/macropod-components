@@ -5,16 +5,20 @@ var React = require('react');
 var Popover = require('./');
 var Button = require('../button');
 
-var LoadingExample = React.createClass({
+module.exports = React.createClass({
+  displayName: 'PopoverExample',
+
   getInitialState: function() {
     return {
       showPopover: false
     };
   },
+
   toggleMenu: function(e) {
     this.setState({showPopover: !this.state.showPopover});
     e.preventDefault();
   },
+
   render: function() {
     return (
       <div>
@@ -28,5 +32,3 @@ var LoadingExample = React.createClass({
     );
   }
 });
-
-module.exports = LoadingExample;

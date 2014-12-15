@@ -8,7 +8,9 @@ require('./todo-list.scss');
 var TodoItem = require('./todo-item');
 var Button = require('../button');
 
-var TodoList = React.createClass({
+module.exports = React.createClass({
+  displayName: 'TodoList',
+
   getDefaultProps: function() {
     return {
       subtasks: [],
@@ -119,5 +121,3 @@ var TodoList = React.createClass({
     );
   }
 });
-
-module.exports = TodoList;

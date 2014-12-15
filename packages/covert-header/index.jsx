@@ -24,7 +24,9 @@ require('./covert-header.scss');
 var ScrollEvent = require('../scroll-event-mixin');
 var StyleUtilities = require('../style-utilities');
 
-var Avatar = React.createClass({
+module.exports = React.createClass({
+  displayName: 'CovertHeader',
+
   mixins: [ScrollEvent()],
 
   getInitialState: function() {
@@ -68,5 +70,3 @@ var Avatar = React.createClass({
     );
   }
 });
-
-module.exports = Avatar;

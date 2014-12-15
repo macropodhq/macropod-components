@@ -4,7 +4,9 @@ var React = require('react');
 
 var AppHeader = require('./');
 
-var Example = React.createClass({
+module.exports = React.createClass({
+  displayName: 'AppHeaderExample',
+
   render: function() {
     return (
       <AppHeader 
@@ -20,5 +22,3 @@ var Example = React.createClass({
     );
   }
 });
-
-module.exports = Example;

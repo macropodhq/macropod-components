@@ -4,7 +4,7 @@ require('./lightbox.scss');
 
 var noop = function(){};
 
-var Lightbox = React.createClass({
+module.exports = React.createClass({
   displayName: 'Lightbox',
 
   propTypes: {
@@ -108,5 +108,3 @@ var Lightbox = React.createClass({
     );
   }
 });
-
-module.exports = Lightbox;

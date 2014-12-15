@@ -3,7 +3,9 @@
 var React = require('react');
 var _ = require('lodash');
 
-var TodoItem = React.createClass({
+module.exports = React.createClass({
+  displayName: 'TodoItem',
+
   getDefaultProps: function() {
     return {
       subtask: {
@@ -113,5 +115,3 @@ var TodoItem = React.createClass({
     );
   }
 });
-
-module.exports = TodoItem;

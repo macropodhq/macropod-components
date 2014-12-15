@@ -5,7 +5,9 @@ var React = require('react');
 var Button = require('../button');
 var Prompt = require('./');
 
-var PromptExample = module.exports = React.createClass({
+module.exports = React.createClass({
+  displayName: 'PromptExample',
+
   getInitialState: function() {
     return {
       showPrompt: false,

@@ -5,7 +5,7 @@ var DropdownMenu = require('../dropdown-menu');
 var Avatar = require('../avatar');
 var CommentThread = require('./comment-thread');
 
-var Comments = React.createClass({
+module.exports = React.createClass({
   displayName: 'Comments',
 
   getParentComments: function() {
@@ -30,5 +30,3 @@ var Comments = React.createClass({
     )
   }
 });
-
-module.exports = Comments;

@@ -3,7 +3,8 @@
 var React = require('react/addons');
 require('./loading.scss');
 
-var Loading = module.exports = React.createClass({
+module.exports = React.createClass({
+  displayName: 'Loading',
 
   getDefaultProps: function() {
     return {
