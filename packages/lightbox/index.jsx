@@ -10,7 +10,11 @@ var AssetImage = React.createClass({
     return (
       <img src={this.props.asset.path} />
     );
-  }
+  },
+
+  getTitle: function() {
+    return this.props.asset.title;
+  },
 });
 
 var AssetIframe = React.createClass({
@@ -18,7 +22,23 @@ var AssetIframe = React.createClass({
     return (
       <iframe src={this.props.asset.path} frameBorder="0" />
     );
-  }
+  },
+
+  getTitle: function() {
+    return this.props.asset.title;
+  },
+});
+
+var AssetLink = React.createClass({
+  render: function() {
+    return (
+      <a href={this.props.asset.path}>Download <em>{this.props.asset.title}</em></a>
+    );
+  },
+
+  getTitle: function() {
+    return this.props.asset.title;
+  },
 });
 
 module.exports = React.createClass({
@@ -26,7 +46,74 @@ module.exports = React.createClass({
 
   statics: {
     AssetImage: AssetImage,
-    AssetIframe: AssetIframe
+    AssetIframe: AssetIframe,
+    AssetLink: AssetLink,
+    _containers: [
+      {media: "application/pdf", container: AssetIframe},
+      {media: "image/*", container: AssetImage},
+      {media: "*/*", container: AssetLink},
+    ],
+    register: function register(media, container) {
+      this.unregister(media);
+
+      this._containers.push({
+        media: media,
+        container: container,
+      });
+
+      this._containers.sort(function(a, b) {
+        var ac = a.media.split("/", 2),
+            bc = b.media.split("/", 2);
+
+        if (ac[0] === '*' && bc[0] !== '*') {
+          return 1;
+        }
+
+        if (ac[0] !== '*' && bc[0] === '*') {
+          return -1;
+        }
+
+        if (ac[1] === '*' && bc[1] !== '*') {
+          return 1;
+        }
+
+        if (ac[1] !== '*' && bc[1] === '*') {
+          return -1;
+        }
+
+        return 0;
+      });
+    },
+    unregister: function unregister(media) {
+      for (var i = 0; i < this._containers.length; i++) {
+        if (this._containers[i].media === media) {
+          this._containers.splice(i, 1);
+          i--;
+        }
+      }
+    },
+    containerFor: function containerFor(media) {
+      console.log(this._containers);
+
+      for (var i = 0; i < this._containers.length; i++) {
+        var ac = this._containers[i].media.split("/", 2),
+            bc = media.split("/", 2);
+
+        if (ac[0] === bc[0] && ac[1] === bc[1]) {
+          return this._containers[i].container;
+        }
+
+        if (ac[0] === bc[0] && ac[1] === '*') {
+          return this._containers[i].container;
+        }
+
+        if (ac[0] === '*' && ac[1] === '*') {
+          return this._containers[i].container;
+        }
+      }
+
+      return null;
+    },
   },
 
   propTypes: {
@@ -122,7 +209,7 @@ module.exports = React.createClass({
         <div className="Lightbox-asset">
 
           <div className="Lightbox-details">
-            <h4 className="Lightbox-title">{currentAsset && currentAsset.props && currentAsset.props.asset ? currentAsset.props.asset.title : '' /* TODO: make this less horrible */}</h4>
+            <h4 className="Lightbox-title">{currentAsset && currentAsset.getTitle()}</h4>
             <div className="Lightbox-controls">
               { multipleAssets &&
                 <span>

@@ -49,12 +49,13 @@ module.exports = React.createClass({
 
   render: function() {
     function assetMapper(asset) {
-      var renderer = Lightbox.AssetImage;
-      if (asset.contentType === 'application/pdf') {
-        renderer = Lightbox.AssetIframe;
-      }
-      return (<renderer asset={asset} />);
+      var container = Lightbox.containerFor(asset.contentType);
+
+      return (
+        <container asset={asset} />
+      );
     }
+
     return (
       <div>
         <h3>Single asset</h3>
