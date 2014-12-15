@@ -8,15 +8,23 @@ var Button = require('../button');
 var assets = [
   {
     title: 'The Beach',
-    path: require('./images/beach.jpg')
+    path: require('./images/beach.jpg'),
+    contentType: 'image/jpeg'
   },
   {
     title: 'Tracks',
-    path: require('./images/tracks.jpg')
+    path: require('./images/tracks.jpg'),
+    contentType: 'image/jpeg'
   },
   {
     title: 'Forest',
-    path: require('./images/forest.jpg')
+    path: require('./images/forest.jpg'),
+    contentType: 'image/jpeg'
+  },
+  {
+    title: 'Model Graph',
+    path: require('./images/model_graph.pdf'),
+    contentType: 'application/pdf'
   }
 ];
 
@@ -40,13 +48,32 @@ module.exports = React.createClass({
   },
 
   render: function() {
+    function assetMapper(asset) {
+      var container = Lightbox.containerFor(asset.contentType);
+
+      return (
+        <container asset={asset} />
+      );
+    }
+
     return (
       <div>
         <h3>Single asset</h3>
-        <Lightbox assets={[assets[1]]} displayComponent={React.DOM.img} />
+        <Lightbox>
+          <Lightbox.AssetImage asset={assets[0]} />
+        </Lightbox>
 
         <h3>Multiple assets</h3>
-        <Lightbox assets={assets} onChange={this.handleChange} />
+        <Lightbox onChange={this.handleChange}>
+          {assets.map(assetMapper)}
+        </Lightbox>
+
+        <h3>Non-image assets</h3>
+        <Lightbox>
+          <div><h2>Testing!</h2></div>
+          {assets.map(assetMapper)}
+          <Lightbox.AssetIframe asset={{title: 'Jessica Stokes\' Website', path: 'http://jessicastokes.net/'}} />
+        </Lightbox>
 
         <h3>Fullscreen</h3>
         <Button onClick={this.toggleFullscreenLightbox}>Open lightbox</Button>
@@ -56,7 +83,9 @@ module.exports = React.createClass({
           <option value="2">3</option>
         </select>
         {this.state.open && 
-          <Lightbox fullscreen={true} hide={!this.state.open} assets={assets} initialIndex={this.state.activeAsset} onClose={this.toggleFullscreenLightbox}/>
+          <Lightbox fullscreen={true} hide={!this.state.open} initialIndex={this.state.activeAsset} onClose={this.toggleFullscreenLightbox}>
+          {assets.map(assetMapper)}
+          </Lightbox>
         }
       </div>
     );

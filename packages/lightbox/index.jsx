@@ -4,11 +4,119 @@ require('./lightbox.scss');
 
 var noop = function(){};
 
+var AssetImage = React.createClass({
+  render: function() {
+    // TODO: Scaling / Panning
+    return (
+      <img src={this.props.asset.path} />
+    );
+  },
+
+  getTitle: function() {
+    return this.props.asset.title;
+  },
+});
+
+var AssetIframe = React.createClass({
+  render: function() {
+    return (
+      <iframe src={this.props.asset.path} frameBorder="0" />
+    );
+  },
+
+  getTitle: function() {
+    return this.props.asset.title;
+  },
+});
+
+var AssetLink = React.createClass({
+  render: function() {
+    return (
+      <a href={this.props.asset.path}>Download <em>{this.props.asset.title}</em></a>
+    );
+  },
+
+  getTitle: function() {
+    return this.props.asset.title;
+  },
+});
+
 module.exports = React.createClass({
   displayName: 'Lightbox',
 
+  statics: {
+    AssetImage: AssetImage,
+    AssetIframe: AssetIframe,
+    AssetLink: AssetLink,
+    _containers: [
+      {media: "application/pdf", container: AssetIframe},
+      {media: "image/*", container: AssetImage},
+      {media: "*/*", container: AssetLink},
+    ],
+    register: function register(media, container) {
+      this.unregister(media);
+
+      this._containers.push({
+        media: media,
+        container: container,
+      });
+
+      this._containers.sort(function(a, b) {
+        var ac = a.media.split("/", 2),
+            bc = b.media.split("/", 2);
+
+        if (ac[0] === '*' && bc[0] !== '*') {
+          return 1;
+        }
+
+        if (ac[0] !== '*' && bc[0] === '*') {
+          return -1;
+        }
+
+        if (ac[1] === '*' && bc[1] !== '*') {
+          return 1;
+        }
+
+        if (ac[1] !== '*' && bc[1] === '*') {
+          return -1;
+        }
+
+        return 0;
+      });
+    },
+    unregister: function unregister(media) {
+      for (var i = 0; i < this._containers.length; i++) {
+        if (this._containers[i].media === media) {
+          this._containers.splice(i, 1);
+          i--;
+        }
+      }
+    },
+    containerFor: function containerFor(media) {
+      console.log(this._containers);
+
+      for (var i = 0; i < this._containers.length; i++) {
+        var ac = this._containers[i].media.split("/", 2),
+            bc = media.split("/", 2);
+
+        if (ac[0] === bc[0] && ac[1] === bc[1]) {
+          return this._containers[i].container;
+        }
+
+        if (ac[0] === bc[0] && ac[1] === '*') {
+          return this._containers[i].container;
+        }
+
+        if (ac[0] === '*' && ac[1] === '*') {
+          return this._containers[i].container;
+        }
+      }
+
+      return null;
+    },
+  },
+
   propTypes: {
-    assets: React.PropTypes.array.isRequired,
     fullscreen: React.PropTypes.bool,
     hide: React.PropTypes.bool,
     initialIndex: React.PropTypes.number,
@@ -19,6 +127,7 @@ module.exports = React.createClass({
 
   getDefaultProps: function() {
     return {
+      children: [],
       displayComponent: React.DOM.img,
       initialIndex: 0,
       onChange: noop,
@@ -33,13 +142,25 @@ module.exports = React.createClass({
   },
 
   getCurrentAsset: function() {
-    return this.props.assets[this.state.currentAssetIndex];
+    var desiredIndex = this.state.currentAssetIndex;
+    var child = this.props.children;
+
+    if (React.Children.count(this.props.children) > 1) {
+      React.Children.forEach(this.props.children, function(currentChild, currentIndex) {
+        if (currentIndex === desiredIndex){
+          child = currentChild;
+          return false;
+        }
+      });
+    }
+
+    return child;
   },
 
   handlePrevious: function() {
     var nextIndex = this.state.currentAssetIndex - 1;
     if (nextIndex < 0) {
-      nextIndex = this.props.assets.length - 1;
+      nextIndex = React.Children.count(this.props.children) - 1;
     }
 
     this.updateCurrentAssetIndex(nextIndex);
@@ -47,7 +168,7 @@ module.exports = React.createClass({
 
   handleNext: function() {
     var nextIndex = this.state.currentAssetIndex + 1;
-    if (this.props.assets.length === nextIndex) {
+    if (React.Children.count(this.props.children) === nextIndex) {
       nextIndex = 0;
     }
 
@@ -67,7 +188,7 @@ module.exports = React.createClass({
       return null;
     }
 
-    var multipleAssets = this.props.assets.length > 1;
+    var multipleAssets = React.Children.count(this.props.children) > 1;
 
     var lightboxClassObject = {
       'Lightbox': true,
@@ -81,16 +202,18 @@ module.exports = React.createClass({
 
     var lightboxClass = React.addons.classSet(lightboxClassObject);
 
+    var currentAsset = this.getCurrentAsset();
+
     return (
       <div className={lightboxClass} style={this.props.style}>
         <div className="Lightbox-asset">
 
           <div className="Lightbox-details">
-            <h4 className="Lightbox-title">{this.getCurrentAsset().title}</h4>
+            <h4 className="Lightbox-title">{(typeof currentAsset === "object" && currentAsset !== null && typeof currentAsset.getTitle === "function") ? currentAsset.getTitle() : ''}</h4>
             <div className="Lightbox-controls">
               { multipleAssets &&
                 <span>
-                  <span className="Lightbox-counter">{this.state.currentAssetIndex + 1} of {this.props.assets.length}</span>
+                  <span className="Lightbox-counter">{this.state.currentAssetIndex + 1} of {React.Children.count(this.props.children)}</span>
                   <span className="Lightbox-controls-previous" onClick={this.handlePrevious}>&lt;</span>
                   <span className="Lightbox-controls-next" onClick={this.handleNext}>&gt;</span>
                 </span>
@@ -100,7 +223,7 @@ module.exports = React.createClass({
           </div>
 
           <div className="Lightbox-file">
-            <this.props.displayComponent src={this.getCurrentAsset().path} />
+            {currentAsset}
           </div>
 
         </div>

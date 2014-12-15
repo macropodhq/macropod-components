@@ -35,6 +35,7 @@ module.exports = {
       { test: /\.ttf$/,  loader: 'file-loader' },
       { test: /\.eot$/,  loader: 'file-loader' },
       { test: /\.svg$/,  loader: 'file-loader' },
+      { test: /\.pdf$/,  loader: 'file-loader' },
     ],
   },
 };
