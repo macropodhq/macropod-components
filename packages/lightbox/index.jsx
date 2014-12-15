@@ -209,7 +209,7 @@ module.exports = React.createClass({
         <div className="Lightbox-asset">
 
           <div className="Lightbox-details">
-            <h4 className="Lightbox-title">{currentAsset && currentAsset.getTitle()}</h4>
+            <h4 className="Lightbox-title">{(typeof currentAsset === "object" && currentAsset !== null && typeof currentAsset.getTitle === "function") ? currentAsset.getTitle() : ''}</h4>
             <div className="Lightbox-controls">
               { multipleAssets &&
                 <span>
