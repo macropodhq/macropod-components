@@ -1,6 +1,6 @@
 # React Playground
 
-This is a library of components that we use at BugHerd.
+This is a library of components that we use at Macropod.
 
 It includes a debug server so that changes made to the components are reflected instantly in your browser. This shortens the development cycle for new components and makes debugging existing components easier.
 
@@ -19,7 +19,7 @@ To use the Playground packages in a Node.js-based project, you can do the follow
 _**Note**: at this point, it is expected that you have [SSH access to GitHub configured](https://help.github.com/articles/generating-ssh-keys/) and access to the repository._
 
 ```sh
-npm install --save-dev "git+ssh://git@github.com/BugHerd/react-playground.git#d8f3545"
+npm install --save-dev "git+ssh://git@github.com/macropodhq/react-playground.git#d8f3545"
 ```
 
 _**Note**: You can substitute `d8f3545` in this command for the commit sha1 of any version of the project you want to use._
