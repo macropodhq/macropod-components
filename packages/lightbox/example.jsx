@@ -7,24 +7,24 @@ var Button = require('../button');
 
 var assets = [
   {
+    media: 'image/jpeg',
     title: 'The Beach',
     path: require('./images/beach.jpg'),
-    contentType: 'image/jpeg'
   },
   {
+    media: 'image/jpeg',
     title: 'Tracks',
     path: require('./images/tracks.jpg'),
-    contentType: 'image/jpeg'
   },
   {
+    media: 'image/jpeg',
     title: 'Forest',
     path: require('./images/forest.jpg'),
-    contentType: 'image/jpeg'
   },
   {
+    media: 'application/pdf',
     title: 'Model Graph',
     path: require('./images/model_graph.pdf'),
-    contentType: 'application/pdf'
   }
 ];
 
@@ -59,21 +59,19 @@ module.exports = React.createClass({
     return (
       <div>
         <h3>Single asset</h3>
-        <Lightbox>
-          <Lightbox.AssetImage asset={assets[0]} />
-        </Lightbox>
+        <Lightbox assets={assets.slice(0, 1)} />
 
         <h3>Multiple assets</h3>
-        <Lightbox onChange={this.handleChange}>
-          {assets.map(assetMapper)}
-        </Lightbox>
+        <Lightbox assets={assets} onChange={this.handleChange} />
 
         <h3>Non-image assets</h3>
-        <Lightbox>
-          <div><h2>Testing!</h2></div>
-          {assets.map(assetMapper)}
-          <Lightbox.AssetIframe asset={{title: 'Jessica Stokes\' Website', path: 'http://jessicastokes.net/'}} />
-        </Lightbox>
+        <Lightbox assets={assets.concat([
+          {
+            media: 'text/html',
+            title: 'Jessica Stokes\' Website',
+            path: 'http://jessicastokes.net/',
+          },
+        ])} />
 
         <h3>Fullscreen</h3>
         <Button onClick={this.toggleFullscreenLightbox}>Open lightbox</Button>
@@ -83,9 +81,13 @@ module.exports = React.createClass({
           <option value="2">3</option>
         </select>
         {this.state.open && 
-          <Lightbox fullscreen={true} hide={!this.state.open} initialIndex={this.state.activeAsset} onClose={this.toggleFullscreenLightbox}>
-          {assets.map(assetMapper)}
-          </Lightbox>
+          <Lightbox
+            assets={assets}
+            fullscreen={true}
+            hide={!this.state.open}
+            initialIndex={this.state.activeAsset}
+            onClose={this.toggleFullscreenLightbox}
+            />
         }
       </div>
     );

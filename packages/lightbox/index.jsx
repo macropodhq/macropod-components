@@ -41,7 +41,7 @@ var AssetLink = React.createClass({
   },
 });
 
-module.exports = React.createClass({
+var Lightbox = module.exports = React.createClass({
   displayName: 'Lightbox',
 
   statics: {
@@ -50,6 +50,7 @@ module.exports = React.createClass({
     AssetLink: AssetLink,
     _containers: [
       {media: "application/pdf", container: AssetIframe},
+      {media: "text/html", container: AssetIframe},
       {media: "image/*", container: AssetImage},
       {media: "*/*", container: AssetLink},
     ],
@@ -93,8 +94,6 @@ module.exports = React.createClass({
       }
     },
     containerFor: function containerFor(media) {
-      console.log(this._containers);
-
       for (var i = 0; i < this._containers.length; i++) {
         var ac = this._containers[i].media.split("/", 2),
             bc = media.split("/", 2);
@@ -122,45 +121,38 @@ module.exports = React.createClass({
     initialIndex: React.PropTypes.number,
     onChange: React.PropTypes.func,
     onClose: React.PropTypes.func,
-    style: React.PropTypes.object
+    style: React.PropTypes.object,
+    assets: React.PropTypes.arrayOf(React.PropTypes.shape({
+      media: React.PropTypes.string.isRequired,
+      title: React.PropTypes.string.isRequired,
+      key: React.PropTypes.string,
+    }).isRequired).isRequired,
   },
 
   getDefaultProps: function() {
     return {
-      children: [],
       displayComponent: React.DOM.img,
       initialIndex: 0,
       onChange: noop,
-      style: {}
-    }
+      style: {},
+      assets: [],
+    };
   },
 
   getInitialState: function() {
     return {
-      currentAssetIndex: parseInt(this.props.initialIndex,10)
+      currentAssetIndex: parseInt(this.props.initialIndex, 10),
     };
   },
 
   getCurrentAsset: function() {
-    var desiredIndex = this.state.currentAssetIndex;
-    var child = this.props.children;
-
-    if (React.Children.count(this.props.children) > 1) {
-      React.Children.forEach(this.props.children, function(currentChild, currentIndex) {
-        if (currentIndex === desiredIndex){
-          child = currentChild;
-          return false;
-        }
-      });
-    }
-
-    return child;
+    return this.props.assets[this.state.currentAssetIndex];
   },
 
   handlePrevious: function() {
     var nextIndex = this.state.currentAssetIndex - 1;
     if (nextIndex < 0) {
-      nextIndex = React.Children.count(this.props.children) - 1;
+      nextIndex = this.props.assets.length - 1;
     }
 
     this.updateCurrentAssetIndex(nextIndex);
@@ -168,7 +160,7 @@ module.exports = React.createClass({
 
   handleNext: function() {
     var nextIndex = this.state.currentAssetIndex + 1;
-    if (React.Children.count(this.props.children) === nextIndex) {
+    if (this.props.assets.length === nextIndex) {
       nextIndex = 0;
     }
 
@@ -176,11 +168,9 @@ module.exports = React.createClass({
   },
 
   updateCurrentAssetIndex: function(nextIndex) {
-    this.setState({currentAssetIndex: nextIndex},
-      function() {
-        this.props.onChange(this.state.currentAssetIndex);
-      }.bind(this)
-    );
+    this.setState({currentAssetIndex: nextIndex}, function() {
+      this.props.onChange(this.state.currentAssetIndex);
+    }.bind(this));
   },
 
   render: function() {
@@ -188,7 +178,7 @@ module.exports = React.createClass({
       return null;
     }
 
-    var multipleAssets = React.Children.count(this.props.children) > 1;
+    var multipleAssets = this.props.assets.length > 1;
 
     var lightboxClassObject = {
       'Lightbox': true,
@@ -203,17 +193,19 @@ module.exports = React.createClass({
     var lightboxClass = React.addons.classSet(lightboxClassObject);
 
     var currentAsset = this.getCurrentAsset();
+    console.log(currentAsset);
+    var container = Lightbox.containerFor(currentAsset.media);
 
     return (
       <div className={lightboxClass} style={this.props.style}>
         <div className="Lightbox-asset">
 
           <div className="Lightbox-details">
-            <h4 className="Lightbox-title">{(typeof currentAsset === "object" && currentAsset !== null && typeof currentAsset.getTitle === "function") ? currentAsset.getTitle() : ''}</h4>
+            <h4 className="Lightbox-title">{currentAsset.title}</h4>
             <div className="Lightbox-controls">
               { multipleAssets &&
                 <span>
-                  <span className="Lightbox-counter">{this.state.currentAssetIndex + 1} of {React.Children.count(this.props.children)}</span>
+                  <span className="Lightbox-counter">{this.state.currentAssetIndex + 1} of {this.props.assets.length}</span>
                   <span className="Lightbox-controls-previous" onClick={this.handlePrevious}>&lt;</span>
                   <span className="Lightbox-controls-next" onClick={this.handleNext}>&gt;</span>
                 </span>
@@ -223,7 +215,7 @@ module.exports = React.createClass({
           </div>
 
           <div className="Lightbox-file">
-            {currentAsset}
+            <container asset={currentAsset} />
           </div>
 
         </div>
