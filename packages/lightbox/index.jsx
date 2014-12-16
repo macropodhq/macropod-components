@@ -50,7 +50,7 @@ var Lightbox = module.exports = React.createClass({
     AssetLink: AssetLink,
     _containers: [
       {media: "application/pdf", container: AssetIframe},
-      {media: "brief/iframe", container: AssetIframe},
+      {media: "text/html", container: AssetIframe},
       {media: "image/*", container: AssetImage},
       {media: "*/*", container: AssetLink},
     ],

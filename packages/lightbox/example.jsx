@@ -67,7 +67,7 @@ module.exports = React.createClass({
         <h3>Non-image assets</h3>
         <Lightbox assets={assets.concat([
           {
-            media: 'brief/iframe',
+            media: 'text/html',
             title: 'Jessica Stokes\' Website',
             path: 'http://jessicastokes.net/',
           },
