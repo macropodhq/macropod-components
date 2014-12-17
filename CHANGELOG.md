@@ -1,5 +1,11 @@
 # React Playground Changelog
 
+## [v1.5.1](https://github.com/macropodhq/react-playground/releases/tag/1.5.1)
+
+### Fixes
+
+* [#120](https://github.com/macropodhq/react-playground/pull/120): Fix invalid variable use in Lightbox.
+
 ## [v1.5.0](https://github.com/macropodhq/react-playground/releases/tag/1.5.0)
 
 ### Features
