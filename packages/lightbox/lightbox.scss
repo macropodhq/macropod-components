@@ -26,7 +26,7 @@ $details-padding: 10px;
     .Lightbox-file {
       color: white;
       text-align: center;
-      height: calc(100% - $lightbox-details-height); // 46px is the height of .Lightbox-details
+      height: calc(100% - #{$lightbox-details-height});
       overflow: auto;
       position: relative;
 
