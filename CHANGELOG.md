@@ -1,5 +1,15 @@
 # React Playground Changelog
 
+## [v1.5.0](https://github.com/macropodhq/react-playground/releases/tag/1.5.0)
+
+### Features
+
+* [#118](https://github.com/macropodhq/react-playground/pull/118): Revert to enhanced version of old Lightbox API.
+
+### Improvements
+
+* [#119](https://github.com/macropodhq/react-playground/pull/119): Improve lightbox iframe sizing.
+
 ## [v1.4.0](https://github.com/macropodhq/react-playground/releases/tag/1.4.0)
 
 ### Features
