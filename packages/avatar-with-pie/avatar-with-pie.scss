@@ -1,0 +1,42 @@
+.AvatarWithPie {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+
+  .Avatar {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .PieBadge {
+    position: absolute;
+    top: -8%;
+    right: -8%;
+    width: 45%;
+    z-index: 2;
+  }
+
+  &.AvatarWithPie--s {
+    height: 20px;
+    width: 35px;
+
+    .PieBadge {
+      top: 0;
+      right: 0;
+      width: 20px;
+    }
+  }
+  
+  &.AvatarWithPie--m {
+    height: 35px;
+    width: 35px;
+    margin: .08 * 35px;
+  }
+  
+  &.AvatarWithPie--l {
+    height: 50px;
+    width: 50px;
+    margin: .08 * 35px;
+  }
+}
