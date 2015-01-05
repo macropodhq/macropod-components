@@ -5,8 +5,13 @@
   list-style: none;
   padding: 0;
 
+  li:not(:hover) {
+    color: black !important;
+  }
+
   .Icon {
   	margin-right: 5px;
+    vertical-align: middle;
   }
 }
 
