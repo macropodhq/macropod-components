@@ -1,5 +1,15 @@
 # React Playground Changelog
 
+## [v1.6.0](https://github.com/macropodhq/react-playground/releases/tag/1.6.0)
+
+### Features
+
+* [#121](https://github.com/macropodhq/react-playground/pull/121): Add PieBadge and AvatarWithPie components.
+
+### Improvements
+
+* [#122](https://github.com/macropodhq/react-playground/pull/122): Remove font-based icons.
+
 ## [v1.5.1](https://github.com/macropodhq/react-playground/releases/tag/1.5.1)
 
 ### Fixes
