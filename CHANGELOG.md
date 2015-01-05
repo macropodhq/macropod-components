@@ -1,5 +1,11 @@
 # React Playground Changelog
 
+## [v1.6.1](https://github.com/macropodhq/react-playground/releases/tag/1.6.1)
+
+### Fixes
+
+* [#123](https://github.com/macropodhq/react-playground/pull/123): PieBadge component tweaks.
+
 ## [v1.6.0](https://github.com/macropodhq/react-playground/releases/tag/1.6.0)
 
 ### Features
