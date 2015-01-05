@@ -28,6 +28,7 @@ module.exports = React.createClass({
           size={this.props.size}
           firstName={this.props.firstName}
           lastName={this.props.lastName}
+          title={this.props.title}
           src={this.props.src}
           email={this.props.email}
           circle={this.props.circle}

@@ -27,7 +27,7 @@ module.exports = React.createClass({
 
     var pathDefinition = 'M' + (size/2).toString() + ',' + (size/2).toString() + ' L' + x1.toString() + ',' + y1.toString() + '  A' + (size/2 - 3.5).toString() + ',' + (size/2 - 3.5).toString() + ' 0 ' + ((endAngle-startAngle > 180) ? '1' : '0') + ',1 ' + x2.toString() + ',' + y2.toString() + ' z';
 
-    var complete = this.props.complete >= this.props.total;
+    var complete = this.props.total > 0 && this.props.complete >= this.props.total;
 
     var pieBadgeClasses = React.addons.classSet({
       'PieBadge': true,
