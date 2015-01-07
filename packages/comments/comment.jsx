@@ -14,7 +14,8 @@ module.exports = React.createClass({
     return {
       onReply: function() {},
       onEdit: function() {},
-      onDelete: function() {}
+      onDelete: function() {},
+      inputButtons: false
     }
   },
 
@@ -38,7 +39,7 @@ module.exports = React.createClass({
   },
 
   handleReplyChange: function(e) {
-    if (!this.props.comment.inputButtons) {
+    if (!this.props.inputButtons) {
       return;
     } else {
       var newReply = false;
@@ -88,7 +89,7 @@ module.exports = React.createClass({
     var commentClass = cx({
       'Comment': true,
       'Comment--starred': this.state.stared,
-      'Comment--inputButtons': this.props.comment.inputButtons
+      'Comment--inputButtons': this.props.inputButtons
     });
 
     var replies = _.clone(this.props.replies).reverse();
@@ -124,7 +125,7 @@ module.exports = React.createClass({
                 <form onSubmit={this.handleEdit}>
                   <textarea ref="editInput" className="Comment-editInput" defaultValue={this.props.comment.entry} onKeyDown={this.handleKeyDown.bind(null, this.handleEdit)}></textarea>
 
-                  { this.props.comment.inputButtons &&
+                  { this.props.inputButtons &&
                     <Button type="submit">Edit</Button>
                   }
                 </form>
@@ -144,7 +145,7 @@ module.exports = React.createClass({
           <div className="Comment-replies-new">
             <form onSubmit={this.handleNewReply}>
               <textarea ref="replyInput" className="Comment-replies-new-input" placeholder="add a reply" onChange={this.handleReplyChange} onKeyDown={this.handleKeyDown.bind(null, this.handleNewReply)}></textarea>
-              { this.props.comment.inputButtons &&
+              { this.props.inputButtons &&
                 <Button type="submit" disabled={!this.state.newReply}>Reply</Button>
               }
             </form>

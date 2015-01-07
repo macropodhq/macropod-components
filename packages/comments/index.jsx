@@ -23,6 +23,7 @@ module.exports = React.createClass({
                 onEdit={this.props.onEdit}
                 onReply={this.props.onReply}
                 onDelete={this.props.onDelete}
+                inputButtons={this.props.inputButtons}
               />
             );
           }.bind(this))
