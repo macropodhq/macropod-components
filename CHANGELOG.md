@@ -1,5 +1,11 @@
 # React Playground Changelog
 
+## [v1.8.1](https://github.com/macropodhq/react-playground/releases/tag/1.8.1)
+
+### Features
+
+* [#128](https://github.com/macropodhq/react-playground/pull/128): Restore missing comment events.
+
 ## [v1.8.0](https://github.com/macropodhq/react-playground/releases/tag/1.8.0)
 
 ### Features
