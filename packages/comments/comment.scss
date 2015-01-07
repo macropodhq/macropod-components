@@ -31,6 +31,16 @@
     clear: both;
     margin: 0;
     padding: 10px 0;
+
+    .Comment-text-display {
+      display: inline-block;
+      padding: 0.2em 0 0.3em 0;
+    }
+
+    .Comment-editInput {
+      width: calc(100% + .4em);
+      margin: 0 -.2em;
+    }
   }
 
   .Comment-replies {
