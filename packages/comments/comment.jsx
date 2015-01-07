@@ -72,24 +72,36 @@ module.exports = React.createClass({
 
     var replies = _.clone(this.props.replies).reverse();
 
+    var dropdownContent = null;
+
+    if (this.props.starable || this.props.comment.deletable || this.props.comment.editable) {
+      dropdownContent = (
+        <div>
+          <a href="#" className="Comment-dropdownToggle" ref="menuAnchor" onClick={this.handleMenuToggle}>&hellip;</a>
+          <DropdownMenu className="DropdownMenu" anchor={this.refs.menuAnchor} visible={this.state.showMenu} close={this.handleMenuToggle}>
+            <dl>
+              {this.props.starable && <dd><a href="#" onClick={this.handleStarToggle}>{this.state.stared ? "Unstar" : "Star"} this discussion</a></dd>}
+              {this.props.comment.editable && <dd><a href="#" onClick={this.handleEditToggle}>Edit discussion</a></dd>}
+              {this.props.comment.deletable && <dd><a href="#" onClick={this.handleDelete}>Delete discussion</a></dd>}
+            </dl>
+          </DropdownMenu>
+        </div>
+      );
+    }
+
     return (
       <div className={commentClass}>
-        <a href="#" className="Comment-dropdownToggle" ref="menuAnchor" onClick={this.handleMenuToggle}>
-          ...
-        </a>
-        <DropdownMenu className="DropdownMenu" anchor={this.refs.menuAnchor} visible={this.state.showMenu} close={this.handleMenuToggle}>
-          <dl>
-            {this.props.starable && <dd><a href="#" onClick={this.handleStarToggle}>{this.state.stared ? "Unstar" : "Star"} this discussion</a></dd>}
-            <dd><a href="#" onClick={this.handleEditToggle}>Edit discussion</a></dd>
-            <dd><a href="#" onClick={this.handleDelete}>Delete discussion</a></dd>
-          </dl>
-        </DropdownMenu>
+        {dropdownContent}
         <Avatar model={this.props.comment.author} title={this.props.comment.author.name} size="m" circle={true} />
         <div className="Comment-author">
           <strong>{this.props.comment.author.name}</strong>
         </div>
         <p className="Comment-text" ref="commentText">
-          {this.state.editing ? <input ref="editInput" className="Comment-editInput" defaultValue={this.props.comment.entry} onKeyDown={this.handleKeyDown.bind(null, this.handleEdit)} /> : this.props.comment.entry}
+          {
+            this.state.editing
+              ? <input ref="editInput" className="Comment-editInput" defaultValue={this.props.comment.entry} onKeyDown={this.handleKeyDown.bind(null, this.handleEdit)} />
+              : <span className="Comment-text-display">{this.props.comment.entry}</span>
+          }
         </p>
 
         <div className="Comment-replies">

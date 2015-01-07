@@ -22,19 +22,40 @@ module.exports = React.createClass({
           id: 1,
           parentId: null,
           author: authors[2],
-          entry: 'Here\'s an example of the comment component!'
+          entry: 'Here\'s an example of the comment component!',
+          editable: true,
+          deletable: true
         },
         {
           id: 2,
           parentId: 1,
           author: authors[1],
-          entry: 'This thing sure is neat!'
+          entry: 'This thing sure is neat!',
+          editable: false,
+          deletable: false
         },
         {
           id: 3,
           parentId: 1,
           author: authors[0],
-          entry: 'Needs more cowbell.'
+          entry: 'Needs more cowbell.',
+          editable: false,
+          deletable: false
+        },
+        {
+          id: 4,
+          parentId: null,
+          author: authors[2],
+          entry: 'This comment can only be edited.',
+          editable: true,
+          deletable: false
+        },
+        {
+          id: 5,
+          author: authors[2],
+          entry: 'This comment can only be deleted!',
+          editable: false,
+          deletable: true
         }
       ]
     }

@@ -193,7 +193,7 @@ var Lightbox = module.exports = React.createClass({
     var lightboxClass = React.addons.classSet(lightboxClassObject);
 
     var currentAsset = this.getCurrentAsset();
-    console.log(currentAsset);
+
     var container = Lightbox.containerFor(currentAsset.media);
 
     return (
