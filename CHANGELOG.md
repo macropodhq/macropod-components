@@ -1,5 +1,11 @@
 # React Playground Changelog
 
+## [v1.6.2](https://github.com/macropodhq/react-playground/releases/tag/1.6.1)
+
+### Fixes
+
+* [#125](https://github.com/macropodhq/react-playground/pull/125), [#126](https://github.com/macropodhq/react-playground/pull/126): Remove extraneous arrows from Calendar and Dropdown components.
+
 ## [v1.6.1](https://github.com/macropodhq/react-playground/releases/tag/1.6.1)
 
 ### Fixes
