@@ -1,6 +1,6 @@
 {
   "name": "react-playground",
-  "version": "1.6.2",
+  "version": "1.7.0",
   "description": "Macropod react stuff",
   "dependencies": {
     "MD5": "^1.2.1",

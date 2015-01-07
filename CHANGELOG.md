@@ -1,5 +1,11 @@
 # React Playground Changelog
 
+## [v1.7.0](https://github.com/macropodhq/react-playground/releases/tag/1.7.0)
+
+### Features
+
+* [#124](https://github.com/macropodhq/react-playground/pull/124): Allow individual control of deletion and edit controls for each comment.
+
 ## [v1.6.2](https://github.com/macropodhq/react-playground/releases/tag/1.6.1)
 
 ### Fixes
