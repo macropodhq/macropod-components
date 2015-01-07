@@ -1,5 +1,11 @@
 # React Playground Changelog
 
+## [v1.8.2](https://github.com/macropodhq/react-playground/releases/tag/1.8.2)
+
+### Features
+
+* [#129](https://github.com/macropodhq/react-playground/pull/129): Component level comment button option.
+
 ## [v1.8.1](https://github.com/macropodhq/react-playground/releases/tag/1.8.1)
 
 ### Features
