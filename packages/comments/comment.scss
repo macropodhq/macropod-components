@@ -29,6 +29,7 @@
   }
   .Comment-text {
     clear: both;
+    @extend %clearfix;
     margin: 0;
     padding: 10px 0;
 
@@ -43,11 +44,32 @@
     }
   }
 
+  &.Comment--inputButtons {
+    .Comment-editInput {
+      width: calc((100% + .4em) - 100px);
+      float: left;
+    }
+
+    .Comment-replies-new-input {
+      width: calc(100% - 100px);
+      float: left;
+    }
+
+    .Button--submit {
+      width: 95px;
+      float: right;
+    }
+  }
+
   .Comment-replies {
     padding: 10px;
     margin: 5px -10px -10px;
     background: #eee;
     box-shadow: 1px 0 0 rgba(0,0,0,.05), -1px 0 0 rgba(0,0,0,.05), 0 1px 0 rgba(0,0,0,.05);
+  }
+
+  .Comment-replies-new {
+    @extend %clearfix;
   }
 
   .Comment-replies-new-input {
