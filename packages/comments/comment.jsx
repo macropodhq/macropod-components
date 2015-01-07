@@ -2,6 +2,7 @@
 var React = require('react/addons');
 var DropdownMenu = require('../dropdown-menu');
 var Avatar = require('../avatar');
+var Button = require('../button');
 var CommentReply = require('./comment-reply');
 
 require('./comment.scss');
@@ -12,6 +13,7 @@ module.exports = React.createClass({
   getDefaultProps: function() {
     return {
       onReply: function() {},
+      onEdit: function() {},
       onDelete: function() {}
     }
   },
@@ -20,7 +22,8 @@ module.exports = React.createClass({
     return {
       showMenu: false,
       stared: false,
-      editing: false
+      editing: false,
+      newReply: false
     };
   },
 
@@ -34,16 +37,23 @@ module.exports = React.createClass({
     e.preventDefault();
   },
 
-  handleKeyDown: function(callback, e) {
-    if (!e) e = window.event;
-    var keyCode = e.keyCode || e.which;
-    if (keyCode == '13'){
-      callback();
-      return false;
+  handleReplyChange: function(e) {
+    if (!this.props.comment.inputButtons) {
+      return;
+    } else {
+      var newReply = false;
+      if (e.target.value !== '') {
+        newReply = true;
+      }
+
+      if (this.state.newReply !== newReply) {
+        this.setState({newReply: newReply});
+      }
     }
   },
 
-  handleNewReply: function() {
+  handleNewReply: function(e) {
+    e && e.preventDefault();
     this.props.onReply(this.refs.replyInput.getDOMNode().value, this.props.comment.id);
     this.refs.replyInput.getDOMNode().value = '';
   },
@@ -52,9 +62,19 @@ module.exports = React.createClass({
     this.props.onDelete(this.props.comment.id);
   },
 
-  handleEdit: function() {
+  handleEdit: function(e) {
+    e && e.preventDefault();
     this.props.onEdit(this.props.comment.id, this.refs.editInput.getDOMNode().value);
     this.handleEditToggle();
+  },
+
+  handleKeyDown: function(callback, e) {
+    if (!e) e = window.event;
+    var keyCode = e.keyCode || e.which;
+    if (keyCode == '13' && !e.ctrlKey && !e.shiftKey){
+      callback();
+      return false;
+    }
   },
 
   handleEditToggle: function() {
@@ -67,7 +87,8 @@ module.exports = React.createClass({
     var cx = React.addons.classSet;
     var commentClass = cx({
       'Comment': true,
-      'Comment--starred': this.state.stared
+      'Comment--starred': this.state.stared,
+      'Comment--inputButtons': this.props.comment.inputButtons
     });
 
     var replies = _.clone(this.props.replies).reverse();
@@ -99,7 +120,14 @@ module.exports = React.createClass({
         <p className="Comment-text" ref="commentText">
           {
             this.state.editing
-              ? <input ref="editInput" className="Comment-editInput" defaultValue={this.props.comment.entry} onKeyDown={this.handleKeyDown.bind(null, this.handleEdit)} />
+              ?
+                <form onSubmit={this.handleEdit}>
+                  <textarea ref="editInput" className="Comment-editInput" defaultValue={this.props.comment.entry} onKeyDown={this.handleKeyDown.bind(null, this.handleEdit)}></textarea>
+
+                  { this.props.comment.inputButtons &&
+                    <Button type="submit">Edit</Button>
+                  }
+                </form>
               : <span className="Comment-text-display">{this.props.comment.entry}</span>
           }
         </p>
@@ -114,7 +142,12 @@ module.exports = React.createClass({
           }
 
           <div className="Comment-replies-new">
-            <textarea ref="replyInput" onKeyDown={this.handleKeyDown.bind(null, this.handleNewReply)} className="Comment-replies-new-input" placeholder="add a reply"></textarea>
+            <form onSubmit={this.handleNewReply}>
+              <textarea ref="replyInput" className="Comment-replies-new-input" placeholder="add a reply" onChange={this.handleReplyChange} onKeyDown={this.handleKeyDown.bind(null, this.handleNewReply)}></textarea>
+              { this.props.comment.inputButtons &&
+                <Button type="submit" disabled={!this.state.newReply}>Reply</Button>
+              }
+            </form>
           </div>
         </div>
       </div>

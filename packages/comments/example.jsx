@@ -46,16 +46,23 @@ module.exports = React.createClass({
           id: 4,
           parentId: null,
           author: authors[2],
-          entry: 'This comment can only be edited.',
+          entry: 'This discussion can only be edited.',
           editable: true,
           deletable: false
         },
         {
           id: 5,
           author: authors[2],
-          entry: 'This comment can only be deleted!',
+          entry: 'This discussion can only be deleted!',
           editable: false,
           deletable: true
+        },
+        {
+          id: 6,
+          author: authors[2],
+          entry: 'This discussion has a button for replying',
+          inputButtons: true,
+          editable: true
         }
       ]
     }
