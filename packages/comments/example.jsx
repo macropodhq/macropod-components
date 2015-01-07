@@ -17,6 +17,7 @@ module.exports = React.createClass({
 
   getInitialState: function() {
     return {
+      inputButtons: false,
       comments: [
         {
           id: 1,
@@ -56,13 +57,6 @@ module.exports = React.createClass({
           entry: 'This discussion can only be deleted!',
           editable: false,
           deletable: true
-        },
-        {
-          id: 6,
-          author: authors[2],
-          entry: 'This discussion has a button for replying',
-          inputButtons: true,
-          editable: true
         }
       ]
     }
@@ -108,11 +102,16 @@ module.exports = React.createClass({
     this.setState({comments: updatedComments});
   },
 
+  handleButtonToggle: function() {
+    this.setState({inputButtons: !this.state.inputButtons});
+  },
+
   render: function() {
     return (
       <div>
+        <Button style={{'margin-bottom': '10px'}} onClick={this.handleButtonToggle}>{this.state.inputButtons ? 'Hide buttons' : 'Show Buttons'}</Button><br />
         <input ref="newDiscussionInput" onKeyDown={this.handleKeyDown} placeholder="add new discussion" />
-        <Comments comments={this.state.comments} onReply={this.handleNewComment} onDelete={this.handleDelete} onEdit={this.handleEdit} />
+        <Comments comments={this.state.comments} onReply={this.handleNewComment} onDelete={this.handleDelete} onEdit={this.handleEdit} inputButtons={this.state.inputButtons}/>
       </div>
     );
   }
