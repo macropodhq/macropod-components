@@ -17,7 +17,13 @@ module.exports = React.createClass({
           parentComments.map(function(comment) {
             var replies = _.filter(this.props.comments, {parentId: comment.id});
             return (
-              <Comment comment={comment} replies={replies} />
+              <Comment
+                comment={comment}
+                replies={replies}
+                onEdit={this.props.onEdit}
+                onReply={this.props.onReply}
+                onDelete={this.props.onDelete}
+              />
             );
           }.bind(this))
         }
