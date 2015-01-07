@@ -1,5 +1,15 @@
 # React Playground Changelog
 
+## [v1.8.0](https://github.com/macropodhq/react-playground/releases/tag/1.8.0)
+
+### Features
+
+* [#127](https://github.com/macropodhq/react-playground/pull/127): Add button support for comment inputs.
+
+### Fixes
+
+* [#128](https://github.com/macropodhq/react-playground/pull/128): Restore missing comment events.
+
 ## [v1.7.0](https://github.com/macropodhq/react-playground/releases/tag/1.7.0)
 
 ### Features
