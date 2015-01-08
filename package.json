@@ -14,7 +14,7 @@
     "react-widgets": "^1.4.4",
     "normalize.css": "~3.0.2",
     "react-data-components": "^0.0.5",
-    "react-textarea-autosize": "^1.0.4"
+    "react-textarea-autosize": "git://github.com/andreypopp/react-textarea-autosize#831f0da"
   },
   "devDependencies": {
     "autoprefixer-loader": "^1.0.0",

@@ -25,7 +25,8 @@ module.exports = React.createClass({
       showMenu: false,
       stared: false,
       editing: false,
-      newReply: false
+      replyValue: '',
+      editValue: this.props.comment.entry
     };
   },
 
@@ -40,25 +41,17 @@ module.exports = React.createClass({
   },
 
   handleReplyChange: function(e) {
-    if (!this.props.inputButtons) {
-      return;
-    } else {
-      var newReply = false;
-      if (e.target.value !== '') {
-        newReply = true;
-      }
+    this.setState({replyValue: e.target.value});
+  },
 
-      if (this.state.newReply !== newReply) {
-        this.setState({newReply: newReply});
-      }
-    }
+  handleEditChange: function(e) {
+    this.setState({editValue: e.target.value});
   },
 
   handleNewReply: function(e) {
     e && e.preventDefault();
-    this.props.onReply(this.refs.replyInput.getDOMNode().value, this.props.comment.id);
-    this.refs.replyInput.getDOMNode().value = '';
-    this.refs.replyInput.getDOMNode().style.height = 'auto';
+    this.props.onReply(this.state.replyValue, this.props.comment.id);
+    this.setState({replyValue: ''});
   },
 
   handleDelete: function() {
@@ -67,7 +60,7 @@ module.exports = React.createClass({
 
   handleEdit: function(e) {
     e && e.preventDefault();
-    this.props.onEdit(this.props.comment.id, this.refs.editInput.getDOMNode().value);
+    this.props.onEdit(this.props.comment.id, this.state.editValue);
     this.handleEditToggle();
   },
 
@@ -82,7 +75,11 @@ module.exports = React.createClass({
 
   handleEditToggle: function() {
     this.setState({editing: !this.state.editing}, function() {
-      if (this.state.editing) {this.refs.editInput.getDOMNode().focus()}
+      if (this.state.editing) {
+        var editInput = this.refs.editInput.getDOMNode();
+        editInput.focus();
+        editInput.setSelectionRange(this.state.editValue.length, this.state.editValue.length);
+      }
     });
   },
 
@@ -125,8 +122,7 @@ module.exports = React.createClass({
             this.state.editing
               ?
                 <form onSubmit={this.handleEdit}>
-                  <Textarea rows="1" ref="editInput" className="Comment-editInput" defaultValue={this.props.comment.entry} onKeyDown={this.handleKeyDown.bind(null, this.handleEdit)}></Textarea>
-
+                  <Textarea rows="1" ref="editInput" value={this.state.editValue} className="Comment-editInput" onChange={this.handleEditChange} onKeyDown={this.handleKeyDown.bind(null, this.handleEdit)}></Textarea>
                   { this.props.inputButtons &&
                     <Button type="submit">Edit</Button>
                   }
@@ -146,9 +142,9 @@ module.exports = React.createClass({
 
           <div className="Comment-replies-new">
             <form onSubmit={this.handleNewReply}>
-              <Textarea rows="1" ref="replyInput" className="Comment-replies-new-input" placeholder="add a reply" onChange={this.handleReplyChange} onKeyDown={this.handleKeyDown.bind(null, this.handleNewReply)}></Textarea>
+              <Textarea rows="1" value={this.state.replyValue} className="Comment-replies-new-input" placeholder="add a reply" onChange={this.handleReplyChange} onKeyDown={this.handleKeyDown.bind(null, this.handleNewReply)}></Textarea>
               { this.props.inputButtons &&
-                <Button type="submit" disabled={!this.state.newReply}>Reply</Button>
+                <Button type="submit" disabled={!this.state.replyValue.length}>Reply</Button>
               }
             </form>
           </div>
