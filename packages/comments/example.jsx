@@ -26,7 +26,9 @@ module.exports = React.createClass({
           author: authors[2],
           entry: 'Here\'s an example of the comment component!',
           editable: true,
-          deletable: true
+          deletable: true,
+          createdAt: '2015-01-07T11:04:01.453783131+11:00',
+          updatedAt: '2015-01-07T12:04:01.453783131+11:00'
         },
         {
           id: 2,
@@ -34,7 +36,8 @@ module.exports = React.createClass({
           author: authors[1],
           entry: 'This thing sure is neat!',
           editable: false,
-          deletable: false
+          deletable: false,
+          createdAt: '2015-01-07T11:04:01.453783131+11:00'
         },
         {
           id: 3,
@@ -42,7 +45,8 @@ module.exports = React.createClass({
           author: authors[0],
           entry: 'Needs more cowbell.',
           editable: false,
-          deletable: false
+          deletable: false,
+          createdAt: '2015-01-07T11:04:01.453783131+11:00'
         },
         {
           id: 4,
@@ -50,21 +54,24 @@ module.exports = React.createClass({
           author: authors[2],
           entry: 'This discussion can only be edited.',
           editable: true,
-          deletable: false
+          deletable: false,
+          createdAt: '2015-01-07T11:04:01.453783131+11:00'
         },
         {
           id: 5,
           author: authors[2],
           entry: 'This discussion can only be deleted!',
           editable: false,
-          deletable: true
+          deletable: true,
+          createdAt: '2015-01-07T11:04:01.453783131+11:00'
         },
         {
           id: 6,
           author: authors[0],
           entry: 'This comment \nis over multiple lines',
           editable: true,
-          deletable: true
+          deletable: true,
+          createdAt: '2015-01-07T11:04:01.453783131+11:00'
         }
       ]
     }
