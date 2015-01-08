@@ -1,5 +1,11 @@
 # React Playground Changelog
 
+## [v1.8.4](https://github.com/macropodhq/react-playground/releases/tag/1.8.4)
+
+### Changes
+
+* [#131](https://github.com/macropodhq/react-playground/pull/131): References new version of [react-textarea-autosize](https://github.com/andreypopp/react-textarea-autosize/commit/831f0da79f23bead9dcdd08b30433fcb00fc3bce) which responds to manually setting values. Value is now stored in state and controlled by the component.
+
 ## [v1.8.3](https://github.com/macropodhq/react-playground/releases/tag/1.8.3)
 
 ### Features
