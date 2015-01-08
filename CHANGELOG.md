@@ -1,5 +1,11 @@
 # React Playground Changelog
 
+## [v1.8.3](https://github.com/macropodhq/react-playground/releases/tag/1.8.3)
+
+### Features
+
+* [#130](https://github.com/macropodhq/react-playground/pull/130): Use textareas with autosize rather than inputs. Added support for line breaks.
+
 ## [v1.8.2](https://github.com/macropodhq/react-playground/releases/tag/1.8.2)
 
 ### Features
