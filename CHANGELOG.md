@@ -1,5 +1,15 @@
 # React Playground Changelog
 
+## [v1.8.5](https://github.com/macropodhq/react-playground/releases/tag/1.8.5)
+
+### Features
+
+* [#132](https://github.com/macropodhq/react-playground/pull/132): Timestamps on comments and a new Datetime component.
+
+### Changes
+
+* [#133](https://github.com/macropodhq/react-playground/pull/133): [NPM version](https://www.npmjs.com/package/react-textarea-autosize) of react-textarea-autosize.
+
 ## [v1.8.4](https://github.com/macropodhq/react-playground/releases/tag/1.8.4)
 
 ### Changes
