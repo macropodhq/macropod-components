@@ -4,6 +4,7 @@ var React = require('react');
 var _ = require('lodash');
 var Comments = require('./');
 var Button = require('../button');
+var Textarea = require('react-textarea-autosize');
 
 
 var authors = [
@@ -57,6 +58,13 @@ module.exports = React.createClass({
           entry: 'This discussion can only be deleted!',
           editable: false,
           deletable: true
+        },
+        {
+          id: 6,
+          author: authors[0],
+          entry: 'This comment \nis over multiple lines',
+          editable: true,
+          deletable: true
         }
       ]
     }
@@ -75,18 +83,20 @@ module.exports = React.createClass({
     this.setState({comments: updatedComments})
   },
 
-  handleKeyDown: function(e) {
+  handleKeyDown: function(callback, e) {
     if (!e) e = window.event;
     var keyCode = e.keyCode || e.which;
-    if (keyCode == '13'){
-      this.handleNewDiscussion();
+    if (keyCode == '13' && !e.ctrlKey && !e.shiftKey){
+      callback();
       return false;
     }
   },
 
-  handleNewDiscussion: function() {
+  handleNewDiscussion: function(e) {
+    e && e.preventDefault();
     this.handleNewComment(this.refs.newDiscussionInput.getDOMNode().value)
     this.refs.newDiscussionInput.getDOMNode().value = '';
+    this.refs.newDiscussionInput.getDOMNode().style.height = 'auto';
   },
 
   handleDelete: function(id) {
@@ -110,7 +120,12 @@ module.exports = React.createClass({
     return (
       <div>
         <Button style={{'margin-bottom': '10px'}} onClick={this.handleButtonToggle}>{this.state.inputButtons ? 'Hide buttons' : 'Show Buttons'}</Button><br />
-        <input ref="newDiscussionInput" onKeyDown={this.handleKeyDown} placeholder="add new discussion" />
+        <form onSubmit={this.handleNewDiscussion}>
+          <Textarea rows="1" ref="newDiscussionInput" onKeyDown={this.handleKeyDown.bind(null, this.handleNewDiscussion)} placeholder="add new discussion"></Textarea>
+          { this.state.inputButtons &&
+            <Button type="submit">Add</Button>
+          }
+        </form>
         <Comments comments={this.state.comments} onReply={this.handleNewComment} onDelete={this.handleDelete} onEdit={this.handleEdit} inputButtons={this.state.inputButtons}/>
       </div>
     );

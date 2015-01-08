@@ -4,6 +4,7 @@ var DropdownMenu = require('../dropdown-menu');
 var Avatar = require('../avatar');
 var Button = require('../button');
 var CommentReply = require('./comment-reply');
+var Textarea = require('react-textarea-autosize');
 
 require('./comment.scss');
 
@@ -57,6 +58,7 @@ module.exports = React.createClass({
     e && e.preventDefault();
     this.props.onReply(this.refs.replyInput.getDOMNode().value, this.props.comment.id);
     this.refs.replyInput.getDOMNode().value = '';
+    this.refs.replyInput.getDOMNode().style.height = 'auto';
   },
 
   handleDelete: function() {
@@ -123,7 +125,7 @@ module.exports = React.createClass({
             this.state.editing
               ?
                 <form onSubmit={this.handleEdit}>
-                  <textarea ref="editInput" className="Comment-editInput" defaultValue={this.props.comment.entry} onKeyDown={this.handleKeyDown.bind(null, this.handleEdit)}></textarea>
+                  <Textarea rows="1" ref="editInput" className="Comment-editInput" defaultValue={this.props.comment.entry} onKeyDown={this.handleKeyDown.bind(null, this.handleEdit)}></Textarea>
 
                   { this.props.inputButtons &&
                     <Button type="submit">Edit</Button>
@@ -144,7 +146,7 @@ module.exports = React.createClass({
 
           <div className="Comment-replies-new">
             <form onSubmit={this.handleNewReply}>
-              <textarea ref="replyInput" className="Comment-replies-new-input" placeholder="add a reply" onChange={this.handleReplyChange} onKeyDown={this.handleKeyDown.bind(null, this.handleNewReply)}></textarea>
+              <Textarea rows="1" ref="replyInput" className="Comment-replies-new-input" placeholder="add a reply" onChange={this.handleReplyChange} onKeyDown={this.handleKeyDown.bind(null, this.handleNewReply)}></Textarea>
               { this.props.inputButtons &&
                 <Button type="submit" disabled={!this.state.newReply}>Reply</Button>
               }

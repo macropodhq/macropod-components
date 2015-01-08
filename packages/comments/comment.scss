@@ -29,12 +29,13 @@
   }
   .Comment-text {
     clear: both;
-    @extend %clearfix;
     margin: 0;
     padding: 10px 0;
+    white-space: pre;
 
     .Comment-text-display {
       display: inline-block;
+      white-space: pre;
       padding: 0.2em 0 0.3em 0;
     }
 
