@@ -11,22 +11,42 @@
   position: relative;
   font-size: 14px;
   border-radius: 1px;
+
   .Comment-dropdownToggle {
     position: absolute;
     top: 5px;
     right: 5px;
   }
+
   .Avatar {
     float: left;
     margin-right: 10px;
   }
-  .Comment-author {
+
+  .Comment-details {
     height: 35px;
-    padding: 3px 0;
     vertical-align: top;
     float: left;
-    font-size: 13px;
   }
+
+  .Comment-author {
+    font-size: 13px;
+    display: block;
+  }
+
+  .Comment-time, .Comment-edited {
+    font-size: 10px;
+  }
+
+  .Comment-edited {
+    margin-left: 5px;
+
+    &:before {
+      content: '\00B7';
+      padding-right: 5px;
+    }
+  }
+
   .Comment-text {
     clear: both;
     margin: 0;

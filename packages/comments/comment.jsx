@@ -5,6 +5,9 @@ var Avatar = require('../avatar');
 var Button = require('../button');
 var CommentReply = require('./comment-reply');
 var Textarea = require('react-textarea-autosize');
+var DateFormatter = require('../datetime-format');
+var moment = require('moment');
+var Tooltip = require('../tooltip');
 
 require('./comment.scss');
 
@@ -110,12 +113,24 @@ module.exports = React.createClass({
       );
     }
 
+    var editedDisplay = null;
+
+    if (this.props.comment.updatedAt && moment(this.props.comment.updatedAt).isAfter(moment(this.props.comment.createdAt))) {
+      editedDisplay = (
+        <span className="Comment-edited">
+          <span data-tooltip={DateFormatter.dateTime(this.props.comment.updatedAt)}>edited</span>
+        </span>
+      )
+    }
+
     return (
       <div className={commentClass}>
         {dropdownContent}
         <Avatar model={this.props.comment.author} title={this.props.comment.author.name} size="m" circle={true} />
-        <div className="Comment-author">
-          <strong>{this.props.comment.author.name}</strong>
+        <div className="Comment-details">
+          <strong className="Comment-author">{this.props.comment.author.name}</strong>
+          <time className="Comment-time" dateTime={DateFormatter.custom(this.props.comment.createdAt, 'YYYY-MM-DD hh:mm')}>{DateFormatter.dateTime(this.props.comment.createdAt)}</time>
+          {editedDisplay}
         </div>
         <p className="Comment-text" ref="commentText">
           {
