@@ -1,5 +1,16 @@
 # React Playground Changelog
 
+## [v1.9.0](https://github.com/macropodhq/react-playground/releases/tag/1.9.0)
+
+### Features
+
+* [#136](https://github.com/macropodhq/react-playground/pull/136): Add event (!isDiscussion) support for discussions.
+* [#135](https://github.com/macropodhq/react-playground/pull/135): Dropdown component can now be positioned to the right.
+
+### Fixes
+
+* [#134](https://github.com/macropodhq/react-playground/pull/134): Ensure comments editValue is controlled before user edits comment.
+
 ## [v1.8.5](https://github.com/macropodhq/react-playground/releases/tag/1.8.5)
 
 ### Features
