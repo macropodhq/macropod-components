@@ -8,6 +8,11 @@ require('./dropdown-menu.scss');
 module.exports = React.createClass({
   displayName: 'DropdownMenu',
 
+  propTypes: {
+    footer: React.PropTypes.renderable,
+    align: React.PropTypes.oneOf(['left', 'right'])
+  },
+
   render: function() {
 
     var dropdownMenuClass = {
