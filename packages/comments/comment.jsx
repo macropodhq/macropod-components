@@ -91,7 +91,8 @@ module.exports = React.createClass({
     var commentClass = cx({
       'Comment': true,
       'Comment--starred': this.state.stared,
-      'Comment--inputButtons': this.props.inputButtons
+      'Comment--inputButtons': this.props.inputButtons,
+      'Comment--notDiscussion': this.props.comment.isDiscussion === false
     });
 
     var replies = _.clone(this.props.replies).reverse();
@@ -146,24 +147,26 @@ module.exports = React.createClass({
           }
         </p>
 
-        <div className="Comment-replies">
-          {
-            replies.map(function(comment) {
-              return (
-                <CommentReply comment={comment} />
-              );
-            })
-          }
+        { this.props.comment.isDiscussion !== false &&
+          <div className="Comment-replies">
+            {
+              replies.map(function(comment) {
+                return (
+                  <CommentReply comment={comment} />
+                );
+              })
+            }
 
-          <div className="Comment-replies-new">
-            <form onSubmit={this.handleNewReply}>
-              <Textarea rows="1" value={this.state.replyValue} className="Comment-replies-new-input" placeholder="add a reply" onChange={this.handleReplyChange} onKeyDown={this.handleKeyDown.bind(null, this.handleNewReply)}></Textarea>
-              { this.props.inputButtons &&
-                <Button type="submit" disabled={!this.state.replyValue.length}>Reply</Button>
-              }
-            </form>
+            <div className="Comment-replies-new">
+              <form onSubmit={this.handleNewReply}>
+                <Textarea rows="1" value={this.state.replyValue} className="Comment-replies-new-input" placeholder="add a reply" onChange={this.handleReplyChange} onKeyDown={this.handleKeyDown.bind(null, this.handleNewReply)}></Textarea>
+                { this.props.inputButtons &&
+                  <Button type="submit" disabled={!this.state.replyValue.length}>Reply</Button>
+                }
+              </form>
+            </div>
           </div>
-        </div>
+        }
       </div>
     )
   }
