@@ -26,6 +26,11 @@ module.exports = React.createClass({
     e.preventDefault();
   },
 
+  toggleThirdMenu: function(e) {
+    this.setState({showThirdMenu: !this.state.showThirdMenu});
+    e.preventDefault();
+  },
+
   render: function() {
     return (
       <div className="DropdownMenuExample">
@@ -67,6 +72,19 @@ module.exports = React.createClass({
             <dd><a href="#">New Universe</a></dd>
             <dd><a href="#">Open&hellip;</a></dd>
             <dd><a href="#">Save</a></dd>
+          </dl>
+        </DropdownMenu>
+        <Button ref="thirdMenuButton" onClick={this.toggleThirdMenu}>
+          This is a really long button for testing right aligned dropdown menus
+        </Button>
+        <DropdownMenu
+          className="DropdownMenu--account"
+          anchor={this.refs.thirdMenuButton}
+          visible={this.state.showThirdMenu}
+          close={this.toggleThirdMenu}
+          align="right">
+          <dl>
+            <dd><a href="#">Stepping to the right</a></dd>
           </dl>
         </DropdownMenu>
       </div>
