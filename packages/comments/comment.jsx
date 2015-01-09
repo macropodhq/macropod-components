@@ -77,7 +77,10 @@ module.exports = React.createClass({
   },
 
   handleEditToggle: function() {
-    this.setState({editing: !this.state.editing}, function() {
+    this.setState({
+      editing: !this.state.editing,
+      editValue: this.props.comment.entry
+    }, function() {
       if (this.state.editing) {
         var editInput = this.refs.editInput.getDOMNode();
         editInput.focus();
