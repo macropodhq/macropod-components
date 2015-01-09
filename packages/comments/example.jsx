@@ -72,6 +72,15 @@ module.exports = React.createClass({
           editable: true,
           deletable: true,
           createdAt: '2015-01-07T11:04:01.453783131+11:00'
+        },
+        {
+          id: 7,
+          author: authors[0],
+          entry: 'This is some event',
+          isDiscussion: false,
+          editable: false,
+          deletable: false,
+          createdAt: '2015-01-07T11:04:01.453783131+11:00'
         }
       ]
     }
