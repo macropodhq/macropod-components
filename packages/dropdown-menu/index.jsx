@@ -12,13 +12,14 @@ module.exports = React.createClass({
 
     var dropdownMenuClass = {
       'DropdownMenu': true,
-      'DropdownMenu--withFooter': !!this.props.footer
+      'DropdownMenu--withFooter': !!this.props.footer,
+      'DroddownMenu--alignRight': this.props.align === 'right'
     };
 
     dropdownMenuClass[this.props.className] = true;
 
     return this.transferPropsTo(
-      <Popover className={React.addons.classSet(dropdownMenuClass)}>
+      <Popover className={React.addons.classSet(dropdownMenuClass)} align={this.props.align}>
         <div className="DropdownMenu-internal">
           {this.props.children}
 
