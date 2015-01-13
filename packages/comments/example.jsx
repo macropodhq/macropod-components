@@ -24,7 +24,7 @@ module.exports = React.createClass({
           id: 1,
           parentId: null,
           author: authors[2],
-          entry: 'Here\'s an example of the comment component!',
+          entry: 'Here\'s an example of the comment component!\nHere\'s a link: https://www.youtube.com/watch?v=bN5aW9AAIjQ',
           editable: true,
           deletable: true,
           createdAt: '2015-01-07T11:04:01.453783131+11:00',
@@ -34,7 +34,7 @@ module.exports = React.createClass({
           id: 2,
           parentId: 1,
           author: authors[1],
-          entry: 'This thing sure is neat!',
+          entry: 'This thing sure is neat! I hope it will still work for really, rather incredibly long pieces of text, and of course, my favourite website, http://www.longurl.de/redirect/scripts/data/save/transferred/user/cachedwekljfh93287kejf309284wekllkef8923knb09834fvb/3287468327476432589457/dfvbnbvjfdbcksvbkjdvbkldlkdcnksdvbkdvjbjdvksdjvndvkn/dkcvbh43568372156kdsnbfvmdbnkj0985dnvsdvkjh34tvf/99999999999999999/klejfhkwjefh9827498245wjkefhnkwejfn28903470923/wdkjfhwekjfhwkjfhekrjhgelrjghwef/1238763454095789216376542309548908234876/dfjwhefjwhegfwqhegdwejhfgiwef/abcdefghgterkgjergnrkfn7892634rkjl8907/mnbvcxyqwertzu987654321/redirect/wm/tzoidpjcgh',
           editable: false,
           deletable: false,
           createdAt: '2015-01-07T11:04:01.453783131+11:00'
@@ -67,14 +67,6 @@ module.exports = React.createClass({
         },
         {
           id: 6,
-          author: authors[0],
-          entry: 'This comment \nis over multiple lines',
-          editable: true,
-          deletable: true,
-          createdAt: '2015-01-07T11:04:01.453783131+11:00'
-        },
-        {
-          id: 7,
           author: authors[0],
           entry: 'This is some event',
           isDiscussion: false,
