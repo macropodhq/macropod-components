@@ -51,18 +51,18 @@ var packages = _.map(packageRequire.keys(), function(packagePath) {
 
 var packageContents = _.map(packages, package => <li key={package.path}><a href={'#' + package.name}>{package.friendlyName}</a></li>);
 var packages = _.map(packages, (package) => {
-  var example = packageRequire(package.path);
+  var Example = packageRequire(package.path);
 
-  return <Component key={package.path} package={package} ><example /></Component>;
+  return <Component key={package.path} package={package} ><Example /></Component>;
 });
 
-React.renderComponent(
+React.render(
   <div>
     <h1>React Playground</h1>
     <h2>Table of Contents</h2>
     <ul>
       {packageContents}
     </ul>
-    {packages}
+      {packages}
   </div>,
  getContainer('lol'));

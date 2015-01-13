@@ -9,7 +9,7 @@ module.exports = React.createClass({
   displayName: 'DropdownMenu',
 
   propTypes: {
-    footer: React.PropTypes.renderable,
+    footer: React.PropTypes.node,
     align: React.PropTypes.oneOf(['left', 'right'])
   },
 
@@ -23,8 +23,8 @@ module.exports = React.createClass({
 
     dropdownMenuClass[this.props.className] = true;
 
-    return this.transferPropsTo(
-      <Popover className={React.addons.classSet(dropdownMenuClass)} align={this.props.align}>
+    return (
+      <Popover {...this.props} className={React.addons.classSet(dropdownMenuClass)} align={this.props.align}>
         <div className="DropdownMenu-internal">
           {this.props.children}
 

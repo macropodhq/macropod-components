@@ -10,15 +10,19 @@
     "moment": "^2.8.3",
     "normalize.css": "~3.0.2",
     "open-sans": "git://github.com/bungeshea/open-sans.git",
-    "react": "^0.11.0",
-    "react-components": "git://github.com/macropodhq/react-components.git#fb9011e9",
-    "react-data-components": "^0.0.5",
+    "react": "^0.12.2",
+    "react-components": "git://github.com/Khan/react-components.git",
+    "react-widgets": "^2.1",
+    "normalize.css": "~3.0.2",
+    "react-data-components": "^0.1.0",
     "react-textarea-autosize": "^1.0.6",
-    "react-widgets": "^1.4.4",
     "react-window-mixins": "^0.0.5"
   },
   "devDependencies": {
     "macropod-tools": "git+ssh://git@github.com/macropodhq/macropod-tools.git"
+  },
+  "peerDependencies": {
+    "react": "^0.12.2"
   },
   "scripts": {
     "start": "macropod-start"

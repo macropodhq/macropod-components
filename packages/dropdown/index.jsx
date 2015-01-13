@@ -10,6 +10,6 @@ module.exports = React.createClass({
   displayName: 'Dropdown',
 
   render: function() {
-    return this.transferPropsTo(<Widgets.DropDownlist />);
+    return (<Widgets.DropdownList {...this.props} />);
   }
 });

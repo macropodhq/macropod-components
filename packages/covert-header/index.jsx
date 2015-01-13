@@ -52,11 +52,9 @@ module.exports = React.createClass({
     });
 
     return (
-      this.transferPropsTo(
-        <header className={covertHeaderClass} ref="header">
-          {this.props.children}
-        </header>
-      )
+      <header {...this.props} className={covertHeaderClass} ref="header">
+        {this.props.children}
+      </header>
     );
   }
 });

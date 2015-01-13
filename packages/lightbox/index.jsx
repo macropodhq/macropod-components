@@ -187,7 +187,7 @@ var Lightbox = module.exports = React.createClass({
 
   getDefaultProps: function() {
     return {
-      displayComponent: React.DOM.img,
+      displayComponent: React.createElement('img'),
       initialIndex: 0,
       onChange: noop,
       style: {},
@@ -250,7 +250,7 @@ var Lightbox = module.exports = React.createClass({
 
     var currentAsset = this.getCurrentAsset();
 
-    var container = Lightbox.containerFor(currentAsset.media);
+    var Container = Lightbox.containerFor(currentAsset.media);
 
     return (
       <div className={lightboxClass} style={this.props.style}>
@@ -271,7 +271,7 @@ var Lightbox = module.exports = React.createClass({
           </div>
 
           <div className="Lightbox-file">
-            <container asset={currentAsset} />
+            <Container asset={currentAsset} />
           </div>
 
         </div>

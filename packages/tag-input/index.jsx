@@ -10,6 +10,6 @@ module.exports = React.createClass({
   displayName: 'TagInput',
 
   render: function() {
-    return this.transferPropsTo(<Widgets.Select />);
+    return (<Widgets.Multiselect {...this.props} />);
   }
 });

@@ -8,10 +8,10 @@ require('./card.scss');
 
 var Card = React.createClass({
   propTypes: {
-    actions: React.PropTypes.arrayOf(React.PropTypes.renderable),
-    title: React.PropTypes.renderable,
-    headerContent: React.PropTypes.renderable,
-    children: React.PropTypes.renderable,
+    actions: React.PropTypes.arrayOf(React.PropTypes.node),
+    title: React.PropTypes.node,
+    headerContent: React.PropTypes.node,
+    children: React.PropTypes.node,
   },
 
   getInitialState: function() {

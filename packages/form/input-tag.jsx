@@ -17,11 +17,7 @@ module.exports = React.createClass({
         inputType="Tag"
         label={this.props.label}
         showLabel={this.props.showLabel}>
-        {
-          this.transferPropsTo(
-            <TagInput />
-          )
-        }
+            <TagInput {...this.props} /> 
       </InputWrapper>
     );
   },
