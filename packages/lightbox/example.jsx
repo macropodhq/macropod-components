@@ -17,6 +17,11 @@ var assets = [
     path: require('./images/tracks.jpg'),
   },
   {
+    media: 'image/png',
+    title: 'Icons',
+    path: require('./images/icons.png'),
+  },
+  {
     media: 'image/jpeg',
     title: 'Forest',
     path: require('./images/forest.jpg'),
@@ -25,7 +30,12 @@ var assets = [
     media: 'application/pdf',
     title: 'Model Graph',
     path: require('./images/model_graph.pdf'),
-  }
+  },
+  {
+    media: 'application/octet-stream',
+    title: 'Unpreviewable or Unrecognised Type',
+    path: require('./images/forest.jpg'),
+  },
 ];
 
 module.exports = React.createClass({
