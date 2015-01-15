@@ -32,7 +32,7 @@ var AssetIframe = React.createClass({
 var AssetLink = React.createClass({
   render: function() {
     return (
-      <a href={this.props.asset.path}>Download <em>{this.props.asset.title}</em></a>
+      <a href={this.props.asset.path} target="_blank">Download <em>{this.props.asset.title}</em></a>
     );
   },
 
