@@ -1,12 +1,18 @@
 # React Playground Changelog
 
+## [v1.10.0](https://github.com/macropodhq/react-playground/releases/tag/1.10.0)
+
+### Features
+
+* [#139](https://github.com/macropodhq/react-playground/pull/139): Add button group component.
+
 ## [v1.9.2](https://github.com/macropodhq/react-playground/releases/tag/1.9.2)
 
 ### Improvements
 
 * [#138](https://github.com/macropodhq/react-playground/pull/138): Show a checkerboard behind transparent images.
 
-## [v1.9.3](https://github.com/macropodhq/react-playground/releases/tag/1.9.3)
+## [v1.9.1](https://github.com/macropodhq/react-playground/releases/tag/1.9.1)
 
 ### Improvements
 
