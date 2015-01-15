@@ -1,5 +1,17 @@
 # React Playground Changelog
 
+## [v1.9.2](https://github.com/macropodhq/react-playground/releases/tag/1.9.2)
+
+### Improvements
+
+* [#138](https://github.com/macropodhq/react-playground/pull/138): Show a checkerboard behind transparent images.
+
+## [v1.9.3](https://github.com/macropodhq/react-playground/releases/tag/1.9.3)
+
+### Improvements
+
+* [#137](https://github.com/macropodhq/react-playground/pull/137): Allow comment text to wrap over multiple lines.
+
 ## [v1.9.0](https://github.com/macropodhq/react-playground/releases/tag/1.9.0)
 
 ### Features
