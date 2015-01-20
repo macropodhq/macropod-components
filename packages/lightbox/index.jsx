@@ -96,12 +96,14 @@ var Lightbox = module.exports = React.createClass({
     AssetImage: AssetImage,
     AssetIframe: AssetIframe,
     AssetLink: AssetLink,
+
     _containers: [
-      {media: "application/pdf", container: AssetIframe},
-      {media: "text/html", container: AssetIframe},
-      {media: "image/*", container: AssetImage},
-      {media: "*/*", container: AssetLink},
+      {media: 'application/pdf', container: AssetIframe},
+      {media: 'text/html', container: AssetIframe},
+      {media: 'image/*', container: AssetImage},
+      {media: '*/*', container: AssetLink},
     ],
+
     register: function register(media, container) {
       this.unregister(media);
 
@@ -111,8 +113,8 @@ var Lightbox = module.exports = React.createClass({
       });
 
       this._containers.sort(function(a, b) {
-        var ac = a.media.split("/", 2),
-            bc = b.media.split("/", 2);
+        var ac = a.media.split('/', 2),
+            bc = b.media.split('/', 2);
 
         if (ac[0] === '*' && bc[0] !== '*') {
           return 1;
@@ -133,6 +135,7 @@ var Lightbox = module.exports = React.createClass({
         return 0;
       });
     },
+
     unregister: function unregister(media) {
       for (var i = 0; i < this._containers.length; i++) {
         if (this._containers[i].media === media) {
@@ -141,10 +144,15 @@ var Lightbox = module.exports = React.createClass({
         }
       }
     },
+
     containerFor: function containerFor(media) {
+      if (typeof media !== 'string' || media.length < 1) {
+        media = 'application/octet-stream';
+      }
+
       for (var i = 0; i < this._containers.length; i++) {
-        var ac = this._containers[i].media.split("/", 2),
-            bc = media.split("/", 2);
+        var ac = this._containers[i].media.split('/', 2),
+            bc = media.split('/', 2);
 
         if (ac[0] === bc[0] && ac[1] === bc[1]) {
           return this._containers[i].container;
