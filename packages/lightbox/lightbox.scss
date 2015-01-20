@@ -32,13 +32,13 @@ $checkerboard-size: 10px;
       overflow: auto;
       position: relative;
 
-      > a {
+      .AssetLink {
         color: white;
         margin: $asset-margin $asset-margin * 2;
         display: inline-block;
       }
 
-      > img {
+      .AssetImage {
         max-width: 100%;
         // using border as faux padding so we can still use 100% max-width
         border-width: $asset-margin $asset-margin * 2;
@@ -51,9 +51,21 @@ $checkerboard-size: 10px;
           linear-gradient(45deg, $color-checkerboard 25%, transparent 25%, transparent 75%, $color-checkerboard 75%, $color-checkerboard);
         background-size: $checkerboard-size*2 $checkerboard-size*2;
         background-position: 0 0, $checkerboard-size $checkerboard-size;
+
+        &.AssetImage--zoomable {
+          cursor: zoom-in;
+
+          &.AssetImage--zoomed {
+            cursor: zoom-out;
+          }
+        }
+
+        &.AssetImage--zoomed {
+          max-width: none;
+        }
       }
 
-      > iframe {
+      .AssetIframe {
         background-color: white;
         width: 100%;
         height: 100%;

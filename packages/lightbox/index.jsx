@@ -1,14 +1,62 @@
 /** @jsx React.DOM */
-React = require('react/addons');
+
+var React = require('react/addons');
+var OnResize = require("react-window-mixins").OnResize;
+
 require('./lightbox.scss');
 
 var noop = function(){};
 
 var AssetImage = React.createClass({
+  mixins: [OnResize],
+
+  getInitialState: function() {
+    return {
+      zoomable: false,
+      zoomed: false,
+    };
+  },
+
+  toggleImageZoom: function() {
+    if (!this.state.zoomable) {
+      return;
+    }
+    this.setState({
+      zoomed: !this.state.zoomed
+    });
+  },
+
+  checkImageSize: function() {
+    var node = this.getDOMNode();
+    var parentElementWidth = node.parentNode
+      ? node.parentNode.clientWidth
+      : Infinity;
+
+    var zoomable = node.naturalWidth > parentElementWidth;
+
+    this.setState({
+      zoomable: zoomable,
+      zoomed: zoomable ? this.state.zoomed : false
+    });
+  },
+
+  handleImageLoad: function() {
+    this.checkImageSize();
+  },
+
+  onResize: function() {
+    this.checkImageSize();
+  },
+
   render: function() {
-    // TODO: Scaling / Panning
+    var imageClasses = React.addons.classSet({
+      'AssetImage': true,
+      'AssetImage--zoomed': this.state.zoomed,
+      'AssetImage--zoomable': this.state.zoomable
+    });
+
     return (
-      <img src={this.props.asset.path} />
+      <img className={imageClasses} src={this.props.asset.path} onClick={this.toggleImageZoom} onLoad={this.handleImageLoad} />
     );
   },
 
@@ -20,7 +68,7 @@ var AssetImage = React.createClass({
 var AssetIframe = React.createClass({
   render: function() {
     return (
-      <iframe src={this.props.asset.path} frameBorder="0" />
+      <iframe className="AssetIframe" src={this.props.asset.path} frameBorder="0" />
     );
   },
 
@@ -32,7 +80,7 @@ var AssetIframe = React.createClass({
 var AssetLink = React.createClass({
   render: function() {
     return (
-      <a href={this.props.asset.path} target="_blank">Download <em>{this.props.asset.title}</em></a>
+      <a className="AssetLink" href={this.props.asset.path} target="_blank">Download <em>{this.props.asset.title}</em></a>
     );
   },
 
