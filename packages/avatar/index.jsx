@@ -25,13 +25,14 @@ module.exports = React.createClass({
 
   getBackgroundImage: function(src, email) {
     var ratio = window.devicePixelRatio || 1;
+    var url = '';
+
     if (src !== '') {
       url = src;
     } else if (email !== '') {
       url = '//www.gravatar.com/avatar/' + md5(email) + '?d=blank&s=' + (sizes[this.props.size] * ratio).toString(10)
-    } else {
-      return '';
     }
+
     return 'url(' + url + ')';
   },
 
