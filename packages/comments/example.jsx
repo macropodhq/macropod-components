@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var _ = require('lodash');
+var _ = require('lodash-node');
 var Comments = require('./');
 var Button = require('../button');
 var Textarea = require('react-textarea-autosize');

@@ -1,5 +1,5 @@
 var keymaster = require('keymaster');
-var _ = require('lodash');
+var _ = require('lodash-node');
 
 module.exports = function(options) {
   return {

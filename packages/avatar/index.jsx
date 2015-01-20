@@ -1,7 +1,9 @@
 /** @jsx React.DOM */
 
 var md5 = require('MD5');
-React = require('react/addons');
+var React = require('react/addons');
+var _ = require('lodash-node');
+
 require('./avatar.scss');
 
 var sizes = {
