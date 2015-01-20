@@ -1,5 +1,11 @@
 # React Playground Changelog
 
+## [v1.10.1](https://github.com/macropodhq/react-playground/releases/tag/1.10.1)
+
+### Improvements
+
+* [#140](https://github.com/macropodhq/react-playground/pull/140): Allow zooming image assets in Lightbox.
+
 ## [v1.10.0](https://github.com/macropodhq/react-playground/releases/tag/1.10.0)
 
 ### Features
