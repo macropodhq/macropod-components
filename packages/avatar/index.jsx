@@ -2,6 +2,7 @@
 
 var md5 = require('MD5');
 var React = require('react/addons');
+var keyMirror = require('react/lib/keyMirror');
 var _ = require('lodash-node');
 
 require('./avatar.scss');
@@ -9,15 +10,40 @@ require('./avatar.scss');
 var sizes = {
   's': 20,
   'm': 35,
-  'l': 50
+  'l': 50,
+};
+
+var sizeConstants = keyMirror(sizes);
+
+var validateSize = function(props, propName, componentName) {
+  if (!sizeConstants[props[propName]]) {
+    return new Error('invalid avatar size');
+  }
 };
 
 module.exports = React.createClass({
   displayName: 'Avatar',
 
+  propTypes: {
+    size: validateSize,
+    firstName: React.PropTypes.string,
+    lastName: React.PropTypes.string,
+    src: React.PropTypes.string,
+    email: React.PropTypes.string,
+    circle: React.PropTypes.bool,
+    model: function() {
+      return new Error('the model attribute is depricated');
+    },
+  },
+
+  statics: {
+    sizes: sizeConstants,
+    validateSize: validateSize,
+  },
+
   getDefaultProps: function() {
     return {
-      size: 'm',
+      size: sizeConstants.m,
       firstName: '',
       lastName: '',
       src: '',
@@ -26,13 +52,13 @@ module.exports = React.createClass({
   },
 
   getBackgroundImage: function(src, email) {
-    var ratio = window.devicePixelRatio || 1;
+    var ratio = window && window.devicePixelRatio || 1;
     var url = '';
 
     if (src !== '') {
       url = src;
     } else if (email !== '') {
-      url = '//www.gravatar.com/avatar/' + md5(email) + '?d=blank&s=' + (sizes[this.props.size] * ratio).toString(10)
+      url = '//www.gravatar.com/avatar/' + md5(email) + '?d=blank&s=' + (sizes[this.props.size] * ratio).toString(10);
     }
 
     return 'url(' + url + ')';
@@ -43,7 +69,7 @@ module.exports = React.createClass({
   },
 
   getInitials: function(firstName, lastName) {
-    return firstName.charAt(0).toUpperCase() + lastName.charAt(0).toUpperCase()
+    return firstName.charAt(0).toUpperCase() + lastName.charAt(0).toUpperCase();
   },
 
   render: function() {
@@ -69,14 +95,14 @@ module.exports = React.createClass({
 
     var classSet = React.addons.classSet;
 
-    var containerClass = classSet({
+    var classes = {
       'Avatar': true,
       'Avatar--circle': !!this.props.circle,
       'Avatar--bordered': !!src,
-      'Avatar--s': this.props.size.toLowerCase() === 's',
-      'Avatar--m': this.props.size.toLowerCase() === 'm',
-      'Avatar--l': this.props.size.toLowerCase() === 'l'
-    });
+    };
+    classes['Avatar--' + this.props.size] = true;
+
+    var containerClass = classSet(classes);
 
     firstName = this.props.title || firstName;
     lastName = lastName || '';

@@ -11,9 +11,9 @@ module.exports = React.createClass({
   getInitialState: function() {
     return {
       showGuider: false,
-      guiderSuccess: "no idea yet",
-      guiderTitle: "You need to learn a thing!",
-      guiderContent: "Here's how to do the thing!",
+      guiderSuccess: 'no idea yet',
+      guiderTitle: 'You need to learn a thing!',
+      guiderContent: 'Here\'s how to do the thing!',
       guiderSteps: 4,
       guiderCurrent: 1,
     };
@@ -28,14 +28,26 @@ module.exports = React.createClass({
   handleClose: function() {
     this.setState({
       showGuider: false,
-      guiderSuccess: "nope",
+      guiderSuccess: 'nope',
     });
   },
 
   handleNext: function() {
     this.setState({
       showGuider: false,
-      guiderSuccess: "yep",
+      guiderSuccess: 'yep',
+    });
+  },
+
+  handleTitleChange: function(e) {
+    this.setState({
+      guiderTitle: e.target.value,
+    });
+  },
+
+  handleContentChange: function(e) {
+    this.setState({
+      guiderConent: e.target.value,
     });
   },
 

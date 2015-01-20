@@ -9,19 +9,29 @@ require('./avatar-with-pie.scss');
 module.exports = React.createClass({
   displayName: 'AvatarWithPie',
 
+  propTypes: {
+    size: Avatar.validateSize,
+    firstName: React.PropTypes.string,
+    lastName: React.PropTypes.string,
+    src: React.PropTypes.string,
+    email: React.PropTypes.string,
+    circle: React.PropTypes.bool,
+  },
+
   getDefaultProps: function() {
     return {
-      size: 'm',
+      size: Avatar.sizes.m,
     };
   },
 
   render: function() {
-    var containerClass = React.addons.classSet({
+    var classes = {
       'AvatarWithPie': true,
-      'AvatarWithPie--s': this.props.size.toLowerCase() === 's',
-      'AvatarWithPie--m': this.props.size.toLowerCase() === 'm',
-      'AvatarWithPie--l': this.props.size.toLowerCase() === 'l'
-    });
+    };
+
+    classes['AvatarWithPie--' + this.props.size] = true;
+    var containerClass = React.addons.classSet(classes);
+
     return (
       <span className={containerClass}>
         <Avatar

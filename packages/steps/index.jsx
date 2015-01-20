@@ -16,7 +16,7 @@ module.exports = React.createClass({
         "is-active": i === this.props.current - 1,
       });
 
-      children.push(<span className={classes}>{i + 1}</span>);
+      children.push(<span key={i} className={classes}>{i + 1}</span>);
     }
 
     return (

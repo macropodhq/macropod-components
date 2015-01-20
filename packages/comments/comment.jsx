@@ -3,6 +3,7 @@ var React = require('react/addons');
 var _ = require('lodash-node');
 var moment = require('moment');
 var Textarea = require('react-textarea-autosize');
+var classSet = React.addons.classSet;
 
 var DropdownMenu = require('../dropdown-menu');
 var Avatar = require('../avatar');
@@ -16,13 +17,20 @@ require('./comment.scss');
 module.exports = React.createClass({
   displayName: 'Comment',
 
+  propTypes: {
+    onReply: React.PropTypes.func,
+    onEdit: React.PropTypes.func,
+    onDelete: React.PropTypes.func,
+    inputButton: React.PropTypes.bool,
+  },
+
   getDefaultProps: function() {
     return {
       onReply: function() {},
       onEdit: function() {},
       onDelete: function() {},
       inputButtons: false
-    }
+    };
   },
 
   getInitialState: function() {
@@ -54,7 +62,10 @@ module.exports = React.createClass({
   },
 
   handleNewReply: function(e) {
-    e && e.preventDefault();
+    if (e) { // would e ever be undefined?
+      e.preventDefault();
+    }
+
     this.props.onReply(this.state.replyValue, this.props.comment.id);
     this.setState({replyValue: ''});
   },
@@ -64,13 +75,17 @@ module.exports = React.createClass({
   },
 
   handleEdit: function(e) {
-    e && e.preventDefault();
+    if (e) { // would e ever be undefined?
+      e.preventDefault();
+    }
+
     this.props.onEdit(this.props.comment.id, this.state.editValue);
     this.handleEditToggle();
   },
 
   handleKeyDown: function(callback, e) {
-    if (!e) e = window.event;
+    if (!e) e = window.event; // TODO: is this ever so? makes this harder to test
+
     var keyCode = e.keyCode || e.which;
     if (keyCode == '13' && !e.ctrlKey && !e.shiftKey){
       callback();
@@ -92,8 +107,7 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    var cx = React.addons.classSet;
-    var commentClass = cx({
+    var commentClass = classSet({
       'Comment': true,
       'Comment--starred': this.state.stared,
       'Comment--inputButtons': this.props.inputButtons,
@@ -126,7 +140,7 @@ module.exports = React.createClass({
         <span className="Comment-edited">
           <span data-tooltip={DateFormatter.dateTime(this.props.comment.updatedAt)}>edited</span>
         </span>
-      )
+      );
     }
 
     return (
@@ -157,7 +171,7 @@ module.exports = React.createClass({
             {
               replies.map(function(comment) {
                 return (
-                  <CommentReply comment={comment} />
+                  <CommentReply key={comment.id} comment={comment} />
                 );
               })
             }
@@ -173,6 +187,6 @@ module.exports = React.createClass({
           </div>
         }
       </div>
-    )
+    );
   }
 });

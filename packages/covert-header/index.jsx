@@ -20,6 +20,7 @@
 */
 
 React = require('react/addons');
+
 require('./covert-header.scss');
 var ScrollEvent = require('../scroll-event-mixin');
 var StyleUtilities = require('../style-utilities');
@@ -31,18 +32,7 @@ module.exports = React.createClass({
 
   getInitialState: function() {
     return {
-      style: {},
-      hide: false
-    }
-  },
-
-  componentWillMount: function() {
-    this.style = {};
-  },
-
-  getDefaultProps: function() {
-    return {
-      size: 'm'
+      hide: false,
     };
   },
 
@@ -63,7 +53,7 @@ module.exports = React.createClass({
 
     return (
       this.transferPropsTo(
-        <header className={covertHeaderClass} ref="header" style={this.state.style}>
+        <header className={covertHeaderClass} ref="header">
           {this.props.children}
         </header>
       )

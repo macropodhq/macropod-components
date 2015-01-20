@@ -7,6 +7,12 @@ require('./app-header.scss');
 module.exports = React.createClass({
   displayName: 'AppHeader',
 
+  propTypes: {
+    navLeft: React.PropTypes.renderable,
+    navRight: React.PropTypes.renderable,
+    title: React.PropTypes.renderable,
+  },
+
   render: function() {
     return (
       <header className="AppHeader">

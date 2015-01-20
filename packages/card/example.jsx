@@ -11,14 +11,14 @@ var CardExample = module.exports = React.createClass({
   render: function() {
     return (
       <div className="CardContainer">
-        <Card 
+        <Card
           title="Card with actions"
           actions={[
-            <dl>
+            <dl key={1}>
               <dd><a href="#">primary action 1</a></dd>
               <dd><a href="#">primary action 2</a></dd>
             </dl>,
-            <dl>
+            <dl key={2}>
               <dd><a href="#">secondary action</a></dd>
             </dl>
           ]}
@@ -29,8 +29,8 @@ var CardExample = module.exports = React.createClass({
           <p>content</p>
           <p>content</p>
         </Card>
-        
-        <Card 
+
+        <Card
           title="Card with header content"
           headerContent="something goes here"
         >
@@ -40,11 +40,11 @@ var CardExample = module.exports = React.createClass({
           <p>content</p>
           <p>content</p>
         </Card>
-        <Card 
+        <Card
           title="Project in Stack"
           headerContent="20 Tasks · 15 Members"
           actions={[
-            <dl>
+            <dl key={1}>
               <dd><a href="#">edit project</a></dd>
               <dd><a href="#">delete project</a></dd>
             </dl>
@@ -66,7 +66,7 @@ var CardExample = module.exports = React.createClass({
             <Avatar src="http://www.gravatar.com/avatar/12c884c7f3e99ac579e120318eb9d888?s=20" firstName="Matt" lastName="Milosavljevic" size="s" />
             <Avatar src="http://www.gravatar.com/avatar/31314479ddd7c881144bfe54d400bb22?s=20" firstName="James" lastName="Coleman" size="s" />
           </div>
-        </Card>        
+        </Card>
       </div>
     );
   }

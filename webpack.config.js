@@ -10,6 +10,9 @@ module.exports = {
     path: __dirname,
     filename: 'bundle.js',
   },
+  devtool: 'eval',
+  debug: true,
+  cache: true,
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
   ],
@@ -18,7 +21,7 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.jsx$/, loaders: ['react-hot', 'jsx'] },
+      { test: /\.jsx$/, loaders: ['react-hot', 'jsx?harmony'] },
       {
         test: /\.scss$/,
         loaders: [

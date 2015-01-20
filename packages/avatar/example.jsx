@@ -17,7 +17,7 @@ module.exports = React.createClass({
     return (
       <div>
         <h3>Square (default)</h3>
-        <Avatar src="http://www.gravatar.com/avatar/82dccacb221d0a037aa2b60f3cf94d5d?s=50" firstName="Nathan" lastName="Hutchison" size="l" />
+        <Avatar src="http://www.gravatar.com/avatar/82dccacb221d0a037aa2b60f3cf94d5d?s=50" firstName="Nathan" lastName="Hutchison" size={Avatar.sizes.l} />
         <Avatar src="http://www.gravatar.com/avatar/d27bae51ba163785869161126434ea56?s=35" firstName="Conrad" lastName="Pankoff" size="m" />
         <Avatar src="http://www.gravatar.com/avatar/12c884c7f3e99ac579e120318eb9d888?s=20" firstName="Matt" lastName="Milosavljevic" size="s" />
 
@@ -33,7 +33,7 @@ module.exports = React.createClass({
 
         <h3>Model-based</h3>
         <Avatar model={person} size="l" circle={true}/>
-        <Avatar model={person} size="m" circle={true}/>
+        <Avatar model={person} size={Avatar.sizes.m} circle={true}/>
         <Avatar model={person} size="s"/>
 
         <h3>No Image</h3>

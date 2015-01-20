@@ -27,7 +27,7 @@ module.exports = React.createClass({
         <br/><br/>
         <Button type="huedemo">Has background-color support</Button>
         <br/>
-        <Button type="huedemo" disabled={true}>Can be disabled!</Button>
+        <Button type="huedemo" disabled>Can be disabled!</Button>
       </div>
     );
   }
