@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var _ = require('lodash');
+var _ = require('lodash-node');
 
 require('./todo-list.scss');
 

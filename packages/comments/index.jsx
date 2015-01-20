@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 var React = require('react/addons');
-var _ = require('lodash');
+var _ = require('lodash-node');
 var DropdownMenu = require('../dropdown-menu');
 var Avatar = require('../avatar');
 var Comment = require('./comment');

@@ -6,17 +6,16 @@
     "MD5": "^1.2.1",
     "fluxxor": "^1.4.0",
     "keymaster": "^1.6.2",
-    "lodash": "^2.4.1",
+    "lodash-node": "^2.4.1",
+    "moment": "^2.8.3",
     "normalize.css": "~3.0.2",
     "open-sans": "git://github.com/bungeshea/open-sans.git",
     "react": "^0.11.0",
     "react-components": "git://github.com/macropodhq/react-components.git#fb9011e9",
-    "react-widgets": "^1.4.4",
-    "react-window-mixins": "^0.0.5",
-    "normalize.css": "~3.0.2",
     "react-data-components": "^0.0.5",
     "react-textarea-autosize": "^1.0.6",
-    "moment": "^2.8.3"
+    "react-widgets": "^1.4.4",
+    "react-window-mixins": "^0.0.5"
   },
   "devDependencies": {
     "autoprefixer-loader": "^1.0.0",

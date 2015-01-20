@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var _ = require('lodash');
+var _ = require('lodash-node');
 
 module.exports = React.createClass({
   displayName: 'TodoItem',

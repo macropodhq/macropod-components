@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 
-var _ = require('lodash');
+var _ = require('lodash-node');
 var React = require('react');
 
 require('open-sans/scss/open-sans.scss');

@@ -1,12 +1,14 @@
 /** @jsx React.DOM */
 var React = require('react/addons');
+var _ = require('lodash-node');
+var moment = require('moment');
+var Textarea = require('react-textarea-autosize');
+
 var DropdownMenu = require('../dropdown-menu');
 var Avatar = require('../avatar');
 var Button = require('../button');
 var CommentReply = require('./comment-reply');
-var Textarea = require('react-textarea-autosize');
 var DateFormatter = require('../datetime-format');
-var moment = require('moment');
 var Tooltip = require('../tooltip');
 
 require('./comment.scss');

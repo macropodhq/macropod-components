@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 var React = require('react/addons');
-var _ = require('lodash');
+var _ = require('lodash-node');
 var Layer = require('react-components/js/layered-component-mixin');
 var Popover = require('../popover');
 require('./dropdown-menu.scss');
