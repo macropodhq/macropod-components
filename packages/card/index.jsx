@@ -7,13 +7,18 @@ var Icon = require('../icon');
 require('./card.scss');
 
 var Card = React.createClass({
+  propTypes: {
+    actions: React.PropTypes.arrayOf(React.PropTypes.renderable),
+    title: React.PropTypes.renderable,
+    headerContent: React.PropTypes.renderable,
+    children: React.PropTypes.renderable,
+  },
 
   getInitialState: function() {
     return {
       showActions: false
     };
   },
-
 
   getDefaultProps: function() {
     return {

@@ -85,12 +85,12 @@ module.exports = React.createClass({
 
         <h3>Fullscreen</h3>
         <Button onClick={this.toggleFullscreenLightbox}>Open lightbox</Button>
-        &nbsp; image number: <select ref="assetSwitcher">
-          <option value="0" selected>1</option>
+        &nbsp; image number: <select ref="assetSwitcher" defaultValue="0">
+          <option value="0">1</option>
           <option value="1">2</option>
           <option value="2">3</option>
         </select>
-        {this.state.open && 
+        {this.state.open &&
           <Lightbox
             assets={assets}
             fullscreen={true}
@@ -103,4 +103,3 @@ module.exports = React.createClass({
     );
   }
 });
-

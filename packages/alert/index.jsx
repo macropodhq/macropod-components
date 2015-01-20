@@ -18,7 +18,7 @@ module.exports = React.createClass({
     cancelable: React.PropTypes.boolean,
     cancelText: React.PropTypes.string,
     okText: React.PropTypes.string,
-    okDisabled: React.PropTypes.boolean
+    okDisabled: React.PropTypes.boolean,
   },
 
   getInitialState: function() {

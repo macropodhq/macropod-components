@@ -21,6 +21,6 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    return <input value="press escape" ref="example"/>
+    return <input readOnly value="press escape" ref="example"/>;
   }
 });

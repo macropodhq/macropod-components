@@ -2,6 +2,7 @@
 var React = require('react/addons');
 var _ = require('lodash-node');
 var Layer = require('react-components/js/layered-component-mixin');
+
 require('./popover.scss');
 
 var PopoverContent = React.createClass({
@@ -112,7 +113,7 @@ var PopoverContent = React.createClass({
           {this.props.children}
         </div>
       </div>
-    )
+    );
   }
 });
 
