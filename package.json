@@ -18,7 +18,7 @@
     "react-window-mixins": "^0.0.5"
   },
   "devDependencies": {
-    "macropod-tools": "git+ssh://git@github.com/macropodhq/macropod-tools.git",
+    "macropod-tools": "git+ssh://git@github.com/macropodhq/macropod-tools.git"
   },
   "scripts": {
     "start": "macropod-start"
