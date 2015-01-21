@@ -1,5 +1,20 @@
 # React Playground Changelog
 
+## [v1.11.0](https://github.com/macropodhq/react-playground/releases/tag/1.11.0)
+
+_**Note**: As of version 1.12, react-playground will use reactjs 0.12. The 1.11.x family will be the last versions to use reactjs 0.11._
+
+### Features
+
+* [#144](https://github.com/macropodhq/react-playground/pull/144): Add `propTypes` validation and fix react warnings.
+* [#145](https://github.com/macropodhq/react-playground/pull/145): Port form components over from brief-client.
+
+### Improvements
+
+* [#141](https://github.com/macropodhq/react-playground/pull/141): Handle invalid media types in Lightbox.
+* [#142](https://github.com/macropodhq/react-playground/pull/142): Don't leak `url` in Avatar.
+* [#143](https://github.com/macropodhq/react-playground/pull/143): Replace `lodash` with `node-lodash` to avoid leaks.
+
 ## [v1.10.1](https://github.com/macropodhq/react-playground/releases/tag/1.10.1)
 
 ### Improvements
