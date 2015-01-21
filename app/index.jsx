@@ -33,7 +33,7 @@ var getContainer = function getContainer(name) {
   return el;
 };
 
-var packageRequire = require.context('./', true, /example\.jsx/);
+var packageRequire = require.context('../packages', true, /example\.jsx/);
 
 var packages = _.map(packageRequire.keys(), function(packagePath) {
 
