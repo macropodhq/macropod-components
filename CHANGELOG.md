@@ -1,5 +1,11 @@
 # React Playground Changelog
 
+## [v1.12.0](https://github.com/macropodhq/react-playground/releases/tag/1.12.0)
+
+### Changes
+
+* [#146](https://github.com/macropodhq/react-playground/pull/146): Upgrade to React 0.12, use [macropod-tools](https://github.com/macropodhq/macropod-tools) for building and webpack config.
+
 ## [v1.11.0](https://github.com/macropodhq/react-playground/releases/tag/1.11.0)
 
 _**Note**: As of version 1.12, react-playground will use reactjs 0.12. The 1.11.x family will be the last versions to use reactjs 0.11._
