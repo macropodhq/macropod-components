@@ -8,9 +8,9 @@ module.exports = React.createClass({
   displayName: 'AppHeader',
 
   propTypes: {
-    navLeft: React.PropTypes.renderable,
-    navRight: React.PropTypes.renderable,
-    title: React.PropTypes.renderable,
+    navLeft: React.PropTypes.node,
+    navRight: React.PropTypes.node,
+    title: React.PropTypes.node,
   },
 
   render: function() {

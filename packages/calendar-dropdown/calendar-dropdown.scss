@@ -70,7 +70,7 @@ $list-border-hover: $state-border-hover;
   }
 
   &.rw-state-readonly,
-  &.rw-state-readonly > .rw-select-wrapper {
+  &.rw-state-readonly > .rw-multiselect-wrapper {
     cursor: not-allowed;
   }
 
@@ -158,7 +158,7 @@ $list-border-hover: $state-border-hover;
   border: 0;
 }
 
-.rw-date-picker {
+.rw-datepicker {
   padding-right: 1.9em;
 
   > .rw-select > .rw-btn {
@@ -212,7 +212,7 @@ $list-border-hover: $state-border-hover;
   &.rw-has-both {
     padding-right: 3.8em;
 
-    &.rw-rtl { 
+    &.rw-rtl {
       padding-right: 0;
       padding-left: 3.8em;
     }
@@ -220,7 +220,7 @@ $list-border-hover: $state-border-hover;
 
   &.rw-has-both > .rw-select {
     width: 3.8em;
-    height: 100%; 
+    height: 100%;
   }
 }
 

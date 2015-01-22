@@ -17,7 +17,7 @@ module.exports = React.createClass({
     var buttonClass = 'Button Button--' + this.props.type;
 
     return (
-      this.transferPropsTo(<button className={buttonClass}>{this.props.children}</button>)
+      <button {...this.props} className={buttonClass}>{this.props.children}</button>
     );
   }
 });

@@ -25,7 +25,8 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    return this.transferPropsTo(<DataTable
+    return (<DataTable
+      {...this.props}
       className="Table"
       initialPageLength={this.props.initialPageLength || this.props.initialData.length}
       pageLengthOptions={this.props.pageLengthOptions}

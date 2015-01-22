@@ -6,7 +6,7 @@ $color-option-hover: $color-gallery;
 $color-option-text: $color-scorpion;
 $color-glow: $color-border;
 
-.rw-select-list {
+.rw-multiselect {
   position: relative;
 
   &:focus, *:focus {
@@ -20,7 +20,7 @@ $color-glow: $color-border;
     background: none;
   }
 
-  .rw-select-wrapper {
+  .rw-multiselect-wrapper {
     border: 1px solid $color-border;
     border-radius: 3px;
     padding: 5px;
@@ -28,7 +28,7 @@ $color-glow: $color-border;
     @extend %clearfix;
   }
 
-  .rw-tag-list {
+  .rw-multiselect-taglist {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -83,7 +83,7 @@ $color-glow: $color-border;
   }
 
   &.rw-open {
-    .rw-select-wrapper {
+    .rw-multiselect-wrapper {
       box-shadow: 0 0px 5px $color-glow;
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;

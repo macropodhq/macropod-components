@@ -16,11 +16,7 @@ module.exports = React.createClass({
         inputType="text"
         label={this.props.label}
         showLabel={this.props.showLabel}>
-        {
-          this.transferPropsTo(
-            <input type="text" id={'Input--text--' + camelCaseLabel} className={'Input Input--text Input--text--' + camelCaseLabel} />
-          )
-        }
+          <input {...this.props} type="text" id={'Input--text--' + camelCaseLabel} className={'Input Input--text Input--text--' + camelCaseLabel} />
       </InputWrapper>
     );
   },

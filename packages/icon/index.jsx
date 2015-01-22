@@ -27,7 +27,7 @@ module.exports = React.createClass({
   getDefaultProps: function() {
     return {
       type: iconConstants['arrow-down'],
-      component: React.DOM.i,
+      component: React.createFactory('i'),
     };
   },
 

@@ -10,8 +10,8 @@ module.exports = React.createClass({
   displayName: 'Calendar',
 
   render: function() {
-    return this.transferPropsTo(
-      <Widgets.Calendar />
+    return (
+      <Widgets.Calendar {...this.props} />
     );
   }
 });

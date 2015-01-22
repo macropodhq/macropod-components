@@ -11,8 +11,8 @@ module.exports = React.createClass({
   displayName: 'CalendarDropdown',
 
   render: function() {
-    return this.transferPropsTo(
-      <Widgets.DateTimePicker />
+    return (
+      <Widgets.DateTimePicker {...this.props} />
     );
   }
 });

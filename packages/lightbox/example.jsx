@@ -59,10 +59,10 @@ module.exports = React.createClass({
 
   render: function() {
     function assetMapper(asset) {
-      var container = Lightbox.containerFor(asset.contentType);
+      var Container = Lightbox.containerFor(asset.contentType);
 
       return (
-        <container asset={asset} />
+        <Container asset={asset} />
       );
     }
 
