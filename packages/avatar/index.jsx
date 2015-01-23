@@ -112,9 +112,9 @@ module.exports = React.createClass({
     return (
       <span title={firstName + '’s avatar'}
         className={containerClass}
-        style={{'background-color': this.getColor(firstName + lastName)}}>
+        style={{backgroundColor: this.getColor(firstName + lastName)}}>
         <span className="Avatar-initials" aria-hidden="true">{this.getInitials(firstName, lastName)}</span>
-        <span className="Avatar-image" aria-hidden="true" style={{'background-image': this.getBackgroundImage(src, email)}}></span>
+        <span className="Avatar-image" aria-hidden="true" style={{backgroundImage: this.getBackgroundImage(src, email)}}></span>
       </span>
     );
   }
