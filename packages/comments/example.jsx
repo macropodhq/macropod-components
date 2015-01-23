@@ -127,7 +127,7 @@ module.exports = React.createClass({
   render: function() {
     return (
       <div>
-        <Button style={{'margin-bottom': '10px'}} onClick={this.handleButtonToggle}>{this.state.inputButtons ? 'Hide buttons' : 'Show Buttons'}</Button><br />
+        <Button style={{marginBottom: '10px'}} onClick={this.handleButtonToggle}>{this.state.inputButtons ? 'Hide buttons' : 'Show Buttons'}</Button><br />
         <form onSubmit={this.handleNewDiscussion}>
           <Textarea rows="1" ref="newDiscussionInput" onKeyDown={this.handleKeyDown.bind(null, this.handleNewDiscussion)} placeholder="add new discussion"></Textarea>
           { this.state.inputButtons &&
