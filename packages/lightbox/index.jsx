@@ -89,7 +89,7 @@ var AssetLink = React.createClass({
   },
 });
 
-var Lightbox = module.exports = React.createClass({
+var Lightbox = React.createClass({
   displayName: 'Lightbox',
 
   statics: {
@@ -279,3 +279,5 @@ var Lightbox = module.exports = React.createClass({
     );
   }
 });
+
+module.exports = Lightbox;
