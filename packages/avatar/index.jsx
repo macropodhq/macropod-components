@@ -31,8 +31,10 @@ module.exports = React.createClass({
     src: React.PropTypes.string,
     email: React.PropTypes.string,
     circle: React.PropTypes.bool,
-    model: function() {
-      return new Error('the model attribute is depricated');
+    model: function(props, propName) {
+      if (propName in props) {
+        return new Error('Avatar\'s model property is deprecated. Please use the explicit properties instead.');
+      }
     },
   },
 
