@@ -8,12 +8,6 @@ module.exports = React.createClass({
   displayName: 'AvatarExample',
 
   render: function() {
-    var person = {
-      avatar_url: "http://gravatar.com/avatar/57e7abbdae964dbab015cdadf581ad22",
-      id: 1,
-      name: "matt.milosavljevic",
-      user_id: 1
-    };
     return (
       <div>
         <h3>Square (default)</h3>
@@ -30,11 +24,6 @@ module.exports = React.createClass({
         <Avatar email="matt@bugherd.com" firstName="Matt" lastName="Milosavljevic" size="l" circle={true} />
         <Avatar email="james.coleman@bugherd.com" firstName="James" lastName="Coleman" size="m" />
         <Avatar email="nathan@bugherd.com" firstName="Nathan" lastName="Hutchison" size="s" circle={true} />
-
-        <h3>Model-based</h3>
-        <Avatar model={person} size="l" circle={true}/>
-        <Avatar model={person} size={Avatar.sizes.m} circle={true}/>
-        <Avatar model={person} size="s"/>
 
         <h3>No Image</h3>
         <Avatar firstName="Alan" lastName="Downie" size="l" />
