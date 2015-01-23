@@ -6,7 +6,7 @@ var Avatar = require('../avatar');
 var Card = require('./');
 require('./example.scss');
 
-var CardExample = module.exports = React.createClass({
+var CardExample = React.createClass({
 
   render: function() {
     return (
@@ -71,3 +71,5 @@ var CardExample = module.exports = React.createClass({
     );
   }
 });
+
+module.exports = CardExample;
