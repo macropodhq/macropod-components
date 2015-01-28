@@ -1,4 +1,4 @@
-# React Playground
+# Macropod Components
 
 This is a library of components that we use at Macropod.
 
@@ -14,21 +14,19 @@ To check you have it installed, you can run `node -v` and `npm -v`. Both should 
 
 ## Usage
 
-To use the Playground packages in a Node.js-based project, you can do the following;
-
-_**Note**: at this point, it is expected that you have [SSH access to GitHub configured](https://help.github.com/articles/generating-ssh-keys/) and access to the repository._
+To use the Macropod packages in a Node.js-based project, you can do the following;
 
 ```sh
-npm install --save-dev "git+ssh://git@github.com/macropodhq/react-playground.git#d8f3545"
+npm install --save-dev "git://github.com/macropodhq/macropod-components.git#1.12.0"
 ```
 
-_**Note**: You can substitute `d8f3545` in this command for the commit sha1 of any version of the project you want to use._
+_**Note**: You can substitute `#1.12.0` in this command for the commit sha1 or tag of any version of the project you want to use._
 
 You can then import the modules into your project by name using `require`;
 
 ```javascript
-var Avatar = require('react-playground/packages/avatar');
-var Button = require('react-playground/packages/button');
+var Avatar = require('macropod-components/packages/avatar');
+var Button = require('macropod-components/packages/button');
 ```
 
 ## Running the Playground
