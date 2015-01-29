@@ -1,4 +1,17 @@
-# React Playground Changelog
+# Macropod Components Changelog
+
+## [v1.12.1](https://github.com/macropodhq/react-playground/releases/tag/1.12.1)
+
+### Changes
+
+* [#153](https://github.com/macropodhq/react-playground/pull/153): Rename to `macropod-components`.
+
+### Improvements
+
+* [#148](https://github.com/macropodhq/react-playground/pull/148): Improve the `model` prop deprecation warning.
+* [#149](https://github.com/macropodhq/react-playground/pull/149): Fix newly invalid style declarations.
+* [#150](https://github.com/macropodhq/react-playground/pull/150): Rearrange exports to make warnings more useful.
+* [#151](https://github.com/macropodhq/react-playground/pull/151): Stop using Avatar `model` property, remove example.
 
 ## [v1.12.0](https://github.com/macropodhq/react-playground/releases/tag/1.12.0)
 
