@@ -31,6 +31,18 @@ $color-calendar-hover-date: $color-gallery;
     padding-right: 10px;
   }
 
+  .rw-i {
+    display: inline-block;
+    font-family: RwWidgets;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1em;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   .rw-i-caret-down:after { content: '\e801'; }
   .rw-i-caret-up:after { content: '\e800'; }
   .rw-i-caret-left:after { content: '\e807';  }
