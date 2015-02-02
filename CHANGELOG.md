@@ -1,5 +1,12 @@
 # Macropod Components Changelog
 
+## [v1.12.2](https://github.com/macropodhq/react-playground/releases/tag/1.12.2)
+
+### Improvements
+
+* [#154](https://github.com/macropodhq/react-playground/pull/154): Improve compatibility with react-widgets.
+* [#155](https://github.com/macropodhq/react-playground/pull/155): Update .gitignore to remove `dist` directory.
+
 ## [v1.12.1](https://github.com/macropodhq/react-playground/releases/tag/1.12.1)
 
 ### Changes
