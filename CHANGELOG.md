@@ -1,5 +1,11 @@
 # Macropod Components Changelog
 
+## [v1.12.3](https://github.com/macropodhq/react-playground/releases/tag/1.12.3)
+
+### Improvements
+
+* [#154](https://github.com/macropodhq/macropod-components/pull/156): Extend button api and type attribute deprecation.
+
 ## [v1.12.2](https://github.com/macropodhq/react-playground/releases/tag/1.12.2)
 
 ### Improvements
