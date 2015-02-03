@@ -25,9 +25,15 @@ module.exports = React.createClass({
         <br/>
         Clicked {this.state.count} time{this.state.count === 1 ? '' : 's'}
         <br/><br/>
-        <Button type="huedemo">Has background-color support</Button>
+        <Button className="Button--huedemo">Has the ability to hack in variants</Button>
         <br/>
-        <Button type="huedemo" disabled>Can be disabled!</Button>
+        <Button disabled>Can be disabled!</Button>
+        <br/>
+        <Button small>Can be small!</Button>
+        <br/>
+        <Button success>Can be success!</Button>
+        <br/>
+        <Button cancel>Can be cancel!</Button>
       </div>
     );
   }

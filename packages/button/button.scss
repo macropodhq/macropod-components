@@ -1,6 +1,19 @@
+@import "colors";
+
 $button-font-family: 'Open Sans', 'Helvetica Neue', 'Arial', 'Helvetica', 'sans-serif' !default;
 $button-font-weight: 400 !default;
 $button-font-size: .8em !default;
+
+$color-button-default: $color-white !default;
+$color-button-default-background: $color-fountain-blue !default;
+
+$color-button-success: $color-white !default;
+$color-button-success-background: $color-sushi !default;
+
+$color-button-cancel: $color-white !default;
+$color-button-cancel-background: $color-alizarin-crimson !default;
+
+$color-button-skeleton: $color-scorpion !default;
 
 .Button {
   display: inline-block;
@@ -15,8 +28,8 @@ $button-font-size: .8em !default;
   font-weight: $button-font-weight;
   text-align: center;
   text-shadow: 0 1px 0 rgba(#000, .15);
-  color: white;
-  background-color: grey;
+  color: $color-button-default;
+  background-color: $color-button-default-background;
   background-image: linear-gradient(to bottom, rgba(#000, 0) 50%, rgba(#000, .1) 100%);
   white-space: nowrap;
   user-select: none;
@@ -34,4 +47,25 @@ $button-font-size: .8em !default;
   &:hover {
     opacity: .9;
   }
+}
+
+.Button--success {
+  color: $color-button-success;
+  background-color: $color-button-success-background;
+}
+
+.Button--cancel {
+  color: $color-button-cancel;
+  background-color: $color-button-cancel-background;
+}
+
+.Button--skeleton {
+  color: $color-button-skeleton;
+  background-color: transparent;
+}
+
+.Button--small {
+  padding: 0 1em;
+  height: 2em;
+  line-height: 2em;
 }
