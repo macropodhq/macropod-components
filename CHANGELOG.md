@@ -1,10 +1,17 @@
 # Macropod Components Changelog
 
+## [v1.12.4](https://github.com/macropodhq/react-playground/releases/tag/1.12.4)
+
+### Improvements
+
+* [#157](https://github.com/macropodhq/macropod-components/pull/157): Add overflow to dropdown component.
+* [#158](https://github.com/macropodhq/macropod-components/pull/158): Constrain images vertically in lightbox.
+
 ## [v1.12.3](https://github.com/macropodhq/react-playground/releases/tag/1.12.3)
 
 ### Improvements
 
-* [#154](https://github.com/macropodhq/macropod-components/pull/156): Extend button api and type attribute deprecation.
+* [#156](https://github.com/macropodhq/macropod-components/pull/156): Extend button api and type attribute deprecation.
 
 ## [v1.12.2](https://github.com/macropodhq/react-playground/releases/tag/1.12.2)
 
