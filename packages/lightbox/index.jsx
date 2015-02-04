@@ -31,8 +31,11 @@ var AssetImage = React.createClass({
     var parentElementWidth = node.parentNode
       ? node.parentNode.clientWidth
       : Infinity;
+    var parentElementHeight = node.parentNode
+      ? node.parentNode.clientHeight
+      : Infinity;
 
-    var zoomable = node.naturalWidth > parentElementWidth;
+    var zoomable = node.naturalWidth > parentElementWidth || node.naturalHeight > parentElementHeight;
 
     this.setState({
       zoomable: zoomable,
