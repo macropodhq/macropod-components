@@ -82,6 +82,7 @@ $color-gradient-dark-stop: $color-alto;
     border: 1px solid $color-border;
     border-top: 0;
     border-radius: 0 0 5px 5px;
+    overflow-y: auto;
 
     li {
       padding: 6px;
