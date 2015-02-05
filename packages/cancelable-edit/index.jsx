@@ -9,11 +9,13 @@ require('./style');
 
 var CancelableEdit = React.createClass({
   propTypes: {
+    warnMessage: React.PropTypes.string,
     displayName: React.PropTypes.string,
     small: React.PropTypes.bool,
     allowEmpty: React.PropTypes.bool,
     onSave: React.PropTypes.func.isRequired,
   },
+
   getInitialState() {
     return {
       editing: false,
@@ -23,6 +25,8 @@ var CancelableEdit = React.createClass({
 
   getDefaultProps() {
     return {
+      warnMessage: 'Are you sure you want to discard your changes?',
+      displayName: '',
       small: false,
       allowEmpty: false,
       onSave: () => {},
@@ -37,7 +41,7 @@ var CancelableEdit = React.createClass({
 
   handleCancel(e) {
     if (this.props.value === this.state.pendingValue ||
-      confirm('Are you sure you want to discard your changes?')
+      confirm(this.props.warnMessage)
     ) {
       this.setState({editing: false});
     }
