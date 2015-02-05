@@ -22,7 +22,6 @@ $color-cancelable-edit-hover-background: darken($color-white, 1) !default;
   cursor: text;
 
   &[readonly="readonly"], &[readonly] {
-    //border: 1px solid transparent;
     background: transparent;
 
     &:hover {

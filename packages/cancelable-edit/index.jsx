@@ -78,7 +78,7 @@ var CancelableEdit = React.createClass({
       <div>
         <label style={{'display': 'none'}}>{this.props.name}</label>
         <Textarea
-          className={'CancelableEdit'}
+          className="CancelableEdit"
           value={value}
           onClick={this.handleClick}
           onChange={this.handleChange}
