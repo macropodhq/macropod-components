@@ -19,17 +19,28 @@ module.exports = React.createClass({
   displayName: 'KeyMixinExample',
   mixins: [KeyMixin],
 
+  getInitialState() {
+    return {
+      value: 'Hit escape or meta+enter',
+    }
+  },
+
   handleEscape(e) {
-    alert('escape');
+    this.setState({
+      value: 'You hit escape!',
+    });
   },
 
   handleEnter(e) {
-    alert('enter');
+    this.setState({
+      value: 'You hit meta+enter',
+    });
   },
 
   render() {
     return (
       <input
+        value={this.state.value}
         onKeyDown={this.keyHandler(keys)}
       />
     );
