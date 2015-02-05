@@ -31,9 +31,7 @@ module.exports = {
     if (callbacks.length > 0) return false;
   },
 
-  callOnKeyDown(keyMask) {
-    return {
-      onKeyDown: this._keyMixinHandleKeyDown.bind(null, keyMask)
-    };
+  bindKeys(keyMask) {
+    return this._keyMixinHandleKeyDown.bind(null, keyMask);
   },
 };

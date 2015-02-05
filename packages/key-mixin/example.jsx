@@ -2,7 +2,7 @@ var React = require('react');
 
 var KeyMixin = require('./');
 
-var hotKeys = [
+var keys = [
   {
     mask: {key: 'Enter', metaKey: true, altKey: false}, //osx
     cb: 'handleEnter',
@@ -30,7 +30,7 @@ module.exports = React.createClass({
   render() {
     return (
       <input
-        {...this.callOnKeyDown(hotKeys)}
+        onKeyDown={this.bindKeys(keys)}
       />
     );
   }
