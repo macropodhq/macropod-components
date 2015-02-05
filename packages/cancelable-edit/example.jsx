@@ -25,6 +25,7 @@ module.exports = React.createClass({
 {`<CancelableEdit
     value={this.state.name}
     onSave={this.handleNameSave}
+    autoSize
     placeholder="Name"
     displayName="Name"
   />`}
@@ -32,6 +33,7 @@ module.exports = React.createClass({
         <CancelableEdit
           value={this.state.name}
           onSave={this.handleNameSave}
+          autoSize
           displayName="Name"
           placeholder="Name"
         />

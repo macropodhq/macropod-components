@@ -28,6 +28,7 @@ var CancelableEdit = React.createClass({
     displayName: React.PropTypes.string,
     small: React.PropTypes.bool,
     allowEmpty: React.PropTypes.bool,
+    autoSize: React.PropTypes.bool,
     onSave: React.PropTypes.func.isRequired,
   },
 
@@ -44,6 +45,7 @@ var CancelableEdit = React.createClass({
       displayName: '',
       small: false,
       allowEmpty: false,
+      autoSize: false,
       onSave: () => {},
     };
   },
@@ -88,7 +90,7 @@ var CancelableEdit = React.createClass({
   render() {
     var value = this.state.editing ? this.state.pendingValue : this.props.value;
 
-    var Textarea = this.props.autosize ? AutoSizeTextArea : 'textarea';
+    var Textarea = this.props.autoSize ? AutoSizeTextArea : 'textarea';
     return (
       <div>
         <label style={{'display': 'none'}}>{this.props.name}</label>
