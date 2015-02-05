@@ -4,10 +4,25 @@ var React = require('react/addons');
 var AutoSizeTextArea = require('react-textarea-autosize');
 
 var Button = require('../button');
+var KeyMixin = require('../key-mixin');
 
 require('./style');
 
+var hotKeys = [
+  {
+    mask: {key: 'Enter', metaKey: true, altKey: false}, //osx
+    cb: 'handleSave',
+  },{
+    mask: {key: 'Enter', ctrlKey: true, altKey: false}, //windows
+    cb: 'handleSave',
+  },{
+    mask: {key: 'Escape', ctrlKey: false, altKey: false},
+    cb: 'handleCancel',
+  },
+];
+
 var CancelableEdit = React.createClass({
+  mixins: [KeyMixin],
   propTypes: {
     warnMessage: React.PropTypes.string,
     displayName: React.PropTypes.string,
@@ -78,6 +93,7 @@ var CancelableEdit = React.createClass({
       <div>
         <label style={{'display': 'none'}}>{this.props.name}</label>
         <Textarea
+          onKeyDown={this.keyHandler(hotKeys)}
           className="CancelableEdit"
           value={value}
           onClick={this.handleClick}
