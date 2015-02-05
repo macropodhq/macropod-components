@@ -15,6 +15,10 @@ $color-button-cancel-background: $color-alizarin-crimson !default;
 
 $color-button-skeleton: $color-scorpion !default;
 
+.Button + .Button {
+  margin-left: 5px;  // pad buttons when they are next to each other
+}
+
 .Button {
   display: inline-block;
   border: 0;
