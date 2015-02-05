@@ -23,10 +23,10 @@ module.exports = React.createClass({
       <div>
         <pre> {/*lol es6 literals are too literal */}
 {`<CancelableEdit
-   value={this.state.name}
-   onSave={this.handleNameSave}
-   placeholder="Name"
-   allowEmpty={false}
+    value={this.state.name}
+    onSave={this.handleNameSave}
+    placeholder="Name"
+    displayName="Name"
   />`}
         </pre>
         <CancelableEdit
@@ -34,7 +34,6 @@ module.exports = React.createClass({
           onSave={this.handleNameSave}
           displayName="Name"
           placeholder="Name"
-          allowEmpty
         />
       </div>
     );
