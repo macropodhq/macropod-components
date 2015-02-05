@@ -1,5 +1,3 @@
-// Pending a decent name!
-
 var React = require('react/addons');
 var AutoSizeTextArea = require('react-textarea-autosize');
 
@@ -65,6 +63,8 @@ var CancelableEdit = React.createClass({
   handleCancel(e) {
     if (this.unsaved()) {
       this.setState({showAlert: true});
+    } else {
+      this.setState({editing: false});
     }
   },
 
