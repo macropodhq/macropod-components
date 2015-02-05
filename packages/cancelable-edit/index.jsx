@@ -3,6 +3,7 @@
 var React = require('react/addons');
 var AutoSizeTextArea = require('react-textarea-autosize');
 
+var Alert = require('../alert');
 var Button = require('../button');
 var KeyMixin = require('../key-mixin');
 
@@ -36,6 +37,7 @@ var CancelableEdit = React.createClass({
     return {
       editing: false,
       pendingValue: '',
+      showAlert: false,
     };
   },
 
@@ -56,18 +58,20 @@ var CancelableEdit = React.createClass({
     });
   },
 
+  handleConfirmCancel() {
+    this.setState({editing: false, showAlert: false});
+  },
+
   handleCancel(e) {
-    if (this.props.value === this.state.pendingValue ||
-      confirm(this.props.warnMessage)
-    ) {
-      this.setState({editing: false});
+    if (this.unsaved()) {
+      this.setState({showAlert: true});
     }
   },
 
   handleSave() {
     if (this.props.allowEmpty || (this.state.pendingValue !== '')) {
       this.setState({
-        editing: false
+        editing: false,
       },
         () => this.props.onSave(this.state.pendingValue)
       );
@@ -112,6 +116,15 @@ var CancelableEdit = React.createClass({
             <Button small={this.props.small} success onClick={this.handleSave}>
               Save {this.props.displayName}
             </Button>
+            {this.state.showAlert &&
+              <Alert
+                  cancelable
+                  onOk={this.handleConfirmCancel}
+                  onCancel={this.setState.bind(this, {showAlert: false})}
+                >
+                {this.props.warnMessage}
+              </Alert>
+            }
           </div>
         }
       </div>
