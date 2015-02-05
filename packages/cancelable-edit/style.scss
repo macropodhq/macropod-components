@@ -1,0 +1,49 @@
+@import "colors";
+
+$cancelable-edit-font-weight: 400 !default;
+
+$color-cancelable-edit: $color-scorpion !default;
+$color-cancelable-edit-border: $color-catskill-white !default;
+$color-cancelable-edit-background: darken($color-white, 1) !default;
+$color-cancelable-edit-hover-background: darken($color-white, 1) !default;
+
+.CancelableEdit {
+  line-height: 1.3em;
+  color: $color-cancelable-edit;
+  font-weight: $cancelable-edit-font-weight;
+  border: 1px solid $color-cancelable-edit-border;
+  background-color: $color-cancelable-edit-background;
+  outline: 0;
+  resize: none;
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 3px;
+  padding: 10px;
+  cursor: text;
+
+  &[readonly] {
+    background: transparent;
+
+    &:hover {
+      background: $color-cancelable-edit-hover-background;
+      cursor: pointer;
+    }
+  }
+}
+
+.CancelableEdit--em{
+  font-size: 28px;
+  font-weight: $cancelable-edit-font-weight;
+  line-height: 1.5em;
+  letter-spacing: -0.05em;
+}
+
+.CancelableEdit-controls {
+  overflow: hidden;
+  padding: 0 0 10px;
+  border-bottom: 1px solid $color-cancelable-edit-border;
+  margin: 2px 0 0 0;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
+}
