@@ -17,7 +17,9 @@ var _ = require('lodash-node');
 
 module.exports = {
   _keyMixinHandleKeyDown(eventMaskCbPairs, e) {
-    if (!_.isArray(eventMaskCbPairs)) eventMaskCbPairs = [eventMaskCbPairs];
+    if (!_.isArray(eventMaskCbPairs)) {
+      eventMaskCbPairs = [eventMaskCbPairs];
+    }
 
     var callbacks = _.map(eventMaskCbPairs,
       (value) => _.all(value.mask,
@@ -31,7 +33,7 @@ module.exports = {
     if (callbacks.length > 0) return false;
   },
 
-  bindKeys(keyMask) {
+  keyHandler(keyMask) {
     return this._keyMixinHandleKeyDown.bind(null, keyMask);
   },
 };

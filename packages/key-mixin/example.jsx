@@ -30,7 +30,7 @@ module.exports = React.createClass({
   render() {
     return (
       <input
-        onKeyDown={this.bindKeys(keys)}
+        onKeyDown={this.keyHandler(keys)}
       />
     );
   }
