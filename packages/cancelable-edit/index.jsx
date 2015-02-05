@@ -8,6 +8,12 @@ var Button = require('../button');
 require('./style');
 
 var CancelableEdit = React.createClass({
+  propTypes: {
+    displayName: React.PropTypes.string,
+    small: React.PropTypes.bool,
+    allowEmpty: React.PropTypes.bool,
+    onSave: React.PropTypes.func.isRequired,
+  },
   getInitialState() {
     return {
       editing: false,
