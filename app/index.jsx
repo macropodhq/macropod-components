@@ -10,8 +10,7 @@ require('./index.scss');
 var Component = React.createClass({
   render: function() {
     return (
-      <div className="Playground">
-        <hr />
+      <div className="Playground-Example">
         <h2 id={this.props.package.name}>{this.props.package.friendlyName} ({this.props.package.name})</h2>
         <div>{this.props.children}</div>
       </div>
@@ -60,7 +59,7 @@ React.render(
   <div>
     <h1>React Playground</h1>
     <h2>Table of Contents</h2>
-    <ul>
+    <ul className="Playground-TOC">
       {packageContents}
     </ul>
       {packages}

@@ -16,7 +16,19 @@ code {
   font-family: Menlo, Monaco, Consolas, "Lucida Console", "Courier New", Courier;
 }
 
-.Playground {
+.Playground-TOC {
+  column-width: 10em;
+  padding: 0;
+}
+
+.Playground-Example {
   box-sizing: border-box;
   margin: 0px;
+  padding-bottom: 1.5em;
+  border-bottom: 1px solid #ccc;
+
+  &:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
 }
