@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 var React = require('react/addons');
 var _ = require('lodash-node');
 var DropdownMenu = require('../dropdown-menu');
@@ -8,13 +8,13 @@ var Comment = require('./comment');
 module.exports = React.createClass({
   displayName: 'Comments',
 
-  render: function() {
+  render() {
     var parentComments = _.filter(this.props.comments, obj => !obj.parentId);
 
     return (
       <div className="Comments">
         {
-          parentComments.map((comment) => {
+          parentComments.map(comment => {
             var replies = _.filter(this.props.comments, {parentId: comment.id});
             return (
               <Comment

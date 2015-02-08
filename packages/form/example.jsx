@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -47,7 +47,7 @@ var tagOptions = [
 module.exports = React.createClass({
   displayName: 'FormExample',
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       checkboxChecked: false,
       dateTime: new Date().toISOString(),
@@ -57,37 +57,37 @@ module.exports = React.createClass({
     };
   },
 
-  handleCheckboxCheckedToggle: function() {
+  handleCheckboxCheckedToggle() {
     this.setState({
       checkboxChecked: !this.state.checkboxChecked
     });
   },
 
-  handleDateTimeChange: function(value) {
+  handleDateTimeChange(value) {
     this.setState({
       dateTime: value,
     });
   },
 
-  handleTagChange: function(selection) {
+  handleTagChange(selection) {
     this.setState({
       tags: selection
     });
   },
 
-  handleTextChange: function(e) {
+  handleTextChange(e) {
     this.setState({
       text: e.target.value,
     });
   },
 
-  handleTextareaChange: function(e) {
+  handleTextareaChange(e) {
     this.setState({
       textarea: e.target.value,
     });
   },
 
-  render: function() {
+  render() {
     return (
       <Form>
 

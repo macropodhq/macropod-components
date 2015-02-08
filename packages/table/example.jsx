@@ -1,10 +1,10 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
 var Table = require('./');
 
-var statusDisplay = function(status) {
+var statusDisplay = status => {
   var style = {};
   if (status === 'Airing') {
     style.color = 'lightGreen';
@@ -18,7 +18,7 @@ var statusDisplay = function(status) {
   return <span style={style}>{status}</span>;
 };
 
-var episodeDisplay = function(name, episode) {
+var episodeDisplay = (name, episode) => {
   return (
     <div>
       <img src={episode.thumbnail} style={{width: '50px', height: '50px', float: 'left'}}/>
@@ -49,7 +49,7 @@ var data = [
 module.exports = React.createClass({
   displayName: 'TableExample',
 
-  render: function() {
+  render() {
     return (
       <Table
         keys={[ 'number' ]}

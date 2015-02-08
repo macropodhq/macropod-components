@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 var _ = require('lodash-node');
@@ -6,7 +6,7 @@ var _ = require('lodash-node');
 module.exports = React.createClass({
   displayName: 'TodoItem',
 
-  getDefaultProps: function() {
+  getDefaultProps() {
     return {
       subtask: {
         name: '',
@@ -25,19 +25,19 @@ module.exports = React.createClass({
     }).isRequired,
   },
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       isEditing: false,
     };
   },
 
-  handleToggle: function() {
+  handleToggle() {
     this.props.onCompletionChange(!this.props.subtask.completed);
 
     return false;
   },
 
-  handleClick: function() {
+  handleClick() {
     this.setState({
       isEditing: true,
       editValue: '',
@@ -46,7 +46,7 @@ module.exports = React.createClass({
     return false;
   },
 
-  handleChange: function() {
+  handleChange() {
     this.setState({
       editValue: this.refs.textInput.getDOMNode().value,
     });
@@ -54,7 +54,7 @@ module.exports = React.createClass({
     return false;
   },
 
-  handleKeyUp: function(e) {
+  handleKeyUp(e) {
     if (e.keyCode === 13) {
       this.handleSaveClick();
     }
@@ -66,7 +66,7 @@ module.exports = React.createClass({
     return false;
   },
 
-  handleSaveClick: function() {
+  handleSaveClick() {
     this.props.onNameChange(this.state.editValue);
 
     this.setState({
@@ -77,7 +77,7 @@ module.exports = React.createClass({
     return false;
   },
 
-  handleCancelClick: function() {
+  handleCancelClick() {
     this.setState({
       isEditing: false,
       editValue: '',
@@ -86,13 +86,13 @@ module.exports = React.createClass({
     return false;
   },
 
-  handleDelete: function() {
+  handleDelete() {
     this.props.onDelete();
 
     return false;
   },
 
-  render: function(subtask) {
+  render(subtask) {
     return (
       <div className={'Todo-list-item' + (this.state.isEditing ? ' is-editing' : '')} draggable="true">
         <input

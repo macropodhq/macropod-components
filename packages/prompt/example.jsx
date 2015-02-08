@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -8,7 +8,7 @@ var Prompt = require('./');
 module.exports = React.createClass({
   displayName: 'PromptExample',
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       showPrompt: false,
       promptState: 'Not yet shown',
@@ -21,13 +21,13 @@ module.exports = React.createClass({
     };
   },
 
-  handleClick: function() {
+  handleClick() {
     this.setState({
       showPrompt: true,
     });
   },
 
-  handleCancel: function() {
+  handleCancel() {
     this.setState({
       promptValue: '',
       showPrompt: false,
@@ -35,7 +35,7 @@ module.exports = React.createClass({
     });
   },
 
-  handleOk: function(value) {
+  handleOk(value) {
     this.setState({
       promptValue: value,
       showPrompt: false,
@@ -43,44 +43,44 @@ module.exports = React.createClass({
     });
   },
 
-  handleTitleChange: function(event) {
+  handleTitleChange(event) {
     this.setState({
       promptTitle: event.target.value
     })
   },
 
-  handleContentChange: function(event) {
+  handleContentChange(event) {
     this.setState({
       promptContent: event.target.value
     })
   },
 
-  handleDefaultValueChange: function(event) {
+  handleDefaultValueChange(event) {
     this.setState({
       promptDefaultValue: event.target.value
     })
   },
 
-  handleCancelableChange: function(event) {
+  handleCancelableChange(event) {
     this.setState({
       promptCancelable: event.target.checked
     })
   },
 
-  handleValidateInputChange: function(event) {
+  handleValidateInputChange(event) {
     this.setState({
       promptValidateInput: event.target.checked
     })
   },
 
-  validateInput: function(value) {
+  validateInput(value) {
     if (this.state.promptValidateInput === false) {
       return true;
     }
     return value.length > 0 && value.length % 2 === 0;
   },
 
-  render: function() {
+  render() {
     return (
       <div>
         <input type="text" onChange={this.handleTitleChange} value={this.state.promptTitle} />

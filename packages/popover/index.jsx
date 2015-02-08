@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 var React = require('react/addons');
 var _ = require('lodash-node');
 var Layer = require('react-components/js/layered-component-mixin');
@@ -8,37 +8,37 @@ require('./popover.scss');
 var PopoverContent = React.createClass({
   displayName: 'PopoverContent',
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       showDropdown: false,
       style: {}
     };
   },
 
-  getDefaultProps: function() {
+  getDefaultProps() {
     return {
       offset: 10,
       align: 'left'
     };
   },
 
-  componentDidMount: function() {
+  componentDidMount() {
     this.getBoundingRects();
     this.getClientDimensions();
     this.setDropdownStyle();
   },
 
-  getBoundingRects: function() {
+  getBoundingRects() {
     this.anchorRect = this.props.anchor.getDOMNode().getBoundingClientRect();
     this.dropdownRect = this.refs.Popover.getDOMNode().getBoundingClientRect();
   },
 
-  getClientDimensions: function() {
+  getClientDimensions() {
     this.clientHeight = document.documentElement.clientHeight;
     this.clientWidth = document.documentElement.clientWidth;
   },
 
-  setDropdownStyle: function() {
+  setDropdownStyle() {
     var bodyTop = document.documentElement.scrollTop || document.body.scrollTop;
     var dropdownTop = bodyTop + this.anchorRect.top + this.anchorRect.height;
     var dropdownHeight = this.getHeight();
@@ -65,7 +65,7 @@ var PopoverContent = React.createClass({
     }
   },
 
-  getLeft: function() {
+  getLeft() {
     if (this.dropdownRect.width > this.clientWidth) {
       return this.props.offset;
     }
@@ -81,7 +81,7 @@ var PopoverContent = React.createClass({
     return this.anchorRect.left;
   },
 
-  getWidth: function() {
+  getWidth() {
     if (this.dropdownRect.width > this.clientWidth) {
       return this.clientWidth - (this.props.offset * 2);
     } else {
@@ -89,7 +89,7 @@ var PopoverContent = React.createClass({
     }
   },
 
-  getHeight: function() {
+  getHeight() {
     if (this.dropdownRect.bottom > document.documentElement.clientHeight) {
       return (this.clientHeight - (this.anchorRect.top + this.anchorRect.height)) - this.props.offset;
     } else {
@@ -97,7 +97,7 @@ var PopoverContent = React.createClass({
     }
   },
 
-  render: function() {
+  render() {
     this.overlayStyle = {
       position: 'absolute',
       top: 0,
@@ -107,7 +107,7 @@ var PopoverContent = React.createClass({
       zIndex: 1000
     };
 
-    return  (
+    return (
       <div style={this.overlayStyle} onClick={this.props.close}>
         <div className={this.props.className + ' Popover'} ref="Popover" style={this.state.style}>
           {this.props.children}
@@ -128,7 +128,7 @@ module.exports = React.createClass({
     })
   },
 
-  renderLayer: function() {
+  renderLayer() {
     if (this.props.visible) {
       return <PopoverContent className={this.props.className} anchor={this.props.anchor} children={this.props.children} close={this.props.close} align={this.props.align} />;
     } else {
@@ -136,7 +136,7 @@ module.exports = React.createClass({
     }
   },
 
-  render: function() {
+  render() {
     return null;
   }
 });

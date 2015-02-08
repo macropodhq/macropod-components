@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react/addons');
 var LayeredComponentMixin = require('react-components/js/layered-component-mixin');
@@ -12,20 +12,20 @@ module.exports = React.createClass({
 
   mixins: [LayeredComponentMixin],
 
-  getDefaultProps: function() {
+  getDefaultProps() {
     return {
-      onClose: function() {},
+      onClose: () => {},
     };
   },
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       showModal: false,
       modalVisible: false
     };
   },
 
-  componentDidMount: function() {
+  componentDidMount() {
     this.setState({
       showModal: true
     });
@@ -33,30 +33,30 @@ module.exports = React.createClass({
     document.body.classList.add('isUnscrollable');
   },
 
-  layerDidMount: function() {
+  layerDidMount() {
     animationCallback(this._layer.querySelector('.Modal-dialog'), this.setVisibleState);
     window.addEventListener('keyup', this.handleKeyUp);
   },
 
-  layerWillUnmount: function() {
+  layerWillUnmount() {
     window.removeEventListener('keyup', this.handleKeyUp);
     document.body.classList.remove('isUnscrollable');
   },
 
-  handleKeyUp: function(e) {
+  handleKeyUp(e) {
     if (e.keyCode == 27) {
       this.handleClose();
     }
   },
 
-  setVisibleState: function() {
+  setVisibleState() {
     if (!this.isMounted()) return;
     this.setState({
       modalVisible: true
     }); 
   },
 
-  handleClose: function() {
+  handleClose() {
     if (!this.isMounted()) return;
     this.setState({
       showModal: false
@@ -66,11 +66,11 @@ module.exports = React.createClass({
     return false;
   },
 
-  stopPropagation: function(event) {
+  stopPropagation(event) {
     event.stopPropagation();
   },
 
-  renderLayer: function() {
+  renderLayer() {
     var classSet = React.addons.classSet;
     var modalClasses = {
       'Modal': true,
@@ -121,7 +121,7 @@ module.exports = React.createClass({
     );
   },
 
-  render: function() {
+  render() {
     return null;
   }
 });

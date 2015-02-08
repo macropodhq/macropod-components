@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react/addons');
 
@@ -6,6 +6,8 @@ var Modal = require('../modal');
 var Button = require('../button');
 
 require('./alert.scss');
+
+var noop = () => {};
 
 module.exports = React.createClass({
   displayName: 'Alert',
@@ -21,14 +23,14 @@ module.exports = React.createClass({
     okDisabled: React.PropTypes.boolean,
   },
 
-  getInitialState: function() {
+  getInitialState() {
     return {};
   },
 
-  getDefaultProps: function() {
+  getDefaultProps() {
     return {
-      onCancel: function() {},
-      onOk: function() {},
+      onCancel: noop,
+      onOk: noop,
       cancelable: false,
       title: "Please enter a value",
       children: "",
@@ -38,23 +40,23 @@ module.exports = React.createClass({
     };
   },
 
-  handleKeyUp: function(event) {
+  handleKeyUp(event) {
     if (event.keyCode == 13) {
       this.props.onOk();
     }
   },
 
-  handleCancel: function() {
+  handleCancel() {
     this.props.onCancel();
     return false;
   },
 
-  handleOk: function(event) {
+  handleOk(event) {
     this.props.onOk();
     return false;
   },
 
-  render: function() {
+  render() {
     return (
       <Modal dialogClassName="Alert" onClose={this.handleCancel} title={this.props.title} closeButton={true}>
         <div className="Alert-body">

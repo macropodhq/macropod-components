@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 var _ = require('lodash-node');
@@ -11,7 +11,7 @@ var Button = require('../button');
 module.exports = React.createClass({
   displayName: 'TodoList',
 
-  getDefaultProps: function() {
+  getDefaultProps() {
     return {
       subtasks: [],
     };
@@ -24,27 +24,27 @@ module.exports = React.createClass({
     onDelete: React.PropTypes.func.isRequired,
   },
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       isCreating: false,
       currentInput: '',
     };
   },
 
-  handleAddClick: function() {
+  handleAddClick() {
     var newState = {
       isCreating: true,
     };
 
     var self = this;
-    this.setState(newState, function() {
+    this.setState(newState, () => {
       self.refs.newInput.getDOMNode().focus();
     });
 
     return false;
   },
 
-  handleInput: function(ev) {
+  handleInput(ev) {
     this.setState({
       currentInput: ev.target.value,
     });
@@ -52,7 +52,7 @@ module.exports = React.createClass({
     return false;
   },
 
-  handleInputKey: function(ev) {
+  handleInputKey(ev) {
     if (ev.keyCode === 13) {
       this.handleCreate();
     }
@@ -64,7 +64,7 @@ module.exports = React.createClass({
     return false;
   },
 
-  handleCancel: function() {
+  handleCancel() {
     this.setState({
       isCreating: false,
       currentInput: '',
@@ -73,7 +73,7 @@ module.exports = React.createClass({
     return false;
   },
 
-  handleCreate: function() {
+  handleCreate() {
     this.props.onCreate(this.state.currentInput);
 
     this.setState({
@@ -83,7 +83,7 @@ module.exports = React.createClass({
     return false;
   },
 
-  renderSubtask: function(subtask) {
+  renderSubtask(subtask) {
     return (
       <TodoItem
         subtask={subtask}
@@ -94,7 +94,7 @@ module.exports = React.createClass({
     );
   },
 
-  render: function() {
+  render() {
     return (
       <div className="Todo">
         <div className="Todo-list">

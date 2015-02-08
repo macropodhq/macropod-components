@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react/addons');
 
@@ -9,7 +9,7 @@ require('./tag-input.scss');
 module.exports = React.createClass({
   displayName: 'TagInput',
 
-  render: function() {
+  render() {
     return (<Widgets.Multiselect {...this.props} />);
   }
 });

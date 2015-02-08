@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -8,11 +8,11 @@ var Icon = require('../icon');
 module.exports = React.createClass({
   displayName: 'ActionsBarExample',
 
-  title: function() {
+  title() {
     return 'Action Bar';
   },
 
-  links: function() {
+  links() {
     return [
       <span key={1} className={ActionsBar.NAVIGATION_TITLE_CLASSNAME}>TASKS:</span>,
       <a key={2} href="#" className={ActionsBar.NAVIGATION_ITEM_CLASSNAME + ' active'}>Open</a>,
@@ -20,7 +20,7 @@ module.exports = React.createClass({
     ];
   },
 
-  actions: function() {
+  actions() {
     return [
       <a key={1} href="#" className={ActionsBar.ACTION_ITEM_CLASSNAME}><Icon type="plus" font={false} /></a>,
       <a key={2} href="#" className={ActionsBar.ACTION_ITEM_CLASSNAME}><Icon type="settings" font={false} /></a>,
@@ -29,7 +29,7 @@ module.exports = React.createClass({
     ];
   },
 
-  render: function() {
+  render() {
     return (
       <ActionsBar
         title={this.title()}

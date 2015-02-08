@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 var Avatar = require('../avatar');
@@ -6,9 +6,10 @@ var Avatar = require('../avatar');
 var Card = require('./');
 require('./example.scss');
 
-var CardExample = React.createClass({
+module.exports = React.createClass({
+  displayName: 'CardExample',
 
-  render: function() {
+  render() {
     return (
       <div className="CardContainer">
         <Card
@@ -71,5 +72,3 @@ var CardExample = React.createClass({
     );
   }
 });
-
-module.exports = CardExample;

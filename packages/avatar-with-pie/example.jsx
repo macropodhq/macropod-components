@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -7,7 +7,7 @@ var AvatarWithPie = require('./');
 module.exports = React.createClass({
   displayName: 'AvatarWithPieWithPieExample',
 
-  render: function() {
+  render() {
     return (
       <div>
         <h3>Square (default)</h3>

@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 var React = require('react/addons');
 var _ = require('lodash-node');
 var moment = require('moment');
@@ -14,6 +14,8 @@ var Tooltip = require('../tooltip');
 
 require('./comment.scss');
 
+var noop = () => {};
+
 module.exports = React.createClass({
   displayName: 'Comment',
 
@@ -24,16 +26,16 @@ module.exports = React.createClass({
     inputButton: React.PropTypes.bool,
   },
 
-  getDefaultProps: function() {
+  getDefaultProps() {
     return {
-      onReply: function() {},
-      onEdit: function() {},
-      onDelete: function() {},
+      onReply: noop,
+      onEdit: noop,
+      onDelete: noop,
       inputButtons: false
     };
   },
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       showMenu: false,
       stared: false,
@@ -43,25 +45,25 @@ module.exports = React.createClass({
     };
   },
 
-  handleMenuToggle: function(e) {
+  handleMenuToggle(e) {
     this.setState({showMenu: !this.state.showMenu});
     e.preventDefault();
   },
 
-  handleStarToggle: function(e) {
+  handleStarToggle(e) {
     this.setState({stared: !this.state.stared});
     e.preventDefault();
   },
 
-  handleReplyChange: function(e) {
+  handleReplyChange(e) {
     this.setState({replyValue: e.target.value});
   },
 
-  handleEditChange: function(e) {
+  handleEditChange(e) {
     this.setState({editValue: e.target.value});
   },
 
-  handleNewReply: function(e) {
+  handleNewReply(e) {
     if (e) { // would e ever be undefined?
       e.preventDefault();
     }
@@ -70,11 +72,11 @@ module.exports = React.createClass({
     this.setState({replyValue: ''});
   },
 
-  handleDelete: function() {
+  handleDelete() {
     this.props.onDelete(this.props.comment.id);
   },
 
-  handleEdit: function(e) {
+  handleEdit(e) {
     if (e) { // would e ever be undefined?
       e.preventDefault();
     }
@@ -83,7 +85,7 @@ module.exports = React.createClass({
     this.handleEditToggle();
   },
 
-  handleKeyDown: function(callback, e) {
+  handleKeyDown(callback, e) {
     if (!e) e = window.event; // TODO: is this ever so? makes this harder to test
 
     var keyCode = e.keyCode || e.which;
@@ -93,11 +95,11 @@ module.exports = React.createClass({
     }
   },
 
-  handleEditToggle: function() {
+  handleEditToggle() {
     this.setState({
       editing: !this.state.editing,
       editValue: this.props.comment.entry
-    }, function() {
+    }, () => {
       if (this.state.editing) {
         var editInput = this.refs.editInput.getDOMNode();
         editInput.focus();
@@ -106,7 +108,7 @@ module.exports = React.createClass({
     });
   },
 
-  render: function() {
+  render() {
     var commentClass = classSet({
       'Comment': true,
       'Comment--starred': this.state.stared,
@@ -179,13 +181,7 @@ module.exports = React.createClass({
 
         { this.props.comment.isDiscussion !== false &&
           <div className="Comment-replies">
-            {
-              replies.map(function(comment) {
-                return (
-                  <CommentReply key={comment.id} comment={comment} />
-                );
-              })
-            }
+            {replies.map(comment => <CommentReply key={comment.id} comment={comment} />)}
 
             <div className="Comment-replies-new">
               <form onSubmit={this.handleNewReply}>

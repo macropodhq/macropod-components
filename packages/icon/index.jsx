@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react/addons');
 var classSet = React.addons.classSet;
@@ -7,9 +7,7 @@ var keyMirror = require('react/lib/keyMirror');
 
 require('./icon.scss');
 
-var iconTypes = require.context('./svgs', true, /\.svg$/).keys().map(function(name) {
-  return name.replace(/.\/icon-/i, '').replace(/.svg$/i, '');
-}).sort();
+var iconTypes = require.context('./svgs', true, /\.svg$/).keys().map(name => name.replace(/.\/icon-/i, '').replace(/.svg$/i, '')).sort();
 
 var iconConstants = keyMirror(_.invert(iconTypes));
 
@@ -24,14 +22,14 @@ module.exports = React.createClass({
     iconTypes: iconConstants,
   },
 
-  getDefaultProps: function() {
+  getDefaultProps() {
     return {
       type: iconConstants['arrow-down'],
       component: React.createFactory('i'),
     };
   },
 
-  render: function() {
+  render() {
     var classes = {
       'Icon': true,
     };

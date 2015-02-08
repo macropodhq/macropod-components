@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -14,21 +14,21 @@ module.exports = React.createClass({
 
   mixins: [scrollevent],
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       content: 'Let\'s play a game'
     };
   },
 
-  onScrollStart: function() {
+  onScrollStart() {
     this.setState({content: 'Yeah, you\'re scrolling.'});
   },
 
-  onScrollEnd: function() {
+  onScrollEnd() {
     this.setState({content: 'Stop staring at me and start scrolling, freak.'});
   },
 
-  render: function() {
+  render() {
     return (
       <p>{this.state.content}</p>
     );

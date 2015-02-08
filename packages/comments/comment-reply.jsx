@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 var React = require('react/addons');
 var Avatar = require('../avatar');
 var DateFormatter = require('../datetime-format');
@@ -6,7 +6,7 @@ var DateFormatter = require('../datetime-format');
 module.exports = React.createClass({
   displayName: 'CommentReply',
 
-  render: function() {
+  render() {
     return (
       <div className="Comment-reply">
         <Avatar

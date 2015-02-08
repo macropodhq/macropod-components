@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -7,7 +7,7 @@ var Loading = require('./');
 module.exports = React.createClass({
   displayName: 'LoadingExample',
 
-  render: function() {
+  render() {
     return (
       <div>
         <Loading />

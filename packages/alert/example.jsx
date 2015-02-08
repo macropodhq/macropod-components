@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -8,7 +8,7 @@ var Alert = require('./');
 module.exports = React.createClass({
   displayName: 'AlertExample',
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       showAlert: false,
       alertState: 'Not yet shown',
@@ -19,13 +19,13 @@ module.exports = React.createClass({
     };
   },
 
-  handleClick: function() {
+  handleClick() {
     this.setState({
       showAlert: true,
     });
   },
 
-  handleCancel: function() {
+  handleCancel() {
     this.setState({
       alertValue: '',
       showAlert: false,
@@ -33,7 +33,7 @@ module.exports = React.createClass({
     });
   },
 
-  handleOk: function(value) {
+  handleOk(value) {
     this.setState({
       alertValue: value,
       showAlert: false,
@@ -41,25 +41,25 @@ module.exports = React.createClass({
     });
   },
 
-  handleTitleChange: function(event) {
+  handleTitleChange(event) {
     this.setState({
       alertTitle: event.target.value
     })
   },
 
-  handleContentChange: function(event) {
+  handleContentChange(event) {
     this.setState({
       alertContent: event.target.value
     })
   },
 
-  handleCancelableChange: function(event) {
+  handleCancelableChange(event) {
     this.setState({
       alertCancelable: event.target.checked
     })
   },
 
-  render: function() {
+  render() {
     return (
       <div>
         <input type="text" onChange={this.handleTitleChange} value={this.state.alertTitle} />

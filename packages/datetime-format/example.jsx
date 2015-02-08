@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -7,7 +7,7 @@ var DateFormatter = require('./');
 module.exports = React.createClass({
   displayName: 'DateTime-example',
 
-  render: function() {
+  render() {
     return (
       <div>
         <h3>Date</h3>

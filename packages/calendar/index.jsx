@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react/addons');
 var Widgets = require('react-widgets');
@@ -9,7 +9,7 @@ require('./calendar.scss');
 module.exports = React.createClass({
   displayName: 'Calendar',
 
-  render: function() {
+  render() {
     return (
       <Widgets.Calendar {...this.props} />
     );

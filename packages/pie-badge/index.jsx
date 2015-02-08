@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react/addons');
 
@@ -7,7 +7,7 @@ require('./pie-badge.scss');
 module.exports = React.createClass({
   displayName: 'PieBadge',
 
-  getDefaultProps: function() {
+  getDefaultProps() {
     return {
       backgroundColor: '#ffffff',
       complete: 0,
@@ -15,7 +15,7 @@ module.exports = React.createClass({
     }
   },
 
-  render: function() {
+  render() {
     var size = 32;
     var startAngle = -90;
     var endAngle = (360 * this.props.complete / this.props.total) + startAngle;

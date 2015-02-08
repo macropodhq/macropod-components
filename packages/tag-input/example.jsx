@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -42,19 +42,19 @@ var options = [
 module.exports = React.createClass({
   displayName: 'TagInputExample',
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       value: null
     };
   },
 
-  handleChange: function(selection) {
+  handleChange(selection) {
     this.setState({
       value: selection
     });
   },
 
-  render: function() {
+  render() {
     return (
       <TagInput onChange={this.handleChange} data={options} placeholder="Make some breakfast..." duration={0} textField="name" valueField="id" value={this.state.value}/>
     );

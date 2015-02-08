@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -7,7 +7,7 @@ var AppHeader = require('./');
 module.exports = React.createClass({
   displayName: 'AppHeaderExample',
 
-  render: function() {
+  render() {
     return (
       <AppHeader 
         title="App Header"

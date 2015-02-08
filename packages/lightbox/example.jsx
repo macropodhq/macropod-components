@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -41,31 +41,23 @@ var assets = [
 module.exports = React.createClass({
   displayName: 'LightboxExample',
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       open: false,
       activeAsset: 0
     };
   },
 
-  toggleFullscreenLightbox: function() {
+  toggleFullscreenLightbox() {
     this.setState({activeAsset: this.refs.assetSwitcher.getDOMNode().value})
     this.setState({open: !this.state.open});
   },
 
-  handleChange: function(index) {
+  handleChange(index) {
     alert(index);
   },
 
-  render: function() {
-    function assetMapper(asset) {
-      var Container = Lightbox.containerFor(asset.contentType);
-
-      return (
-        <Container asset={asset} />
-      );
-    }
-
+  render() {
     return (
       <div>
         <h3>Single asset</h3>

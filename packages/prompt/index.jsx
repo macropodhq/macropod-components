@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react/addons');
 
@@ -6,6 +6,8 @@ var Alert = require('../alert');
 var Button = require('../button');
 
 require('./prompt.scss');
+
+var noop = () => {};
 
 module.exports = React.createClass({
   displayName: 'Prompt',
@@ -23,23 +25,23 @@ module.exports = React.createClass({
     validateInput: React.PropTypes.func,
   },
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       valid: true
     };
   },
 
-  componentDidMount: function() {
+  componentDidMount() {
     this.refs.promptInput.getDOMNode().focus();
     this.setState({
       valid: this.props.validateInput(this.props.defaultValue),
     });
   },
 
-  getDefaultProps: function() {
+  getDefaultProps() {
     return {
-      onCancel: function() {},
-      onOk: function() {},
+      onCancel: noop,
+      onOk: noop,
       cancelable: true,
       defaultValue: "",
       placeholder: "",
@@ -47,34 +49,34 @@ module.exports = React.createClass({
       content: "",
       cancelText: "Cancel",
       okText: "OK",
-      validateInput: function() {return true}
+      validateInput: () => true
     };
   },
 
-  handleKeyUp: function(event) {
+  handleKeyUp(event) {
     if (this.state.valid && event.keyCode == 13) {
       this.props.onOk(this.state.value);
     }
   },
 
-  handleCancel: function() {
+  handleCancel() {
     this.props.onCancel(this.state.value);
     return false;
   },
 
-  handleOk: function(event) {
+  handleOk(event) {
     this.props.onOk(this.state.value);
     return false;
   },
 
-  handleValueChange: function(event) {
+  handleValueChange(event) {
     this.setState({
       value: event.target.value,
       valid: this.props.validateInput(event.target.value),
     });
   },
 
-  render: function() {
+  render() {
     return (
       <Alert
         onOk={this.handleOk}

@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -8,18 +8,18 @@ var Button = require('../button');
 module.exports = React.createClass({
   displayName: 'PopoverExample',
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       showPopover: false
     };
   },
 
-  toggleMenu: function(e) {
+  toggleMenu(e) {
     this.setState({showPopover: !this.state.showPopover});
     e.preventDefault();
   },
 
-  render: function() {
+  render() {
     return (
       <div>
         <Button ref="popoverAnchor" onClick={this.toggleMenu}>

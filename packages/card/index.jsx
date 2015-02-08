@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 var DropdownMenu = require('../dropdown-menu');
@@ -6,7 +6,9 @@ var Icon = require('../icon');
 
 require('./card.scss');
 
-var Card = React.createClass({
+module.exports = React.createClass({
+  displayName: 'Card',
+
   propTypes: {
     actions: React.PropTypes.arrayOf(React.PropTypes.node),
     title: React.PropTypes.node,
@@ -14,24 +16,24 @@ var Card = React.createClass({
     children: React.PropTypes.node,
   },
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       showActions: false
     };
   },
 
-  getDefaultProps: function() {
+  getDefaultProps() {
     return {
       actions: null
     };
   },
 
-  toggleActions: function(e) {
+  toggleActions(e) {
     this.setState({showActions: !this.state.showActions});
     e.preventDefault();
   },
 
-  render: function() {
+  render() {
     return (
       <div className="Card">
         <div className="Card-header">
@@ -57,5 +59,3 @@ var Card = React.createClass({
     );
   }
 });
-
-module.exports = Card;
