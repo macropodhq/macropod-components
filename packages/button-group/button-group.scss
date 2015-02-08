@@ -19,4 +19,7 @@ $color-border: rgba(0,0,0,0.2);
       border-right: 2px solid $color-border;
     }
   }
+  .Button + .Button {
+    margin-left: 0;
+  }
 }
