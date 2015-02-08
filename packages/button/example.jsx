@@ -22,18 +22,13 @@ module.exports = React.createClass({
     return (
       <div>
         <Button onClick={this.handleClick}>What what?</Button>
+        <Button className="Button--huedemo" onClick={this.handleClick}>Accepts a <code>className</code>, and accepts any <code>background-color</code></Button>
+        <Button success onClick={this.handleClick}>Can indicate success</Button>
+        <Button cancel onClick={this.handleClick}>Can indicate danger or cancel</Button>
+        <Button disabled onClick={this.handleClick}>Can be disabled</Button>
+        <Button small onClick={this.handleClick}>Can be small</Button>
         <br/>
-        Clicked {this.state.count} time{this.state.count === 1 ? '' : 's'}
-        <br/><br/>
-        <Button className="Button--huedemo">Has the ability to hack in variants</Button>
-        <br/>
-        <Button disabled>Can be disabled!</Button>
-        <br/>
-        <Button small>Can be small!</Button>
-        <br/>
-        <Button success>Can be success!</Button>
-        <br/>
-        <Button cancel>Can be cancel!</Button>
+        You've clicked {this.state.count} button{this.state.count === 1 ? '' : 's'}
       </div>
     );
   }
