@@ -49,8 +49,8 @@ module.exports = React.createClass({
       'Button--cancel': this.props.cancel,
     };
 
-    classes['Button--' + this.props.type] = true;
-    classes[this.props.className] = true;
+    classes['Button--' + this.props.type] = !!this.props.type;
+    classes[this.props.className] = !!this.props.className;
 
     var buttonClass = classSet(classes);
 
