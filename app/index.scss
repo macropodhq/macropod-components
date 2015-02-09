@@ -19,6 +19,10 @@ code {
 .Playground-TOC {
   column-width: 10em;
   padding: 0;
+
+  > li {
+    column-break-inside: avoid;
+  }
 }
 
 .Playground-Example {

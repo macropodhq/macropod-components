@@ -11,6 +11,7 @@
     "open-sans": "git://github.com/bungeshea/open-sans.git",
     "react": "^0.12.2",
     "react-components": "git://github.com/Khan/react-components.git",
+    "react-router": "^0.11.6",
     "react-widgets": "^2.2.1",
     "normalize.css": "~3.0.2",
     "react-data-components": "^0.1.0",
