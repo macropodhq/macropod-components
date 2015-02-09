@@ -227,9 +227,9 @@ var Lightbox = React.createClass({
   },
 
   updateCurrentAssetIndex(nextIndex) {
-    this.setState({currentAssetIndex: nextIndex}, (() => {
+    this.setState({currentAssetIndex: nextIndex}, () => {
       this.props.onChange(this.state.currentAssetIndex);
-    }).bind(this));
+    });
   },
 
   render() {
