@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -26,17 +26,17 @@ var options = [
 module.exports = React.createClass({
   displayName: 'DropdownExample',
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       selection: 1
     };
   },
 
-  handleChange: function(data) {
+  handleChange(data) {
     this.setState({selection: data.id});
   },
 
-  render: function() {
+  render() {
     return (
       <Dropdown data={options} value={this.state.selection} onChange={this.handleChange} textField="name" valueField="id" duration={0} />
     );

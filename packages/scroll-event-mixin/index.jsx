@@ -1,6 +1,6 @@
 var _ = require('lodash-node');
 
-module.exports = function(options) {
+module.exports = options => {
   var defaults = {
     interval: 100,
     timeout: 200
@@ -9,18 +9,18 @@ module.exports = function(options) {
   options = _.assign(defaults, options);
 
   return {
-    componentDidMount: function() {
+    componentDidMount() {
       window.addEventListener('scroll', this._onScroll, false);
       this.intervals = 0;
       this.position = window.pageYOffset;
       this.scrolling = false;
     },
 
-    componentWillUnmount: function() {
+    componentWillUnmount() {
       window.removeEventListener('scroll', this._onScroll, false);
     },
 
-    checkScroll: function() {
+    checkScroll() {
       this.checkPosition();
 
       if (this.intervals * options.interval > options.timeout && this.scrolling) {
@@ -30,7 +30,7 @@ module.exports = function(options) {
       this.intervals++;
     },
 
-    checkPosition: function() {
+    checkPosition() {
       if (window.pageYOffset === this.position) return false;
 
       if (window.pageYOffset > this.position) {
@@ -42,7 +42,7 @@ module.exports = function(options) {
       this.position = window.pageYOffset;
     },
 
-    _onScroll: function() {
+    _onScroll() {
       this.intervals = 0;
 
       if (!this.scrolling) {
@@ -53,22 +53,22 @@ module.exports = function(options) {
       this.onScroll && this.onScroll();
     },
 
-    _onScrollEnd: function() {
+    _onScrollEnd() {
       this.onScrollEnd && this.onScrollEnd();
       this.intervals = 0;
       clearInterval(this.checkInterval);
     },
 
-    _onScrollStart: function() {
+    _onScrollStart() {
       this.checkInterval = setInterval(this.checkScroll, options.interval);
       this.onScrollStart && this.onScrollStart();
     },
 
-    _onScrollUp: function() {
+    _onScrollUp() {
       this.onScrollUp && this.onScrollUp();
     },
 
-    _onScrollDown: function() {
+    _onScrollDown() {
       this.onScrollDown && this.onScrollDown();
     }
   };

@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react/addons');
 var Widgets = require('react-widgets');
@@ -10,7 +10,7 @@ require('../calendar/calendar.scss');
 module.exports = React.createClass({
   displayName: 'CalendarDropdown',
 
-  render: function() {
+  render() {
     return (
       <Widgets.DateTimePicker {...this.props} />
     );

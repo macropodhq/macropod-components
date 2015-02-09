@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -13,22 +13,22 @@ var InputWrapper = React.createClass({
     showLabel: React.PropTypes.bool.isRequired
   },
 
-  getDefaultProps: function() {
+  getDefaultProps() {
     return {
       showLabel: true
     }
   },
 
   statics: {
-    camelCase: function(string) {
+    camelCase(string) {
       return string
-          .replace(/\s(.)/g, function($1) { return $1.toUpperCase(); })
+          .replace(/\s(.)/g, $1 => $1.toUpperCase())
           .replace(/\s/g, '')
-          .replace(/^(.)/, function($1) { return $1.toLowerCase(); });
+          .replace(/^(.)/, $1 => $1.toLowerCase());
     }
   },
 
-  render: function() {
+  render() {
     var camelCaseLabel = InputWrapper.camelCase(this.props.label);
 
     return (

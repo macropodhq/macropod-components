@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var _ = require('lodash-node');
 var React = require('react');
@@ -8,7 +8,7 @@ require('normalize.css/normalize.css')
 require('./index.scss');
 
 var Component = React.createClass({
-  render: function() {
+  render() {
     return (
       <div className="Playground-Example">
         <h2 id={this.props.package.name}>{this.props.package.friendlyName} ({this.props.package.name})</h2>
@@ -18,28 +18,14 @@ var Component = React.createClass({
   },
 });
 
-var getContainer = function getContainer(name) {
-  var id = ['container', name].join('-');
-
-  var el = document.getElementById(id);
-
-  if (!el) {
-    el = document.createElement('div');
-    el.id = id;
-    document.body.appendChild(el);
-  }
-
-  return el;
-};
-
 var packageRequire = require.context('../packages', true, /example\.jsx/);
 
-var packages = _.map(packageRequire.keys(), function(packagePath) {
+var packages = _.map(packageRequire.keys(), packagePath => {
 
   var packageName = packagePath.split(/\//)[1];
 
   return {
-    friendlyName: packageName.split(/[ -]+/).map(function(e) {
+    friendlyName: packageName.split(/[ -]+/).map(e => {
       return e[0].toUpperCase() + e.substr(1);
     }).join(' '),
     name: packageName,
@@ -48,11 +34,11 @@ var packages = _.map(packageRequire.keys(), function(packagePath) {
 
 });
 
-var packageContents = _.map(packages, package => <li key={package.path}><a href={'#' + package.name}>{package.friendlyName}</a></li>);
-var packages = _.map(packages, (package) => {
-  var Example = packageRequire(package.path);
+var packageContents = _.map(packages, component => <li key={component.path}><a href={'#' + component.name}>{component.friendlyName}</a></li>);
+var packages = _.map(packages, (component) => {
+  var Example = packageRequire(component.path);
 
-  return <Component key={package.path} package={package} ><Example /></Component>;
+  return <Component key={component.path} package={component} ><Example /></Component>;
 });
 
 React.render(
@@ -64,4 +50,4 @@ React.render(
     </ul>
       {packages}
   </div>,
- getContainer('lol'));
+ document.body);

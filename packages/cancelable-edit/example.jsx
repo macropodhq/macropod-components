@@ -4,7 +4,7 @@ var CancelableEdit = require('./');
 
 
 module.exports = React.createClass({
-  displayName: 'EditiableFieldExample',
+  displayName: 'CancelableEditExample',
 
   getInitialState() {
     return {

@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -9,29 +9,29 @@ require('./example.scss');
 module.exports = React.createClass({
   displayName: 'DropdownMenuExample',
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       showFirstMenu: false,
       showSecondMenu: false
     };
   },
 
-  toggleFirstMenu: function(e) {
+  toggleFirstMenu(e) {
     this.setState({showFirstMenu: !this.state.showFirstMenu});
     e.preventDefault();
   },
 
-  toggleSecondMenu: function(e) {
+  toggleSecondMenu(e) {
     this.setState({showSecondMenu: !this.state.showSecondMenu});
     e.preventDefault();
   },
 
-  toggleThirdMenu: function(e) {
+  toggleThirdMenu(e) {
     this.setState({showThirdMenu: !this.state.showThirdMenu});
     e.preventDefault();
   },
 
-  render: function() {
+  render() {
     return (
       <div className="DropdownMenuExample">
         <Button ref="firstMenuButton" onClick={this.toggleFirstMenu}>

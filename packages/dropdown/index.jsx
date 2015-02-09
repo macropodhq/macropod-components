@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react/addons');
 
@@ -9,7 +9,7 @@ require('./dropdown.scss');
 module.exports = React.createClass({
   displayName: 'Dropdown',
 
-  render: function() {
+  render() {
     return (<Widgets.DropdownList {...this.props} />);
   }
 });

@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react/addons');
 
@@ -7,6 +7,8 @@ var Steps = require('../steps');
 var Button = require('../button');
 
 require('./guider.scss');
+
+var noop = () => {};
 
 module.exports = React.createClass({
   displayName: 'Guider',
@@ -20,24 +22,24 @@ module.exports = React.createClass({
     current: React.PropTypes.number.isRequired,
   },
 
-  getDefaultProps: function() {
+  getDefaultProps() {
     return {
-      onClose: function() {},
-      onNext: function() {},
+      onClose: noop,
+      onNext: noop,
     };
   },
 
-  handleClose: function() {
+  handleClose() {
     this.props.onClose();
     return false;
   },
 
-  handleNext: function() {
+  handleNext() {
     this.props.onNext();
     return false;
   },
 
-  render: function() {
+  render() {
     return (
       <div>
         <Modal dialogClassName="Guider" onClose={this.handleClose}>

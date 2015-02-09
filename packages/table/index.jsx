@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 // (╯°□°）╯︵ ┻━┻
 
@@ -18,13 +18,13 @@ module.exports = React.createClass({
     pageLengthOptions: React.PropTypes.array
   },
 
-  getDefaultProps: function() {
+  getDefaultProps() {
     return {
       pageLengthOptions: [ 5, 10, 15 ]
     };
   },
 
-  render: function() {
+  render() {
     return (<DataTable
       {...this.props}
       className="Table"

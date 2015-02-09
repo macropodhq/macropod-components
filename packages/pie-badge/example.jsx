@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -7,7 +7,7 @@ var PieBadge = require('./');
 module.exports = React.createClass({
   displayName: 'PieBadgeExample',
 
-  render: function() {
+  render() {
     return (
       <div>
         <PieBadge />

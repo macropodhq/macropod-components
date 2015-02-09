@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -7,7 +7,7 @@ require('./index.scss');
 module.exports = React.createClass({
   displayName: 'Form',
 
-  render: function() {
+  render() {
     return (
       <form {...this.props} className="Form">
         {this.props.children}

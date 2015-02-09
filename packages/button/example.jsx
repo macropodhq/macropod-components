@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -8,17 +8,17 @@ require('./example.scss');
 module.exports = React.createClass({
   displayName: 'ButtonExample',
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       count: 0
     };
   },
 
-  handleClick: function(e) {
+  handleClick(e) {
     this.setState({click: this.state.count++});
   },
 
-  render: function() {
+  render() {
     return (
       <div>
         <Button onClick={this.handleClick}>What what?</Button>

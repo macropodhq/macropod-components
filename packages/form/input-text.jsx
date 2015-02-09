@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 var InputWrapper = require('./input-wrapper');
@@ -8,7 +8,7 @@ require('./input-text.scss');
 module.exports = React.createClass({
   displayName: 'InputText',
 
-  render: function() {
+  render() {
     var camelCaseLabel = InputWrapper.camelCase(this.props.label);
 
     return (

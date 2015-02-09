@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 require('./');
@@ -6,7 +6,7 @@ require('./');
 module.exports = React.createClass({
   displayName: 'TooltipExample',
 
-  render: function() {
+  render() {
     return (
       <span data-tooltip="Tooltip!">Hover over me</span>
     );

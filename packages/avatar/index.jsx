@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var md5 = require('MD5');
 var React = require('react/addons');
@@ -15,7 +15,7 @@ var sizes = {
 
 var sizeConstants = keyMirror(sizes);
 
-var validateSize = function(props, propName, componentName) {
+var validateSize = (props, propName, componentName) => {
   if (!sizeConstants[props[propName]]) {
     return new Error('invalid avatar size');
   }
@@ -31,7 +31,7 @@ module.exports = React.createClass({
     src: React.PropTypes.string,
     email: React.PropTypes.string,
     circle: React.PropTypes.bool,
-    model: function(props, propName) {
+    model(props, propName) {
       if (propName in props) {
         return new Error('Avatar\'s model property is deprecated. Please use the explicit properties instead.');
       }
@@ -43,7 +43,7 @@ module.exports = React.createClass({
     validateSize: validateSize,
   },
 
-  getDefaultProps: function() {
+  getDefaultProps() {
     return {
       size: sizeConstants.m,
       firstName: '',
@@ -53,7 +53,7 @@ module.exports = React.createClass({
     };
   },
 
-  getBackgroundImage: function(src, email) {
+  getBackgroundImage(src, email) {
     var ratio = window && window.devicePixelRatio || 1;
     var url = '';
 
@@ -66,15 +66,15 @@ module.exports = React.createClass({
     return 'url(' + url + ')';
   },
 
-  getColor: function(str) {
+  getColor(str) {
     return 'hsl(' + parseInt(md5(str).substr(2, 4), 16) + ', 80%, 45%)';
   },
 
-  getInitials: function(firstName, lastName) {
+  getInitials(firstName, lastName) {
     return firstName.charAt(0).toUpperCase() + lastName.charAt(0).toUpperCase();
   },
 
-  render: function() {
+  render() {
     var name;
     var firstName = this.props.firstName;
     var lastName = this.props.lastName;

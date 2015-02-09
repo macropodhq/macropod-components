@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -8,38 +8,38 @@ var Steps = require('./');
 module.exports = React.createClass({
   displayName: 'StepsExample',
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       totalSteps: 4,
       currentStep: 1,
     };
   },
 
-  handleAddStep: function() {
+  handleAddStep() {
     this.setState({
       totalSteps: this.state.totalSteps + 1,
     });
   },
 
-  handleRemoveStep: function() {
+  handleRemoveStep() {
     this.setState({
       totalSteps: Math.max(this.state.totalSteps - 1, 1),
     });
   },
 
-  handleCompleteStep: function() {
+  handleCompleteStep() {
     this.setState({
       currentStep: Math.min(this.state.currentStep + 1, this.state.totalSteps),
     });
   },
 
-  handleDecompleteStep: function() {
+  handleDecompleteStep() {
     this.setState({
       currentStep: Math.max(this.state.currentStep - 1, 0),
     });
   },
 
-  render: function() {
+  render() {
     return (
       <div>
         <div>

@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 /*
          /^\/^\
          \----|
@@ -30,21 +30,21 @@ module.exports = React.createClass({
 
   mixins: [ScrollEvent()],
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       hide: false,
     };
   },
 
-  onScrollDown: function() {
+  onScrollDown() {
     this.setState({hide: true});
   },
 
-  onScrollUp: function() {
+  onScrollUp() {
     this.setState({hide: false});
   },
 
-  render: function() {
+  render() {
     var classSet = React.addons.classSet;
     var covertHeaderClass = classSet({
       'CovertHeader': true,

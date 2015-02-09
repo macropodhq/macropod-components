@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 var React = require('react/addons');
 var _ = require('lodash-node');
 var Layer = require('react-components/js/layered-component-mixin');
@@ -13,7 +13,7 @@ module.exports = React.createClass({
     align: React.PropTypes.oneOf(['left', 'right'])
   },
 
-  render: function() {
+  render() {
 
     var dropdownMenuClass = {
       'DropdownMenu': true,

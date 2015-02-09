@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -8,25 +8,25 @@ var Modal = require('./');
 module.exports = React.createClass({
   displayName: 'ModalExample',
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       showModal: false,
     };
   },
 
-  handleClick: function() {
+  handleClick() {
     this.setState({
       showModal: true,
     });
   },
 
-  handleClose: function() {
+  handleClose() {
     this.setState({
       showModal: false,
     });
   },
 
-  render: function() {
+  render() {
 
     return (
       <div>

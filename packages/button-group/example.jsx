@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -9,7 +9,7 @@ require('./example.scss');
 module.exports = React.createClass({
   displayName: 'ButtonExample',
 
-  render: function() {
+  render() {
     return (
       <div>
         <ButtonGroup>

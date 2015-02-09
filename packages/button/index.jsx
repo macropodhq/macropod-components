@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 require('./button.scss');
 
@@ -20,7 +20,7 @@ module.exports = React.createClass({
     skeleton: React.PropTypes.bool,
     success: React.PropTypes.bool,
     cancel: React.PropTypes.bool,
-    type: function(props, propName) {
+    type(props, propName) {
       if (
         propName in props &&
         !_.contains(validTypes, props[propName])
@@ -31,7 +31,7 @@ module.exports = React.createClass({
     },
   },
 
-  getDefaultProps: function() {
+  getDefaultProps() {
     return {
       small: false,
       skeleton: false,
@@ -40,7 +40,7 @@ module.exports = React.createClass({
     };
   },
 
-  render: function() {
+  render() {
     var classes = {
       'Button': true,
       'Button--small': this.props.small,

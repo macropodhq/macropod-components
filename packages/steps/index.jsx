@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react/addons');
 
@@ -7,7 +7,7 @@ require('./steps.scss');
 module.exports = React.createClass({
   displayName: 'Steps',
 
-  render: function() {
+  render() {
     var children = [];
 
     for (var i = 0; i < this.props.count; i++) {

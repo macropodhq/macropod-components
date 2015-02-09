@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -8,17 +8,17 @@ var Button = require('../button');
 module.exports = React.createClass({
   displayName: 'CovertHeaderExample',
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       show: false
     }
   },
 
-  toggleHeader: function() {
+  toggleHeader() {
     this.setState({show: !this.state.show});
   },
 
-  render: function() {
+  render() {
     return (
       <div>
         <Button onClick={this.toggleHeader}>{this.state.show ? 'Hide' : 'Show'}</Button>

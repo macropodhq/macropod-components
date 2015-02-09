@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react/addons');
 var Avatar = require('../avatar');
@@ -18,13 +18,13 @@ module.exports = React.createClass({
     circle: React.PropTypes.bool,
   },
 
-  getDefaultProps: function() {
+  getDefaultProps() {
     return {
       size: Avatar.sizes.m,
     };
   },
 
-  render: function() {
+  render() {
     var classes = {
       'AvatarWithPie': true,
     };

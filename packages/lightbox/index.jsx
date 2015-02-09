@@ -1,23 +1,23 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react/addons');
 var OnResize = require("react-window-mixins").OnResize;
 
 require('./lightbox.scss');
 
-var noop = function(){};
+var noop = () => {};
 
 var AssetImage = React.createClass({
   mixins: [OnResize],
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       zoomable: false,
       zoomed: false,
     };
   },
 
-  toggleImageZoom: function() {
+  toggleImageZoom() {
     if (!this.state.zoomable) {
       return;
     }
@@ -26,7 +26,7 @@ var AssetImage = React.createClass({
     });
   },
 
-  checkImageSize: function() {
+  checkImageSize() {
     var node = this.getDOMNode();
     var parentElementWidth = node.parentNode
       ? node.parentNode.clientWidth
@@ -43,15 +43,15 @@ var AssetImage = React.createClass({
     });
   },
 
-  handleImageLoad: function() {
+  handleImageLoad() {
     this.checkImageSize();
   },
 
-  onResize: function() {
+  onResize() {
     this.checkImageSize();
   },
 
-  render: function() {
+  render() {
     var imageClasses = React.addons.classSet({
       'AssetImage': true,
       'AssetImage--zoomed': this.state.zoomed,
@@ -63,31 +63,31 @@ var AssetImage = React.createClass({
     );
   },
 
-  getTitle: function() {
+  getTitle() {
     return this.props.asset.title;
   },
 });
 
 var AssetIframe = React.createClass({
-  render: function() {
+  render() {
     return (
       <iframe className="AssetIframe" src={this.props.asset.path} frameBorder="0" />
     );
   },
 
-  getTitle: function() {
+  getTitle() {
     return this.props.asset.title;
   },
 });
 
 var AssetLink = React.createClass({
-  render: function() {
+  render() {
     return (
       <a className="AssetLink" href={this.props.asset.path} target="_blank">Download <em>{this.props.asset.title}</em></a>
     );
   },
 
-  getTitle: function() {
+  getTitle() {
     return this.props.asset.title;
   },
 });
@@ -107,7 +107,7 @@ var Lightbox = React.createClass({
       {media: '*/*', container: AssetLink},
     ],
 
-    register: function register(media, container) {
+    register(media, container) {
       this.unregister(media);
 
       this._containers.push({
@@ -115,7 +115,7 @@ var Lightbox = React.createClass({
         container: container,
       });
 
-      this._containers.sort(function(a, b) {
+      this._containers.sort((a, b) => {
         var ac = a.media.split('/', 2),
             bc = b.media.split('/', 2);
 
@@ -139,7 +139,7 @@ var Lightbox = React.createClass({
       });
     },
 
-    unregister: function unregister(media) {
+    unregister(media) {
       for (var i = 0; i < this._containers.length; i++) {
         if (this._containers[i].media === media) {
           this._containers.splice(i, 1);
@@ -148,7 +148,7 @@ var Lightbox = React.createClass({
       }
     },
 
-    containerFor: function containerFor(media) {
+    containerFor(media) {
       if (typeof media !== 'string' || media.length < 1) {
         media = 'application/octet-stream';
       }
@@ -188,7 +188,7 @@ var Lightbox = React.createClass({
     }).isRequired).isRequired,
   },
 
-  getDefaultProps: function() {
+  getDefaultProps() {
     return {
       displayComponent: React.createElement('img'),
       initialIndex: 0,
@@ -198,17 +198,17 @@ var Lightbox = React.createClass({
     };
   },
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       currentAssetIndex: parseInt(this.props.initialIndex, 10),
     };
   },
 
-  getCurrentAsset: function() {
+  getCurrentAsset() {
     return this.props.assets[this.state.currentAssetIndex];
   },
 
-  handlePrevious: function() {
+  handlePrevious() {
     var nextIndex = this.state.currentAssetIndex - 1;
     if (nextIndex < 0) {
       nextIndex = this.props.assets.length - 1;
@@ -217,7 +217,7 @@ var Lightbox = React.createClass({
     this.updateCurrentAssetIndex(nextIndex);
   },
 
-  handleNext: function() {
+  handleNext() {
     var nextIndex = this.state.currentAssetIndex + 1;
     if (this.props.assets.length === nextIndex) {
       nextIndex = 0;
@@ -226,13 +226,13 @@ var Lightbox = React.createClass({
     this.updateCurrentAssetIndex(nextIndex);
   },
 
-  updateCurrentAssetIndex: function(nextIndex) {
-    this.setState({currentAssetIndex: nextIndex}, function() {
+  updateCurrentAssetIndex(nextIndex) {
+    this.setState({currentAssetIndex: nextIndex}, () => {
       this.props.onChange(this.state.currentAssetIndex);
-    }.bind(this));
+    });
   },
 
-  render: function() {
+  render() {
     if (this.props.hide === true) {
       return null;
     }

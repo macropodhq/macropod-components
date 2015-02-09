@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 var InputWrapper = require('./input-wrapper');
@@ -9,7 +9,7 @@ require('./input-tag.scss');
 module.exports = React.createClass({
   displayName: 'InputTag',
 
-  render: function() {
+  render() {
     var camelCaseLabel = InputWrapper.camelCase(this.props.label);
 
     return (

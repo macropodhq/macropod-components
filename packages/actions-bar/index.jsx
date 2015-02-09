@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -15,7 +15,7 @@ module.exports = React.createClass({
     ACTION_SEARCH_CLASSNAME: 'ActionsBar-actions-search'
   },
 
-  render: function() {
+  render() {
     return (
       <section className="ActionsBar">
 

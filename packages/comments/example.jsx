@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 var _ = require('lodash-node');
@@ -16,7 +16,7 @@ var authors = [
 module.exports = React.createClass({
   displayName: 'CommentsExample',
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       inputButtons: false,
       comments: [
@@ -78,7 +78,7 @@ module.exports = React.createClass({
     }
   },
 
-  handleNewComment: function(value, parentId) {
+  handleNewComment(value, parentId) {
     var updatedComments = this.state.comments;
 
     updatedComments.push({
@@ -91,7 +91,7 @@ module.exports = React.createClass({
     this.setState({comments: updatedComments})
   },
 
-  handleKeyDown: function(callback, e) {
+  handleKeyDown(callback, e) {
     if (!e) e = window.event;
     var keyCode = e.keyCode || e.which;
     if (keyCode == '13' && !e.ctrlKey && !e.shiftKey){
@@ -100,19 +100,19 @@ module.exports = React.createClass({
     }
   },
 
-  handleNewDiscussion: function(e) {
+  handleNewDiscussion(e) {
     e && e.preventDefault();
     this.handleNewComment(this.refs.newDiscussionInput.getDOMNode().value)
     this.refs.newDiscussionInput.getDOMNode().value = '';
     this.refs.newDiscussionInput.getDOMNode().style.height = 'auto';
   },
 
-  handleDelete: function(id) {
+  handleDelete(id) {
     var updatedComments = _.reject(this.state.comments, {id: id});
     this.setState({comments: updatedComments});
   },
 
-  handleEdit: function(id, value) {
+  handleEdit(id, value) {
     var updatedComments = _.reject(this.state.comments, {id: id});
     var editedComment = _.filter(this.state.comments, {id: id});
     editedComment[0].entry = value;
@@ -120,11 +120,11 @@ module.exports = React.createClass({
     this.setState({comments: updatedComments});
   },
 
-  handleButtonToggle: function() {
+  handleButtonToggle() {
     this.setState({inputButtons: !this.state.inputButtons});
   },
 
-  render: function() {
+  render() {
     return (
       <div>
         <Button style={{marginBottom: '10px'}} onClick={this.handleButtonToggle}>{this.state.inputButtons ? 'Hide buttons' : 'Show Buttons'}</Button><br />

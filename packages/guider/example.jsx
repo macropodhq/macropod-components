@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -8,7 +8,7 @@ var Guider = require('./');
 module.exports = React.createClass({
   displayName: 'GuiderExample',
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       showGuider: false,
       guiderSuccess: 'no idea yet',
@@ -19,39 +19,39 @@ module.exports = React.createClass({
     };
   },
 
-  handleClick: function() {
+  handleClick() {
     this.setState({
       showGuider: true,
     });
   },
 
-  handleClose: function() {
+  handleClose() {
     this.setState({
       showGuider: false,
       guiderSuccess: 'nope',
     });
   },
 
-  handleNext: function() {
+  handleNext() {
     this.setState({
       showGuider: false,
       guiderSuccess: 'yep',
     });
   },
 
-  handleTitleChange: function(e) {
+  handleTitleChange(e) {
     this.setState({
       guiderTitle: e.target.value,
     });
   },
 
-  handleContentChange: function(e) {
+  handleContentChange(e) {
     this.setState({
       guiderConent: e.target.value,
     });
   },
 
-  render: function() {
+  render() {
     return (
       <div>
         {this.state.showGuider &&

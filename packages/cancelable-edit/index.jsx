@@ -20,7 +20,9 @@ var hotKeys = [
   },
 ];
 
-var CancelableEdit = React.createClass({
+module.exports = React.createClass({
+  displayName: 'CancelableEdit',
+
   mixins: [KeyMixin],
   propTypes: {
     warnMessage: React.PropTypes.string,
@@ -131,5 +133,3 @@ var CancelableEdit = React.createClass({
     );
   }
 });
-
-module.exports = CancelableEdit;

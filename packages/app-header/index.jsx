@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 var React = require('react');
 
@@ -13,7 +13,7 @@ module.exports = React.createClass({
     title: React.PropTypes.node,
   },
 
-  render: function() {
+  render() {
     return (
       <header className="AppHeader">
         <section className="AppHeader-primary">
