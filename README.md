@@ -35,7 +35,7 @@ To install the playground's dependencies, run `npm install` from the root direct
 
 If that completes without showing any errors, `npm start` will run the development server, and you can then access the playground in your browser at <http://localhost:3000>.
 
-Port 3000 is shared with some other projects and services, so if you get an error about the port being taken, you can prepend `PORT=` and a different port number to the `npm start` command to change it. For example, `PORT=8080 npm start` will launch it on port 8000, meaning the playground would be accessible in your browser at <http://localhost:8080>.
+Port 3000 is shared with some other projects and services, so if you get an error about the port being taken, you can prepend `PORT=` and a different port number to the `npm start` command to change it. For example, `PORT=8080 npm start` will launch it on port 8080, meaning the playground would be accessible in your browser at <http://localhost:8080>.
 
 ## Contributing Packages
 
@@ -48,7 +48,7 @@ Creating a new package is easy, simply create a directory within `packages` with
 
 If your package includes stylesheets, it is recommended that they are implemented as `[package-name].scss` within the package's directory.
 
-The package name should be explicitly set as the `displayName` property on React components;
+The package name should be explicitly set as the `displayName` property on React components, and, where possible, the package's React class assigned directly to `module.exports`;
 
 ```javascript
 module.exports = React.createClass({
