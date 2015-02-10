@@ -69,7 +69,7 @@ module.exports = React.createClass({
           id: 6,
           author: authors[0],
           entry: 'This is some event',
-          isDiscussion: false,
+          repliable: false,
           editable: false,
           deletable: false,
           createdAt: '2015-01-07T11:04:01.453783131+11:00'

@@ -16,10 +16,37 @@ require('./comment.scss');
 
 var noop = () => {};
 
+function dateValidator(props, propName, componentName) {
+  if (propName in props && isNaN(new Date(props[propName]).getUTCMilliseconds())) {
+    return new Error('Invalid value for prop `' + propName + '` in `' + componentName + '`.');
+  }
+  if (!(propName in props) && propName === 'createdAt') {
+    return new Error('Required prop `' + propName + '` was not specified in `' + componentName + '`.')
+  }
+}
+
 module.exports = React.createClass({
   displayName: 'Comment',
 
   propTypes: {
+    comment: React.PropTypes.shape({
+      id: React.PropTypes.any.isRequired,
+      author: React.PropTypes.shape({
+        name: React.PropTypes.string.isRequired,
+        avatar_url: React.PropTypes.string,
+      }).isRequired,
+      entry: React.PropTypes.string.isRequired,
+      repliable: React.PropTypes.bool,
+      editable: React.PropTypes.bool,
+      deletable: React.PropTypes.bool,
+      isDiscussion(props, propName, componentName) {
+        if (props[propName] === false) {
+          return new Error('The "isDiscussion" comment property is deprecated. Please use "repliable" instead.');
+        }
+      },
+      createdAt: dateValidator,
+      updatedAt: dateValidator,
+    }).isRequired,
     onReply: React.PropTypes.func,
     onEdit: React.PropTypes.func,
     onDelete: React.PropTypes.func,
@@ -113,7 +140,7 @@ module.exports = React.createClass({
       'Comment': true,
       'Comment--starred': this.state.stared,
       'Comment--inputButtons': this.props.inputButtons,
-      'Comment--notDiscussion': this.props.comment.isDiscussion === false
+      'Comment--repliable': this.props.comment.isDiscussion === false && this.props.comment.repliable === false
     });
 
     var replies = _.clone(this.props.replies).reverse();
@@ -179,10 +206,10 @@ module.exports = React.createClass({
           }
         </p>
 
-        { this.props.comment.isDiscussion !== false &&
-          <div className="Comment-replies">
-            {replies.map(comment => <CommentReply key={comment.id} comment={comment} />)}
+        <div className="Comment-replies">
+          {replies.map(comment => <CommentReply key={comment.id} comment={comment} />)}
 
+          {this.props.comment.isDiscussion !== false && this.props.comment.repliable !== false &&
             <div className="Comment-replies-new">
               <form onSubmit={this.handleNewReply}>
                 <Textarea rows="1" value={this.state.replyValue} className="Comment-replies-new-input" placeholder="add a reply" onChange={this.handleReplyChange} onKeyDown={this.handleKeyDown.bind(null, this.handleNewReply)}></Textarea>
@@ -191,8 +218,8 @@ module.exports = React.createClass({
                 }
               </form>
             </div>
-          </div>
-        }
+          }
+        </div>
       </div>
     );
   }
