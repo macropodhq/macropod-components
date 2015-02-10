@@ -72,7 +72,7 @@ Router.run(
     <Route name="all" path="/" handler={AllComponentsHandler}/>
     {packages.map(component =>
       <Route name={component.name} path={'/' + component.name} handler={React.createClass({
-        displayName: component.friendlyName.split(' ').join('')+'ExampleRouteHandler',
+        displayName: component.friendlyName.split(' ').join('') + 'ExampleRouteHandler',
         render() {return wrapPackage(component);}
       })}/>
     )}
