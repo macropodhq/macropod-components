@@ -1,7 +1,6 @@
 'use strict';
 
 var React = require('react');
-var _ = require('lodash-node');
 
 module.exports = React.createClass({
   displayName: 'TodoItem',
@@ -92,7 +91,7 @@ module.exports = React.createClass({
     return false;
   },
 
-  render(subtask) {
+  render() {
     return (
       <div className={'Todo-list-item' + (this.state.isEditing ? ' is-editing' : '')} draggable="true">
         <input

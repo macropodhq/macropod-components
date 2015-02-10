@@ -1,7 +1,7 @@
 var moment = require('moment');
 
-function DateFormatter(format, custom) {
-  return (date, custom) => moment(date).format(custom || format)
+function DateFormatter(format) {
+  return (date, custom) => moment(date).format(custom || format);
 }
 
 module.exports = {

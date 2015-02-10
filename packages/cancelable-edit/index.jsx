@@ -11,10 +11,12 @@ var hotKeys = [
   {
     mask: {key: 'Enter', metaKey: true, altKey: false}, //osx
     cb: 'handleSave',
-  },{
+  },
+  {
     mask: {key: 'Enter', ctrlKey: true, altKey: false}, //windows
     cb: 'handleSave',
-  },{
+  },
+  {
     mask: {key: 'Escape', ctrlKey: false, altKey: false},
     cb: 'handleCancel',
   },
@@ -62,7 +64,7 @@ module.exports = React.createClass({
     this.setState({editing: false, showAlert: false});
   },
 
-  handleCancel(e) {
+  handleCancel() {
     if (this.unsaved()) {
       this.setState({showAlert: true});
     } else {
@@ -84,7 +86,7 @@ module.exports = React.createClass({
     return this.state.editing && (this.props.value !== this.state.pendingValue);
   },
 
-  handleClick(e) {
+  handleClick() {
     if (!this.state.editing) {
       this.setState({
         editing: true,

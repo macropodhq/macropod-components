@@ -15,7 +15,7 @@ var sizes = {
 
 var sizeConstants = keyMirror(sizes);
 
-var validateSize = (props, propName, componentName) => {
+var validateSize = (props, propName) => {
   if (!sizeConstants[props[propName]]) {
     return new Error('invalid avatar size');
   }

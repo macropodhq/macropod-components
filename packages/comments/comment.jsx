@@ -10,7 +10,6 @@ var Avatar = require('../avatar');
 var Button = require('../button');
 var CommentReply = require('./comment-reply');
 var DateFormatter = require('../datetime-format');
-var Tooltip = require('../tooltip');
 
 require('./comment.scss');
 
@@ -36,7 +35,7 @@ module.exports = React.createClass({
       repliable: React.PropTypes.bool,
       editable: React.PropTypes.bool,
       deletable: React.PropTypes.bool,
-      isDiscussion(props, propName, componentName) {
+      isDiscussion(props, propName) {
         if (props[propName] === false) {
           return new Error('The "isDiscussion" comment property is deprecated. Please use "repliable" instead.');
         }
@@ -44,7 +43,7 @@ module.exports = React.createClass({
       createdAt: dateValidator,
       updatedAt(props, propName, componentName) {
         if (!(propName in props)) {
-          return new Error('Required prop `' + propName + '` was not specified in `' + componentName + '`.')
+          return new Error('Required prop `' + propName + '` was not specified in `' + componentName + '`.');
         }
         return dateValidator(props, propName, componentName);
       },
@@ -115,10 +114,12 @@ module.exports = React.createClass({
   },
 
   handleKeyDown(callback, e) {
-    if (!e) e = window.event; // TODO: is this ever so? makes this harder to test
+    if (!e) {
+      e = window.event; // TODO: is this ever so? makes this harder to test
+    }
 
     var keyCode = e.keyCode || e.which;
-    if (keyCode == '13' && !e.ctrlKey && !e.shiftKey){
+    if (keyCode === 13 && !e.ctrlKey && !e.shiftKey){
       callback();
       return false;
     }
@@ -155,7 +156,7 @@ module.exports = React.createClass({
           <a href="#" className="Comment-dropdownToggle" ref="menuAnchor" onClick={this.handleMenuToggle}>&hellip;</a>
           <DropdownMenu className="DropdownMenu" anchor={this.refs.menuAnchor} visible={this.state.showMenu} close={this.handleMenuToggle}>
             <dl>
-              {this.props.starable && <dd><a href="#" onClick={this.handleStarToggle}>{this.state.stared ? "Unstar" : "Star"} this discussion</a></dd>}
+              {this.props.starable && <dd><a href="#" onClick={this.handleStarToggle}>{this.state.stared ? 'Unstar' : 'Star'} this discussion</a></dd>}
               {this.props.comment.editable && <dd><a href="#" onClick={this.handleEditToggle}>Edit discussion</a></dd>}
               {this.props.comment.deletable && <dd><a href="#" onClick={this.handleDelete}>Delete discussion</a></dd>}
             </dl>
@@ -184,7 +185,7 @@ module.exports = React.createClass({
           firstName={this.props.comment.author.firstName}
           lastName={this.props.comment.author.lastName}
           email={this.props.comment.author.email}
-          src={this.props.comment.author['avatar_url']}
+          src={this.props.comment.author.avatar_url}
           size="m"
           circle={true}/>
 

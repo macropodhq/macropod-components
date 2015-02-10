@@ -32,16 +32,16 @@ module.exports = React.createClass({
       onCancel: noop,
       onOk: noop,
       cancelable: false,
-      title: "Please enter a value",
-      children: "",
-      cancelText: "Cancel",
-      okText: "OK",
+      title: 'Please enter a value',
+      children: '',
+      cancelText: 'Cancel',
+      okText: 'OK',
       okDisabled: false,
     };
   },
 
   handleKeyUp(event) {
-    if (event.keyCode == 13) {
+    if (event.keyCode === 13) {
       this.props.onOk();
     }
   },
@@ -51,7 +51,7 @@ module.exports = React.createClass({
     return false;
   },
 
-  handleOk(event) {
+  handleOk() {
     this.props.onOk();
     return false;
   },

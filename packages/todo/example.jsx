@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var _ = require('lodash-node');
 
 var TodoList = require('./');
 
@@ -35,7 +36,7 @@ module.exports = React.createClass({
 
   handleDelete(subtaskId) {
     var subtasks = this.state.subtasks;
-    subtasks = _.without(subtasks,_.findWhere(subtasks, {id: subtaskId}));
+    subtasks = _.without(subtasks, _.findWhere(subtasks, {id: subtaskId}));
     this.setState({subtasks: subtasks});
   },
 

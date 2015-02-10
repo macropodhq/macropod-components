@@ -44,20 +44,24 @@ module.exports = React.createClass({
   },
 
   handleKeyUp(e) {
-    if (e.keyCode == 27) {
+    if (e.keyCode === 27) {
       this.handleClose();
     }
   },
 
   setVisibleState() {
-    if (!this.isMounted()) return;
+    if (!this.isMounted()) {
+      return;
+    }
     this.setState({
       modalVisible: true
-    }); 
+    });
   },
 
   handleClose() {
-    if (!this.isMounted()) return;
+    if (!this.isMounted()) {
+      return;
+    }
     this.setState({
       showModal: false
     });
@@ -100,7 +104,7 @@ module.exports = React.createClass({
           {this.props.closeButton &&
             <a className="Modal-close" href="#" onClick={this.handleClose}> &#215; </a>
           }
-          {this.props.title && 
+          {this.props.title &&
             <div className="Modal-header">
               <h2 className="Modal-title">{this.props.title}</h2>
             </div>
@@ -110,7 +114,7 @@ module.exports = React.createClass({
             {this.props.children}
           </div>
 
-          {this.props.footer && 
+          {this.props.footer &&
             <div className="Modal-footer">
               {this.props.footer}
             </div>

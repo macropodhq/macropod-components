@@ -9,7 +9,7 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <AppHeader 
+      <AppHeader
         title="App Header"
         navRight={
           <span>

@@ -12,8 +12,8 @@ module.exports = React.createClass({
 
     for (var i = 0; i < this.props.count; i++) {
       var classes = React.addons.classSet({
-        "Steps-step": true,
-        "is-active": i === this.props.current - 1,
+        'Steps-step': true,
+        'is-active': i === this.props.current - 1,
       });
 
       children.push(<span key={i} className={classes}>{i + 1}</span>);

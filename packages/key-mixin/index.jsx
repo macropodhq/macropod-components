@@ -8,14 +8,16 @@ module.exports = {
 
     var callbacks = _.map(eventMaskCbPairs,
       (value) => _.all(value.mask,
-        (value, key) => e[key] == value
+        (value, key) => e[key] === value
       ) && value.cb
     );
     callbacks = _.compact(callbacks);
 
     _.each(callbacks, (cb) => this[cb](e));
 
-    if (callbacks.length > 0) return false;
+    if (callbacks.length > 0) {
+      return false;
+    }
   },
 
   keyHandler(keyMask) {

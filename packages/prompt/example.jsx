@@ -14,7 +14,7 @@ module.exports = React.createClass({
       promptState: 'Not yet shown',
       promptTitle: 'I just need to know!',
       promptContent: 'How much wood would a Woodchuck chuck if a Woodchuck could chuck wood?',
-      promptDefaultValue: "A lot!",
+      promptDefaultValue: 'A lot!',
       promptCancelable: true,
       promptValidateInput: true,
       promptValue: ''
@@ -46,31 +46,31 @@ module.exports = React.createClass({
   handleTitleChange(event) {
     this.setState({
       promptTitle: event.target.value
-    })
+    });
   },
 
   handleContentChange(event) {
     this.setState({
       promptContent: event.target.value
-    })
+    });
   },
 
   handleDefaultValueChange(event) {
     this.setState({
       promptDefaultValue: event.target.value
-    })
+    });
   },
 
   handleCancelableChange(event) {
     this.setState({
       promptCancelable: event.target.checked
-    })
+    });
   },
 
   handleValidateInputChange(event) {
     this.setState({
       promptValidateInput: event.target.checked
-    })
+    });
   },
 
   validateInput(value) {

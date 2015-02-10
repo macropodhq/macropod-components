@@ -44,19 +44,19 @@ module.exports = React.createClass({
   handleTitleChange(event) {
     this.setState({
       alertTitle: event.target.value
-    })
+    });
   },
 
   handleContentChange(event) {
     this.setState({
       alertContent: event.target.value
-    })
+    });
   },
 
   handleCancelableChange(event) {
     this.setState({
       alertCancelable: event.target.checked
-    })
+    });
   },
 
   render() {

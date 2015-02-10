@@ -49,12 +49,14 @@ module.exports = React.createClass({
   },
 
   toggleFullscreenLightbox() {
-    this.setState({activeAsset: this.refs.assetSwitcher.getDOMNode().value})
+    this.setState({activeAsset: this.refs.assetSwitcher.getDOMNode().value});
     this.setState({open: !this.state.open});
   },
 
   handleChange(index) {
+    /*eslint-disable no-alert*/
     alert(index);
+    /*eslint-enable no-alert*/
   },
 
   render() {
