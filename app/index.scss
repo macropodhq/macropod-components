@@ -2,14 +2,18 @@
   box-sizing: border-box;
 }
 
+html {
+  min-height: 200%;
+}
+
 body {
   font-family: 'Open Sans', 'Helvetica Neue', 'Arial', 'Helvetica', 'sans-serif';
   font-size: 15px;
-  padding: 0px;
+  padding: 0;
   width: 1200px;
   max-width: 100%;
   padding: 0 1em;
-  margin: 5em auto;
+  margin: 1em auto;
 }
 
 code {
@@ -17,17 +21,35 @@ code {
 }
 
 .Playground-TOC {
-  column-width: 10em;
+  column-width: 12em;
   padding: 0;
+  list-style: none;
 
   > li {
     column-break-inside: avoid;
+    margin-bottom: .2em;
+
+    a {
+      color: black;
+      text-decoration: none;
+      padding: .1em .3em;
+      border-radius: .2em;
+
+      &:hover {
+        opacity: .4;
+      }
+
+      &.active {
+        color: white;
+        background-color: black;
+      }
+    }
   }
 }
 
 .Playground-Example {
   box-sizing: border-box;
-  margin: 0px;
+  margin: 0;
   padding-bottom: 1.5em;
   border-bottom: 1px solid #ccc;
 

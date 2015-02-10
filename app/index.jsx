@@ -45,7 +45,6 @@ var App = React.createClass({
     return (
       <div>
         <h1>Macropod Components</h1>
-        <h2>Table of Contents</h2>
         <ul className="Playground-TOC">
           <li><Link to="/">All</Link></li>
           {packages.map(component => <li key={component.path}><Link to={'/' + component.name}>{component.friendlyName}</Link></li>)}
