@@ -19,7 +19,7 @@
        /~___|  /____\
 */
 
-React = require('react/addons');
+var React = require('react/addons');
 
 require('./covert-header.scss');
 var ScrollEvent = require('../scroll-event-mixin');
