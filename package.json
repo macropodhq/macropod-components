@@ -18,7 +18,7 @@
     "react-window-mixins": "^0.0.5"
   },
   "devDependencies": {
-    "macropod-tools": "git://github.com/macropodhq/macropod-tools.git"
+    "macropod-tools": "git://github.com/macropodhq/macropod-tools.git#0.0.5"
   },
   "peerDependencies": {
     "react": "^0.12.2"
