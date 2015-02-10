@@ -24,7 +24,9 @@
     "react": "^0.12.2"
   },
   "scripts": {
-    "start": "macropod-start"
+    "start": "macropod-start",
+    "build": "macropod-prod",
+    "test": "macropod-lint"
   },
   "repository": {
     "type": "git",
