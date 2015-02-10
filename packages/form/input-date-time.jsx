@@ -13,7 +13,7 @@ module.exports = React.createClass({
   getDefaultProps() {
     return {
       defaultValue: moment().toISOString()
-    }
+    };
   },
 
   onChange(date) {

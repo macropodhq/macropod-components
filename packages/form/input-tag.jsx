@@ -10,14 +10,12 @@ module.exports = React.createClass({
   displayName: 'InputTag',
 
   render() {
-    var camelCaseLabel = InputWrapper.camelCase(this.props.label);
-
     return (
       <InputWrapper
         inputType="Tag"
         label={this.props.label}
         showLabel={this.props.showLabel}>
-            <TagInput {...this.props} /> 
+            <TagInput {...this.props} />
       </InputWrapper>
     );
   },

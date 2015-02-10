@@ -12,7 +12,7 @@ module.exports = React.createClass({
       backgroundColor: '#ffffff',
       complete: 0,
       total: 1
-    }
+    };
   },
 
   render() {
@@ -20,12 +20,12 @@ module.exports = React.createClass({
     var startAngle = -90;
     var endAngle = (360 * this.props.complete / this.props.total) + startAngle;
 
-    var x1 = size/2 + (size/2 - 3.5) * Math.cos(Math.PI * startAngle / 180),
-        y1 = size/2 + (size/2 - 3.5) * Math.sin(Math.PI * startAngle / 180),
-        x2 = size/2 + (size/2 - 3.5) * Math.cos(Math.PI *  endAngle  / 180),
-        y2 = size/2 + (size/2 - 3.5) * Math.sin(Math.PI *  endAngle  / 180);
+    var x1 = size / 2 + (size / 2 - 3.5) * Math.cos(Math.PI * startAngle / 180),
+        y1 = size / 2 + (size / 2 - 3.5) * Math.sin(Math.PI * startAngle / 180),
+        x2 = size / 2 + (size / 2 - 3.5) * Math.cos(Math.PI * endAngle / 180),
+        y2 = size / 2 + (size / 2 - 3.5) * Math.sin(Math.PI * endAngle / 180);
 
-    var pathDefinition = 'M' + (size/2).toString() + ',' + (size/2).toString() + ' L' + x1.toString() + ',' + y1.toString() + '  A' + (size/2 - 3.5).toString() + ',' + (size/2 - 3.5).toString() + ' 0 ' + ((endAngle-startAngle > 180) ? '1' : '0') + ',1 ' + x2.toString() + ',' + y2.toString() + ' z';
+    var pathDefinition = 'M' + (size / 2).toString() + ',' + (size / 2).toString() + ' L' + x1.toString() + ',' + y1.toString() + '  A' + (size / 2 - 3.5).toString() + ',' + (size / 2 - 3.5).toString() + ' 0 ' + ((endAngle - startAngle > 180) ? '1' : '0') + ',1 ' + x2.toString() + ',' + y2.toString() + ' z';
 
     var complete = this.props.total > 0 && this.props.complete >= this.props.total;
 

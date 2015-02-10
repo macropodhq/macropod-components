@@ -7,7 +7,7 @@ require('./actions-bar.scss');
 
 module.exports = React.createClass({
   displayName: 'ActionsBar',
-  
+
   statics: {
     NAVIGATION_ITEM_CLASSNAME: 'ActionsBar-navigation-link',
     NAVIGATION_TITLE_CLASSNAME: 'ActionsBar-navigation-title',

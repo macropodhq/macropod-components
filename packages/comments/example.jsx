@@ -75,7 +75,7 @@ module.exports = React.createClass({
           createdAt: '2015-01-07T11:04:01.453783131+11:00'
         }
       ]
-    }
+    };
   },
 
   handleNewComment(value, parentId) {
@@ -88,21 +88,25 @@ module.exports = React.createClass({
       entry: value
     });
 
-    this.setState({comments: updatedComments})
+    this.setState({comments: updatedComments});
   },
 
   handleKeyDown(callback, e) {
-    if (!e) e = window.event;
+    if (!e) {
+      e = window.event;
+    }
     var keyCode = e.keyCode || e.which;
-    if (keyCode == '13' && !e.ctrlKey && !e.shiftKey){
+    if (keyCode === 13 && !e.ctrlKey && !e.shiftKey){
       callback();
       return false;
     }
   },
 
   handleNewDiscussion(e) {
-    e && e.preventDefault();
-    this.handleNewComment(this.refs.newDiscussionInput.getDOMNode().value)
+    if (e) {
+      e.preventDefault();
+    }
+    this.handleNewComment(this.refs.newDiscussionInput.getDOMNode().value);
     this.refs.newDiscussionInput.getDOMNode().value = '';
     this.refs.newDiscussionInput.getDOMNode().style.height = 'auto';
   },

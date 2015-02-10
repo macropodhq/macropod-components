@@ -14,7 +14,7 @@ module.exports = React.createClass({
           firstName={this.props.comment.author.firstName}
           lastName={this.props.comment.author.lastName}
           email={this.props.comment.author.email}
-          src={this.props.comment.author['avatar_url']}
+          src={this.props.comment.author.avatar_url}
           size="m"
           circle={true}/>
 
@@ -29,6 +29,6 @@ module.exports = React.createClass({
           {this.props.comment.entry}
         </p>
       </div>
-    )
+    );
   }
 });

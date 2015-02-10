@@ -1,8 +1,7 @@
 'use strict';
 var React = require('react/addons');
 var _ = require('lodash-node');
-var DropdownMenu = require('../dropdown-menu');
-var Avatar = require('../avatar');
+/*global Comment:false*/
 var Comment = require('./comment');
 
 module.exports = React.createClass({

@@ -25,7 +25,7 @@ var episodeDisplay = (name, episode) => {
       <h4 style={{display: 'inline-block', fontWeight: 'normal', fontSize: '20px', color: '#555', margin: '0px 0px 0px 20px', lineHeight: '50px'}}>{name}</h4>
     </div>
   );
-}
+};
 
 var columns = [
   {title: 'Episode', prop: 'episode', render: episodeDisplay, sortable: false},

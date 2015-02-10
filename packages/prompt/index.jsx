@@ -3,7 +3,6 @@
 var React = require('react/addons');
 
 var Alert = require('../alert');
-var Button = require('../button');
 
 require('./prompt.scss');
 
@@ -43,18 +42,18 @@ module.exports = React.createClass({
       onCancel: noop,
       onOk: noop,
       cancelable: true,
-      defaultValue: "",
-      placeholder: "",
-      title: "Please enter a value",
-      content: "",
-      cancelText: "Cancel",
-      okText: "OK",
+      defaultValue: '',
+      placeholder: '',
+      title: 'Please enter a value',
+      content: '',
+      cancelText: 'Cancel',
+      okText: 'OK',
       validateInput: () => true
     };
   },
 
   handleKeyUp(event) {
-    if (this.state.valid && event.keyCode == 13) {
+    if (this.state.valid && event.keyCode === 13) {
       this.props.onOk(this.state.value);
     }
   },
@@ -64,7 +63,7 @@ module.exports = React.createClass({
     return false;
   },
 
-  handleOk(event) {
+  handleOk() {
     this.props.onOk(this.state.value);
     return false;
   },

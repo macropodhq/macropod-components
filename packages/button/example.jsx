@@ -14,7 +14,7 @@ module.exports = React.createClass({
     };
   },
 
-  handleClick(e) {
+  handleClick() {
     this.setState({click: this.state.count++});
   },
 

@@ -23,7 +23,6 @@ var React = require('react/addons');
 
 require('./covert-header.scss');
 var ScrollEvent = require('../scroll-event-mixin');
-var StyleUtilities = require('../style-utilities');
 
 module.exports = React.createClass({
   displayName: 'CovertHeader',

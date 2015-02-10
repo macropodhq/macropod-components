@@ -6,10 +6,12 @@ var keys = [
   {
     mask: {key: 'Enter', metaKey: true, altKey: false}, //osx
     cb: 'handleEnter',
-  },{
+  },
+  {
     mask: {key: 'Enter', ctrlKey: true, altKey: false}, //windows
     cb: 'handleEnter',
-  },{
+  },
+  {
     mask: {key: 'Escape', ctrlKey: false, altKey: false},
     cb: 'handleEscape',
   },
@@ -22,16 +24,16 @@ module.exports = React.createClass({
   getInitialState() {
     return {
       value: 'Hit escape or meta+enter',
-    }
+    };
   },
 
-  handleEscape(e) {
+  handleEscape() {
     this.setState({
       value: 'You hit escape!',
     });
   },
 
-  handleEnter(e) {
+  handleEnter() {
     this.setState({
       value: 'You hit meta+enter',
     });

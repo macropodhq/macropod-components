@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react/addons');
-var OnResize = require("react-window-mixins").OnResize;
+var OnResize = require('react-window-mixins').OnResize;
 
 require('./lightbox.scss');
 

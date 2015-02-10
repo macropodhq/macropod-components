@@ -16,7 +16,7 @@ var InputWrapper = React.createClass({
   getDefaultProps() {
     return {
       showLabel: true
-    }
+    };
   },
 
   statics: {

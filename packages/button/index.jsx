@@ -26,7 +26,7 @@ module.exports = React.createClass({
         !_.contains(validTypes, props[propName])
       ) {
         // type is deprecated because it overlaps with the built in html attribute
-        return new Error('Button\'s type[' + props[propName] +'] property is deprecated outside of [' + validTypes.join(', ') + ']. Please extend the component instead.');
+        return new Error('Button\'s type[' + props[propName] + '] property is deprecated outside of [' + validTypes.join(', ') + ']. Please extend the component instead.');
       }
     },
   },
