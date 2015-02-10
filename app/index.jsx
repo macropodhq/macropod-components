@@ -8,7 +8,7 @@ var Link = Router.Link;
 var RouteHandler = Router.RouteHandler;
 
 require('open-sans/scss/open-sans.scss');
-require('normalize.css/normalize.css')
+require('normalize.css/normalize.css');
 require('./index.scss');
 
 var packageRequire = require.context('../packages', true, /example\.jsx/);
@@ -71,15 +71,14 @@ var AllComponentsHandler = React.createClass({
 Router.run(
   <Route name="app" path="/" handler={App}>
     <Route name="all" path="/" handler={AllComponentsHandler}/>
-    {packages.map(component => 
+    {packages.map(component =>
       <Route name={component.name} path={'/' + component.name} handler={React.createClass({
-        displayName: component.name,
+        displayName: component.friendlyName.split(' ').join('')+'ExampleRouteHandler',
         render() {return wrapPackage(component);}
       })}/>
     )}
   </Route>,
-  Router.HistoryLocation,
-  (Handler, state) => {
+  Handler => {
     React.render(
       <Handler />,
       document.body
