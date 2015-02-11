@@ -32,8 +32,8 @@ var InputWrapper = React.createClass({
     var camelCaseLabel = InputWrapper.camelCase(this.props.label);
 
     return (
-      <div className={'Form-item Form-item--' + camelCaseLabel}>
-        {this.props.showLabel && <label className="Form-item-label" htmlFor={'Input--' + this.props.inputType + '--' + camelCaseLabel}>{this.props.label}</label>}
+      <div className={`Form-item Form-item--${camelCaseLabel}`}>
+        {this.props.showLabel && <label className="Form-item-label" htmlFor={`Input--${this.props.inputType}--${camelCaseLabel}`}>{this.props.label}</label>}
         {this.props.children}
       </div>
     );

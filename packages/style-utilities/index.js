@@ -33,9 +33,9 @@ var transformProperty = getStyleProperty('transform');
 
 var is3d = !!getStyleProperty('perspective');
 var translate = is3d ? function(x, y) {
-  return 'translate3d( ' + x + 'px, ' + y + 'px, 0)';
+  return `translate3d(${x}px, ${y}px, 0)`;
 } : function(x, y) {
-  return 'translate( ' + x + 'px, ' + y + 'px)';
+  return `translate(${x}px, ${y}px)`;
 };
 
 var vendorEvent = function vendorEvent(events) {

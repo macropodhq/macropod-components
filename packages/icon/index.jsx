@@ -40,7 +40,7 @@ module.exports = React.createClass({
       className: className,
       style: this.props.style,
       dangerouslySetInnerHTML: {
-        __html: require('!raw!./svgs/icon-' + this.props.type + '.svg')
+        __html: require(`!raw!./svgs/icon-${this.props.type}.svg`)
       }
     };
 

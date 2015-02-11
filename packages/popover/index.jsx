@@ -109,7 +109,7 @@ var PopoverContent = React.createClass({
 
     return (
       <div style={this.overlayStyle} onClick={this.props.close}>
-        <div className={this.props.className + ' Popover'} ref="Popover" style={this.state.style}>
+        <div className={`${this.props.className} Popover`} ref="Popover" style={this.state.style}>
           {this.props.children}
         </div>
       </div>

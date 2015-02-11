@@ -16,7 +16,7 @@ module.exports = React.createClass({
         inputType="Textarea"
         label={this.props.label}
         showLabel={this.props.showLabel}>
-          <textarea {...this.props} id={'Input--Textarea--' + camelCaseLabel} className={'Input Input--Textarea Input--Textarea--' + camelCaseLabel}></textarea>
+          <textarea {...this.props} id={`Input--Textarea--${camelCaseLabel}`} className={`Input Input--Textarea Input--Textarea--${camelCaseLabel}`}></textarea>
       </InputWrapper>
     );
   },

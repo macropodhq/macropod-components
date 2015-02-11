@@ -29,7 +29,7 @@ module.exports = React.createClass({
       'AvatarWithPie': true,
     };
 
-    classes['AvatarWithPie--' + this.props.size] = true;
+    classes[`AvatarWithPie--${this.props.size}`] = true;
     var containerClass = React.addons.classSet(classes);
 
     return (

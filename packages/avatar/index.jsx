@@ -60,14 +60,14 @@ module.exports = React.createClass({
     if (src !== '') {
       url = src;
     } else if (email !== '') {
-      url = '//www.gravatar.com/avatar/' + md5(email) + '?d=blank&s=' + (sizes[this.props.size] * ratio).toString(10);
+      url = `//www.gravatar.com/avatar/${md5(email)}?d=blank&s=${(sizes[this.props.size] * ratio).toString(10)}`;
     }
 
-    return 'url(' + url + ')';
+    return `url(${url})`;
   },
 
   getColor(str) {
-    return 'hsl(' + parseInt(md5(str).substr(2, 4), 16) + ', 80%, 45%)';
+    return `hsl(${parseInt(md5(str).substr(2, 4), 16)}, 80%, 45%)`;
   },
 
   getInitials(firstName, lastName) {
@@ -102,7 +102,7 @@ module.exports = React.createClass({
       'Avatar--circle': !!this.props.circle,
       'Avatar--bordered': !!src,
     };
-    classes['Avatar--' + this.props.size] = true;
+    classes[`Avatar--${this.props.size}`] = true;
 
     var containerClass = classSet(classes);
 
@@ -110,7 +110,7 @@ module.exports = React.createClass({
     lastName = lastName || '';
 
     return (
-      <span title={firstName + '’s avatar'}
+      <span title={`${firstName}’s avatar`}
         className={containerClass}
         style={{backgroundColor: this.getColor(firstName + lastName)}}>
         <span className="Avatar-initials" aria-hidden="true">{this.getInitials(firstName, lastName)}</span>
