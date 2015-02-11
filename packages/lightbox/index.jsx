@@ -1,13 +1,13 @@
 'use strict';
 
-var React = require('react/addons');
-var OnResize = require('react-window-mixins').OnResize;
+const React = require('react/addons');
+const OnResize = require('react-window-mixins').OnResize;
 
 require('./lightbox.scss');
 
-var noop = () => {};
+const noop = () => {};
 
-var AssetImage = React.createClass({
+const AssetImage = React.createClass({
   mixins: [OnResize],
 
   getInitialState() {
@@ -27,15 +27,15 @@ var AssetImage = React.createClass({
   },
 
   checkImageSize() {
-    var node = this.getDOMNode();
-    var parentElementWidth = node.parentNode
+    let node = this.getDOMNode();
+    let parentElementWidth = node.parentNode
       ? node.parentNode.clientWidth
       : Infinity;
-    var parentElementHeight = node.parentNode
+    let parentElementHeight = node.parentNode
       ? node.parentNode.clientHeight
       : Infinity;
 
-    var zoomable = node.naturalWidth > parentElementWidth || node.naturalHeight > parentElementHeight;
+    let zoomable = node.naturalWidth > parentElementWidth || node.naturalHeight > parentElementHeight;
 
     this.setState({
       zoomable: zoomable,
@@ -52,7 +52,7 @@ var AssetImage = React.createClass({
   },
 
   render() {
-    var imageClasses = React.addons.classSet({
+    let imageClasses = React.addons.classSet({
       'AssetImage': true,
       'AssetImage--zoomed': this.state.zoomed,
       'AssetImage--zoomable': this.state.zoomable
@@ -68,7 +68,7 @@ var AssetImage = React.createClass({
   },
 });
 
-var AssetIframe = React.createClass({
+const AssetIframe = React.createClass({
   render() {
     return (
       <iframe className="AssetIframe" src={this.props.asset.path} frameBorder="0" />
@@ -80,7 +80,7 @@ var AssetIframe = React.createClass({
   },
 });
 
-var AssetLink = React.createClass({
+const AssetLink = React.createClass({
   render() {
     return (
       <a className="AssetLink" href={this.props.asset.path} target="_blank">Download <em>{this.props.asset.title}</em></a>
@@ -92,7 +92,7 @@ var AssetLink = React.createClass({
   },
 });
 
-var Lightbox = React.createClass({
+const Lightbox = React.createClass({
   displayName: 'Lightbox',
 
   statics: {
@@ -116,7 +116,7 @@ var Lightbox = React.createClass({
       });
 
       this._containers.sort((a, b) => {
-        var ac = a.media.split('/', 2),
+        let ac = a.media.split('/', 2),
             bc = b.media.split('/', 2);
 
         if (ac[0] === '*' && bc[0] !== '*') {
@@ -140,7 +140,7 @@ var Lightbox = React.createClass({
     },
 
     unregister(media) {
-      for (var i = 0; i < this._containers.length; i++) {
+      for (let i = 0; i < this._containers.length; i++) {
         if (this._containers[i].media === media) {
           this._containers.splice(i, 1);
           i--;
@@ -153,8 +153,8 @@ var Lightbox = React.createClass({
         media = 'application/octet-stream';
       }
 
-      for (var i = 0; i < this._containers.length; i++) {
-        var ac = this._containers[i].media.split('/', 2),
+      for (let i = 0; i < this._containers.length; i++) {
+        let ac = this._containers[i].media.split('/', 2),
             bc = media.split('/', 2);
 
         if (ac[0] === bc[0] && ac[1] === bc[1]) {
@@ -209,7 +209,7 @@ var Lightbox = React.createClass({
   },
 
   handlePrevious() {
-    var nextIndex = this.state.currentAssetIndex - 1;
+    let nextIndex = this.state.currentAssetIndex - 1;
     if (nextIndex < 0) {
       nextIndex = this.props.assets.length - 1;
     }
@@ -218,7 +218,7 @@ var Lightbox = React.createClass({
   },
 
   handleNext() {
-    var nextIndex = this.state.currentAssetIndex + 1;
+    let nextIndex = this.state.currentAssetIndex + 1;
     if (this.props.assets.length === nextIndex) {
       nextIndex = 0;
     }
@@ -237,9 +237,9 @@ var Lightbox = React.createClass({
       return null;
     }
 
-    var multipleAssets = this.props.assets.length > 1;
+    let multipleAssets = this.props.assets.length > 1;
 
-    var lightboxClassObject = {
+    let lightboxClassObject = {
       'Lightbox': true,
       'Lightbox--multiple': multipleAssets,
       'Lightbox--fullscreen': !!this.props.fullscreen
@@ -249,11 +249,11 @@ var Lightbox = React.createClass({
       lightboxClassObject[this.props.className] = true;
     }
 
-    var lightboxClass = React.addons.classSet(lightboxClassObject);
+    let lightboxClass = React.addons.classSet(lightboxClassObject);
 
-    var currentAsset = this.getCurrentAsset();
+    let currentAsset = this.getCurrentAsset();
 
-    var Container = Lightbox.containerFor(currentAsset.media);
+    let Container = Lightbox.containerFor(currentAsset.media);
 
     return (
       <div className={lightboxClass} style={this.props.style}>

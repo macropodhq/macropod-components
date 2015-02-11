@@ -1,12 +1,12 @@
 'use strict';
 
-var React = require('react');
-var _ = require('lodash-node');
+const React = require('react');
+const _ = require('lodash-node');
 
 require('./todo-list.scss');
 
-var TodoItem = require('./todo-item');
-var Button = require('../button');
+const TodoItem = require('./todo-item');
+const Button = require('../button');
 
 module.exports = React.createClass({
   displayName: 'TodoList',
@@ -32,11 +32,11 @@ module.exports = React.createClass({
   },
 
   handleAddClick() {
-    var newState = {
+    let newState = {
       isCreating: true,
     };
 
-    var self = this;
+    let self = this;
     this.setState(newState, () => {
       self.refs.newInput.getDOMNode().focus();
     });

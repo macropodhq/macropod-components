@@ -1,8 +1,8 @@
 'use strict';
 
-var React = require('react');
+const React = require('react');
 
-var Loading = require('./');
+const Loading = require('./');
 
 module.exports = React.createClass({
   displayName: 'LoadingExample',

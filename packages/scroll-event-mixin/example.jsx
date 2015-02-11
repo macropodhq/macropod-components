@@ -1,10 +1,10 @@
 'use strict';
 
-var React = require('react');
+const React = require('react');
 
-var ScrollEventMixin = require('./');
+const ScrollEventMixin = require('./');
 
-var scrollevent = ScrollEventMixin({
+const scrollevent = ScrollEventMixin({
   interval: 100,
   timeout: 300
 });

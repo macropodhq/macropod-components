@@ -1,9 +1,9 @@
 'use strict';
 
-var React = require('react/addons');
-var LayeredComponentMixin = require('react-components/js/layered-component-mixin');
+const React = require('react/addons');
+const LayeredComponentMixin = require('react-components/js/layered-component-mixin');
 
-var animationCallback = require('../style-utilities').animationCallback;
+const animationCallback = require('../style-utilities').animationCallback;
 
 require('./modal.scss');
 
@@ -75,8 +75,8 @@ module.exports = React.createClass({
   },
 
   renderLayer() {
-    var classSet = React.addons.classSet;
-    var modalClasses = {
+    let classSet = React.addons.classSet;
+    let modalClasses = {
       'Modal': true,
       'Modal--visible': this.state.showModal,
       'Modal--invisible': !this.state.showModal
@@ -88,7 +88,7 @@ module.exports = React.createClass({
 
     modalClasses = classSet(modalClasses);
 
-    var dialogClassObject = {
+    let dialogClassObject = {
       'Modal-dialog': true,
       'Modal-dialog--withHeader': this.props.title,
       'Modal-dialog--withFooter': this.props.footer
@@ -96,7 +96,7 @@ module.exports = React.createClass({
 
     dialogClassObject[this.props.dialogClassName] = (typeof this.props.dialogClassName === 'string');
 
-    var dialogClasses = classSet(dialogClassObject);
+    let dialogClasses = classSet(dialogClassObject);
 
     return (
       <div className={modalClasses} onClick={this.handleClose} onScroll={this.stopPropagation}>

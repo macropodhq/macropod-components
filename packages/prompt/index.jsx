@@ -1,12 +1,12 @@
 'use strict';
 
-var React = require('react/addons');
+const React = require('react/addons');
 
-var Alert = require('../alert');
+const Alert = require('../alert');
 
 require('./prompt.scss');
 
-var noop = () => {};
+const noop = () => {};
 
 module.exports = React.createClass({
   displayName: 'Prompt',

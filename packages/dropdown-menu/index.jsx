@@ -1,6 +1,6 @@
 'use strict';
-var React = require('react/addons');
-var Popover = require('../popover');
+const React = require('react/addons');
+const Popover = require('../popover');
 require('./dropdown-menu.scss');
 
 module.exports = React.createClass({
@@ -13,7 +13,7 @@ module.exports = React.createClass({
 
   render() {
 
-    var dropdownMenuClass = {
+    let dropdownMenuClass = {
       'DropdownMenu': true,
       'DropdownMenu--withFooter': !!this.props.footer,
       'DroddownMenu--alignRight': this.props.align === 'right'

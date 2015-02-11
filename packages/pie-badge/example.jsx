@@ -1,8 +1,8 @@
 'use strict';
 
-var React = require('react');
+const React = require('react');
 
-var PieBadge = require('./');
+const PieBadge = require('./');
 
 module.exports = React.createClass({
   displayName: 'PieBadgeExample',

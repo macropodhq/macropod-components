@@ -1,8 +1,8 @@
 'use strict';
 
-var React = require('react');
+const React = require('react');
 
-var AvatarWithPie = require('./');
+const AvatarWithPie = require('./');
 
 module.exports = React.createClass({
   displayName: 'AvatarWithPieWithPieExample',

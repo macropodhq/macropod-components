@@ -1,7 +1,7 @@
-var _ = require('lodash-node');
+const _ = require('lodash-node');
 
 module.exports = options => {
-  var defaults = {
+  let defaults = {
     interval: 100,
     timeout: 200
   };

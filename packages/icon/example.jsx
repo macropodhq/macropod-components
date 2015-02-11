@@ -1,12 +1,12 @@
 'use strict';
 
-var React = require('react');
+const React = require('react');
 
-var Icon = require('./');
+const Icon = require('./');
 
 require('./example.scss');
 
-var svgIcons = require.context('./svgs', true, /\.svg$/).keys().map(name => name.replace(/.\/icon-/i, '').replace(/.svg$/i, '')).sort();
+const svgIcons = require.context('./svgs', true, /\.svg$/).keys().map(name => name.replace(/.\/icon-/i, '').replace(/.svg$/i, '')).sort();
 
 module.exports = React.createClass({
   displayName: 'IconExample',

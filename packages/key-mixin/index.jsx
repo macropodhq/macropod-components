@@ -1,4 +1,4 @@
-var _ = require('lodash-node');
+const _ = require('lodash-node');
 
 module.exports = {
   _keyMixinHandleKeyDown(eventMaskCbPairs, e) {
@@ -6,7 +6,7 @@ module.exports = {
       eventMaskCbPairs = [eventMaskCbPairs];
     }
 
-    var callbacks = _.map(eventMaskCbPairs,
+    let callbacks = _.map(eventMaskCbPairs,
       (value) => _.all(value.mask,
         (value, key) => e[key] === value
       ) && value.cb

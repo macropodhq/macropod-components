@@ -1,15 +1,15 @@
 'use strict';
 
-var React = require('react/addons');
-var classSet = React.addons.classSet;
-var _ = require('lodash-node');
-var keyMirror = require('react/lib/keyMirror');
+const React = require('react/addons');
+const classSet = React.addons.classSet;
+const _ = require('lodash-node');
+const keyMirror = require('react/lib/keyMirror');
 
 require('./icon.scss');
 
-var iconTypes = require.context('./svgs', true, /\.svg$/).keys().map(name => name.replace(/.\/icon-/i, '').replace(/.svg$/i, '')).sort();
+const iconTypes = require.context('./svgs', true, /\.svg$/).keys().map(name => name.replace(/.\/icon-/i, '').replace(/.svg$/i, '')).sort();
 
-var iconConstants = keyMirror(_.invert(iconTypes));
+const iconConstants = keyMirror(_.invert(iconTypes));
 
 module.exports = React.createClass({
   displayName: 'Icon',
@@ -30,13 +30,13 @@ module.exports = React.createClass({
   },
 
   render() {
-    var classes = {
+    let classes = {
       'Icon': true,
     };
     classes[this.props.className] = !!this.props.className; // es6 {[whatever]: true} syntax not supported yet
-    var className = classSet(classes);
+    let className = classSet(classes);
 
-    var props = {
+    let props = {
       className: className,
       style: this.props.style,
       dangerouslySetInnerHTML: {

@@ -1,9 +1,9 @@
 'use strict';
 
-var React = require('react');
+const React = require('react');
 
-var CovertHeader = require('./');
-var Button = require('../button');
+const CovertHeader = require('./');
+const Button = require('../button');
 
 module.exports = React.createClass({
   displayName: 'CovertHeaderExample',

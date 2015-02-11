@@ -1,6 +1,6 @@
 'use strict';
 
-var React = require('react/addons');
+const React = require('react/addons');
 require('./loading.scss');
 
 module.exports = React.createClass({
@@ -13,7 +13,7 @@ module.exports = React.createClass({
   },
 
   render() {
-    var classes = React.addons.classSet({
+    let classes = React.addons.classSet({
       'Loading': true,
       'Loading--small': this.props.size === 'small'
     });

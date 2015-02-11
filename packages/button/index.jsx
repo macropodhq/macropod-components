@@ -2,11 +2,11 @@
 
 require('./button.scss');
 
-var React = require('react/addons');
-var classSet = React.addons.classSet;
-var _ = require('lodash-node');
+const React = require('react/addons');
+const classSet = React.addons.classSet;
+const _ = require('lodash-node');
 
-var validTypes = [
+const validTypes = [
   'submit',
   'reset',
   'button',
@@ -41,7 +41,7 @@ module.exports = React.createClass({
   },
 
   render() {
-    var classes = {
+    let classes = {
       'Button': true,
       'Button--small': this.props.small,
       'Button--skeleton': this.props.skeleton,
@@ -52,7 +52,7 @@ module.exports = React.createClass({
     classes[`Button--${this.props.type}`] = !!this.props.type;
     classes[this.props.className] = !!this.props.className;
 
-    var buttonClass = classSet(classes);
+    let buttonClass = classSet(classes);
 
     return (
       <button {...this.props} className={buttonClass}>{this.props.children}</button>

@@ -2,9 +2,9 @@
 
 // (╯°□°）╯︵ ┻━┻
 
-var React = require('react/addons');
+const React = require('react/addons');
 
-var DataTable = require('react-data-components').DataTable;
+const DataTable = require('react-data-components').DataTable;
 
 require('./table.scss');
 

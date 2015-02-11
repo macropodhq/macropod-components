@@ -1,11 +1,11 @@
 'use strict';
-var React = require('react/addons');
-var _ = require('lodash-node');
-var Layer = require('react-components/js/layered-component-mixin');
+const React = require('react/addons');
+const _ = require('lodash-node');
+const Layer = require('react-components/js/layered-component-mixin');
 
 require('./popover.scss');
 
-var PopoverContent = React.createClass({
+const PopoverContent = React.createClass({
   displayName: 'PopoverContent',
 
   getInitialState() {
@@ -39,17 +39,17 @@ var PopoverContent = React.createClass({
   },
 
   setDropdownStyle() {
-    var bodyTop = document.documentElement.scrollTop || document.body.scrollTop;
-    var dropdownTop = bodyTop + this.anchorRect.top + this.anchorRect.height;
-    var dropdownHeight = this.getHeight();
-    var dropdownBottom = dropdownTop + dropdownHeight;
-    var dropdownOffscreenBottom = (dropdownBottom - (bodyTop + window.innerHeight));
+    let bodyTop = document.documentElement.scrollTop || document.body.scrollTop;
+    let dropdownTop = bodyTop + this.anchorRect.top + this.anchorRect.height;
+    let dropdownHeight = this.getHeight();
+    let dropdownBottom = dropdownTop + dropdownHeight;
+    let dropdownOffscreenBottom = (dropdownBottom - (bodyTop + window.innerHeight));
 
     if (dropdownOffscreenBottom > 0) {
       dropdownHeight = dropdownHeight - (dropdownOffscreenBottom + 10);
     }
 
-    var nextStyleState = {
+    let nextStyleState = {
       left: this.getLeft(),
       top: dropdownTop,
       position: 'absolute',

@@ -1,8 +1,8 @@
 'use strict';
 
-var React = require('react');
-var InputWrapper = require('./input-wrapper');
-var TagInput = require('../tag-input');
+const React = require('react');
+const InputWrapper = require('./input-wrapper');
+const TagInput = require('../tag-input');
 
 require('./input-tag.scss');
 

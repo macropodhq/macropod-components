@@ -1,10 +1,10 @@
 'use strict';
 
-var React = require('react');
+const React = require('react');
 
-var TagInput = require('./');
+const TagInput = require('./');
 
-var options = [
+const options = [
   {
     id: 1,
     name: 'Eggs'

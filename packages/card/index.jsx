@@ -1,8 +1,8 @@
 'use strict';
 
-var React = require('react');
-var DropdownMenu = require('../dropdown-menu');
-var Icon = require('../icon');
+const React = require('react');
+const DropdownMenu = require('../dropdown-menu');
+const Icon = require('../icon');
 
 require('./card.scss');
 

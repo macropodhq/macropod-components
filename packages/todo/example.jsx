@@ -1,9 +1,9 @@
 'use strict';
 
-var React = require('react');
-var _ = require('lodash-node');
+const React = require('react');
+const _ = require('lodash-node');
 
-var TodoList = require('./');
+const TodoList = require('./');
 
 module.exports = React.createClass({
   displayName: 'TodoExample',
@@ -15,27 +15,27 @@ module.exports = React.createClass({
   },
 
   handleCreate(name) {
-    var subtasks = this.state.subtasks;
+    let subtasks = this.state.subtasks;
     subtasks.push({id: Math.random(), name: name, completed: false});
     this.setState({subtasks: subtasks});
   },
 
   handleNameChange(subtaskId, name) {
-    var subtasks = this.state.subtasks;
-    var record = _.findWhere(subtasks, {id: subtaskId});
+    let subtasks = this.state.subtasks;
+    let record = _.findWhere(subtasks, {id: subtaskId});
     record.name = name;
     this.setState({subtasks: subtasks});
   },
 
   handleCompletionChange(subtaskId, state) {
-    var subtasks = this.state.subtasks;
-    var record = _.findWhere(subtasks, {id: subtaskId});
+    let subtasks = this.state.subtasks;
+    let record = _.findWhere(subtasks, {id: subtaskId});
     record.completed = state;
     this.setState({subtasks: subtasks});
   },
 
   handleDelete(subtaskId) {
-    var subtasks = this.state.subtasks;
+    let subtasks = this.state.subtasks;
     subtasks = _.without(subtasks, _.findWhere(subtasks, {id: subtaskId}));
     this.setState({subtasks: subtasks});
   },

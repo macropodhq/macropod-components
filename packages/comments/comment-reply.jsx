@@ -1,7 +1,7 @@
 'use strict';
-var React = require('react/addons');
-var Avatar = require('../avatar');
-var DateFormatter = require('../datetime-format');
+const React = require('react/addons');
+const Avatar = require('../avatar');
+const DateFormatter = require('../datetime-format');
 
 module.exports = React.createClass({
   displayName: 'CommentReply',

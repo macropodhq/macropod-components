@@ -2,7 +2,7 @@
 
 require('./button-group.scss');
 
-var React = require('react');
+const React = require('react');
 
 module.exports = React.createClass({
   displayName: 'ButtonGroup',

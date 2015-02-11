@@ -1,4 +1,4 @@
-var moment = require('moment');
+const moment = require('moment');
 
 function DateFormatter(format) {
   return (date, custom) => moment(date).format(custom || format);

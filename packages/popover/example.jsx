@@ -1,9 +1,9 @@
 'use strict';
 
-var React = require('react');
+const React = require('react');
 
-var Popover = require('./');
-var Button = require('../button');
+const Popover = require('./');
+const Button = require('../button');
 
 module.exports = React.createClass({
   displayName: 'PopoverExample',
