@@ -15,7 +15,7 @@ module.exports = React.createClass({
   links() {
     return [
       <span key={1} className={ActionsBar.NAVIGATION_TITLE_CLASSNAME}>TASKS:</span>,
-      <a key={2} href="#" className={ActionsBar.NAVIGATION_ITEM_CLASSNAME + ' active'}>Open</a>,
+      <a key={2} href="#" className={`${ActionsBar.NAVIGATION_ITEM_CLASSNAME} active`}>Open</a>,
       <a key={3} href="#" className={ActionsBar.NAVIGATION_ITEM_CLASSNAME}>Closed</a>
     ];
   },

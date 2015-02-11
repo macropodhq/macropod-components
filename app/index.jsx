@@ -47,7 +47,7 @@ var App = React.createClass({
         <h1>Macropod Components</h1>
         <ul className="Playground-TOC">
           <li><Link to="/">All</Link></li>
-          {packages.map(component => <li key={component.path}><Link to={'/' + component.name}>{component.friendlyName}</Link></li>)}
+          {packages.map(component => <li key={component.path}><Link to={`/${component.name}`}>{component.friendlyName}</Link></li>)}
         </ul>
         <RouteHandler />
       </div>
@@ -71,8 +71,8 @@ Router.run(
   <Route name="app" path="/" handler={App}>
     <Route name="all" path="/" handler={AllComponentsHandler}/>
     {packages.map(component =>
-      <Route name={component.name} path={'/' + component.name} handler={React.createClass({
-        displayName: component.friendlyName.split(' ').join('') + 'ExampleRouteHandler',
+      <Route name={component.name} path={`/${component.name}`} handler={React.createClass({
+        displayName: `${component.friendlyName.split(' ').join('')}ExampleRouteHandler`,
         render() {return wrapPackage(component);}
       })}/>
     )}

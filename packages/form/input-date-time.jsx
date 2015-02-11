@@ -30,7 +30,7 @@ module.exports = React.createClass({
         label={this.props.label}
         showLabel={this.props.showLabel}>
         <CalendarDropdown
-          id={'Input--DateTime--' + camelCaseLabel}
+          id={`Input--DateTime--${camelCaseLabel}`}
           className={'Input--CalendarDropdown'}
           disabled={this.props.disabled}
           onChange={this.onChange}

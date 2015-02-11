@@ -93,7 +93,7 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <div className={'Todo-list-item' + (this.state.isEditing ? ' is-editing' : '')} draggable="true">
+      <div className={`Todo-list-item${(this.state.isEditing ? ' is-editing' : '')}`} draggable="true">
         <input
           checked={this.props.subtask.completed}
           onChange={this.handleToggle}

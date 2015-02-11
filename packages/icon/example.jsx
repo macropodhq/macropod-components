@@ -15,7 +15,7 @@ module.exports = React.createClass({
     return (
       <ul className="IconExample">
         {svgIcons.map((iconName, index, collection) => (
-          <li key={iconName} style={{color: 'hsl(' + (index + 1) / collection.length * 360 + ', 80%, 45%)'}}>
+          <li key={iconName} style={{color: `hsl(${(index + 1) / collection.length * 360}, 80%, 45%)`}}>
             <Icon className="IconExample--large" type={iconName} /><Icon type={iconName} /><code>{iconName}</code>
           </li>
         ))}

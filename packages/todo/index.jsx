@@ -100,7 +100,7 @@ module.exports = React.createClass({
         <div className="Todo-list">
           {_.where(this.props.subtasks, {completed: false}).map(this.renderSubtask)}
         </div>
-        <div className={'Todo-controls' + (this.state.isCreating ? ' is-creating' : '')}>
+        <div className={`Todo-controls${(this.state.isCreating ? ' is-creating' : '')}`}>
           <div className="Todo-controls-new">
             <input
               ref="newInput"

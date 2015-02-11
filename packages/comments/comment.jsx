@@ -17,7 +17,7 @@ var noop = () => {};
 
 function dateValidator(props, propName, componentName) {
   if (propName in props && isNaN(new Date(props[propName]).getUTCMilliseconds())) {
-    return new Error('Invalid value for prop `' + propName + '` in `' + componentName + '`.');
+    return new Error(`Invalid value for prop \`${propName}\` in \`${componentName}\`.`);
   }
 }
 
@@ -43,7 +43,7 @@ module.exports = React.createClass({
       createdAt: dateValidator,
       updatedAt(props, propName, componentName) {
         if (!(propName in props)) {
-          return new Error('Required prop `' + propName + '` was not specified in `' + componentName + '`.');
+          return new Error(`Required prop \`${propName}\` was not specified in \`${componentName}\`.`);
         }
         return dateValidator(props, propName, componentName);
       },
