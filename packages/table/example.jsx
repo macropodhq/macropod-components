@@ -5,7 +5,7 @@ const React = require('react');
 const Table = require('./');
 
 const statusDisplay = status => {
-  let style = {};
+  const style = {};
   if (status === 'Airing') {
     style.color = 'lightGreen';
     style.fontWeight = 'bold';

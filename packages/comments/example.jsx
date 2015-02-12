@@ -95,7 +95,9 @@ module.exports = React.createClass({
     if (!e) {
       e = window.event;
     }
-    let keyCode = e.keyCode || e.which;
+
+    const keyCode = e.keyCode || e.which;
+    
     if (keyCode === 13 && !e.ctrlKey && !e.shiftKey){
       callback();
       return false;

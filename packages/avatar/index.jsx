@@ -54,7 +54,7 @@ module.exports = React.createClass({
   },
 
   getBackgroundImage(src, email) {
-    let ratio = window && window.devicePixelRatio || 1;
+    const ratio = (window && window.devicePixelRatio) || 1;
     let url = '';
 
     if (src !== '') {
@@ -95,16 +95,14 @@ module.exports = React.createClass({
       }
     }
 
-    let classSet = React.addons.classSet;
+    const classSet = React.addons.classSet;
 
-    let classes = {
+    const containerClass = classSet({
       'Avatar': true,
       'Avatar--circle': !!this.props.circle,
       'Avatar--bordered': !!src,
-    };
-    classes[`Avatar--${this.props.size}`] = true;
-
-    let containerClass = classSet(classes);
+      [`Avatar--${this.props.size}`]: true,
+    });
 
     firstName = this.props.title || firstName;
     lastName = lastName || '';

@@ -21,7 +21,7 @@ module.exports = React.createClass({
   getInitialState() {
     return {
       showModal: false,
-      modalVisible: false
+      modalVisible: false,
     };
   },
 
@@ -76,7 +76,7 @@ module.exports = React.createClass({
 
   renderLayer() {
     const classSet = React.addons.classSet;
-    let modalClasses = {
+    const modalClasses = {
       'Modal': true,
       'Modal--visible': this.state.showModal,
       'Modal--invisible': !this.state.showModal
@@ -86,21 +86,21 @@ module.exports = React.createClass({
       modalClasses[this.props.className] = true;
     }
 
-    modalClasses = classSet(modalClasses);
+    const modalClassName = classSet(modalClasses);
 
-    let dialogClassObject = {
+    const dialogClassObject = {
       'Modal-dialog': true,
       'Modal-dialog--withHeader': this.props.title,
-      'Modal-dialog--withFooter': this.props.footer
+      'Modal-dialog--withFooter': this.props.footer,
+      [this.props.dialogClassName]:
+        (typeof this.props.dialogClassName === 'string'),
     };
 
-    dialogClassObject[this.props.dialogClassName] = (typeof this.props.dialogClassName === 'string');
-
-    const dialogClasses = classSet(dialogClassObject);
+    const dialogClassName = classSet(dialogClassObject);
 
     return (
-      <div className={modalClasses} onClick={this.handleClose} onScroll={this.stopPropagation}>
-        <div className={dialogClasses} onClick={this.stopPropagation} style={{maxWidth: this.props.maxWidth, maxHeight: this.props.maxHeight}}>
+      <div className={modalClassName} onClick={this.handleClose} onScroll={this.stopPropagation}>
+        <div className={dialogClassName} onClick={this.stopPropagation} style={{maxWidth: this.props.maxWidth, maxHeight: this.props.maxHeight}}>
           {this.props.closeButton &&
             <a className="Modal-close" href="#" onClick={this.handleClose}> &#215; </a>
           }

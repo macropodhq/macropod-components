@@ -27,15 +27,16 @@ const AssetImage = React.createClass({
   },
 
   checkImageSize() {
-    let node = this.getDOMNode();
-    let parentElementWidth = node.parentNode
-      ? node.parentNode.clientWidth
-      : Infinity;
-    let parentElementHeight = node.parentNode
-      ? node.parentNode.clientHeight
-      : Infinity;
+    const node = this.getDOMNode();
+    const parentElementWidth = node.parentNode ?
+      node.parentNode.clientWidth :
+      Infinity;
+    const parentElementHeight = node.parentNode ?
+      node.parentNode.clientHeight :
+      Infinity;
 
-    let zoomable = node.naturalWidth > parentElementWidth || node.naturalHeight > parentElementHeight;
+    const zoomable = (node.naturalWidth > parentElementWidth) ||
+      (node.naturalHeight > parentElementHeight);
 
     this.setState({
       zoomable: zoomable,
@@ -52,7 +53,7 @@ const AssetImage = React.createClass({
   },
 
   render() {
-    let imageClasses = React.addons.classSet({
+    const imageClasses = React.addons.classSet({
       'AssetImage': true,
       'AssetImage--zoomed': this.state.zoomed,
       'AssetImage--zoomable': this.state.zoomable
@@ -116,8 +117,8 @@ const Lightbox = React.createClass({
       });
 
       this._containers.sort((a, b) => {
-        let ac = a.media.split('/', 2),
-            bc = b.media.split('/', 2);
+        const ac = a.media.split('/', 2);
+        const bc = b.media.split('/', 2);
 
         if (ac[0] === '*' && bc[0] !== '*') {
           return 1;
@@ -237,9 +238,9 @@ const Lightbox = React.createClass({
       return null;
     }
 
-    let multipleAssets = this.props.assets.length > 1;
+    const multipleAssets = this.props.assets.length > 1;
 
-    let lightboxClassObject = {
+    const lightboxClassObject = {
       'Lightbox': true,
       'Lightbox--multiple': multipleAssets,
       'Lightbox--fullscreen': !!this.props.fullscreen
@@ -249,11 +250,11 @@ const Lightbox = React.createClass({
       lightboxClassObject[this.props.className] = true;
     }
 
-    let lightboxClass = React.addons.classSet(lightboxClassObject);
+    const lightboxClass = React.addons.classSet(lightboxClassObject);
 
     let currentAsset = this.getCurrentAsset();
 
-    let Container = Lightbox.containerFor(currentAsset.media);
+    const Container = Lightbox.containerFor(currentAsset.media);
 
     return (
       <div className={lightboxClass} style={this.props.style}>

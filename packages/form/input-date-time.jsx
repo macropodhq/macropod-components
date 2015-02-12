@@ -21,8 +21,8 @@ module.exports = React.createClass({
   },
 
   render() {
-    let camelCaseLabel = InputWrapper.camelCase(this.props.label);
-    let defaultValue = new Date(this.props.defaultValue);
+    const camelCaseLabel = InputWrapper.camelCase(this.props.label);
+    const defaultValue = new Date(this.props.defaultValue);
 
     return (
       <InputWrapper

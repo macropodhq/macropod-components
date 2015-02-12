@@ -15,7 +15,7 @@ const packageRequire = require.context('../packages', true, /example\.jsx/);
 
 const packages = _.map(packageRequire.keys(), packagePath => {
 
-  let packageName = packagePath.split(/\//)[1];
+  const packageName = packagePath.split(/\//)[1];
 
   return {
     friendlyName: packageName.split(/[ -]+/).map(e => {
@@ -28,7 +28,7 @@ const packages = _.map(packageRequire.keys(), packagePath => {
 });
 
 function wrapPackage(component) {
-  let Example = packageRequire(component.path);
+  const Example = packageRequire(component.path);
 
   return (
     <div className="Playground-Example" key={component.name}>

@@ -41,18 +41,15 @@ module.exports = React.createClass({
   },
 
   render() {
-    let classes = {
+    const buttonClass = classSet({
       'Button': true,
       'Button--small': this.props.small,
       'Button--skeleton': this.props.skeleton,
       'Button--success': this.props.success,
       'Button--cancel': this.props.cancel,
-    };
-
-    classes[`Button--${this.props.type}`] = !!this.props.type;
-    classes[this.props.className] = !!this.props.className;
-
-    let buttonClass = classSet(classes);
+      [`Button--${this.props.type}`]: !!this.props.type,
+      [this.props.className]: !!this.props.className,
+    });
 
     return (
       <button {...this.props} className={buttonClass}>{this.props.children}</button>

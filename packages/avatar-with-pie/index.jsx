@@ -25,12 +25,12 @@ module.exports = React.createClass({
   },
 
   render() {
-    let classes = {
+    const classes = {
       'AvatarWithPie': true,
+      [`AvatarWithPie--${this.props.size}`]: true,
     };
 
-    classes[`AvatarWithPie--${this.props.size}`] = true;
-    let containerClass = React.addons.classSet(classes);
+    const containerClass = React.addons.classSet(classes);
 
     return (
       <span className={containerClass}>

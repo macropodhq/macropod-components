@@ -29,7 +29,7 @@ const InputWrapper = React.createClass({
   },
 
   render() {
-    let camelCaseLabel = InputWrapper.camelCase(this.props.label);
+    const camelCaseLabel = InputWrapper.camelCase(this.props.label);
 
     return (
       <div className={`Form-item Form-item--${camelCaseLabel}`}>

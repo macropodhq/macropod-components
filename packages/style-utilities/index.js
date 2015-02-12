@@ -1,7 +1,7 @@
 const prefixes = 'Webkit Moz ms Ms O'.split(' ');
 const docElemStyle = document.documentElement.style;
 
-const getStyleProperty = propName => {
+const getStyleProperty = (propName) => {
   // test standard property first
   if (typeof docElemStyle[propName] === 'string') {
     return propName;
@@ -28,13 +28,13 @@ const getStyle = (defView && defView.getComputedStyle) ? elem => defView.getComp
 const transformProperty = getStyleProperty('transform');
 
 const is3d = !!getStyleProperty('perspective');
-const translate = is3d ? (x, y) => `translate3d(${x}px, ${y}px, 0)` : (x, y) => `translate(${x}px, ${y}px)`;
+const translate = is3d ? (x, y) =>
+  `translate3d(${x}px, ${y}px, 0)` : (x, y) =>
+    `translate(${x}px, ${y}px)`;
 
 const vendorEvent = events => {
   const el = document.createElement('fakeElement');
-  let i;
-
-  for (i in events) {
+  for (let i in events) {
     if (el.style[i] !== undefined) {
       return events[i];
     }

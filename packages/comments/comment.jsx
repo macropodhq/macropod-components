@@ -118,7 +118,7 @@ module.exports = React.createClass({
       e = window.event; // TODO: is this ever so? makes this harder to test
     }
 
-    let keyCode = e.keyCode || e.which;
+    const keyCode = e.keyCode || e.which;
     if (keyCode === 13 && !e.ctrlKey && !e.shiftKey){
       callback();
       return false;
@@ -146,7 +146,7 @@ module.exports = React.createClass({
       'Comment--repliable': this.props.comment.isDiscussion === false && this.props.comment.repliable === false
     });
 
-    let replies = _.clone(this.props.replies).reverse();
+    const replies = _.clone(this.props.replies).reverse();
 
     let dropdownContent = null;
 

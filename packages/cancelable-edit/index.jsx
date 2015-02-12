@@ -96,9 +96,9 @@ module.exports = React.createClass({
   },
 
   render() {
-    let value = this.state.editing ? this.state.pendingValue : this.props.value;
-
-    let Textarea = this.props.autoSize ? AutoSizeTextArea : 'textarea';
+    const value = this.state.editing ? this.state.pendingValue : this.props.value;
+    const Textarea = this.props.autoSize ? AutoSizeTextArea : 'textarea';
+    
     return (
       <div>
         <label style={{'display': 'none'}}>{this.props.name}</label>

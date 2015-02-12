@@ -8,10 +8,10 @@ module.exports = React.createClass({
   displayName: 'Steps',
 
   render() {
-    let children = [];
+    const children = [];
 
     for (let i = 0; i < this.props.count; i++) {
-      let classes = React.addons.classSet({
+      const classes = React.addons.classSet({
         'Steps-step': true,
         'is-active': i === this.props.current - 1,
       });

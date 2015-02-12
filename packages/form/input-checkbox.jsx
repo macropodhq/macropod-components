@@ -7,7 +7,7 @@ module.exports = React.createClass({
   displayName: 'InputCheckbox',
 
   render() {
-    let camelCaseLabel = InputWrapper.camelCase(this.props.label);
+    const camelCaseLabel = InputWrapper.camelCase(this.props.label);
 
     return (
       <InputWrapper

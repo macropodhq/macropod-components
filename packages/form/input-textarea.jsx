@@ -9,7 +9,7 @@ module.exports = React.createClass({
   displayName: 'InputTextarea',
 
   render() {
-    let camelCaseLabel = InputWrapper.camelCase(this.props.label);
+    const camelCaseLabel = InputWrapper.camelCase(this.props.label);
 
     return (
       <InputWrapper

@@ -8,7 +8,7 @@ module.exports = React.createClass({
   displayName: 'Comments',
 
   render() {
-    let parentComments = _.filter(this.props.comments, obj => !obj.parentId);
+    const parentComments = _.filter(this.props.comments, obj => !obj.parentId);
 
     return (
       <div className="Comments">

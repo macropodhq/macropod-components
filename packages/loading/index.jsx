@@ -13,7 +13,7 @@ module.exports = React.createClass({
   },
 
   render() {
-    let classes = React.addons.classSet({
+    const classes = React.addons.classSet({
       'Loading': true,
       'Loading--small': this.props.size === 'small'
     });

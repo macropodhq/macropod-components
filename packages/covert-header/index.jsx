@@ -44,8 +44,8 @@ module.exports = React.createClass({
   },
 
   render() {
-    let classSet = React.addons.classSet;
-    let covertHeaderClass = classSet({
+    const classSet = React.addons.classSet;
+    const covertHeaderClass = classSet({
       'CovertHeader': true,
       'CovertHeader--hide': this.state.hide
     });
