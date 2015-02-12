@@ -1,7 +1,7 @@
 const prefixes = 'Webkit Moz ms Ms O'.split(' ');
 const docElemStyle = document.documentElement.style;
 
-const getStyleProperty = function getStyleProperty(propName) {
+const getStyleProperty = propName => {
   // test standard property first
   if (typeof docElemStyle[propName] === 'string') {
     return propName;
@@ -23,24 +23,16 @@ const getStyleProperty = function getStyleProperty(propName) {
 
 const defView = document.defaultView;
 
-const getStyle = (defView && defView.getComputedStyle) ? function(elem) {
-  return defView.getComputedStyle(elem, null);
-} : function(elem) {
-  return elem.currentStyle;
-};
+const getStyle = (defView && defView.getComputedStyle) ? elem => defView.getComputedStyle(elem, null) : elem => elem.currentStyle;
 
 const transformProperty = getStyleProperty('transform');
 
 const is3d = !!getStyleProperty('perspective');
-const translate = is3d ? function(x, y) {
-  return `translate3d(${x}px, ${y}px, 0)`;
-} : function(x, y) {
-  return `translate(${x}px, ${y}px)`;
-};
+const translate = is3d ? (x, y) => `translate3d(${x}px, ${y}px, 0)` : (x, y) => `translate(${x}px, ${y}px)`;
 
-const vendorEvent = function vendorEvent(events) {
+const vendorEvent = events => {
+  const el = document.createElement('fakeElement');
   let i;
-  let el = document.createElement('fakeElement');
 
   for (i in events) {
     if (el.style[i] !== undefined) {
@@ -49,11 +41,11 @@ const vendorEvent = function vendorEvent(events) {
   }
 };
 
-const cssCallback = function cssCallback(events, element, callback) {
+const cssCallback = (events, element, callback) => {
   let cssEvent = vendorEvent(events);
 
   let called = false;
-  let wrap = function() {
+  const wrap = () => {
     if (called) {
       return;
     }
