@@ -32,14 +32,12 @@ module.exports = React.createClass({
   },
 
   handleAddClick() {
-    let newState = {
-      isCreating: true,
-    };
-
-    let self = this;
-    this.setState(newState, () => {
-      self.refs.newInput.getDOMNode().focus();
-    });
+    this.setState(
+      {
+        isCreating: true,
+      },
+      () => this.refs.newInput.getDOMNode().focus()
+    );
 
     return false;
   },
