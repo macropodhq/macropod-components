@@ -75,7 +75,7 @@ module.exports = React.createClass({
   },
 
   renderLayer() {
-    let classSet = React.addons.classSet;
+    const classSet = React.addons.classSet;
     let modalClasses = {
       'Modal': true,
       'Modal--visible': this.state.showModal,
@@ -96,7 +96,7 @@ module.exports = React.createClass({
 
     dialogClassObject[this.props.dialogClassName] = (typeof this.props.dialogClassName === 'string');
 
-    let dialogClasses = classSet(dialogClassObject);
+    const dialogClasses = classSet(dialogClassObject);
 
     return (
       <div className={modalClasses} onClick={this.handleClose} onScroll={this.stopPropagation}>

@@ -16,20 +16,20 @@ module.exports = React.createClass({
   },
 
   render() {
-    let size = 32;
-    let startAngle = -90;
-    let endAngle = (360 * this.props.complete / this.props.total) + startAngle;
+    const size = 32;
+    const startAngle = -90;
+    const endAngle = (360 * this.props.complete / this.props.total) + startAngle;
 
-    let x1 = size / 2 + (size / 2 - 3.5) * Math.cos(Math.PI * startAngle / 180),
-        y1 = size / 2 + (size / 2 - 3.5) * Math.sin(Math.PI * startAngle / 180),
-        x2 = size / 2 + (size / 2 - 3.5) * Math.cos(Math.PI * endAngle / 180),
-        y2 = size / 2 + (size / 2 - 3.5) * Math.sin(Math.PI * endAngle / 180);
+    const x1 = size / 2 + (size / 2 - 3.5) * Math.cos(Math.PI * startAngle / 180),
+          y1 = size / 2 + (size / 2 - 3.5) * Math.sin(Math.PI * startAngle / 180),
+          x2 = size / 2 + (size / 2 - 3.5) * Math.cos(Math.PI * endAngle / 180),
+          y2 = size / 2 + (size / 2 - 3.5) * Math.sin(Math.PI * endAngle / 180);
 
-    let pathDefinition = `M${(size / 2).toString()},${(size / 2).toString()} L${x1.toString()},${y1.toString()}  A${(size / 2 - 3.5).toString()},${(size / 2 - 3.5).toString()} 0 ${((endAngle - startAngle > 180) ? '1' : '0')},1 ${x2.toString()},${y2.toString()} z`;
+    const pathDefinition = `M${(size / 2).toString()},${(size / 2).toString()} L${x1.toString()},${y1.toString()}  A${(size / 2 - 3.5).toString()},${(size / 2 - 3.5).toString()} 0 ${((endAngle - startAngle > 180) ? '1' : '0')},1 ${x2.toString()},${y2.toString()} z`;
 
-    let complete = this.props.total > 0 && this.props.complete >= this.props.total;
+    const complete = this.props.total > 0 && this.props.complete >= this.props.total;
 
-    let pieBadgeClasses = React.addons.classSet({
+    const pieBadgeClasses = React.addons.classSet({
       'PieBadge': true,
       'PieBadge--complete': complete
     });
