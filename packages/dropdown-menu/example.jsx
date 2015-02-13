@@ -1,9 +1,9 @@
 'use strict';
 
-var React = require('react');
+const React = require('react');
 
-var DropdownMenu = require('./');
-var Button = require('../button');
+const DropdownMenu = require('./');
+const Button = require('../button');
 require('./example.scss');
 
 module.exports = React.createClass({

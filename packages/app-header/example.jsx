@@ -1,8 +1,8 @@
 'use strict';
 
-var React = require('react');
+const React = require('react');
 
-var AppHeader = require('./');
+const AppHeader = require('./');
 
 module.exports = React.createClass({
   displayName: 'AppHeaderExample',

@@ -1,9 +1,9 @@
 'use strict';
 
-var React = require('react');
+const React = require('react');
 
-var ActionsBar = require('./');
-var Icon = require('../icon');
+const ActionsBar = require('./');
+const Icon = require('../icon');
 
 module.exports = React.createClass({
   displayName: 'ActionsBarExample',

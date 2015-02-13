@@ -1,7 +1,7 @@
-var prefixes = 'Webkit Moz ms Ms O'.split(' ');
-var docElemStyle = document.documentElement.style;
+const prefixes = 'Webkit Moz ms Ms O'.split(' ');
+const docElemStyle = document.documentElement.style;
 
-var getStyleProperty = function getStyleProperty(propName) {
+const getStyleProperty = (propName) => {
   // test standard property first
   if (typeof docElemStyle[propName] === 'string') {
     return propName;
@@ -11,8 +11,8 @@ var getStyleProperty = function getStyleProperty(propName) {
   propName = propName.charAt(0).toUpperCase() + propName.slice(1);
 
   // test vendor specific properties
-  var prefixed;
-  for (var i = 0, len = prefixes.length; i < len; i++) {
+  let prefixed;
+  for (let i = 0, len = prefixes.length; i < len; i++) {
     prefixed = prefixes[i] + propName;
 
     if (typeof docElemStyle[prefixed] === 'string') {
@@ -21,39 +21,31 @@ var getStyleProperty = function getStyleProperty(propName) {
   }
 };
 
-var defView = document.defaultView;
+const defView = document.defaultView;
 
-var getStyle = (defView && defView.getComputedStyle) ? function(elem) {
-  return defView.getComputedStyle(elem, null);
-} : function(elem) {
-  return elem.currentStyle;
-};
+const getStyle = (defView && defView.getComputedStyle) ? elem => defView.getComputedStyle(elem, null) : elem => elem.currentStyle;
 
-var transformProperty = getStyleProperty('transform');
+const transformProperty = getStyleProperty('transform');
 
-var is3d = !!getStyleProperty('perspective');
-var translate = is3d ? function(x, y) {
-  return `translate3d(${x}px, ${y}px, 0)`;
-} : function(x, y) {
-  return `translate(${x}px, ${y}px)`;
-};
+const is3d = !!getStyleProperty('perspective');
+const translate = is3d ? (x, y) =>
+  `translate3d(${x}px, ${y}px, 0)` : (x, y) =>
+    `translate(${x}px, ${y}px)`;
 
-var vendorEvent = function vendorEvent(events) {
-  var i;
-  var el = document.createElement('fakeElement');
-
-  for (i in events) {
+const vendorEvent = events => {
+  const el = document.createElement('fakeElement');
+  for (let i in events) {
     if (el.style[i] !== undefined) {
       return events[i];
     }
   }
 };
 
-var cssCallback = function cssCallback(events, element, callback) {
-  var cssEvent = vendorEvent(events);
+const cssCallback = (events, element, callback) => {
+  let cssEvent = vendorEvent(events);
 
-  var called = false;
-  var wrap = function() {
+  let called = false;
+  const wrap = () => {
     if (called) {
       return;
     }

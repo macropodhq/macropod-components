@@ -1,10 +1,10 @@
 'use strict';
 
-var React = require('react');
+const React = require('react');
 
 require('./input-wrapper.scss');
 
-var InputWrapper = React.createClass({
+const InputWrapper = React.createClass({
   displayName: 'InputWrapper',
 
   propTypes: {
@@ -29,7 +29,7 @@ var InputWrapper = React.createClass({
   },
 
   render() {
-    var camelCaseLabel = InputWrapper.camelCase(this.props.label);
+    const camelCaseLabel = InputWrapper.camelCase(this.props.label);
 
     return (
       <div className={`Form-item Form-item--${camelCaseLabel}`}>

@@ -19,10 +19,10 @@
        /~___|  /____\
 */
 
-var React = require('react/addons');
+const React = require('react/addons');
 
 require('./covert-header.scss');
-var ScrollEvent = require('../scroll-event-mixin');
+const ScrollEvent = require('../scroll-event-mixin');
 
 module.exports = React.createClass({
   displayName: 'CovertHeader',
@@ -44,8 +44,8 @@ module.exports = React.createClass({
   },
 
   render() {
-    var classSet = React.addons.classSet;
-    var covertHeaderClass = classSet({
+    const classSet = React.addons.classSet;
+    const covertHeaderClass = classSet({
       'CovertHeader': true,
       'CovertHeader--hide': this.state.hide
     });

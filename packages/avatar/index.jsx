@@ -1,21 +1,21 @@
 'use strict';
 
-var md5 = require('MD5');
-var React = require('react/addons');
-var keyMirror = require('react/lib/keyMirror');
-var _ = require('lodash-node');
+const md5 = require('MD5');
+const React = require('react/addons');
+const keyMirror = require('react/lib/keyMirror');
+const _ = require('lodash-node');
 
 require('./avatar.scss');
 
-var sizes = {
+const sizes = {
   's': 20,
   'm': 35,
   'l': 50,
 };
 
-var sizeConstants = keyMirror(sizes);
+const sizeConstants = keyMirror(sizes);
 
-var validateSize = (props, propName) => {
+const validateSize = (props, propName) => {
   if (!sizeConstants[props[propName]]) {
     return new Error('invalid avatar size');
   }
@@ -54,8 +54,8 @@ module.exports = React.createClass({
   },
 
   getBackgroundImage(src, email) {
-    var ratio = window && window.devicePixelRatio || 1;
-    var url = '';
+    const ratio = (window && window.devicePixelRatio) || 1;
+    let url = '';
 
     if (src !== '') {
       url = src;
@@ -75,11 +75,11 @@ module.exports = React.createClass({
   },
 
   render() {
-    var name;
-    var firstName = this.props.firstName;
-    var lastName = this.props.lastName;
-    var email = this.props.email;
-    var src = this.props.src;
+    let name;
+    let firstName = this.props.firstName;
+    let lastName = this.props.lastName;
+    let email = this.props.email;
+    let src = this.props.src;
 
     if (this.props.model) {
       name = _.has(this.props.model, 'name') ? this.props.model.name : '';
@@ -95,16 +95,14 @@ module.exports = React.createClass({
       }
     }
 
-    var classSet = React.addons.classSet;
+    const classSet = React.addons.classSet;
 
-    var classes = {
+    const containerClass = classSet({
       'Avatar': true,
       'Avatar--circle': !!this.props.circle,
       'Avatar--bordered': !!src,
-    };
-    classes[`Avatar--${this.props.size}`] = true;
-
-    var containerClass = classSet(classes);
+      [`Avatar--${this.props.size}`]: true,
+    });
 
     firstName = this.props.title || firstName;
     lastName = lastName || '';

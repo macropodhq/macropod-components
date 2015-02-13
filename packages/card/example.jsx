@@ -1,9 +1,9 @@
 'use strict';
 
-var React = require('react');
-var Avatar = require('../avatar');
+const React = require('react');
+const Avatar = require('../avatar');
 
-var Card = require('./');
+const Card = require('./');
 require('./example.scss');
 
 module.exports = React.createClass({

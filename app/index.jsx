@@ -1,21 +1,21 @@
 'use strict';
 
-var _ = require('lodash-node');
-var React = require('react');
-var Router = require('react-router');
-var Route = Router.Route;
-var Link = Router.Link;
-var RouteHandler = Router.RouteHandler;
+const _ = require('lodash-node');
+const React = require('react');
+const Router = require('react-router');
+const Route = Router.Route;
+const Link = Router.Link;
+const RouteHandler = Router.RouteHandler;
 
 require('open-sans/scss/open-sans.scss');
 require('normalize.css/normalize.css');
 require('./index.scss');
 
-var packageRequire = require.context('../packages', true, /example\.jsx/);
+const packageRequire = require.context('../packages', true, /example\.jsx/);
 
-var packages = _.map(packageRequire.keys(), packagePath => {
+const packages = _.map(packageRequire.keys(), packagePath => {
 
-  var packageName = packagePath.split(/\//)[1];
+  const packageName = packagePath.split(/\//)[1];
 
   return {
     friendlyName: packageName.split(/[ -]+/).map(e => {
@@ -28,7 +28,7 @@ var packages = _.map(packageRequire.keys(), packagePath => {
 });
 
 function wrapPackage(component) {
-  var Example = packageRequire(component.path);
+  const Example = packageRequire(component.path);
 
   return (
     <div className="Playground-Example" key={component.name}>
@@ -38,7 +38,7 @@ function wrapPackage(component) {
   );
 }
 
-var App = React.createClass({
+const App = React.createClass({
   displayName: 'App',
 
   render() {
@@ -55,7 +55,7 @@ var App = React.createClass({
   }
 });
 
-var AllComponentsHandler = React.createClass({
+const AllComponentsHandler = React.createClass({
   displayName: 'AllComponentsHandler',
 
   render() {

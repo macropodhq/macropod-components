@@ -1,8 +1,8 @@
 'use strict';
 
-var React = require('react/addons');
+const React = require('react/addons');
 
-var Widgets = require('react-widgets');
+const Widgets = require('react-widgets');
 
 require('./dropdown.scss');
 

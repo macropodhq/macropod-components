@@ -1,8 +1,8 @@
 'use strict';
 
-var React = require('react/addons');
-var Avatar = require('../avatar');
-var PieBadge = require('../pie-badge');
+const React = require('react/addons');
+const Avatar = require('../avatar');
+const PieBadge = require('../pie-badge');
 
 require('./avatar-with-pie.scss');
 
@@ -25,12 +25,12 @@ module.exports = React.createClass({
   },
 
   render() {
-    var classes = {
+    const classes = {
       'AvatarWithPie': true,
+      [`AvatarWithPie--${this.props.size}`]: true,
     };
 
-    classes[`AvatarWithPie--${this.props.size}`] = true;
-    var containerClass = React.addons.classSet(classes);
+    const containerClass = React.addons.classSet(classes);
 
     return (
       <span className={containerClass}>

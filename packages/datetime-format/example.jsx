@@ -1,8 +1,8 @@
 'use strict';
 
-var React = require('react');
+const React = require('react');
 
-var DateFormatter = require('./');
+const DateFormatter = require('./');
 
 module.exports = React.createClass({
   displayName: 'DateTime-example',

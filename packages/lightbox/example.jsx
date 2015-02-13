@@ -1,11 +1,11 @@
 'use strict';
 
-var React = require('react');
+const React = require('react');
 
-var Lightbox = require('./');
-var Button = require('../button');
+const Lightbox = require('./');
+const Button = require('../button');
 
-var assets = [
+const assets = [
   {
     media: 'image/jpeg',
     title: 'The Beach',

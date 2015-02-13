@@ -1,13 +1,13 @@
 'use strict';
 
-var React = require('react');
-var InputWrapper = require('./input-wrapper');
+const React = require('react');
+const InputWrapper = require('./input-wrapper');
 
 module.exports = React.createClass({
   displayName: 'InputCheckbox',
 
   render() {
-    var camelCaseLabel = InputWrapper.camelCase(this.props.label);
+    const camelCaseLabel = InputWrapper.camelCase(this.props.label);
 
     return (
       <InputWrapper

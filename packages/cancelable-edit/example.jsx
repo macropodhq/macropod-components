@@ -1,6 +1,6 @@
-var React = require('react');
+const React = require('react');
 
-var CancelableEdit = require('./');
+const CancelableEdit = require('./');
 
 
 module.exports = React.createClass({

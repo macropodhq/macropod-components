@@ -1,13 +1,13 @@
 'use strict';
 
-var React = require('react');
-var _ = require('lodash-node');
-var Comments = require('./');
-var Button = require('../button');
-var Textarea = require('react-textarea-autosize');
+const React = require('react');
+const _ = require('lodash-node');
+const Comments = require('./');
+const Button = require('../button');
+const Textarea = require('react-textarea-autosize');
 
 
-var authors = [
+const authors = [
   {name: 'Nathan', avatar_url: 'http://www.gravatar.com/avatar/82dccacb221d0a037aa2b60f3cf94d5d', position: 'Developer', company: 'Macropod'},
   {name: 'Conrad', avatar_url: 'http://www.gravatar.com/avatar/d27bae51ba163785869161126434ea56', position: 'Developer', company: 'Macropod'},
   {name: 'Jessica', avatar_url: 'http://www.gravatar.com/avatar/a11cf2d27c3f0a82f1b0cc12cdb0a2e5', position: 'Developer', company: 'Macropod'},
@@ -79,7 +79,7 @@ module.exports = React.createClass({
   },
 
   handleNewComment(value, parentId) {
-    var updatedComments = this.state.comments;
+    let updatedComments = this.state.comments;
 
     updatedComments.push({
       id: this.state.comments.length + 1,
@@ -95,7 +95,9 @@ module.exports = React.createClass({
     if (!e) {
       e = window.event;
     }
-    var keyCode = e.keyCode || e.which;
+
+    const keyCode = e.keyCode || e.which;
+    
     if (keyCode === 13 && !e.ctrlKey && !e.shiftKey){
       callback();
       return false;
@@ -112,13 +114,13 @@ module.exports = React.createClass({
   },
 
   handleDelete(id) {
-    var updatedComments = _.reject(this.state.comments, {id: id});
+    let updatedComments = _.reject(this.state.comments, {id: id});
     this.setState({comments: updatedComments});
   },
 
   handleEdit(id, value) {
-    var updatedComments = _.reject(this.state.comments, {id: id});
-    var editedComment = _.filter(this.state.comments, {id: id});
+    let updatedComments = _.reject(this.state.comments, {id: id});
+    let editedComment = _.filter(this.state.comments, {id: id});
     editedComment[0].entry = value;
     updatedComments.push(editedComment[0]);
     this.setState({comments: updatedComments});

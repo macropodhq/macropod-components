@@ -1,6 +1,6 @@
 'use strict';
 
-var React = require('react/addons');
+const React = require('react/addons');
 
 require('./steps.scss');
 
@@ -8,10 +8,10 @@ module.exports = React.createClass({
   displayName: 'Steps',
 
   render() {
-    var children = [];
+    const children = [];
 
-    for (var i = 0; i < this.props.count; i++) {
-      var classes = React.addons.classSet({
+    for (let i = 0; i < this.props.count; i++) {
+      const classes = React.addons.classSet({
         'Steps-step': true,
         'is-active': i === this.props.current - 1,
       });

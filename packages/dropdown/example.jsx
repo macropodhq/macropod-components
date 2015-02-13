@@ -1,10 +1,10 @@
 'use strict';
 
-var React = require('react');
+const React = require('react');
 
-var Dropdown = require('./');
+const Dropdown = require('./');
 
-var options = [
+const options = [
   {
     id: 1,
     name: 'Google'

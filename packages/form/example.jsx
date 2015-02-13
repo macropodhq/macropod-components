@@ -1,15 +1,15 @@
 'use strict';
 
-var React = require('react');
+const React = require('react');
 
-var Form = require('./');
-var InputCheckbox = require('./input-checkbox');
-var InputDateTime = require('./input-date-time');
-var InputTag = require('./input-tag');
-var InputText = require('./input-text');
-var InputTextarea = require('./input-textarea');
+const Form = require('./');
+const InputCheckbox = require('./input-checkbox');
+const InputDateTime = require('./input-date-time');
+const InputTag = require('./input-tag');
+const InputText = require('./input-text');
+const InputTextarea = require('./input-textarea');
 
-var tagOptions = [
+const tagOptions = [
   {
     id: 1,
     name: 'Eggs'

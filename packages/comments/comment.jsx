@@ -1,19 +1,19 @@
 'use strict';
-var React = require('react/addons');
-var _ = require('lodash-node');
-var moment = require('moment');
-var Textarea = require('react-textarea-autosize');
-var classSet = React.addons.classSet;
+const React = require('react/addons');
+const _ = require('lodash-node');
+const moment = require('moment');
+const Textarea = require('react-textarea-autosize');
+const classSet = React.addons.classSet;
 
-var DropdownMenu = require('../dropdown-menu');
-var Avatar = require('../avatar');
-var Button = require('../button');
-var CommentReply = require('./comment-reply');
-var DateFormatter = require('../datetime-format');
+const DropdownMenu = require('../dropdown-menu');
+const Avatar = require('../avatar');
+const Button = require('../button');
+const CommentReply = require('./comment-reply');
+const DateFormatter = require('../datetime-format');
 
 require('./comment.scss');
 
-var noop = () => {};
+const noop = () => {};
 
 function dateValidator(props, propName, componentName) {
   if (propName in props && isNaN(new Date(props[propName]).getUTCMilliseconds())) {
@@ -118,7 +118,7 @@ module.exports = React.createClass({
       e = window.event; // TODO: is this ever so? makes this harder to test
     }
 
-    var keyCode = e.keyCode || e.which;
+    const keyCode = e.keyCode || e.which;
     if (keyCode === 13 && !e.ctrlKey && !e.shiftKey){
       callback();
       return false;
@@ -131,7 +131,7 @@ module.exports = React.createClass({
       editValue: this.props.comment.entry
     }, () => {
       if (this.state.editing) {
-        var editInput = this.refs.editInput.getDOMNode();
+        let editInput = this.refs.editInput.getDOMNode();
         editInput.focus();
         editInput.setSelectionRange(this.state.editValue.length, this.state.editValue.length);
       }
@@ -139,16 +139,16 @@ module.exports = React.createClass({
   },
 
   render() {
-    var commentClass = classSet({
+    let commentClass = classSet({
       'Comment': true,
       'Comment--starred': this.state.stared,
       'Comment--inputButtons': this.props.inputButtons,
       'Comment--repliable': this.props.comment.isDiscussion === false && this.props.comment.repliable === false
     });
 
-    var replies = _.clone(this.props.replies).reverse();
+    const replies = _.clone(this.props.replies).reverse();
 
-    var dropdownContent = null;
+    let dropdownContent = null;
 
     if (this.props.starable || this.props.comment.deletable || this.props.comment.editable) {
       dropdownContent = (
@@ -165,7 +165,7 @@ module.exports = React.createClass({
       );
     }
 
-    var editedDisplay = null;
+    let editedDisplay = null;
 
     if (this.props.comment.updatedAt && moment(this.props.comment.updatedAt).isAfter(moment(this.props.comment.createdAt))) {
       editedDisplay = (

@@ -1,13 +1,13 @@
-var React = require('react/addons');
-var AutoSizeTextArea = require('react-textarea-autosize');
+const React = require('react/addons');
+const AutoSizeTextArea = require('react-textarea-autosize');
 
-var Alert = require('../alert');
-var Button = require('../button');
-var KeyMixin = require('../key-mixin');
+const Alert = require('../alert');
+const Button = require('../button');
+const KeyMixin = require('../key-mixin');
 
 require('./style');
 
-var hotKeys = [
+const hotKeys = [
   {
     mask: {key: 'Enter', metaKey: true, altKey: false}, //osx
     cb: 'handleSave',
@@ -96,9 +96,9 @@ module.exports = React.createClass({
   },
 
   render() {
-    var value = this.state.editing ? this.state.pendingValue : this.props.value;
-
-    var Textarea = this.props.autoSize ? AutoSizeTextArea : 'textarea';
+    const value = this.state.editing ? this.state.pendingValue : this.props.value;
+    const Textarea = this.props.autoSize ? AutoSizeTextArea : 'textarea';
+    
     return (
       <div>
         <label style={{'display': 'none'}}>{this.props.name}</label>

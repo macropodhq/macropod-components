@@ -1,9 +1,9 @@
 'use strict';
 
-var React = require('react');
+const React = require('react');
 
-var Button = require('../button');
-var Prompt = require('./');
+const Button = require('../button');
+const Prompt = require('./');
 
 module.exports = React.createClass({
   displayName: 'PromptExample',

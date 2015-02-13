@@ -1,14 +1,14 @@
 'use strict';
 
-var React = require('react/addons');
+const React = require('react/addons');
 
-var Modal = require('../modal');
-var Steps = require('../steps');
-var Button = require('../button');
+const Modal = require('../modal');
+const Steps = require('../steps');
+const Button = require('../button');
 
 require('./guider.scss');
 
-var noop = () => {};
+const noop = () => {};
 
 module.exports = React.createClass({
   displayName: 'Guider',

@@ -1,8 +1,8 @@
 'use strict';
 
-var React = require('react');
+const React = require('react');
 
-var CalendarDropdown = require('./');
+const CalendarDropdown = require('./');
 
 module.exports = React.createClass({
   displayName: 'CalendarDropdownExample',

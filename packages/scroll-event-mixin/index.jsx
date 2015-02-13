@@ -1,12 +1,12 @@
-var _ = require('lodash-node');
+const _ = require('lodash-node');
 
-module.exports = options => {
-  var defaults = {
+module.exports = (options) => {
+  const defaults = {
     interval: 100,
     timeout: 200
   };
 
-  options = _.assign(defaults, options);
+  const _options = _.assign({}, defaults, options);
 
   return {
     componentDidMount() {
@@ -23,7 +23,7 @@ module.exports = options => {
     checkScroll() {
       this.checkPosition();
 
-      if (this.intervals * options.interval > options.timeout && this.scrolling) {
+      if (this.intervals * _options.interval > _options.timeout && this.scrolling) {
         this.scrolling = false;
         this._onScrollEnd();
       }
@@ -66,7 +66,7 @@ module.exports = options => {
     },
 
     _onScrollStart() {
-      this.checkInterval = setInterval(this.checkScroll, options.interval);
+      this.checkInterval = setInterval(this.checkScroll, _options.interval);
       if (typeof this.onScrollStart === 'function') {
         this.onScrollStart();
       }

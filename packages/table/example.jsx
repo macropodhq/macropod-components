@@ -1,11 +1,11 @@
 'use strict';
 
-var React = require('react');
+const React = require('react');
 
-var Table = require('./');
+const Table = require('./');
 
-var statusDisplay = status => {
-  var style = {};
+const statusDisplay = status => {
+  const style = {};
   if (status === 'Airing') {
     style.color = 'lightGreen';
     style.fontWeight = 'bold';
@@ -18,7 +18,7 @@ var statusDisplay = status => {
   return <span style={style}>{status}</span>;
 };
 
-var episodeDisplay = (name, episode) => {
+const episodeDisplay = (name, episode) => {
   return (
     <div>
       <img src={episode.thumbnail} style={{width: '50px', height: '50px', float: 'left'}}/>
@@ -27,7 +27,7 @@ var episodeDisplay = (name, episode) => {
   );
 };
 
-var columns = [
+const columns = [
   {title: 'Episode', prop: 'episode', render: episodeDisplay, sortable: false},
   {title: 'Number', prop: 'number'},
   {title: 'Directed by', prop: 'director'},
@@ -35,7 +35,7 @@ var columns = [
   {title: 'US Viewers', prop: 'viewers'},
 ];
 
-var data = [
+const data = [
   {episode: 'Blood Money', number: 55, director: 'Bryan Cranston', status: 'Aired', viewers: 5.92, thumbnail: require('./images/1.jpg')},
   {episode: 'Buried', number: 56, director: 'Michelle MacLaren', status: 'Aired', viewers: 4.77, thumbnail: require('./images/2.jpg')},
   {episode: 'Confessions', number: 57, director: 'Michael Slovis', status: 'Aired', viewers: 4.85, thumbnail: require('./images/3.jpg')},

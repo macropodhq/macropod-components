@@ -1,8 +1,8 @@
 'use strict';
 
-var React = require('react');
+const React = require('react');
 
-var Calendar = require('./');
+const Calendar = require('./');
 
 module.exports = React.createClass({
   displayName: 'CalendarExample',

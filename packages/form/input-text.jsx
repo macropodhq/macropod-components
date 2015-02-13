@@ -1,7 +1,7 @@
 'use strict';
 
-var React = require('react');
-var InputWrapper = require('./input-wrapper');
+const React = require('react');
+const InputWrapper = require('./input-wrapper');
 
 require('./input-text.scss');
 
@@ -9,7 +9,7 @@ module.exports = React.createClass({
   displayName: 'InputText',
 
   render() {
-    var camelCaseLabel = InputWrapper.camelCase(this.props.label);
+    const camelCaseLabel = InputWrapper.camelCase(this.props.label);
 
     return (
       <InputWrapper

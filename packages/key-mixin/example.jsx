@@ -1,8 +1,8 @@
-var React = require('react');
+const React = require('react');
 
-var KeyMixin = require('./');
+const KeyMixin = require('./');
 
-var keys = [
+const keys = [
   {
     mask: {key: 'Enter', metaKey: true, altKey: false}, //osx
     cb: 'handleEnter',
