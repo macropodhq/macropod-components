@@ -16,7 +16,7 @@ module.exports = React.createClass({
 
   getInitialState() {
     return {
-      content: 'Let\'s play a game'
+      content: 'You haven\'t scrolled yet.'
     };
   },
 
@@ -25,7 +25,7 @@ module.exports = React.createClass({
   },
 
   onScrollEnd() {
-    this.setState({content: 'Stop staring at me and start scrolling, freak.'});
+    this.setState({content: 'You stopped scrolling. :('});
   },
 
   render() {
