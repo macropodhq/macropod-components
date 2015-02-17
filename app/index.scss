@@ -53,6 +53,42 @@ code {
   padding-bottom: 1.5em;
   border-bottom: 1px solid #ccc;
 
+  .Playground-Example-Readme {
+    overflow: auto;
+
+    pre {
+      overflow: visible;
+    }
+  }
+
+  @media (min-width: 700px) {
+
+    .Playground-Example-Readme {
+      padding-right: .5em;
+    }
+
+    .Playground-Example-Readme, .Playground-Example-Readme + .Playground-Example-Demo {
+      width: 50%;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .Playground-Example-Readme + .Playground-Example-Demo {
+      padding-left: .5em;
+    }
+
+  }
+
+  @media (min-width: 900px) {
+    .Playground-Example-Readme {
+      width: 60%;
+    }
+
+    .Playground-Example-Readme + .Playground-Example-Demo {
+      width: 40%;
+    }
+  }
+
   &:last-child {
     padding-bottom: 0;
     border-bottom: none;
