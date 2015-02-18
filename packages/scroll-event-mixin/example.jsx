@@ -30,7 +30,7 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <p>{this.state.content}</p>
+      <span>{this.state.content}</span>
     );
   }
 });
