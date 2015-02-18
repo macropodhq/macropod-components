@@ -12,17 +12,24 @@ require('normalize.css/normalize.css');
 require('./index.scss');
 
 const packageRequire = require.context('../packages', true, /example\.jsx/);
+const packageReadmeRequire = require.context('../packages', true, /readme\.md/i);
 
-const packages = _.map(packageRequire.keys(), packagePath => {
+const packages = _.map(packageRequire.keys(), path => {
 
-  const packageName = packagePath.split(/\//)[1];
+  const name = path.split(/\//)[1];
+  let readme = null;
+
+  const readmePath = _.find(packageReadmeRequire.keys(), testReadmePath => testReadmePath.indexOf(`/${name}/`) !== -1);
+
+  if (readmePath) {
+    readme = packageReadmeRequire(readmePath);
+  }
 
   return {
-    friendlyName: packageName.split(/[ -]+/).map(e => {
-      return e[0].toUpperCase() + e.substr(1);
-    }).join(' '),
-    name: packageName,
-    path: packagePath
+    friendlyName: name.split(/[ -]+/).map(e => e[0].toUpperCase() + e.substr(1)).join(' '),
+    name,
+    path,
+    readme
   };
 
 });
@@ -33,7 +40,16 @@ function wrapPackage(component) {
   return (
     <div className="Playground-Example" key={component.name}>
       <h2 id={component.name}>{component.friendlyName} ({component.name})</h2>
-      <div><Example /></div>
+      {component.readme && <div className="Playground-Example-Sheet Playground-Example-Sheet--Readme">
+        <h3>Readme</h3>
+        <article className="Playground-Example-Sheet-Body" dangerouslySetInnerHTML={{__html: component.readme}}></article>
+      </div>}
+      <div className="Playground-Example-Sheet Playground-Example-Sheet--Demo">
+        <h3>Example</h3>
+        <div className="Playground-Example-Sheet-Body">
+          <Example />
+        </div>
+      </div>
     </div>
   );
 }
