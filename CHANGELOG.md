@@ -1,5 +1,41 @@
 # Macropod Components Changelog
 
+## [v0.0.1](https://github.com/macropodhq/react-playground/releases/tag/0.0.1)
+
+Versions from here onwards are to be re-versioned; the 1.x releases were rather haphazard and we feel it is best that we return to 0.x to signify the instability of the API and content of the project.
+
+When we reach the point where this is stable, we will begin versioning at 2.0.0 rather than 1.12.5. No further 1.x releases will be made.
+
+### Features
+
+* [#160](https://github.com/macropodhq/macropod-components/pull/160): Key-mixin.
+* [#161](https://github.com/macropodhq/macropod-components/pull/161): Cancelable Edit.
+* [#174](https://github.com/macropodhq/macropod-components/pull/174): Routes for examples.
+
+### Improvements
+
+* [#159](https://github.com/macropodhq/macropod-components/pull/159), [#163](https://github.com/macropodhq/macropod-components/pull/163): Pad buttons when they are next to each other.
+* [#165](https://github.com/macropodhq/macropod-components/pull/165): Improve layout of examples.
+* [#166](https://github.com/macropodhq/macropod-components/pull/166): Improve Button example.
+* [#167](https://github.com/macropodhq/macropod-components/pull/167), [#176](https://github.com/macropodhq/macropod-components/pull/176), [#178](https://github.com/macropodhq/macropod-components/pull/178): ES6ify code and examples.
+* [#171](https://github.com/macropodhq/macropod-components/pull/171): Add more `macropod-tools` to the script list.
+* [#175](https://github.com/macropodhq/macropod-components/pull/175): Make ESLint happier.
+* [#172](https://github.com/macropodhq/macropod-components/pull/172), [#179](https://github.com/macropodhq/macropod-components/pull/179): Upgrade Macropod Tools to 0.0.7.
+* [#181](https://github.com/macropodhq/macropod-components/pull/181): Add Readme support to playground pages.
+
+### Fixes
+
+* [#164](https://github.com/macropodhq/macropod-components/pull/164): Don't set undefined classNames on the Button.
+* [#168](https://github.com/macropodhq/macropod-components/pull/168): Correct some mistakes in the README.
+* [#173](https://github.com/macropodhq/macropod-components/pull/173): Fix a strict mode error in `CovertHeader`.
+* [#177](https://github.com/macropodhq/macropod-components/pull/177): PieBadge: Don't emit errors when total < complete.
+* [#180](https://github.com/macropodhq/macropod-components/pull/180): Make the scroll event mixin example less creepy.
+
+### Changes
+
+* [#162](https://github.com/macropodhq/macropod-components/pull/162): Delete the hotkey mixin because its unused.
+* [#170](https://github.com/macropodhq/macropod-components/pull/170): Deprecate `isDiscussion` property, replace with `repliable`.
+
 ## [v1.12.4](https://github.com/macropodhq/react-playground/releases/tag/1.12.4)
 
 ### Improvements
