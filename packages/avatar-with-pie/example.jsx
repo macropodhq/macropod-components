@@ -25,7 +25,7 @@ module.exports = React.createClass({
         <AvatarWithPie complete="3" total="6" email="james.coleman@bugherd.com" firstName="James" lastName="Coleman" size="m" />
         <AvatarWithPie complete="5" total="6" email="matt@bugherd.com" firstName="Matt" lastName="Milosavljevic" size="s" circle={true} />
 
-        <div style={{backgroundColor: '#21323a', color: '#fff', marginLeft: '-30px', marginRight: '-30px', paddingLeft: '30px', paddingRight: '30px'}}>
+        <div style={{backgroundColor: '#21323a', color: '#fff', marginLeft: -30, marginRight: -30, paddingLeft: 30, paddingRight: 30}}>
           <h3>Setting Background Colour</h3>
           <AvatarWithPie backgroundColor="#21323a" complete="1" total="6" email="deoxxa@fknsrs.biz" firstName="Conrad" lastName="Pankoff" size="l" circle={true} />
           <AvatarWithPie backgroundColor="#21323a" complete="3" total="6" email="jessica.stokes@macropod.com" firstName="Jessica" lastName="Stokes" size="m" />
