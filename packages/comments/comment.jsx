@@ -1,7 +1,6 @@
 'use strict';
 const React = require('react/addons');
 const _ = require('lodash-node');
-const moment = require('moment');
 const Textarea = require('react-textarea-autosize');
 const classSet = React.addons.classSet;
 
@@ -167,7 +166,7 @@ module.exports = React.createClass({
 
     let editedDisplay = null;
 
-    if (this.props.comment.updatedAt && moment(this.props.comment.updatedAt).isAfter(moment(this.props.comment.createdAt))) {
+    if (this.props.comment.updatedAt && (this.props.comment.updatedAt > this.props.comment.createdAt)) {
       editedDisplay = (
         <span className="Comment-edited">
           <span data-tooltip={DateFormatter.dateTime(this.props.comment.updatedAt)}>edited</span>

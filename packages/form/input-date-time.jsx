@@ -3,7 +3,6 @@
 const React = require('react');
 const CalendarDropdown = require('../calendar-dropdown');
 const InputWrapper = require('./input-wrapper');
-const moment = require('moment');
 
 require('./input-date-time.scss');
 
@@ -12,12 +11,12 @@ module.exports = React.createClass({
 
   getDefaultProps() {
     return {
-      defaultValue: moment().toISOString()
+    defaultValue: new Date().toISOString(),
     };
   },
 
   onChange(date) {
-    this.props.onChange(moment(date).toISOString());
+    this.props.onChange(date.toISOString());
   },
 
   render() {
