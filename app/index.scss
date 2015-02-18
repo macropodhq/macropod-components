@@ -16,8 +16,28 @@ body {
   margin: 1em auto;
 }
 
+pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+
+  code {
+    background-color: transparent;
+    font-size: 1em;
+    padding: 0;
+  }
+}
+
 code {
   font-family: Menlo, Monaco, Consolas, "Lucida Console", "Courier New", Courier;
+  padding: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
 }
 
 .Playground-TOC {
@@ -53,38 +73,58 @@ code {
   padding-bottom: 1.5em;
   border-bottom: 1px solid #ccc;
 
-  .Playground-Example-Readme {
-    overflow: auto;
+  .Playground-Example-Sheet {
+    margin-bottom: 1em;
+    > h3 {
+      background-color: #f5f5f5;
+      margin: 0;
+      border-radius: 3px 3px 0 0;
+      border: 1px solid #d8d8d8;
+      border-bottom: 0;
+      padding: 9px 10px 10px;
+      font-size: 14px;
+      line-height: 17px;
+      display: block;
+    }
+    .Playground-Example-Sheet-Body {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+      padding: 30px;
+    }
+  }
 
-    pre {
-      overflow: visible;
+  .Playground-Example-Sheet-Body {
+    & > :first-child {
+      margin-top: 0;
     }
   }
 
   @media (min-width: 700px) {
 
-    .Playground-Example-Readme {
+    .Playground-Example-Sheet {
       padding-right: .5em;
     }
 
-    .Playground-Example-Readme, .Playground-Example-Readme + .Playground-Example-Demo {
+    .Playground-Example-Sheet--Readme, .Playground-Example-Sheet--Readme + .Playground-Example-Sheet--Demo {
       width: 50%;
       display: inline-block;
       vertical-align: top;
     }
 
-    .Playground-Example-Readme + .Playground-Example-Demo {
+    .Playground-Example-Sheet--Readme + .Playground-Example-Sheet--Demo {
       padding-left: .5em;
     }
 
   }
 
   @media (min-width: 900px) {
-    .Playground-Example-Readme {
+    .Playground-Example-Sheet--Readme {
       width: 60%;
     }
 
-    .Playground-Example-Readme + .Playground-Example-Demo {
+    .Playground-Example-Sheet--Readme + .Playground-Example-Sheet--Demo {
       width: 40%;
     }
   }
