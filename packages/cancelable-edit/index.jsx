@@ -7,6 +7,8 @@ const KeyMixin = require('../key-mixin');
 
 require('./style');
 
+const noop = () => {};
+
 const hotKeys = [
   {
     mask: {key: 'Enter', metaKey: true, altKey: false}, //osx
@@ -77,8 +79,8 @@ module.exports = React.createClass({
       allowEmpty: false,
       autoSize: false,
       creating: false,
-      onSave: () => {},
-      onCancel: () => {},
+      onSave: noop,
+      onCancel: noop,
     };
   },
 
