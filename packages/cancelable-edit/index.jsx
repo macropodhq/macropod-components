@@ -45,7 +45,10 @@ module.exports = React.createClass({
     displayName(props, propName) {
       if (propName in props) {
         // displayName is deprecated
-        return new Error('CancelableEdit\'s type[' + props[propName] +'] property is deprecated. Please use saveButtonText.');
+        return new Error(
+          'CancelableEdit\'s `displayName` property is deprecated.' +
+          ' Please use the saveButtonText property instead.'
+        );
       }
     },
   },
