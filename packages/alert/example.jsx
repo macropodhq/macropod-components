@@ -15,6 +15,7 @@ module.exports = React.createClass({
       alertTitle: 'Informational message',
       alertContent: 'A thing has happened and we want you to know before you continue to use the app.',
       alertCancelable: false,
+      alertDanger: false,
       alertValue: ''
     };
   },
@@ -59,6 +60,12 @@ module.exports = React.createClass({
     });
   },
 
+  handleDangerChange(event) {
+    this.setState({
+      alertDanger: event.target.checked
+    });
+  },
+
   render() {
     return (
       <div>
@@ -66,7 +73,9 @@ module.exports = React.createClass({
         <br />
         <textarea onChange={this.handleContentChange} value={this.state.alertContent} />
         <br />
-        <label><input type="checkbox" onChange={this.handleCancelableChange} checked={this.state.alertCancelable}></input> Cancelable</label>
+        <label><input type="checkbox" onChange={this.handleCancelableChange} checked={this.state.alertCancelable}/>Cancelable</label>
+        <br />
+        <label><input type="checkbox" onChange={this.handleDangerChange} checked={this.state.alertDanger}/>Danger</label>
         <br />
         <Button onClick={this.handleClick}>Show Alert</Button>
 
@@ -76,6 +85,7 @@ module.exports = React.createClass({
         {this.state.showAlert &&
           <Alert
             cancelable={this.state.alertCancelable}
+            danger={this.state.alertDanger}
             title={this.state.alertTitle}
             onOk={this.handleOk}
             onCancel={this.handleCancel}

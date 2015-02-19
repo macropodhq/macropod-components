@@ -21,6 +21,7 @@ module.exports = React.createClass({
     cancelText: React.PropTypes.string,
     okText: React.PropTypes.string,
     okDisabled: React.PropTypes.boolean,
+    danger: React.PropTypes.boolean,
   },
 
   getInitialState() {
@@ -37,6 +38,7 @@ module.exports = React.createClass({
       cancelText: 'Cancel',
       okText: 'OK',
       okDisabled: false,
+      danger: false,
     };
   },
 
@@ -63,7 +65,7 @@ module.exports = React.createClass({
           {this.props.children}
           <div className="Alert-actions">
             {this.props.cancelable && <Button cancel onClick={this.handleCancel}>{this.props.cancelText}</Button>}
-            <Button onClick={this.handleOk} disabled={this.props.okDisabled}>{this.props.okText}</Button>
+            <Button onClick={this.handleOk} danger={this.props.danger} disabled={this.props.okDisabled}>{this.props.okText}</Button>
           </div>
         </div>
       </Modal>
