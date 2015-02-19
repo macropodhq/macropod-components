@@ -1,16 +1,22 @@
 'use strict';
 
 const React = require('react');
+const _ = require('lodash-node');
+
+const Alert = require('../alert');
+const Button = require('../button');
+const CancelableEdit = require('../cancelable-edit');
+const DeleteButton = require('../delete-button');
+
+const MAX_ALERT_LENGTH = 23;
 
 module.exports = React.createClass({
   displayName: 'TodoItem',
 
   getDefaultProps() {
     return {
-      subtask: {
-        name: '',
-        completed: false,
-      },
+      name: '',
+      completed: false,
     };
   },
 
@@ -18,98 +24,77 @@ module.exports = React.createClass({
     onNameChange: React.PropTypes.func.isRequired,
     onCompletionChange: React.PropTypes.func.isRequired,
     onDelete: React.PropTypes.func.isRequired,
-    subtask: React.PropTypes.shape({
-      name: React.PropTypes.string,
-      completed: React.PropTypes.bool,
-    }).isRequired,
+    name: React.PropTypes.string,
+    complete: React.PropTypes.bool,
   },
 
   getInitialState() {
     return {
-      isEditing: false,
+      showAlert: false,
     };
   },
 
-  handleToggle() {
-    this.props.onCompletionChange(!this.props.subtask.completed);
-
-    return false;
-  },
-
-  handleClick() {
+  handleConfirmCancel() {
     this.setState({
-      isEditing: true,
-      editValue: '',
+      showAlert: false,
     });
-
-    return false;
   },
 
-  handleChange() {
+  handleConfirmOk() {
     this.setState({
-      editValue: this.refs.textInput.getDOMNode().value,
-    });
-
-    return false;
+      showAlert: false,
+    }, () => this.props.onDelete());
   },
 
-  handleKeyUp(e) {
-    if (e.keyCode === 13) {
-      this.handleSaveClick();
-    }
-
-    if (e.keyCode === 27) {
-      this.handleCancelClick();
-    }
-
-    return false;
-  },
-
-  handleSaveClick() {
-    this.props.onNameChange(this.state.editValue);
-
+  handleAskDelete() {
     this.setState({
-      isEditing: false,
-      editValue: '',
+      showAlert: true
     });
-
-    return false;
-  },
-
-  handleCancelClick() {
-    this.setState({
-      isEditing: false,
-      editValue: '',
-    });
-
-    return false;
-  },
-
-  handleDelete() {
-    this.props.onDelete();
-
-    return false;
   },
 
   render() {
+    const className = React.addons.classSet({
+      'Todo-listItem--complete': this.props.complete,
+      'Todo-listItem-edit': true,
+    });
+
     return (
-      <div className={`Todo-list-item${(this.state.isEditing ? ' is-editing' : '')}`} draggable="true">
+      <div className="Todo-listItem">
         <input
-          checked={this.props.subtask.completed}
-          onChange={this.handleToggle}
+          className="Todo-listItem-complete"
+          checked={this.props.complete}
+          onChange={this.props.onCompletionChange.bind(null, !this.props.complete)}
           type="checkbox"
-          />
-        <span className="Todo-list-item-name" onClick={!this.state.isEditing && this.handleClick}>{this.props.subtask.name}</span>
-        <input
-          type="text"
-          ref="textInput"
-          value={this.state.editValue || this.props.subtask.name}
-          onChange={this.handleChange}
-          onKeyUp={this.handleKeyUp}
-          />
-        <a className="Todo-list-item-save" onClick={this.handleSaveClick}>Save</a>
-        <a className="Todo-list-item-cancel" onClick={this.handleCancelClick}>Cancel</a>
-        <a className="Todo-list-item-delete" onClick={this.handleDelete}>Delete…</a>
+        />
+        <CancelableEdit
+          className={className}
+          autoSize
+          small
+          inline
+          saveButtonText="Save Todo"
+          saveButtonTitle="Save Todo"
+          saveButtonTitleInvalid="Todo items can not be empty"
+          value={this.props.name}
+          onSave={this.props.onNameChange}
+        />
+        <DeleteButton
+          className="Todo-listItem-delete"
+          onClick={this.handleAskDelete}
+        />
+        { this.state.showAlert &&
+          <Alert
+              cancelable
+              title="Confirm Delete"
+              onOk={this.handleConfirmOk}
+              onCancel={this.handleConfirmCancel}
+              okText="Delete"
+            >
+            Are you sure you want to delete: <pre style={{display: 'inline', borderRadius: 3, background: '#eee', padding: 3}}>
+                {this.props.name.substr(1, MAX_ALERT_LENGTH)}
+                {this.props.name.length > MAX_ALERT_LENGTH && '...'}
+              </pre> ?
+          </Alert>
+        }
       </div>
     );
   }

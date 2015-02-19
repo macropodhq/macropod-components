@@ -1,0 +1,42 @@
+@import "colors";
+@import "placeholders";
+
+$color-todo-list-item-complete: $color-gull-gray !default;
+$color-todo-list-item-border: $color-catskill-white !default;
+
+.Todo-list {
+  margin-bottom: 20px;
+}
+
+.Todo-listItem {
+  @extend %clearfix;
+  padding: 10px;
+  border-bottom: 1px solid $color-todo-list-item-border;
+}
+
+.Todo-listItem-complete {
+  float: left;
+  margin-top: 12px;
+  margin-right: 24px;
+}
+
+.Todo-listItem-edit{
+  width: calc(100% - 140px);
+}
+
+.Todo-listItem-delete {
+  margin-top: 6px;
+  margin-right: 10px;
+  float: right;
+}
+
+.Todo-listItem--complete {
+  textarea {
+    color: $color-todo-list-item-complete;
+    text-decoration: line-through;
+  }
+}
+
+.Todo-controls {
+  padding: 10px;
+}
