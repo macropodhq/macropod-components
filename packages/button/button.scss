@@ -65,6 +65,12 @@ $color-button-skeleton: $color-scorpion !default;
   color: $color-button-cancel;
   background-color: $color-button-cancel-background;
   background-image: none;
+
+  &:focus {
+    outline: 0;
+    text-shadow: none;
+    background: rgba(0, 0, 0, .1);
+  }
 }
 
 .Button--danger {
@@ -72,11 +78,15 @@ $color-button-skeleton: $color-scorpion !default;
   background-color: $color-button-danger-background;
 }
 
-.Button--skeleton {
+.Button--skeleton { // TODO: replace with a <a> link component
   color: $color-button-skeleton;
   background-color: transparent;
   background-image: none;
-  outline: none;
+
+  &:focus {
+    outline: 0;
+    background: rgba(0, 0, 0, .1);
+  }
 }
 
 .Button--small {
