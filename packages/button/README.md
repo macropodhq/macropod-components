@@ -5,7 +5,10 @@ A wrapper around React.DOM.button, with a few common traits
 ## Usage
 
 ```
-  <Button cancel>Cancel</Button><Button>Ok</Button>
+<Button cancel>Cancel</Button>
+<Button success>Ok</Button>
+<Button success>GO!</Button>
+<Button danger>WARNING!</Button>
 ```
 
 ## Properties
@@ -14,7 +17,7 @@ A wrapper around React.DOM.button, with a few common traits
 
 Slightly smaller button.
 
-### `skeleton`  (Deprecated)
+### `skeleton`
 
 A button with no borders or background.
 
@@ -32,6 +35,4 @@ A button used for potentially destructive actions (such as delete).
 
 ### More
 
-See the react documentation for more information.
-
-skeleton: React.PropTypes.bool,
+See the react documentation for more information. [http://facebook.github.io/react/docs/]
