@@ -14,6 +14,7 @@ React-native replacement for JavaScript `alert()`
     cancelText="Cancel"
     okText="OK"
     okDisabled={false}
+    danger={false}
     >
     This is the content of the Alert.
   </Alert>
@@ -49,3 +50,7 @@ Text to display on the "OK" button. Defaults to "OK".
 ### `okDisabled`
 
 Whether the "OK" button should show up disabled.
+
+### `danger`
+
+Whether the "OK" button should show up as `<Button danger/>` indicating a destructive action.

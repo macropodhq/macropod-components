@@ -20,6 +20,7 @@ module.exports = React.createClass({
     skeleton: React.PropTypes.bool,
     success: React.PropTypes.bool,
     cancel: React.PropTypes.bool,
+    danger: React.PropTypes.bool,
     type(props, propName) {
       if (
         propName in props &&
@@ -37,6 +38,7 @@ module.exports = React.createClass({
       skeleton: false,
       success: false,
       cancel: false,
+      danger: false,
     };
   },
 
@@ -47,6 +49,7 @@ module.exports = React.createClass({
       'Button--skeleton': this.props.skeleton,
       'Button--success': this.props.success,
       'Button--cancel': this.props.cancel,
+      'Button--danger': this.props.danger,
       [`Button--${this.props.type}`]: !!this.props.type,
       [this.props.className]: !!this.props.className,
     });

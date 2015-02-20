@@ -10,8 +10,11 @@ $color-button-default-background: $color-fountain-blue !default;
 $color-button-success: $color-white !default;
 $color-button-success-background: $color-sushi !default;
 
-$color-button-cancel: $color-white !default;
-$color-button-cancel-background: $color-alizarin-crimson !default;
+$color-button-cancel: $color-scorpion !default;
+$color-button-cancel-background: transparent !default;
+
+$color-button-danger: $color-white !default;
+$color-button-danger-background: $color-alizarin-crimson !default;
 
 $color-button-skeleton: $color-scorpion !default;
 
@@ -61,11 +64,29 @@ $color-button-skeleton: $color-scorpion !default;
 .Button--cancel {
   color: $color-button-cancel;
   background-color: $color-button-cancel-background;
+  background-image: none;
+
+  &:focus {
+    outline: 0;
+    text-shadow: none;
+    background: rgba(0, 0, 0, .1);
+  }
 }
 
-.Button--skeleton {
+.Button--danger {
+  color: $color-button-danger;
+  background-color: $color-button-danger-background;
+}
+
+.Button--skeleton { // TODO: replace with a <a> link component
   color: $color-button-skeleton;
   background-color: transparent;
+  background-image: none;
+
+  &:focus {
+    outline: 0;
+    background: rgba(0, 0, 0, .1);
+  }
 }
 
 .Button--small {
