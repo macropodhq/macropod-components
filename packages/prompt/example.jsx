@@ -43,33 +43,33 @@ module.exports = React.createClass({
     });
   },
 
-  handleTitleChange(event) {
+  handleTitleChange(evt) {
     this.setState({
-      promptTitle: event.target.value
+      promptTitle: evt.target.value
     });
   },
 
-  handleContentChange(event) {
+  handleContentChange(evt) {
     this.setState({
       promptContent: event.target.value
     });
   },
 
-  handleDefaultValueChange(event) {
+  handleDefaultValueChange(evt) {
     this.setState({
-      promptDefaultValue: event.target.value
+      promptDefaultValue: evt.target.value
     });
   },
 
-  handleCancelableChange(event) {
+  handleCancelableChange(evt) {
     this.setState({
-      promptCancelable: event.target.checked
+      promptCancelable: evt.target.checked
     });
   },
 
-  handleValidateInputChange(event) {
+  handleValidateInputChange(evt) {
     this.setState({
-      promptValidateInput: event.target.checked
+      promptValidateInput: evt.target.checked
     });
   },
 
