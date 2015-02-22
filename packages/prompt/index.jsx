@@ -26,15 +26,12 @@ module.exports = React.createClass({
 
   getInitialState() {
     return {
-      valid: true
+      value: '',
     };
   },
 
   componentDidMount() {
     this.refs.promptInput.getDOMNode().focus();
-    this.setState({
-      valid: this.props.validateInput(this.props.defaultValue),
-    });
   },
 
   getDefaultProps() {
@@ -52,26 +49,25 @@ module.exports = React.createClass({
     };
   },
 
-  handleKeyUp(event) {
-    if (this.state.valid && event.keyCode === 13) {
-      this.props.onOk(this.state.value);
+  handleKeyDown(evt) {
+    if (evt.keyCode === 13) {
+      this.handleOk(this.state.value);
     }
   },
 
   handleCancel() {
     this.props.onCancel(this.state.value);
-    return false;
   },
 
   handleOk() {
-    this.props.onOk(this.state.value);
-    return false;
+    if (this.props.validateInput(this.state.value)) {
+      this.props.onOk(this.state.value);
+    }
   },
 
-  handleValueChange(event) {
+  handleValueChange(evt) {
     this.setState({
-      value: event.target.value,
-      valid: this.props.validateInput(event.target.value),
+      value: evt.target.value,
     });
   },
 
@@ -84,9 +80,9 @@ module.exports = React.createClass({
         title={this.props.title}
         cancelText={this.props.cancelText}
         okText={this.props.okText}
-        okDisabled={!this.state.valid}>
+        okDisabled={!this.props.validateInput(this.state.value)}>
         <p>{this.props.content}</p>
-        <input type="text" ref="promptInput" onChange={this.handleValueChange} onKeyUp={this.handleKeyUp} defaultValue={this.props.defaultValue} placeholder={this.props.placeholder} />
+        <input type="text" ref="promptInput" onChange={this.handleValueChange} onKeyDown={this.handleKeyDown} defaultValue={this.props.defaultValue} placeholder={this.props.placeholder} />
       </Alert>
     );
   },

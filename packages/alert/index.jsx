@@ -42,12 +42,10 @@ module.exports = React.createClass({
 
   handleCancel() {
     this.props.onCancel();
-    return false;
   },
 
   handleOk() {
     this.props.onOk();
-    return false;
   },
 
   componentDidMount() {

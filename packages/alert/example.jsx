@@ -41,21 +41,21 @@ module.exports = React.createClass({
     });
   },
 
-  handleTitleChange(event) {
+  handleTitleChange(evt) {
     this.setState({
-      alertTitle: event.target.value
+      alertTitle: evt.target.value
     });
   },
 
-  handleContentChange(event) {
+  handleContentChange(evt) {
     this.setState({
-      alertContent: event.target.value
+      alertContent: evt.target.value
     });
   },
 
-  handleCancelableChange(event) {
+  handleCancelableChange(evt) {
     this.setState({
-      alertCancelable: event.target.checked
+      alertCancelable: evt.target.checked
     });
   },
 
