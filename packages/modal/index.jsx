@@ -35,15 +35,15 @@ module.exports = React.createClass({
 
   layerDidMount() {
     animationCallback(this._layer.querySelector('.Modal-dialog'), this.setVisibleState);
-    window.addEventListener('keyup', this.handleKeyUp);
+    window.addEventListener('keydown', this.handleKeyDown);
   },
 
   layerWillUnmount() {
-    window.removeEventListener('keyup', this.handleKeyUp);
+    window.removeEventListener('keydown', this.handleKeyDown);
     document.body.classList.remove('isUnscrollable');
   },
 
-  handleKeyUp(e) {
+  handleKeyDown(e) {
     if (e.keyCode === 27) {
       this.handleClose();
     }
