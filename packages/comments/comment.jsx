@@ -24,7 +24,7 @@ module.exports = React.createClass({
   displayName: 'Comment',
 
   propTypes: {
-    comment: React.PropTypes.shape({
+    comment: React.PropTypes.shape({ // TODO: Flatten the model, accept only real Date objects
       id: React.PropTypes.any.isRequired,
       author: React.PropTypes.shape({
         name: React.PropTypes.string.isRequired,
@@ -165,8 +165,7 @@ module.exports = React.createClass({
     }
 
     let editedDisplay = null;
-
-    if (this.props.comment.updatedAt && (this.props.comment.updatedAt > this.props.comment.createdAt)) {
+    if (this.props.comment.updatedAt && (new Date(this.props.comment.updatedAt) > new Date(this.props.comment.createdAt))) {
       editedDisplay = (
         <span className="Comment-edited">
           <span data-tooltip={DateFormatter.dateTime(this.props.comment.updatedAt)}>edited</span>
