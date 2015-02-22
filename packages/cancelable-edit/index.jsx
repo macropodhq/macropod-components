@@ -66,6 +66,7 @@ module.exports = React.createClass({
 
   handleCancel() {
     if (this.unsaved()) {
+      this.refs.edit.getDOMNode().blur();
       this.setState({showAlert: true});
     } else {
       this.setState({editing: false});
@@ -98,11 +99,12 @@ module.exports = React.createClass({
   render() {
     const value = this.state.editing ? this.state.pendingValue : this.props.value;
     const Textarea = this.props.autoSize ? AutoSizeTextArea : 'textarea';
-    
+
     return (
       <div>
         <label style={{'display': 'none'}}>{this.props.name}</label>
         <Textarea
+          ref="edit"
           onKeyDown={this.keyHandler(hotKeys)}
           className="CancelableEdit"
           value={value}
