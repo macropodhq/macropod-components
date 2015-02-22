@@ -108,7 +108,7 @@ module.exports = React.createClass({
             onOk={this.handleOk}
             onCancel={this.handleCancel}
             defaultValue={this.state.promptDefaultValue}
-            validateInput={this.validateInput.bind(this)}
+            validateInput={this.validateInput}
           />
         }
       </div>
