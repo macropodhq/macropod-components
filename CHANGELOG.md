@@ -1,5 +1,23 @@
 # Macropod Components Changelog
 
+## [v0.0.2](https://github.com/macropodhq/react-playground/releases/tag/0.0.2)
+
+### Features
+
+* [#184](https://github.com/macropodhq/macropod-components/pull/184): Add `DeleteButton`.
+* [#186](https://github.com/macropodhq/macropod-components/pull/186): Almost total replacing of the todo component.
+* [#187](https://github.com/macropodhq/macropod-components/pull/187): Document `Lightbox`, `scroll-event-mixin`, `Steps`.
+
+### Improvements
+
+* [#182](https://github.com/macropodhq/macropod-components/pull/182): Remove dependency on `momentjs`.
+* [#185](https://github.com/macropodhq/macropod-components/pull/185): More configuration for `CancelableEdit`.
+
+### Fixes
+
+* [#183](https://github.com/macropodhq/macropod-components/pull/183): Correct button skeleton and use it in alert.
+* [#190](https://github.com/macropodhq/macropod-components/pull/190): Fix hotkey interactions.
+
 ## [v0.0.1](https://github.com/macropodhq/react-playground/releases/tag/0.0.1)
 
 Versions from here onwards are to be re-versioned; the 1.x releases were rather haphazard and we feel it is best that we return to 0.x to signify the instability of the API and content of the project.
