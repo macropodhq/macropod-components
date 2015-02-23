@@ -72,7 +72,6 @@ module.exports = React.createClass({
       cancelButtonText: 'Cancel',
       cancelButtonTitle: 'Cancel',
       warnMessage: 'Are you sure you want to discard your changes?',
-      displayName: '',
       small: false,
       inline: false,
       em: false,
@@ -206,7 +205,8 @@ module.exports = React.createClass({
                 success
                 onClick={this.handleSave}
               >
-              {this.props.saveButtonText || 'Save ' + this.props.displayName}
+              {this.props.saveButtonText ||
+                'Save ' + (this.props.displayName || '')}
             </Button>
             <Button
                 title={this.props.cancelButtonTitle}
