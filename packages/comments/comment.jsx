@@ -24,7 +24,7 @@ module.exports = React.createClass({
   displayName: 'Comment',
 
   propTypes: {
-    comment: React.PropTypes.shape({ // TODO: Flatten the model, accept only real Date objects
+    comment: React.PropTypes.shape({
       id: React.PropTypes.any.isRequired,
       author: React.PropTypes.shape({
         name: React.PropTypes.string.isRequired,
