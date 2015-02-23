@@ -10,7 +10,7 @@ $color-todo-list-item-border: $color-catskill-white !default;
 
 .Todo-listItem {
   @extend %clearfix;
-  padding: 10px;
+  padding-left: 10px;
   border-bottom: 1px solid $color-todo-list-item-border;
 }
 
