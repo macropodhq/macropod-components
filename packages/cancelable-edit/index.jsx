@@ -103,6 +103,7 @@ module.exports = React.createClass({
 
   handleCancel() {
     if (this.unsaved()) {
+      this.refs.input.getDOMNode().blur();
       this.setState({showAlert: true});
     } else {
       this.setState({editing: false});
