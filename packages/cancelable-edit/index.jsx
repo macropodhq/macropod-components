@@ -168,8 +168,9 @@ module.exports = React.createClass({
       const Textarea = this.props.autoSize ? AutoSizeTextArea : 'textarea';
 
       return (
-        [<label style={{'display': 'none'}}>{this.props.name}</label>,
+        [<label key="label" style={{'display': 'none'}}>{this.props.name}</label>,
         <Textarea
+          key="textarea"
           ref="input"
           rows={this.props.inline ? 1 : 0}
           onKeyDown={this.keyHandler(hotKeys)}
