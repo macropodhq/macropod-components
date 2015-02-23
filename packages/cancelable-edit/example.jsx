@@ -27,14 +27,12 @@ module.exports = React.createClass({
     onSave={this.handleNameSave}
     autoSize
     placeholder="Name"
-    displayName="Name"
   />`}
         </pre>
         <CancelableEdit
           value={this.state.name}
           onSave={this.handleNameSave}
           autoSize
-          displayName="Name"
           placeholder="Name"
         />
 
@@ -45,7 +43,6 @@ module.exports = React.createClass({
   <CancelableEdit
     creating
     saveButtonText="Create"
-    displayName="Wat"
     placeholder="Yo..."
   />
 `}
@@ -53,7 +50,6 @@ module.exports = React.createClass({
       <CancelableEdit
         creating
         saveButtonText="Create"
-        displayName="Wat"
         placeholder="Yo..."
       />
       </div>
