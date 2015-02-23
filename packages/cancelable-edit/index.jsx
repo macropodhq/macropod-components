@@ -150,12 +150,7 @@ module.exports = React.createClass({
   },
 
   handleClick() {
-    if (!this.state.editing) {
-      this.setState({
-        editing: true,
-        pendingValue: this.props.value,
-      });
-    }
+    this.focus();
   },
 
   renderContent() {
@@ -223,9 +218,12 @@ module.exports = React.createClass({
             </Button>
             { this.state.showAlert &&
               <Alert
+                  danger
                   cancelable
                   onOk={this.handleConfirmOk}
                   onCancel={this.handleConfirmCancel}
+                  okText="Discard"
+                  title="Discard Changes"
                 >
                 {this.props.warnMessage}
               </Alert>

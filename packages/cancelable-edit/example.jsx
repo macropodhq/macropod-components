@@ -37,6 +37,25 @@ module.exports = React.createClass({
           displayName="Name"
           placeholder="Name"
         />
+
+        <br/>
+
+      <pre>
+{`
+  <CancelableEdit
+    creating
+    saveButtonText="Create"
+    displayName="Wat"
+    placeholder="Yo..."
+  />
+`}
+      </pre>
+      <CancelableEdit
+        creating
+        saveButtonText="Create"
+        displayName="Wat"
+        placeholder="Yo..."
+      />
       </div>
     );
   }
