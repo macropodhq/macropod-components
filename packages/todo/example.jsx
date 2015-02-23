@@ -17,7 +17,7 @@ module.exports = React.createClass({
   handleCreate(name) {
     const subtasks = this.state.subtasks;
 
-    subtasks.push({id: Math.random(), name: name, complete: false});
+    subtasks.push({id: Math.random(), name: name, completed: false});
     this.setState({
       subtasks: subtasks
     }, () => this.refs.todo.focusNewInput());
@@ -35,7 +35,7 @@ module.exports = React.createClass({
     const subtasks = this.state.subtasks;
     const record = _.findWhere(subtasks, {id: subtaskId});
 
-    record.complete = state;
+    record.completed = state;
     this.setState({subtasks: subtasks});
   },
 

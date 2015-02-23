@@ -25,7 +25,7 @@ module.exports = React.createClass({
     onCompletionChange: React.PropTypes.func.isRequired,
     onDelete: React.PropTypes.func.isRequired,
     name: React.PropTypes.string,
-    complete: React.PropTypes.bool,
+    completed: React.PropTypes.bool,
   },
 
   getInitialState() {
@@ -54,7 +54,7 @@ module.exports = React.createClass({
 
   render() {
     const className = React.addons.classSet({
-      'Todo-listItem--complete': this.props.complete,
+      'Todo-listItem--complete': this.props.completed,
       'Todo-listItem-edit': true,
     });
 
@@ -62,8 +62,8 @@ module.exports = React.createClass({
       <div className="Todo-listItem">
         <input
           className="Todo-listItem-complete"
-          checked={this.props.complete}
-          onChange={this.props.onCompletionChange.bind(null, !this.props.complete)}
+          checked={this.props.completed}
+          onChange={this.props.onCompletionChange.bind(null, !this.props.completed)}
           type="checkbox"
         />
         <CancelableEdit

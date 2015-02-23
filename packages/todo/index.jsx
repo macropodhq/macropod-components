@@ -30,7 +30,7 @@ module.exports = React.createClass({
     return (
       <TodoItem
         name={subtask.name}
-        complete={subtask.complete}
+        completed={subtask.completed}
         onNameChange={this.props.onNameChange.bind(null, subtask.id)}
         onCompletionChange={this.props.onCompletionChange.bind(null, subtask.id)}
         onDelete={this.props.onDelete.bind(null, subtask.id)}
