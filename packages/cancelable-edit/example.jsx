@@ -27,16 +27,31 @@ module.exports = React.createClass({
     onSave={this.handleNameSave}
     autoSize
     placeholder="Name"
-    displayName="Name"
   />`}
         </pre>
         <CancelableEdit
           value={this.state.name}
           onSave={this.handleNameSave}
           autoSize
-          displayName="Name"
           placeholder="Name"
         />
+
+        <br/>
+
+      <pre>
+{`
+  <CancelableEdit
+    creating
+    saveButtonText="Create"
+    placeholder="Yo..."
+  />
+`}
+      </pre>
+      <CancelableEdit
+        creating
+        saveButtonText="Create"
+        placeholder="Yo..."
+      />
       </div>
     );
   }

@@ -72,7 +72,6 @@ module.exports = React.createClass({
       cancelButtonText: 'Cancel',
       cancelButtonTitle: 'Cancel',
       warnMessage: 'Are you sure you want to discard your changes?',
-      displayName: '',
       small: false,
       inline: false,
       em: false,
@@ -150,12 +149,7 @@ module.exports = React.createClass({
   },
 
   handleClick() {
-    if (!this.state.editing) {
-      this.setState({
-        editing: true,
-        pendingValue: this.props.value,
-      });
-    }
+    this.focus();
   },
 
   renderContent() {
@@ -174,8 +168,9 @@ module.exports = React.createClass({
       const Textarea = this.props.autoSize ? AutoSizeTextArea : 'textarea';
 
       return (
-        [<label style={{'display': 'none'}}>{this.props.name}</label>,
+        [<label key="label" style={{'display': 'none'}}>{this.props.name}</label>,
         <Textarea
+          key="textarea"
           ref="input"
           rows={this.props.inline ? 1 : 0}
           onKeyDown={this.keyHandler(hotKeys)}
@@ -211,7 +206,8 @@ module.exports = React.createClass({
                 success
                 onClick={this.handleSave}
               >
-              {this.props.saveButtonText || 'Save ' + this.props.displayName}
+              {this.props.saveButtonText ||
+                'Save ' + (this.props.displayName || '')}
             </Button>
             <Button
                 title={this.props.cancelButtonTitle}
@@ -223,9 +219,12 @@ module.exports = React.createClass({
             </Button>
             { this.state.showAlert &&
               <Alert
+                  danger
                   cancelable
                   onOk={this.handleConfirmOk}
                   onCancel={this.handleConfirmCancel}
+                  okText="Discard"
+                  title="Discard Changes"
                 >
                 {this.props.warnMessage}
               </Alert>
