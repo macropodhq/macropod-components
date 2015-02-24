@@ -45,15 +45,6 @@ module.exports = React.createClass({
     creating: React.PropTypes.bool,
     onSave: React.PropTypes.func.isRequired,
     onCancel: React.PropTypes.func,
-    displayName(props, propName) {
-      if (propName in props) {
-        // displayName is deprecated
-        return new Error(
-          'CancelableEdit\'s `displayName` property is deprecated.' +
-          ' Please use the saveButtonText property instead.'
-        );
-      }
-    },
   },
 
   getInitialState() {
@@ -211,8 +202,7 @@ module.exports = React.createClass({
                 success
                 onClick={this.handleSave}
               >
-              {this.props.saveButtonText ||
-                'Save ' + (this.props.displayName || '')}
+              {this.props.saveButtonText}
             </Button>
             <Button
                 title={this.props.cancelButtonTitle}
