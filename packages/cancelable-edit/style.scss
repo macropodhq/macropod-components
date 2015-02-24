@@ -9,6 +9,10 @@ $color-cancelable-edit-focus-border: $color-gull-gray !default;
 $color-cancelable-edit-background: darken($color-white, 1) !default;
 $color-cancelable-edit-hover-background: #ffe !default;
 
+input.CancelableEdit-edit.is-editing {
+  margin-bottom: 2px; // to match textareas
+}
+
 .CancelableEdit-edit {
   line-height: 1.3em;
   color: $color-cancelable-edit;

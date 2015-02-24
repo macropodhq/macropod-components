@@ -1,5 +1,6 @@
 const React = require('react/addons');
 const AutoSizeTextArea = require('react-textarea-autosize');
+var _ = require('lodash-node');
 
 const Alert = require('../alert');
 const Button = require('../button');
@@ -101,6 +102,12 @@ module.exports = React.createClass({
     }
   },
 
+  handleSaveSingleLine() {
+    if (this.props.singleLine) {
+      this.handleSave();
+    }
+  },
+
   handleSave() {
     if (this.validInput()) {
       const saveValue = this.state.pendingValue;
@@ -144,6 +151,14 @@ module.exports = React.createClass({
     this.focus();
   },
 
+  getHotKeys() {
+    return this.props.singleLine ? _.extend({}, hotKeys, {
+        mask: {key: 'Enter', metaKey: false, altKey: false},
+        cb: 'handleSaveSingleLine',
+      }) :
+      hotKeys;
+  },
+
   renderContent(parentClassName) {
     const editClassName = parentClassName.createDescendent('edit');
 
@@ -161,15 +176,17 @@ module.exports = React.createClass({
       );
     } else {
       const value = this.state.editing ? this.state.pendingValue : this.props.value;
-      const Textarea = this.props.autoSize ? AutoSizeTextArea : 'textarea';
+      const Control = this.props.singleLine ?
+        'input' :
+        (this.props.autoSize ? AutoSizeTextArea : 'textarea');
 
       return (
         [<label key="label" style={{'display': 'none'}}>{this.props.name}</label>,
-        <Textarea
-          key="textarea"
+        <Control
           ref="input"
-          rows={this.props.inline ? 1 : 0}
-          onKeyDown={this.keyHandler(hotKeys)}
+          key="input"
+          rows={!this.singleLine || (this.props.inline ? 1 : 0)}
+          onKeyDown={this.keyHandler(this.getHotKeys())}
           className={editClassName}
           value={value}
           onClick={this.handleClick}
