@@ -9,6 +9,10 @@ require('./example.scss');
 module.exports = React.createClass({
   displayName: 'CardExample',
 
+  statics: {
+    wide: true,
+  },
+
   render() {
     return (
       <div className="CardContainer">

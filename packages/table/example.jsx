@@ -49,6 +49,10 @@ const data = [
 module.exports = React.createClass({
   displayName: 'TableExample',
 
+  statics: {
+    wide: true,
+  },
+
   render() {
     return (
       <Table

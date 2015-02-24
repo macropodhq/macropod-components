@@ -101,32 +101,36 @@ code {
     }
   }
 
-  @media (min-width: 700px) {
+  &:not(.Playground-Example--wide) {
 
-    .Playground-Example-Sheet {
-      padding-right: .5em;
+    @media (min-width: 700px) {
+
+      .Playground-Example-Sheet--Readme {
+        padding-right: .5em;
+      }
+
+      .Playground-Example-Sheet--Readme, .Playground-Example-Sheet--Readme + .Playground-Example-Sheet--Demo {
+        width: 50%;
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      .Playground-Example-Sheet--Readme + .Playground-Example-Sheet--Demo {
+        padding-left: .5em;
+      }
+
     }
 
-    .Playground-Example-Sheet--Readme, .Playground-Example-Sheet--Readme + .Playground-Example-Sheet--Demo {
-      width: 50%;
-      display: inline-block;
-      vertical-align: top;
+    @media (min-width: 900px) {
+      .Playground-Example-Sheet--Readme {
+        width: 60%;
+      }
+
+      .Playground-Example-Sheet--Readme + .Playground-Example-Sheet--Demo {
+        width: 40%;
+      }
     }
 
-    .Playground-Example-Sheet--Readme + .Playground-Example-Sheet--Demo {
-      padding-left: .5em;
-    }
-
-  }
-
-  @media (min-width: 900px) {
-    .Playground-Example-Sheet--Readme {
-      width: 60%;
-    }
-
-    .Playground-Example-Sheet--Readme + .Playground-Example-Sheet--Demo {
-      width: 40%;
-    }
   }
 
   &:last-child {

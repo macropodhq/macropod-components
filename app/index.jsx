@@ -37,19 +37,30 @@ const packages = _.map(packageRequire.keys(), path => {
 function wrapPackage(component) {
   const Example = packageRequire(component.path);
 
-  return (
-    <div className="Playground-Example" key={component.name}>
-      <h2 id={component.name}>{component.friendlyName} ({component.name})</h2>
-      {component.readme && <div className="Playground-Example-Sheet Playground-Example-Sheet--Readme">
+  var readme = component.readme
+    ? <div className="Playground-Example-Sheet Playground-Example-Sheet--Readme">
         <h3>Readme</h3>
         <article className="Playground-Example-Sheet-Body" dangerouslySetInnerHTML={{__html: component.readme}}></article>
-      </div>}
+      </div>
+    : null;
+  var wide = Example.wide === true;
+
+  var exampleClass = React.addons.classSet({
+    'Playground-Example': true,
+    'Playground-Example--wide': wide,
+  });
+
+  return (
+    <div className={exampleClass} key={component.name}>
+      <h2 id={component.name}>{component.friendlyName} ({component.name})</h2>
+      {wide || readme}
       <div className="Playground-Example-Sheet Playground-Example-Sheet--Demo">
         <h3>Example</h3>
         <div className="Playground-Example-Sheet-Body">
           <Example />
         </div>
       </div>
+      {wide && readme}
     </div>
   );
 }
