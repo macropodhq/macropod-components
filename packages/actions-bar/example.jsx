@@ -8,6 +8,10 @@ const Icon = require('../icon');
 module.exports = React.createClass({
   displayName: 'ActionsBarExample',
 
+  statics: {
+    wide: true,
+  },
+
   title() {
     return 'Action Bar';
   },

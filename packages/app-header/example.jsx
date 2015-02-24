@@ -7,6 +7,10 @@ const AppHeader = require('./');
 module.exports = React.createClass({
   displayName: 'AppHeaderExample',
 
+  statics: {
+    wide: true,
+  },
+
   render() {
     return (
       <AppHeader
