@@ -4,17 +4,21 @@
 $color-todo-list-item-complete: $color-gull-gray !default;
 $color-todo-list-item-border: $color-catskill-white !default;
 
+.Todo-controls {
+  padding: 10px;
+}
+
 .Todo-list {
   margin-bottom: 20px;
 }
 
-.Todo-listItem {
+.TodoItem {
   @extend %clearfix;
   padding-left: 10px;
   border-bottom: 1px solid $color-todo-list-item-border;
 }
 
-.Todo-listItem-complete {
+.TodoItem-complete {
   float: left;
   margin-top: 12px;
   margin-right: 24px;
@@ -24,19 +28,15 @@ $color-todo-list-item-border: $color-catskill-white !default;
   width: calc(100% - 140px);
 }
 
-.Todo-listItem-delete {
+.TodoItem-delete {
   margin-top: 6px;
   margin-right: 10px;
   float: right;
 }
 
-.Todo-listItem--complete {
+.TodoItem--complete {
   textarea {
     color: $color-todo-list-item-complete;
     text-decoration: line-through;
   }
-}
-
-.Todo-controls {
-  padding: 10px;
 }

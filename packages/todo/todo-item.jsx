@@ -56,12 +56,14 @@ module.exports = React.createClass({
     const className = React.addons.classSet({
       'Todo-listItem--complete': this.props.completed,
       'Todo-listItem-edit': true,
+      'TodoItem--complete': this.props.completed,
+      'TodoItem-edit': true,
     });
 
     return (
-      <div className="Todo-listItem">
+      <div className="TodoItem">
         <input
-          className="Todo-listItem-complete"
+          className="TodoItem-complete"
           checked={this.props.completed}
           onChange={this.props.onCompletionChange.bind(null, !this.props.completed)}
           type="checkbox"
@@ -78,7 +80,7 @@ module.exports = React.createClass({
           onSave={this.props.onNameChange}
         />
         <DeleteButton
-          className="Todo-listItem-delete"
+          className="TodoItem-delete"
           onClick={this.handleAskDelete}
         />
         { this.state.showAlert &&
