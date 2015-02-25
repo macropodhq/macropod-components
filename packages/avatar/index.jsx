@@ -3,6 +3,7 @@
 const md5 = require('MD5');
 const React = require('react/addons');
 const keyMirror = require('react/lib/keyMirror');
+const SuitClassSet = require('../suit-class-set');
 const _ = require('lodash-node');
 
 require('./avatar.scss');
@@ -95,13 +96,12 @@ module.exports = React.createClass({
       }
     }
 
-    const classSet = React.addons.classSet;
+    const containerClass = new SuitClassSet('Avatar');
 
-    const containerClass = classSet({
-      'Avatar': true,
-      'Avatar--circle': !!this.props.circle,
-      'Avatar--bordered': !!src,
-      [`Avatar--${this.props.size}`]: true,
+    containerClass.addModifier({
+      'circle': !!this.props.circle,
+      'bordered': !!src,
+      [this.props.size]: true,
     });
 
     firstName = this.props.title || firstName;
@@ -109,7 +109,7 @@ module.exports = React.createClass({
 
     return (
       <span title={`${firstName}’s avatar`}
-        className={containerClass}
+        className={containerClass.toString()}
         style={{backgroundColor: this.getColor(firstName + lastName)}}>
         <span className="Avatar-initials" aria-hidden="true">{this.getInitials(firstName, lastName)}</span>
         <span className="Avatar-image" aria-hidden="true" style={{backgroundImage: this.getBackgroundImage(src, email)}}></span>

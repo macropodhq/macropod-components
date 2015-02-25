@@ -8,7 +8,7 @@ $color-pie: #a7cd45;
     stroke-width: 3px;
   }
 
-  &.PieBadge--complete {
+  &.is-complete {
     circle {
       fill: $color-pie;
     }

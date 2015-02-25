@@ -4,6 +4,7 @@ const React = require('react/addons');
 const LayeredComponentMixin = require('react-components/js/layered-component-mixin');
 
 const animationCallback = require('../style-utilities').animationCallback;
+const SuitClassSet = require('../suit-class-set');
 
 require('./modal.scss');
 
@@ -75,32 +76,23 @@ module.exports = React.createClass({
   },
 
   renderLayer() {
-    const classSet = React.addons.classSet;
-    const modalClasses = {
-      'Modal': true,
-      'Modal--visible': this.state.showModal,
-      'Modal--invisible': !this.state.showModal
-    };
+    const modalClasses = new SuitClassSet('Modal');
 
-    if (this.props.className) {
-      modalClasses[this.props.className] = true;
-    }
+    modalClasses.addModifier({
+      'visible': this.state.showModal,
+      'invisible': !this.state.showModal
+    });
 
-    const modalClassName = classSet(modalClasses);
+    const dialogClasses = modalClasses.createDescendent('dialog');
 
-    const dialogClassObject = {
-      'Modal-dialog': true,
-      'Modal-dialog--withHeader': this.props.title,
-      'Modal-dialog--withFooter': this.props.footer,
-      [this.props.dialogClassName]:
-        (typeof this.props.dialogClassName === 'string'),
-    };
-
-    const dialogClassName = classSet(dialogClassObject);
+    dialogClasses.addModifier({
+      'withHeader': this.props.title,
+      'withFooter': this.props.footer,
+    });
 
     return (
-      <div className={modalClassName} onClick={this.handleClose} onScroll={this.stopPropagation}>
-        <div className={dialogClassName} onClick={this.stopPropagation} style={{maxWidth: this.props.maxWidth, maxHeight: this.props.maxHeight}}>
+      <div className={modalClasses.toString() + (this.props.className ? ` ${this.props.className}` : '')} onClick={this.handleClose} onScroll={this.stopPropagation}>
+        <div className={dialogClasses.toString() + (this.props.dialogClassName ? ` ${this.props.dialogClassName}` : '')} onClick={this.stopPropagation} style={{maxWidth: this.props.maxWidth, maxHeight: this.props.maxHeight}}>
           {this.props.closeButton &&
             <a className="Modal-close" href="#" onClick={this.handleClose}> &#215; </a>
           }

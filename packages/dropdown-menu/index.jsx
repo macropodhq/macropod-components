@@ -1,6 +1,7 @@
 'use strict';
 const React = require('react/addons');
 const Popover = require('../popover');
+const SuitClassSet = require('../suit-class-set');
 require('./dropdown-menu.scss');
 
 module.exports = React.createClass({
@@ -12,16 +13,15 @@ module.exports = React.createClass({
   },
 
   render() {
+    const dropdownMenuClass = new SuitClassSet('DropdownMenu');
 
-    const dropdownMenuClass = React.addons.classSet({
-      'DropdownMenu': true,
-      'DropdownMenu--withFooter': !!this.props.footer,
-      'DroddownMenu--alignRight': this.props.align === 'right',
-      [this.props.className]: true,
+    dropdownMenuClass.addModifier({
+      'withFooter': !!this.props.footer,
+      'alignRight': this.props.align === 'right',
     });
 
     return (
-      <Popover {...this.props} className={dropdownMenuClass} align={this.props.align}>
+      <Popover {...this.props} className={dropdownMenuClass.toString() + (this.props.className ? ` ${this.props.className}` : '')} align={this.props.align}>
         <div className="DropdownMenu-internal">
           {this.props.children}
 

@@ -2,6 +2,7 @@
 
 const React = require('react/addons');
 const OnResize = require('react-window-mixins').OnResize;
+const SuitClassSet = require('../suit-class-set');
 
 require('./lightbox.scss');
 
@@ -53,14 +54,18 @@ const AssetImage = React.createClass({
   },
 
   render() {
-    const imageClasses = React.addons.classSet({
-      'AssetImage': true,
-      'AssetImage--zoomed': this.state.zoomed,
-      'AssetImage--zoomable': this.state.zoomable
+    const imageClasses = new SuitClassSet('AssetImage');
+
+    imageClasses.addModifier({
+      'zoomable': this.state.zoomable,
+    });
+
+    imageClasses.addState({
+      'zoomed': this.state.zoomed,
     });
 
     return (
-      <img className={imageClasses} src={this.props.asset.path} onClick={this.toggleImageZoom} onLoad={this.handleImageLoad} />
+      <img className={imageClasses.toString()} src={this.props.asset.path} onClick={this.toggleImageZoom} onLoad={this.handleImageLoad} />
     );
   },
 
@@ -240,24 +245,19 @@ const Lightbox = React.createClass({
 
     const multipleAssets = this.props.assets.length > 1;
 
-    const lightboxClassObject = {
-      'Lightbox': true,
-      'Lightbox--multiple': multipleAssets,
-      'Lightbox--fullscreen': !!this.props.fullscreen
-    };
+    const lightboxClass = new SuitClassSet('Lightbox');
 
-    if (typeof this.props.className === 'string') {
-      lightboxClassObject[this.props.className] = true;
-    }
-
-    const lightboxClass = React.addons.classSet(lightboxClassObject);
+    lightboxClass.addModifier({
+      'multiple': multipleAssets,
+      'fullscreen': !!this.props.fullscreen
+    });
 
     let currentAsset = this.getCurrentAsset();
 
     const Container = Lightbox.containerFor(currentAsset.media);
 
     return (
-      <div className={lightboxClass} style={this.props.style}>
+      <div className={lightboxClass.toString() + (this.props.className ? ` ${this.props.className}` : '')} style={this.props.style}>
         <div className="Lightbox-asset">
 
           <div className="Lightbox-details">

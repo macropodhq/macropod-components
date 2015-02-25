@@ -6,6 +6,7 @@ const Router = require('react-router');
 const Route = Router.Route;
 const Link = Router.Link;
 const RouteHandler = Router.RouteHandler;
+const SuitClassSet = require('../packages/suit-class-set');
 
 require('open-sans/scss/open-sans.scss');
 require('normalize.css/normalize.css');
@@ -37,26 +38,27 @@ const packages = _.map(packageRequire.keys(), path => {
 function wrapPackage(component) {
   const Example = packageRequire(component.path);
 
-  var readme = component.readme
-    ? <div className="Playground-Example-Sheet Playground-Example-Sheet--Readme">
+  const readme = component.readme
+    ? <div className="PlaygroundExample-sheet PlaygroundExample-sheet--readme">
         <h3>Readme</h3>
-        <article className="Playground-Example-Sheet-Body" dangerouslySetInnerHTML={{__html: component.readme}}></article>
+        <article className="PlaygroundExample-sheet-body" dangerouslySetInnerHTML={{__html: component.readme}}></article>
       </div>
     : null;
-  var wide = Example.wide === true;
+  const wide = Example.wide === true;
 
-  var exampleClass = React.addons.classSet({
-    'Playground-Example': true,
-    'Playground-Example--wide': wide,
+  const exampleClass = new SuitClassSet('PlaygroundExample');
+
+  exampleClass.addModifier({
+    wide,
   });
 
   return (
-    <div className={exampleClass} key={component.name}>
+    <div className={exampleClass.toString()} key={component.name}>
       <h2 id={component.name}>{component.friendlyName} ({component.name})</h2>
       {wide || readme}
-      <div className="Playground-Example-Sheet Playground-Example-Sheet--Demo">
+      <div className="PlaygroundExample-sheet PlaygroundExample-sheet--demo">
         <h3>Example</h3>
-        <div className="Playground-Example-Sheet-Body">
+        <div className="PlaygroundExample-sheet-body">
           <Example />
         </div>
       </div>
@@ -72,7 +74,7 @@ const App = React.createClass({
     return (
       <div>
         <h1>Macropod Components</h1>
-        <ul className="Playground-TOC">
+        <ul className="PlaygroundTOC">
           <li><Link to="/">All</Link></li>
           {packages.map(component => <li key={component.path}><Link to={`/${component.name}`}>{component.friendlyName}</Link></li>)}
         </ul>

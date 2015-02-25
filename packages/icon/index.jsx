@@ -1,7 +1,6 @@
 'use strict';
 
 const React = require('react/addons');
-const classSet = React.addons.classSet;
 const _ = require('lodash-node');
 const keyMirror = require('react/lib/keyMirror');
 
@@ -30,20 +29,12 @@ module.exports = React.createClass({
   },
 
   render() {
-    let classes = {
-      'Icon': true,
-    };
-    classes[this.props.className] = !!this.props.className; // es6 {[whatever]: true} syntax not supported yet
-    let className = classSet(classes);
-
-    let props = {
-      className: className,
+    return this.props.component({
+      className: 'Icon' + (this.props.className ? ` ${this.props.className}` : ''),
       style: this.props.style,
       dangerouslySetInnerHTML: {
         __html: require(`!raw!./svgs/icon-${this.props.type}.svg`)
       }
-    };
-
-    return this.props.component(props);
+    });
   }
 });
