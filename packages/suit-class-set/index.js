@@ -6,36 +6,6 @@ const space = ' ';
 const dash = '-';
 const doubleDash = dash+dash;
 
-function SuitClassSet(componentName) {
-  if (!isValidString(componentName)) {
-    throw new Error(`Supplied primary class name "${componentName}" is invalid.`);
-  }
-
-  Object.defineProperties(this, {
-
-    componentName: {
-      configurable: true,
-      value: componentName,
-    },
-
-    modifiers: {
-      value: [],
-      writable: true,
-    },
-
-    states: {
-      value: [],
-      writable: true,
-    },
-
-    utilities: {
-      value: [],
-      writable: true,
-    },
-
-  });
-}
-
 function isValidString(string) {
   return _.isString(string) && string.indexOf(space) === -1;
 }
@@ -53,8 +23,20 @@ function processString(string) {
   }
 }
 
-Object.defineProperty(SuitClassSet.prototype, 'add', {
-  value: function(collection, args) {
+class SuitClassSet {
+
+  constructor(componentName) {
+    if (!isValidString(componentName)) {
+      throw new Error(`Supplied primary class name "${componentName}" is invalid.`);
+    }
+
+    this._componentName = componentName;
+    this._modifiers = [];
+    this._states = [];
+    this._utilities = [];
+  }
+
+  _add(collection, args) {
     Array.prototype.forEach.call(args, arg => {
 
       if (_.isString(arg)) {
@@ -77,55 +59,56 @@ Object.defineProperty(SuitClassSet.prototype, 'add', {
 
     });
   }
-});
 
-SuitClassSet.prototype.addModifier = function() {
-  this.add('modifiers', arguments);
-};
-
-SuitClassSet.prototype.addState = function() {
-  this.add('states', arguments);
-};
-
-SuitClassSet.prototype.addUtility = function() {
-  this.add('utilities', arguments);
-}
-
-SuitClassSet.prototype.createDescendent = function(descendentName) {
-  if (!isValidString(descendentName)) {
-    throw new Error(`Supplied descendent name "${descendentName}" is invalid.`);
+  addModifier() {
+    this._add('_modifiers', arguments);
   }
 
-  return new SuitClassSet([this.componentName, descendentName].join(dash));
-};
+  addState() {
+    this._add('_states', arguments);
+  }
 
-SuitClassSet.prototype.toArray = function() {
-  return [this.componentName]
-    .concat(
-      _(this.modifiers)
-        .uniq()
-        .filter(subClass => subClass.length > 0)
-        .map(subClass => [this.componentName, subClass].join(doubleDash))
-        .value()
-    )
-    .concat(
-      _(this.utilities)
-        .uniq()
-        .filter(utility => utility.length > 0)
-        .map(utility => `u-${utility}`)
-        .value()
-    )
-    .concat(
-      _(this.states)
-        .uniq()
-        .filter(state => state.length > 0)
-        .map(state => `is-${state}`)
-        .value()
-    );
-};
+  addUtility() {
+    this._add('_utilities', arguments);
+  }
 
-SuitClassSet.prototype.toString = function() {
-  return this.toArray().join(space);
-};
+  createDescendent(descendentName) {
+    if (!isValidString(descendentName)) {
+      throw new Error(`Supplied descendent name "${descendentName}" is invalid.`);
+    }
+
+    return new SuitClassSet([this._componentName, descendentName].join(dash));
+  }
+
+  toArray() {
+    return [this._componentName]
+      .concat(
+        _(this._modifiers)
+          .uniq()
+          .filter(subClass => subClass.length > 0)
+          .map(subClass => [this._componentName, subClass].join(doubleDash))
+          .value()
+      )
+      .concat(
+        _(this._utilities)
+          .uniq()
+          .filter(utility => utility.length > 0)
+          .map(utility => `u-${utility}`)
+          .value()
+      )
+      .concat(
+        _(this._states)
+          .uniq()
+          .filter(state => state.length > 0)
+          .map(state => `is-${state}`)
+          .value()
+      );
+  }
+
+  toString() {
+    return this.toArray().join(space);
+  }
+
+}
 
 module.exports = SuitClassSet;
