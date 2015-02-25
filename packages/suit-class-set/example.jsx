@@ -7,6 +7,10 @@ const SuitClassSet = require('./');
 module.exports = React.createClass({
   displayName: 'SuitClassSet-example',
 
+  statics: {
+    wide: true,
+  },
+
   render() {
     const aClassSet = new SuitClassSet('SuitClassSet');
     const aDescendentClassSet = aClassSet.createDescendent('descendent');
