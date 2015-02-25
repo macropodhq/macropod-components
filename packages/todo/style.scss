@@ -18,13 +18,20 @@ $color-todo-list-item-border: $color-catskill-white !default;
   border-bottom: 1px solid $color-todo-list-item-border;
 }
 
+.TodoItem--complete {
+  textarea {
+    color: $color-todo-list-item-complete;
+    text-decoration: line-through;
+  }
+}
+
 .TodoItem-complete {
   float: left;
   margin-top: 12px;
   margin-right: 24px;
 }
 
-.Todo-listItem-edit {
+.TodoItem-edit {
   width: calc(100% - 140px);
 }
 
@@ -32,11 +39,4 @@ $color-todo-list-item-border: $color-catskill-white !default;
   margin-top: 6px;
   margin-right: 10px;
   float: right;
-}
-
-.TodoItem--complete {
-  textarea {
-    color: $color-todo-list-item-complete;
-    text-decoration: line-through;
-  }
 }
