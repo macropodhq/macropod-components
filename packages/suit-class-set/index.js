@@ -20,13 +20,18 @@ function SuitClassSet(componentName) {
 
     modifiers: {
       value: [],
-      writable: true
+      writable: true,
     },
 
     states: {
       value: [],
-      writable: true
-    }
+      writable: true,
+    },
+
+    utilities: {
+      value: [],
+      writable: true,
+    },
 
   });
 }
@@ -82,6 +87,10 @@ SuitClassSet.prototype.addState = function() {
   this.add('states', arguments);
 };
 
+SuitClassSet.prototype.addUtility = function() {
+  this.add('utilities', arguments);
+}
+
 SuitClassSet.prototype.createDescendent = function(descendentName) {
   if (!isValidString(descendentName)) {
     throw new Error(`Supplied descendent name "${descendentName}" is invalid.`);
@@ -97,6 +106,13 @@ SuitClassSet.prototype.toArray = function() {
         .uniq()
         .filter(subClass => subClass.length > 0)
         .map(subClass => [this.componentName, subClass].join(doubleDash))
+        .value()
+    )
+    .concat(
+      _(this.utilities)
+        .uniq()
+        .filter(utility => utility.length > 0)
+        .map(utility => `u-${utility}`)
         .value()
     )
     .concat(

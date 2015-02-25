@@ -28,6 +28,8 @@ module.exports = React.createClass({
 
     aDescendentClassSet.addModifier('withModifier');
 
+    aDescendentClassSet.addUtility('clearFix');
+
     return (
       <div>
         <p>This example contains two SuitClassSets; one demonstrating all the modifier and state features, and one which is a descendent whose class name is derived from the first.</p>
