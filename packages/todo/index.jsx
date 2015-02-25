@@ -53,7 +53,7 @@ module.exports = React.createClass({
           <CancelableEdit
             ref="input"
             small
-            autoSize
+            singleLine
             creating
             saveButtonText="Create Todo"
             saveButtonTitle="Create Todo"

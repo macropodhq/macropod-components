@@ -68,7 +68,7 @@ module.exports = React.createClass({
         />
         <CancelableEdit
           className={className}
-          autoSize
+          singleLine
           small
           inline
           saveButtonText="Save Todo"
@@ -88,6 +88,7 @@ module.exports = React.createClass({
               onOk={this.handleConfirmOk}
               onCancel={this.handleConfirmCancel}
               okText="Delete"
+              danger
             >
             Are you sure you want to delete: <pre style={{display: 'inline', borderRadius: 3, background: '#eee', padding: 3}}>
                 {this.props.name.substr(1, MAX_ALERT_LENGTH)}
