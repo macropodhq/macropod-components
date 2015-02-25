@@ -1,6 +1,7 @@
 'use strict';
 
 const React = require('react/addons');
+const SuitClassSet = require('../suit-class-set');
 
 require('./steps.scss');
 
@@ -11,12 +12,13 @@ module.exports = React.createClass({
     const children = [];
 
     for (let i = 0; i < this.props.count; i++) {
-      const classes = React.addons.classSet({
-        'Steps-step': true,
-        'is-active': i === this.props.current - 1,
+      const classes = new SuitClassSet('Steps-step');
+
+      classes.addState({
+        'active': i === this.props.current - 1,
       });
 
-      children.push(<span key={i} className={classes}>{i + 1}</span>);
+      children.push(<span key={i} className={classes.toString()}>{i + 1}</span>);
     }
 
     return (

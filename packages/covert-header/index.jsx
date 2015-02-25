@@ -23,6 +23,7 @@ const React = require('react/addons');
 
 require('./covert-header.scss');
 const ScrollEvent = require('../scroll-event-mixin');
+const SuitClassSet = require('../suit-class-set');
 
 module.exports = React.createClass({
   displayName: 'CovertHeader',
@@ -44,14 +45,14 @@ module.exports = React.createClass({
   },
 
   render() {
-    const classSet = React.addons.classSet;
-    const covertHeaderClass = classSet({
-      'CovertHeader': true,
-      'CovertHeader--hide': this.state.hide
+    const covertHeaderClass = new SuitClassSet('CovertHeader');
+
+    covertHeaderClass.addModifier({
+      'hide': this.state.hide
     });
 
     return (
-      <header {...this.props} className={covertHeaderClass} ref="header">
+      <header {...this.props} className={covertHeaderClass.toString()} ref="header">
         {this.props.children}
       </header>
     );

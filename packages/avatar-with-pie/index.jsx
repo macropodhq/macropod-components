@@ -3,6 +3,7 @@
 const React = require('react/addons');
 const Avatar = require('../avatar');
 const PieBadge = require('../pie-badge');
+const SuitClassSet = require('../suit-class-set');
 
 require('./avatar-with-pie.scss');
 
@@ -25,15 +26,12 @@ module.exports = React.createClass({
   },
 
   render() {
-    const classes = {
-      'AvatarWithPie': true,
-      [`AvatarWithPie--${this.props.size}`]: true,
-    };
+    const containerClass = new SuitClassSet('AvatarWithPie');
 
-    const containerClass = React.addons.classSet(classes);
+    containerClass.addModifier(this.props.size);
 
     return (
-      <span className={containerClass}>
+      <span className={containerClass.toString()}>
         <Avatar
           size={this.props.size}
           firstName={this.props.firstName}

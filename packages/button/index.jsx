@@ -3,7 +3,7 @@
 require('./button.scss');
 
 const React = require('react/addons');
-const classSet = React.addons.classSet;
+const SuitClassSet = require('../suit-class-set');
 const _ = require('lodash-node');
 
 const validTypes = [
@@ -43,19 +43,19 @@ module.exports = React.createClass({
   },
 
   render() {
-    const buttonClass = classSet({
-      'Button': true,
-      'Button--small': this.props.small,
-      'Button--skeleton': this.props.skeleton,
-      'Button--success': this.props.success,
-      'Button--cancel': this.props.cancel,
-      'Button--danger': this.props.danger,
-      [`Button--${this.props.type}`]: !!this.props.type,
-      [this.props.className]: !!this.props.className,
+    const buttonClass = new SuitClassSet('Button');
+
+    buttonClass.addModifier({
+      'small': !!this.props.small,
+      'skeleton': !!this.props.skeleton,
+      'success': !!this.props.success,
+      'cancel': !!this.props.cancel,
+      'danger': !!this.props.danger,
+      [this.props.type]: !!this.props.type,
     });
 
     return (
-      <button {...this.props} className={buttonClass}>{this.props.children}</button>
+      <button {...this.props} className={buttonClass.toString() + (this.props.className ? ` ${this.props.className}` : '')}>{this.props.children}</button>
     );
   }
 });

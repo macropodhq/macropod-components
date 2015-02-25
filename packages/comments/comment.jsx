@@ -2,7 +2,7 @@
 const React = require('react/addons');
 const _ = require('lodash-node');
 const Textarea = require('react-textarea-autosize');
-const classSet = React.addons.classSet;
+const SuitClassSet = require('../suit-class-set');
 
 const DropdownMenu = require('../dropdown-menu');
 const Avatar = require('../avatar');
@@ -138,11 +138,12 @@ module.exports = React.createClass({
   },
 
   render() {
-    let commentClass = classSet({
-      'Comment': true,
-      'Comment--starred': this.state.stared,
-      'Comment--inputButtons': this.props.inputButtons,
-      'Comment--repliable': this.props.comment.isDiscussion === false && this.props.comment.repliable === false
+    const commentClass = new SuitClassSet('Comment');
+
+    commentClass.addModifier({
+      'starred': this.state.stared,
+      'inputButtons': this.props.inputButtons,
+      'repliable': this.props.comment.isDiscussion === false && this.props.comment.repliable === false,
     });
 
     const replies = _.clone(this.props.replies).reverse();
@@ -174,7 +175,7 @@ module.exports = React.createClass({
     }
 
     return (
-      <div className={commentClass}>
+      <div className={commentClass.toString()}>
 
         {dropdownContent}
 

@@ -56,12 +56,12 @@ $checkerboard-size: 10px;
         &.AssetImage--zoomable {
           cursor: zoom-in;
 
-          &.AssetImage--zoomed {
+          &.is-zoomed {
             cursor: zoom-out;
           }
         }
 
-        &.AssetImage--zoomed {
+        &.is-zoomed {
           max-width: none;
           max-height: none;
         }

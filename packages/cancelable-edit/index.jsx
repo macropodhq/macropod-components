@@ -4,6 +4,7 @@ const AutoSizeTextArea = require('react-textarea-autosize');
 const Alert = require('../alert');
 const Button = require('../button');
 const KeyMixin = require('../key-mixin');
+const SuitClassSet = require('../suit-class-set');
 
 require('./style');
 
@@ -152,11 +153,15 @@ module.exports = React.createClass({
     this.focus();
   },
 
-  renderContent() {
-    const editClassName = React.addons.classSet({
-      'CancelableEdit-edit': true,
-      'is-editing': this.state.editing,
-      'CancelableEdit-edit--em': this.props.em,
+  renderContent(parentClassName) {
+    const editClassName = parentClassName.createDescendent('edit');
+
+    editClassName.addModifier({
+      'em': this.props.em,
+    });
+
+    editClassName.addState({
+      'editing': this.state.editing,
     });
 
     if (this.props.creating && !this.state.editing) {
@@ -188,15 +193,15 @@ module.exports = React.createClass({
   },
 
   render() {
-    const className = React.addons.classSet({
-      [this.props.className]: !!this.props.className,
-      'CancelableEdit': true,
-      'CancelableEdit--inline': this.props.inline,
+    const className = new SuitClassSet('CancelableEdit');
+
+    className.addModifier({
+      'inline': this.props.inline,
     });
 
     return (
-      <div className={className}>
-        { this.renderContent() }
+      <div className={className.toString() + (this.props.className ? ` ${this.props.className}` : '')}>
+        { this.renderContent(className) }
         { this.state.editing &&
           <div className="CancelableEdit-control">
             <Button

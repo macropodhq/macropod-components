@@ -1,6 +1,7 @@
 'use strict';
 
 const React = require('react/addons');
+const SuitClassSet = require('../suit-class-set');
 require('./loading.scss');
 
 module.exports = React.createClass({
@@ -13,13 +14,14 @@ module.exports = React.createClass({
   },
 
   render() {
-    const classes = React.addons.classSet({
-      'Loading': true,
-      'Loading--small': this.props.size === 'small'
+    const classes = new SuitClassSet('Loading');
+
+    classes.addModifier({
+      'small': this.props.size === 'small'
     });
 
     return (
-      <div className={classes}>
+      <div className={classes.toString()}>
       {(this.props.type === 'stack') &&
         <svg className="Loading--stack" version="1.1" viewBox="0 0 600 600">
           <path className="Loading-top Loading-main" clip-rule="evenodd" d="M561.5,119H181.1c-5.2,0-10.4-0.6-19.4,6.1L48,209.5c-9,6.8-2.6,12.3,2.6,12.3h385.1c5.2,0,15.1-1.4,24.1-8.2l109-82.3C577.8,124.5,566.7,119,561.5,119z" />
