@@ -155,11 +155,16 @@ module.exports = React.createClass({
   },
 
   getHotKeys() {
-    return this.props.singleLine ? _.extend({}, hotKeys, {
+    const hk = hotKeys.slice();
+
+    if (this.props.singleLine) {
+      hk.push({
         mask: {key: 'Enter', metaKey: false, altKey: false},
         cb: 'handleSaveSingleLine',
-      }) :
-      hotKeys;
+      });
+    }
+    
+    return hk;
   },
 
   renderContent(parentClassName) {
