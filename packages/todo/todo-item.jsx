@@ -71,7 +71,7 @@ module.exports = React.createClass({
           type="checkbox"
         />
         <CancelableEdit
-          className={className}
+          className={className.toString()}
           singleLine
           small
           inline
