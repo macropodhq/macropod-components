@@ -6,7 +6,9 @@ const _ = require('lodash-node');
 const Alert = require('../alert');
 const Button = require('../button');
 const CancelableEdit = require('../cancelable-edit');
+const Inlay = require('../inlay');
 const DeleteButton = require('../delete-button');
+const SuitClassSet = require('../suit-class-set');
 
 const MAX_ALERT_LENGTH = 23;
 
@@ -53,22 +55,26 @@ module.exports = React.createClass({
   },
 
   render() {
-    const className = React.addons.classSet({
-      'Todo-listItem--complete': this.props.completed,
-      'Todo-listItem-edit': true,
+    const complete = this.props.completed;
+
+    const className = new SuitClassSet('TodoItem').
+      createDescendent('edit');
+
+    className.addModifier({
+      complete,
     });
 
     return (
-      <div className="Todo-listItem">
+      <div className="TodoItem">
         <input
-          className="Todo-listItem-complete"
+          className="TodoItem-complete"
           checked={this.props.completed}
           onChange={this.props.onCompletionChange.bind(null, !this.props.completed)}
           type="checkbox"
         />
         <CancelableEdit
-          className={className}
-          autoSize
+          className={className.toString()}
+          singleLine
           small
           inline
           saveButtonText="Save Todo"
@@ -78,7 +84,7 @@ module.exports = React.createClass({
           onSave={this.props.onNameChange}
         />
         <DeleteButton
-          className="Todo-listItem-delete"
+          className="TodoItem-delete"
           onClick={this.handleAskDelete}
         />
         { this.state.showAlert &&
@@ -88,11 +94,12 @@ module.exports = React.createClass({
               onOk={this.handleConfirmOk}
               onCancel={this.handleConfirmCancel}
               okText="Delete"
+              danger
             >
-            Are you sure you want to delete: <pre style={{display: 'inline', borderRadius: 3, background: '#eee', padding: 3}}>
-                {this.props.name.substr(1, MAX_ALERT_LENGTH)}
+            Are you sure you want to delete: <Inlay>
+                {this.props.name.substr(0, MAX_ALERT_LENGTH)}
                 {this.props.name.length > MAX_ALERT_LENGTH && '...'}
-              </pre> ?
+              </Inlay> ?
           </Alert>
         }
       </div>

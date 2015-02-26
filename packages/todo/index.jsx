@@ -7,6 +7,7 @@ const Button = require('../button');
 const CancelableEdit = require('../cancelable-edit');
 
 require('./style');
+
 const TodoItem = require('./todo-item');
 
 module.exports = React.createClass({
@@ -29,12 +30,13 @@ module.exports = React.createClass({
   renderSubtask(subtask) {
     return (
       <TodoItem
+        key={subtask.id}
         name={subtask.name}
         completed={subtask.completed}
         onNameChange={this.props.onNameChange.bind(null, subtask.id)}
         onCompletionChange={this.props.onCompletionChange.bind(null, subtask.id)}
         onDelete={this.props.onDelete.bind(null, subtask.id)}
-        />
+      />
     );
   },
 
@@ -52,7 +54,7 @@ module.exports = React.createClass({
           <CancelableEdit
             ref="input"
             small
-            autoSize
+            singleLine
             creating
             saveButtonText="Create Todo"
             saveButtonTitle="Create Todo"

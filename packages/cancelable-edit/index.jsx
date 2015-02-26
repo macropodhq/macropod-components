@@ -1,8 +1,10 @@
 const React = require('react/addons');
 const AutoSizeTextArea = require('react-textarea-autosize');
+var _ = require('lodash-node');
 
 const Alert = require('../alert');
 const Button = require('../button');
+const Link = require('../link');
 const KeyMixin = require('../key-mixin');
 const SuitClassSet = require('../suit-class-set');
 
@@ -37,6 +39,8 @@ module.exports = React.createClass({
     saveButtonInvalid: React.PropTypes.string,
     cancelButtonTitle: React.PropTypes.string,
     warnMessage: React.PropTypes.string,
+    placeholder: React.PropTypes.string,
+    createText: React.PropTypes.string,
     small: React.PropTypes.bool,
     inline: React.PropTypes.bool,
     em: React.PropTypes.bool,
@@ -45,15 +49,6 @@ module.exports = React.createClass({
     creating: React.PropTypes.bool,
     onSave: React.PropTypes.func.isRequired,
     onCancel: React.PropTypes.func,
-    displayName(props, propName) {
-      if (propName in props) {
-        // displayName is deprecated
-        return new Error(
-          'CancelableEdit\'s `displayName` property is deprecated.' +
-          ' Please use the saveButtonText property instead.'
-        );
-      }
-    },
   },
 
   getInitialState() {
@@ -110,6 +105,12 @@ module.exports = React.createClass({
     }
   },
 
+  handleSaveSingleLine() {
+    if (this.props.singleLine) {
+      this.handleSave();
+    }
+  },
+
   handleSave() {
     if (this.validInput()) {
       const saveValue = this.state.pendingValue;
@@ -153,6 +154,14 @@ module.exports = React.createClass({
     this.focus();
   },
 
+  getHotKeys() {
+    return this.props.singleLine ? _.extend({}, hotKeys, {
+        mask: {key: 'Enter', metaKey: false, altKey: false},
+        cb: 'handleSaveSingleLine',
+      }) :
+      hotKeys;
+  },
+
   renderContent(parentClassName) {
     const editClassName = parentClassName.createDescendent('edit');
 
@@ -166,19 +175,21 @@ module.exports = React.createClass({
 
     if (this.props.creating && !this.state.editing) {
       return (
-        <Button skeleton style={{fontSize: 15, color: '#6aa0c3', pointer: 'cursor'}} onClick={this.handleClick}>{this.props.placeholder}</Button>
+        <Link onClick={this.handleClick}>{this.props.createText || this.props.placeholder}</Link>
       );
     } else {
       const value = this.state.editing ? this.state.pendingValue : this.props.value;
-      const Textarea = this.props.autoSize ? AutoSizeTextArea : 'textarea';
+      const Control = this.props.singleLine ?
+        'input' :
+        (this.props.autoSize ? AutoSizeTextArea : 'textarea');
 
       return (
         [<label key="label" style={{'display': 'none'}}>{this.props.name}</label>,
-        <Textarea
-          key="textarea"
+        <Control
           ref="input"
-          rows={this.props.inline ? 1 : 0}
-          onKeyDown={this.keyHandler(hotKeys)}
+          key="input"
+          rows={!this.singleLine || (this.props.inline ? 1 : 0)}
+          onKeyDown={this.keyHandler(this.getHotKeys())}
           className={editClassName}
           value={value}
           onClick={this.handleClick}
@@ -211,8 +222,7 @@ module.exports = React.createClass({
                 success
                 onClick={this.handleSave}
               >
-              {this.props.saveButtonText ||
-                'Save ' + (this.props.displayName || '')}
+              {this.props.saveButtonText}
             </Button>
             <Button
                 title={this.props.cancelButtonTitle}
