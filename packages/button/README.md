@@ -1,13 +1,13 @@
 # Button
 
-A wrapper around React.DOM.button, with a few common traits
+A wrapper around `React.DOM.button`, with a few common traits
 
 ## Usage
 
 ```
-<Button cancel>Cancel</Button>
 <Button success>Ok</Button>
-<Button success>GO!</Button>
+<Button cancel>Cancel</Button>
+<Button small>GO!</Button>
 <Button danger>WARNING!</Button>
 ```
 
@@ -35,4 +35,4 @@ A button used for potentially destructive actions (such as delete).
 
 ### More
 
-See the react documentation for more information. [http://facebook.github.io/react/docs/]
+Other properties are passed to the `button` element, information on supported attributes can be found [in the React docs](http://facebook.github.io/react/docs/tags-and-attributes.html#supported-attributes)
