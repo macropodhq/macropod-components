@@ -95,7 +95,7 @@ module.exports = React.createClass({
               danger
             >
             Are you sure you want to delete: <Inlay>
-                {this.props.name.substr(1, MAX_ALERT_LENGTH)}
+                {this.props.name.substr(0, MAX_ALERT_LENGTH)}
                 {this.props.name.length > MAX_ALERT_LENGTH && '...'}
               </Inlay> ?
           </Alert>
