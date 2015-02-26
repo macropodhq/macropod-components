@@ -7,6 +7,7 @@ const Alert = require('../alert');
 const Button = require('../button');
 const CancelableEdit = require('../cancelable-edit');
 const DeleteButton = require('../delete-button');
+const SuitClassSet = require('../suit-class-set');
 
 const MAX_ALERT_LENGTH = 23;
 
@@ -53,11 +54,11 @@ module.exports = React.createClass({
   },
 
   render() {
-    const className = React.addons.classSet({
-      'Todo-listItem--complete': this.props.completed,
-      'Todo-listItem-edit': true,
-      'TodoItem--complete': this.props.completed,
-      'TodoItem-edit': true,
+    const className = new SuitClassSet('TodoItem').
+      createDescendent('edit');
+
+    className.addModifier({
+      'complete': this.props.completed,
     });
 
     return (

@@ -8,10 +8,6 @@ $color-todo-list-item-border: $color-catskill-white !default;
   padding: 10px;
 }
 
-.Todo-list {
-  margin-bottom: 20px;
-}
-
 .TodoItem {
   @extend %clearfix;
   padding-left: 10px;
@@ -19,7 +15,7 @@ $color-todo-list-item-border: $color-catskill-white !default;
 }
 
 .TodoItem--complete {
-  textarea {
+  &.CancelableEdit-edit {
     color: $color-todo-list-item-complete;
     text-decoration: line-through;
   }
@@ -27,16 +23,17 @@ $color-todo-list-item-border: $color-catskill-white !default;
 
 .TodoItem-complete {
   float: left;
-  margin-top: 12px;
+  margin-top: 21px;
   margin-right: 24px;
 }
 
 .TodoItem-edit {
-  width: calc(100% - 140px);
+  width: calc(100% - 100px);
+  margin: 10px;
 }
 
 .TodoItem-delete {
-  margin-top: 6px;
+  margin-top: 15px;
   margin-right: 10px;
   float: right;
 }
