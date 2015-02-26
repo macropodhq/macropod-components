@@ -174,7 +174,7 @@ module.exports = React.createClass({
 
     if (this.props.creating && !this.state.editing) {
       return (
-        <Link onClick={this.handleClick}>{this.props.createText || this.props.placeholder}</Button>
+        <Link onClick={this.handleClick}>{this.props.createText || this.props.placeholder}</Link>
       );
     } else {
       const value = this.state.editing ? this.state.pendingValue : this.props.value;
