@@ -4,10 +4,6 @@
 $color-todo-list-item-complete: $color-gull-gray !default;
 $color-todo-list-item-border: $color-catskill-white !default;
 
-.Todo-controls {
-  padding: 10px;
-}
-
 .TodoItem {
   @extend %clearfix;
   padding-left: 10px;
