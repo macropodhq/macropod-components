@@ -8,6 +8,7 @@ require('./style.scss');
 
 module.exports = React.createClass({
   displayName: 'Link',
+  
   propTypes: {
     small: React.PropTypes.bool,
     fill: React.PropTypes.bool,
