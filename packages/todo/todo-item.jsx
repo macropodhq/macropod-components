@@ -6,6 +6,7 @@ const _ = require('lodash-node');
 const Alert = require('../alert');
 const Button = require('../button');
 const CancelableEdit = require('../cancelable-edit');
+const Inlay = require('../inlay');
 const DeleteButton = require('../delete-button');
 const SuitClassSet = require('../suit-class-set');
 
@@ -93,10 +94,10 @@ module.exports = React.createClass({
               okText="Delete"
               danger
             >
-            Are you sure you want to delete: <pre style={{display: 'inline', borderRadius: 3, background: '#eee', padding: 3}}>
+            Are you sure you want to delete: <Inlay>
                 {this.props.name.substr(1, MAX_ALERT_LENGTH)}
                 {this.props.name.length > MAX_ALERT_LENGTH && '...'}
-              </pre> ?
+              </Inlay> ?
           </Alert>
         }
       </div>
