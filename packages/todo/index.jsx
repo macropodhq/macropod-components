@@ -5,8 +5,10 @@ const _ = require('lodash-node');
 
 const Button = require('../button');
 const CancelableEdit = require('../cancelable-edit');
+const Link = require('../Link');
 
 require('./style');
+
 const TodoItem = require('./todo-item');
 
 module.exports = React.createClass({

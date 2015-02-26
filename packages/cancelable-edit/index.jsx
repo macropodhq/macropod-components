@@ -38,6 +38,8 @@ module.exports = React.createClass({
     saveButtonInvalid: React.PropTypes.string,
     cancelButtonTitle: React.PropTypes.string,
     warnMessage: React.PropTypes.string,
+    placeholder: React.PropTypes.string,
+    createText: React.PropTypes.string,
     small: React.PropTypes.bool,
     inline: React.PropTypes.bool,
     em: React.PropTypes.bool,
@@ -172,7 +174,7 @@ module.exports = React.createClass({
 
     if (this.props.creating && !this.state.editing) {
       return (
-        <Button skeleton style={{fontSize: 15, color: '#6aa0c3', pointer: 'cursor'}} onClick={this.handleClick}>{this.props.placeholder}</Button>
+        <Link onClick={this.handleClick}>{this.props.createText || this.props.placeholder}</Button>
       );
     } else {
       const value = this.state.editing ? this.state.pendingValue : this.props.value;
