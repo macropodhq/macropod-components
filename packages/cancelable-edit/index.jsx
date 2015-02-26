@@ -4,6 +4,7 @@ var _ = require('lodash-node');
 
 const Alert = require('../alert');
 const Button = require('../button');
+const Link = require('../Link');
 const KeyMixin = require('../key-mixin');
 const SuitClassSet = require('../suit-class-set');
 
