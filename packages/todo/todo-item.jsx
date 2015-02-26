@@ -55,11 +55,13 @@ module.exports = React.createClass({
   },
 
   render() {
+    const complete = this.props.completed;
+
     const className = new SuitClassSet('TodoItem').
       createDescendent('edit');
 
     className.addModifier({
-      'complete': this.props.completed,
+      complete,
     });
 
     return (
