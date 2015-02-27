@@ -187,11 +187,25 @@ const Lightbox = React.createClass({
     onChange: React.PropTypes.func,
     onClose: React.PropTypes.func,
     style: React.PropTypes.object,
-    assets: React.PropTypes.arrayOf(React.PropTypes.shape({
-      media: React.PropTypes.string.isRequired,
-      title: React.PropTypes.string.isRequired,
-      key: React.PropTypes.string,
-    }).isRequired).isRequired,
+    assets: React.PropTypes.arrayOf(React.PropTypes.oneOfType([
+      React.PropTypes.shape({
+        key: React.PropTypes.string,
+        media: React.PropTypes.string.isRequired,
+        title: React.PropTypes.string.isRequired,
+        path: React.PropTypes.string.isRequired,
+      }),
+      React.PropTypes.shape({
+        key: React.PropTypes.string,
+        title: React.PropTypes.string.isRequired,
+        path: React.PropTypes.string.isRequired,
+        container: React.PropTypes.func.isRequired,
+      }),
+      React.PropTypes.shape({
+        key: React.PropTypes.string,
+        title: React.PropTypes.string.isRequired,
+        element: React.PropTypes.element.isRequired,
+      }),
+    ]).isRequired).isRequired,
   },
 
   getDefaultProps() {
