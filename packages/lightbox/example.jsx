@@ -5,6 +5,18 @@ const React = require('react');
 const Lightbox = require('./');
 const Button = require('../button');
 
+const CustomContainer = React.createClass({
+  displayName: 'CustomContainer',
+
+  render() {
+    return (
+      <pre style={{color: '#000000', textAlign: 'left', margin: '10px'}}>
+        {JSON.stringify(this.props, null, 2)}
+      </pre>
+    );
+  },
+});
+
 const assets = [
   {
     media: 'image/jpeg',
@@ -35,6 +47,15 @@ const assets = [
     media: 'application/octet-stream',
     title: 'Unpreviewable or Unrecognised Type',
     path: require('./images/forest.jpg'),
+  },
+  {
+    title: 'Custom container',
+    container: CustomContainer,
+    path: 'not a real path!',
+  },
+  {
+    title: 'Custom element',
+    element: <CustomContainer hey-wow="omg" />,
   },
 ];
 

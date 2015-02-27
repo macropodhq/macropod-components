@@ -187,11 +187,25 @@ const Lightbox = React.createClass({
     onChange: React.PropTypes.func,
     onClose: React.PropTypes.func,
     style: React.PropTypes.object,
-    assets: React.PropTypes.arrayOf(React.PropTypes.shape({
-      media: React.PropTypes.string.isRequired,
-      title: React.PropTypes.string.isRequired,
-      key: React.PropTypes.string,
-    }).isRequired).isRequired,
+    assets: React.PropTypes.arrayOf(React.PropTypes.oneOfType([
+      React.PropTypes.shape({
+        key: React.PropTypes.string,
+        media: React.PropTypes.string.isRequired,
+        title: React.PropTypes.string.isRequired,
+        path: React.PropTypes.string.isRequired,
+      }),
+      React.PropTypes.shape({
+        key: React.PropTypes.string,
+        title: React.PropTypes.string.isRequired,
+        path: React.PropTypes.string.isRequired,
+        container: React.PropTypes.func.isRequired,
+      }),
+      React.PropTypes.shape({
+        key: React.PropTypes.string,
+        title: React.PropTypes.string.isRequired,
+        element: React.PropTypes.element.isRequired,
+      }),
+    ]).isRequired).isRequired,
   },
 
   getDefaultProps() {
@@ -254,7 +268,12 @@ const Lightbox = React.createClass({
 
     let currentAsset = this.getCurrentAsset();
 
-    const Container = Lightbox.containerFor(currentAsset.media);
+    let element = currentAsset.element;
+    if (!element) {
+      let Container = currentAsset.container || Lightbox.containerFor(currentAsset.media);
+
+      element = <Container asset={currentAsset} />;
+    }
 
     return (
       <div className={lightboxClass.toString() + (this.props.className ? ` ${this.props.className}` : '')} style={this.props.style}>
@@ -275,7 +294,7 @@ const Lightbox = React.createClass({
           </div>
 
           <div className="Lightbox-file">
-            <Container asset={currentAsset} />
+            {element}
           </div>
 
         </div>
