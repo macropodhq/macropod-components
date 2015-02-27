@@ -254,7 +254,12 @@ const Lightbox = React.createClass({
 
     let currentAsset = this.getCurrentAsset();
 
-    const Container = Lightbox.containerFor(currentAsset.media);
+    let element = currentAsset.element;
+    if (!element) {
+      let Container = currentAsset.container || Lightbox.containerFor(currentAsset.media);
+
+      element = <Container asset={currentAsset} />;
+    }
 
     return (
       <div className={lightboxClass.toString() + (this.props.className ? ` ${this.props.className}` : '')} style={this.props.style}>
@@ -275,7 +280,7 @@ const Lightbox = React.createClass({
           </div>
 
           <div className="Lightbox-file">
-            <Container asset={currentAsset} />
+            {element}
           </div>
 
         </div>

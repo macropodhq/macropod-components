@@ -50,3 +50,7 @@ Array of assets to render in the Lightbox. They should be objects with the follo
 * `media`, the MIME type of the asset.
 * `title`, the title or file name of the asset.
 * `path`, the URL of the asset itself.
+* `container`, a React class implementing a container for this asset (optional,
+	negates the requirement for `media`).
+* `element`, a React element to use directly instead of instantiating one
+	internally (optional, negates the requirement for `media` and `path`).
