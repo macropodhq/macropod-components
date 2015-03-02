@@ -143,10 +143,14 @@ module.exports = React.createClass({
 
   focus() {
     if (this.isMounted()) {
-      this.setState({
-        editing: true,
-        pendingValue: this.props.value,
-      }, () => this.refs.input.getDOMNode().focus());
+      if (!this.state.editing) {
+        this.setState({
+          editing: true,
+          pendingValue: this.props.value,
+        }, () => this.refs.input.getDOMNode().focus());
+      } else {
+        this.refs.input.getDOMNode().focus();
+      }
     }
   },
 
