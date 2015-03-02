@@ -13,11 +13,10 @@ $color-todo-list-item-border: $color-catskill-white !default;
 .TodoItem-complete {
   float: left;
   margin-top: 21px;
-  margin-right: 24px;
 }
 
 .TodoItem-edit {
-  width: calc(100% - 100px);
+  width: calc(100% - 75px);
   margin: 10px;
 }
 
@@ -29,7 +28,7 @@ $color-todo-list-item-border: $color-catskill-white !default;
 }
 
 .TodoItem-delete {
-  margin-top: 15px;
+  margin-top: 16px;
   margin-right: 10px;
   float: right;
 }
