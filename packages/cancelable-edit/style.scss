@@ -10,7 +10,7 @@ $color-cancelable-edit-background: darken($color-white, 1) !default;
 $color-cancelable-edit-hover-background: #ffe !default;
 
 input.CancelableEdit-edit.is-editing {
-  margin-bottom: 2px; // to match textareas
+  margin-bottom: 6px; // to match textareas
 }
 
 .CancelableEdit-edit {
@@ -49,7 +49,6 @@ input.CancelableEdit-edit.is-editing {
 .CancelableEdit-edit--em {
   font-size: 28px;
   font-weight: $cancelable-edit-font-weight;
-  line-height: 1.5em;
   letter-spacing: -0.05em;
 }
 

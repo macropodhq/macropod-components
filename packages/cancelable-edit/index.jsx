@@ -192,7 +192,7 @@ module.exports = React.createClass({
 
     if (this.props.creating && !this.state.editing) {
       return (
-        <Link onClick={this.handleClick}>
+        <Link fill={this.props.fill} onClick={this.handleClick}>
           {this.props.createText || this.props.placeholder}
         </Link>
       );
@@ -207,7 +207,7 @@ module.exports = React.createClass({
         <Control
           ref="input"
           key="input"
-          rows={!this.singleLine || (this.props.inline ? 1 : 0)}
+          rows={((this.props.em || this.singleLine) ? 1 : 3)}
           onKeyDown={this.keyHandler(this.getHotKeys())}
           className={editClassName}
           value={value}
