@@ -86,7 +86,9 @@ module.exports = React.createClass({
   },
 
   handleConfirmCancel() {
-    this.setState({showAlert: false}, () => this.refs.input.getDOMNode().focus());
+    this.setState({
+      showAlert: false,
+    }, () => this.refs.input.getDOMNode().focus());
   },
 
   handleConfirmOk() {
@@ -99,9 +101,14 @@ module.exports = React.createClass({
   handleCancel() {
     if (this.unsaved()) {
       this.refs.input.getDOMNode().blur();
-      this.setState({showAlert: true});
+      this.setState({
+        showAlert: true,
+      });
     } else {
-      this.setState({editing: false});
+      this.setState({
+        editing: false,
+      }, () => this.props.onCancel());
+
     }
   },
 
@@ -124,7 +131,8 @@ module.exports = React.createClass({
   },
 
   unsaved() {
-    return this.state.editing && (this.props.value !== this.state.pendingValue);
+    return this.state.editing &&
+      (this.props.value !== this.state.pendingValue);
   },
 
   validInput() {
@@ -135,18 +143,22 @@ module.exports = React.createClass({
 
   focus() {
     if (this.isMounted()) {
-      this.setState({
-        editing: true,
-        pendingValue: this.props.value,
-      }, () => this.refs.input.getDOMNode().focus());
+      if (!this.state.editing) {
+        this.setState({
+          editing: true,
+          pendingValue: this.props.value,
+        }, () => this.refs.input.getDOMNode().focus());
+      } else {
+        this.refs.input.getDOMNode().focus();
+      }
     }
   },
 
   handleBlur() {
     if ((this.state.pendingValue.length < 1) || !this.unsaved()) {
       this.setState({
-        editing: false
-      });
+        editing: false,
+      }, () => this.props.onCancel());
     }
   },
 
@@ -180,7 +192,9 @@ module.exports = React.createClass({
 
     if (this.props.creating && !this.state.editing) {
       return (
-        <Link onClick={this.handleClick}>{this.props.createText || this.props.placeholder}</Link>
+        <Link onClick={this.handleClick}>
+          {this.props.createText || this.props.placeholder}
+        </Link>
       );
     } else {
       const value = this.state.editing ? this.state.pendingValue : this.props.value;
