@@ -86,7 +86,9 @@ module.exports = React.createClass({
   },
 
   handleConfirmCancel() {
-    this.setState({showAlert: false}, () => this.refs.input.getDOMNode().focus());
+    this.setState({
+      showAlert: false
+    }, () => this.refs.input.getDOMNode().focus());
   },
 
   handleConfirmOk() {
@@ -101,7 +103,10 @@ module.exports = React.createClass({
       this.refs.input.getDOMNode().blur();
       this.setState({showAlert: true});
     } else {
-      this.setState({editing: false});
+      this.setState({
+        editing: false
+      }, () => this.props.onCancel());
+
     }
   },
 
@@ -145,8 +150,8 @@ module.exports = React.createClass({
   handleBlur() {
     if ((this.state.pendingValue.length < 1) || !this.unsaved()) {
       this.setState({
-        editing: false
-      });
+        editing: false,
+      }, () => this.props.onCancel());
     }
   },
 
