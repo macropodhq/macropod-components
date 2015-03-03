@@ -45,6 +45,7 @@ module.exports = React.createClass({
     inline: React.PropTypes.bool,
     em: React.PropTypes.bool,
     allowEmpty: React.PropTypes.bool,
+    maxLength: React.PropTypes.number,
     autoSize: React.PropTypes.bool,
     creating: React.PropTypes.bool,
     onSave: React.PropTypes.func.isRequired,
@@ -175,7 +176,7 @@ module.exports = React.createClass({
         cb: 'handleSaveSingleLine',
       });
     }
-    
+
     return hk;
   },
 
@@ -207,6 +208,7 @@ module.exports = React.createClass({
         <Control
           ref="input"
           key="input"
+          maxLength={this.props.maxLength}
           rows={((this.props.em || this.singleLine) ? 1 : 3)}
           onKeyDown={this.keyHandler(this.getHotKeys())}
           className={editClassName}
