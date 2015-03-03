@@ -43,6 +43,11 @@ Function, if supplied, a "close" button will be shown in the Lightbox toolbar, w
 
 React style object, which will be assigned to the `.Lightbox` element.
 
+### `prependMenuItems` and `appendMenuItems`
+
+Arrays of renderable things ("nodes" in React terms) that get, surprisingly,
+prepended or appended to the existing items in the menu.
+
 ### `assets`
 
 Array of assets to render in the Lightbox. They should be objects with the following properties;

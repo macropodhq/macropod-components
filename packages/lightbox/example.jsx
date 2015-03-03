@@ -81,9 +81,9 @@ module.exports = React.createClass({
     /*eslint-enable no-alert*/
   },
 
-  handleButtonClick() {
+  handleButtonClick(n) {
     this.setState({
-      clickCount: this.state.clickCount + 1,
+      clickCount: this.state.clickCount + n,
     });
   },
 
@@ -107,10 +107,14 @@ module.exports = React.createClass({
 
         <h3>Extra menu items</h3>
         <Lightbox
-          assets={assets.slice(0, 1)}
-          menuItems={[
-            <span>Clicked: {this.state.clickCount}</span>,
-            <button onClick={this.handleButtonClick}>Click me!</button>,
+          assets={assets.slice(0, 2)}
+          prependMenuItems={[
+            <button>!</button>,
+          ]}
+          appendMenuItems={[
+            <span>[{this.state.clickCount}]</span>,
+            <button onClick={this.handleButtonClick.bind(null, 1)}>+</button>,
+            <button onClick={this.handleButtonClick.bind(null, -1)}>-</button>,
           ]}
         />
 

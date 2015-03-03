@@ -187,7 +187,8 @@ const Lightbox = React.createClass({
     onChange: React.PropTypes.func,
     onClose: React.PropTypes.func,
     style: React.PropTypes.object,
-    menuItems: React.PropTypes.arrayOf(React.PropTypes.node),
+    prependMenuItems: React.PropTypes.arrayOf(React.PropTypes.node),
+    appendMenuItems: React.PropTypes.arrayOf(React.PropTypes.node),
     assets: React.PropTypes.arrayOf(React.PropTypes.oneOfType([
       React.PropTypes.shape({
         key: React.PropTypes.string,
@@ -283,17 +284,19 @@ const Lightbox = React.createClass({
             <h4 className="Lightbox-title">{currentAsset.title}</h4>
 
             <div className="Lightbox-controls">
-              {multipleAssets &&
-                <span>
-                  <span className="Lightbox-counter">{this.state.currentAssetIndex + 1} of {this.props.assets.length}</span>
-                  <button className="Lightbox-controls-previous" onClick={this.handlePrevious}>&lt;</button>
-                  <button className="Lightbox-controls-next" onClick={this.handleNext}>&gt;</button>
-                </span>
-              }
+              {this.props.prependMenuItems}
+
+              {multipleAssets && [
+                <span className="Lightbox-counter">{this.state.currentAssetIndex + 1} of {this.props.assets.length}</span>,
+                <button className="Lightbox-controls-previous" onClick={this.handlePrevious}>&lt;</button>,
+                <button className="Lightbox-controls-next" onClick={this.handleNext}>&gt;</button>,
+              ]}
+
               {this.props.onClose &&
                 <button className="Lightbox-controls-close" onClick={this.props.onClose}>&times;</button>
               }
-              {this.props.menuItems}
+
+              {this.props.appendMenuItems}
             </div>
           </div>
 
