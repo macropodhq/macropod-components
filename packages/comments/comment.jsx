@@ -31,6 +31,8 @@ module.exports = React.createClass({
         avatar_url: React.PropTypes.string,
       }).isRequired,
       entry: React.PropTypes.string.isRequired,
+      beforeContent: React.PropTypes.node,
+      afterContent: React.PropTypes.node,
       repliable: React.PropTypes.bool,
       editable: React.PropTypes.bool,
       deletable: React.PropTypes.bool,
@@ -194,19 +196,30 @@ module.exports = React.createClass({
           {editedDisplay}
         </div>
 
-        <p className="Comment-text" ref="commentText">
-          {
-            this.state.editing
-              ?
-                <form onSubmit={this.handleEdit}>
-                  <Textarea rows="1" ref="editInput" value={this.state.editValue} className="Comment-editInput" onChange={this.handleEditChange} onKeyDown={this.handleKeyDown.bind(null, this.handleEdit)}></Textarea>
-                  { this.props.inputButtons &&
-                    <Button type="submit">Edit</Button>
-                  }
-                </form>
-              : <span className="Comment-text-display">{this.props.comment.entry}</span>
+        <div className="Comment-text">
+          {this.state.editing &&
+            <form onSubmit={this.handleEdit}>
+              <Textarea
+                rows="1"
+                ref="editInput"
+                value={this.state.editValue}
+                className="Comment-editInput"
+                onChange={this.handleEditChange}
+                onKeyDown={this.handleKeyDown.bind(null, this.handleEdit)}
+              />
+
+              {this.props.inputButtons &&
+                <Button type="submit">Edit</Button>
+              }
+            </form>
           }
-        </p>
+
+          {!this.state.editing && [
+            this.props.comment.beforeContent,
+            <p className="Comment-text-content">{this.props.comment.entry}</p>,
+            this.props.comment.afterContent,
+          ]}
+        </div>
 
         <div className="Comment-replies">
           {replies.map(comment => <CommentReply key={comment.id} comment={comment} />)}

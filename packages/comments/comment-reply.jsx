@@ -25,9 +25,11 @@ module.exports = React.createClass({
           </time>
         </div>
 
-        <p className="Comment-text">
-          {this.props.comment.entry}
-        </p>
+        <div className="Comment-text">
+          {this.props.comment.beforeContent}
+          <p className="Comment-text-content">{this.props.comment.entry}</p>
+          {this.props.comment.afterContent}
+        </div>
       </div>
     );
   }

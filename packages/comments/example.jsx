@@ -73,8 +73,33 @@ module.exports = React.createClass({
           editable: false,
           deletable: false,
           createdAt: '2015-01-07T11:04:01.453783131+11:00'
-        }
-      ]
+          createdAt: '2015-01-07T11:04:01.453783131+11:00',
+        },
+        {
+          id: 7,
+          parentId: null,
+          author: authors[1],
+          entry: 'Oh my, you can put a thing in here as well. That\'s cool!',
+          editable: true,
+          deletable: true,
+          createdAt: '2015-01-07T11:04:01.453783131+11:00',
+          updatedAt: '2015-01-07T12:04:01.453783131+11:00',
+          beforeContent: <div><small>this is before the content</small></div>,
+          afterContent: <div><em>√ <small>this comment has a tick</small></em></div>,
+        },
+        {
+          id: 8,
+          parentId: 7,
+          author: authors[1],
+          entry: 'This construction is making me thirsty!',
+          editable: true,
+          deletable: true,
+          createdAt: '2015-01-07T11:04:01.453783131+11:00',
+          updatedAt: '2015-01-07T12:04:01.453783131+11:00',
+          beforeContent: <div><small>INT. OFFICE - DAY <em>(the speaker looks unhappy)</em></small></div>,
+          afterContent: <div><small><em>exit scene left</em></small></div>,
+        },
+      ],
     };
   },
 
