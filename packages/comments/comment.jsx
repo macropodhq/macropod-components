@@ -30,6 +30,7 @@ module.exports = React.createClass({
         name: React.PropTypes.string.isRequired,
         avatar_url: React.PropTypes.string,
       }).isRequired,
+      highlighted: React.PropTypes.bool,
       entry: React.PropTypes.string.isRequired,
       beforeContent: React.PropTypes.node,
       afterContent: React.PropTypes.node,
@@ -160,6 +161,7 @@ module.exports = React.createClass({
       'starred': this.state.starred,
       'inputButtons': this.props.inputButtons,
       'repliable': this.props.comment.isDiscussion === false && this.props.comment.repliable === false,
+      'highlighted': this.props.comment.highlighted,
     });
 
     const replies = _.clone(this.props.replies).reverse();

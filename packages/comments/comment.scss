@@ -132,4 +132,9 @@
       border-top-left-radius: 1px;
     }
   }
+
+  &.Comment--highlighted {
+    background: #fff0d0;
+    border: 1px solid #fabc31;
+  }
 }
