@@ -285,11 +285,13 @@ const Lightbox = React.createClass({
               { multipleAssets &&
                 <span>
                   <span className="Lightbox-counter">{this.state.currentAssetIndex + 1} of {this.props.assets.length}</span>
-                  <span className="Lightbox-controls-previous" onClick={this.handlePrevious}>&lt;</span>
-                  <span className="Lightbox-controls-next" onClick={this.handleNext}>&gt;</span>
+                  <button className="Lightbox-controls-previous" onClick={this.handlePrevious}>&lt;</button>
+                  <button className="Lightbox-controls-next" onClick={this.handleNext}>&gt;</button>
                 </span>
               }
-              {this.props.onClose && <span className="Lightbox-controls-close" onClick={this.props.onClose}>&times;</span>}
+              {this.props.onClose &&
+                <button className="Lightbox-controls-close" onClick={this.props.onClose}>&times;</button>
+              }
             </div>
           </div>
 
