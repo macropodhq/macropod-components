@@ -278,11 +278,11 @@ const Lightbox = React.createClass({
     return (
       <div className={lightboxClass.toString() + (this.props.className ? ` ${this.props.className}` : '')} style={this.props.style}>
         <div className="Lightbox-asset">
-
           <div className="Lightbox-details">
             <h4 className="Lightbox-title">{currentAsset.title}</h4>
+
             <div className="Lightbox-controls">
-              { multipleAssets &&
+              {multipleAssets &&
                 <span>
                   <span className="Lightbox-counter">{this.state.currentAssetIndex + 1} of {this.props.assets.length}</span>
                   <button className="Lightbox-controls-previous" onClick={this.handlePrevious}>&lt;</button>
@@ -298,7 +298,6 @@ const Lightbox = React.createClass({
           <div className="Lightbox-file">
             {element}
           </div>
-
         </div>
       </div>
     );

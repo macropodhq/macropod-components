@@ -65,7 +65,7 @@ module.exports = React.createClass({
   getInitialState() {
     return {
       open: false,
-      activeAsset: 0
+      activeAsset: 0,
     };
   },
 
@@ -112,7 +112,7 @@ module.exports = React.createClass({
             hide={!this.state.open}
             initialIndex={this.state.activeAsset}
             onClose={this.toggleFullscreenLightbox}
-            />
+          />
         }
       </div>
     );
