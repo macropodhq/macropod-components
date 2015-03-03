@@ -45,6 +45,7 @@ module.exports = React.createClass({
     inline: React.PropTypes.bool,
     em: React.PropTypes.bool,
     allowEmpty: React.PropTypes.bool,
+    maxLength: React.PropTypes.number,
     autoSize: React.PropTypes.bool,
     creating: React.PropTypes.bool,
     onSave: React.PropTypes.func.isRequired,
@@ -80,8 +81,12 @@ module.exports = React.createClass({
   },
 
   handleChange(e) {
+    const value = this.props.maxLength ?
+      e.target.value.substring(0, this.props.maxLength) :
+      e.target.value;
+
     this.setState({
-      pendingValue: e.target.value,
+      pendingValue: value,
     });
   },
 
@@ -175,7 +180,7 @@ module.exports = React.createClass({
         cb: 'handleSaveSingleLine',
       });
     }
-    
+
     return hk;
   },
 
