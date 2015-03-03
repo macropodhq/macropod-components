@@ -55,3 +55,43 @@ module.exports = React.createClass({
   displayName: 'MyPackage'
 });
 ```
+
+## Release Process
+
+The following is done directly on `master`.
+
+Pick a new version number based on [Semver](http://semver.org) rules.
+
+### 1. Update `CHANGELOG.md`
+
+From GitHub's [releases](https://github.com/macropodhq/macropod-components/releases) page, navigate to the latest release, then click the "n commits to master since this tag" link to get the comparison view.
+
+Once there, find all the Pull Requests which have been merged since the latest release, and list them in the changelog, following the existing format. For Pull Requiests which are part of a single feature or are fixes for issues with new features, show them all in one entry, but link to each.
+
+Each release's title should link to its corresponding GitHub tag page. Each Pull Request number should link to the PR.
+
+Optionally, categorise the changes under headings such as `Changes`, `Features`, `Fixes` or `Improvements`.
+
+### 2. Update `package.json`
+
+Change the version in `package.json`. As our version format isn't `vX.Y.Z`, you must do this manually rather than with `npm`'s `version` tool.
+
+### 3. Add and Commit
+
+You should only have changes to `CHANGELOG.md` and `package.json` in a version bump commit. Check the `git status` and `git diff` to make sure.
+
+The commit message should mention the version, and should note that it's a version bump commit. A good format to follow is `Bump version to vX.Y.X`.
+
+### 4. Tag
+
+Fairly simple, no fancy tags, just `git tag X.Y.Z`
+
+### 5. Push to `master`
+
+Once you're sure things are correct, push the change to `master` with `git push` and push the tag with `git push --tags` (these must be done separately).
+
+### 6. Update the GitHub release page
+
+Copy the changelog entry for this release into a [new release](https://github.com/macropodhq/macropod-components/releases/new) for the newly pushed tag.
+
+Demote the markdown headings to normal text and append a `:` to each.
