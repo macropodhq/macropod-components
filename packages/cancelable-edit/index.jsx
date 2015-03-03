@@ -81,12 +81,8 @@ module.exports = React.createClass({
   },
 
   handleChange(e) {
-    const value = this.props.maxLength ?
-      e.target.value.substring(0, this.props.maxLength) :
-      e.target.value;
-
     this.setState({
-      pendingValue: value,
+      pendingValue: e.target.value,
     });
   },
 
@@ -212,6 +208,7 @@ module.exports = React.createClass({
         <Control
           ref="input"
           key="input"
+          maxLength={this.props.maxLength}
           rows={((this.props.em || this.singleLine) ? 1 : 3)}
           onKeyDown={this.keyHandler(this.getHotKeys())}
           className={editClassName}
