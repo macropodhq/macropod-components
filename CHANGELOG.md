@@ -1,5 +1,35 @@
 # Macropod Components Changelog
 
+## [v0.0.3](https://github.com/macropodhq/react-playground/releases/tag/0.0.3)
+
+### Features
+
+* [#199](https://github.com/macropodhq/macropod-components/pull/199): Add `SuitClassSet`, a replacement for `classSet`.
+* [#202](https://github.com/macropodhq/macropod-components/pull/202): Add `Link` component.
+* [#204](https://github.com/macropodhq/macropod-components/pull/204): Add `Inlay` component.
+
+### Improvements
+
+* [#196](https://github.com/macropodhq/macropod-components/pull/196): Deprecate custom `DateFormatter`, add docs.
+* [#198](https://github.com/macropodhq/macropod-components/pull/198): Document `ButtonGroup`.
+* [#197](https://github.com/macropodhq/macropod-components/pull/197): Add docs for `ActionsBar` and `AppHeader`.
+* [#203](https://github.com/macropodhq/macropod-components/pull/203): Document `DeleteButton`.
+* [#205](https://github.com/macropodhq/macropod-components/pull/205): A lot of fixes, changes and refactoring of the `Todo`.
+* [#207](https://github.com/macropodhq/macropod-components/pull/207): Add custom containers and elements to `Lightbox`.
+* [#213](https://github.com/macropodhq/macropod-components/pull/213): Allow inserting elements around `Comments`.
+* [#214](https://github.com/macropodhq/macropod-components/pull/214): Append release process to README.
+
+### Fixes
+
+* [#194](https://github.com/macropodhq/macropod-components/pull/194): Change `Todo` API from .complete to .completed.
+* [#195](https://github.com/macropodhq/macropod-components/pull/195): Only left pad `Todo` items.
+* [#193](https://github.com/macropodhq/macropod-components/pull/193): Fix `cancelable-edit` focus, make confirm discard button red.
+* [#206](https://github.com/macropodhq/macropod-components/pull/206): Fix hotkey scope in `CancelableEdit`.
+* [#209](https://github.com/macropodhq/macropod-components/pull/209): Make `Link` a little larger by default.
+* [#210](https://github.com/macropodhq/macropod-components/pull/210): Fix `CancelableEdit` focus API.
+* [#211](https://github.com/macropodhq/macropod-components/pull/211): Visual tweaks to `CancelableEdit`.
+* [#212](https://github.com/macropodhq/macropod-components/pull/212): Visual tweaks to `Todo`.
+
 ## [v0.0.2](https://github.com/macropodhq/react-playground/releases/tag/0.0.2)
 
 ### Features
