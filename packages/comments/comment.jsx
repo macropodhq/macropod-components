@@ -67,7 +67,7 @@ module.exports = React.createClass({
   getInitialState() {
     return {
       showMenu: false,
-      stared: false,
+      starred: false,
       editing: false,
       replyValue: '',
       editValue: this.props.comment.entry
@@ -75,21 +75,31 @@ module.exports = React.createClass({
   },
 
   handleMenuToggle(e) {
-    this.setState({showMenu: !this.state.showMenu});
     e.preventDefault();
+
+    this.setState({
+      showMenu: !this.state.showMenu,
+    });
   },
 
   handleStarToggle(e) {
-    this.setState({stared: !this.state.stared});
     e.preventDefault();
+
+    this.setState({
+      starred: !this.state.starred,
+    });
   },
 
   handleReplyChange(e) {
-    this.setState({replyValue: e.target.value});
+    this.setState({
+      replyValue: e.target.value,
+    });
   },
 
   handleEditChange(e) {
-    this.setState({editValue: e.target.value});
+    this.setState({
+      editValue: e.target.value,
+    });
   },
 
   handleNewReply(e) {
@@ -98,7 +108,10 @@ module.exports = React.createClass({
     }
 
     this.props.onReply(this.state.replyValue, this.props.comment.id);
-    this.setState({replyValue: ''});
+
+    this.setState({
+      replyValue: '',
+    });
   },
 
   handleDelete() {
@@ -111,6 +124,7 @@ module.exports = React.createClass({
     }
 
     this.props.onEdit(this.props.comment.id, this.state.editValue);
+
     this.handleEditToggle();
   },
 
@@ -143,7 +157,7 @@ module.exports = React.createClass({
     const commentClass = new SuitClassSet('Comment');
 
     commentClass.addModifier({
-      'starred': this.state.stared,
+      'starred': this.state.starred,
       'inputButtons': this.props.inputButtons,
       'repliable': this.props.comment.isDiscussion === false && this.props.comment.repliable === false,
     });
@@ -156,11 +170,26 @@ module.exports = React.createClass({
       dropdownContent = (
         <div>
           <a href="#" className="Comment-dropdownToggle" ref="menuAnchor" onClick={this.handleMenuToggle}>&hellip;</a>
+
           <DropdownMenu className="DropdownMenu" anchor={this.refs.menuAnchor} visible={this.state.showMenu} close={this.handleMenuToggle}>
             <dl>
-              {this.props.starable && <dd><a href="#" onClick={this.handleStarToggle}>{this.state.stared ? 'Unstar' : 'Star'} this discussion</a></dd>}
-              {this.props.comment.editable && <dd><a href="#" onClick={this.handleEditToggle}>Edit discussion</a></dd>}
-              {this.props.comment.deletable && <dd><a href="#" onClick={this.handleDelete}>Delete discussion</a></dd>}
+              {this.props.starable &&
+                <dd>
+                  <a href="#" onClick={this.handleStarToggle}>{this.state.starred ? 'Unstar' : 'Star'} this discussion</a>
+                </dd>
+              }
+
+              {this.props.comment.editable &&
+                <dd>
+                  <a href="#" onClick={this.handleEditToggle}>Edit discussion</a>
+                </dd>
+              }
+
+              {this.props.comment.deletable &&
+                <dd>
+                  <a href="#" onClick={this.handleDelete}>Delete discussion</a>
+                </dd>
+              }
             </dl>
           </DropdownMenu>
         </div>
@@ -178,7 +207,6 @@ module.exports = React.createClass({
 
     return (
       <div className={commentClass.toString()}>
-
         {dropdownContent}
 
         <Avatar
@@ -188,11 +216,16 @@ module.exports = React.createClass({
           email={this.props.comment.author.email}
           src={this.props.comment.author.avatar_url}
           size="m"
-          circle={true}/>
+          circle={true}
+        />
 
         <div className="Comment-details">
           <strong className="Comment-author">{this.props.comment.author.name}</strong>
-          <time className="Comment-time" dateTime={DateFormatter.custom(this.props.comment.createdAt, 'YYYY-MM-DD hh:mm')}>{DateFormatter.dateTime(this.props.comment.createdAt)}</time>
+
+          <time className="Comment-time" dateTime={DateFormatter.custom(this.props.comment.createdAt, 'YYYY-MM-DD hh:mm')}>
+            {DateFormatter.dateTime(this.props.comment.createdAt)}
+          </time>
+
           {editedDisplay}
         </div>
 
@@ -227,8 +260,16 @@ module.exports = React.createClass({
           {this.props.comment.isDiscussion !== false && this.props.comment.repliable !== false &&
             <div className="Comment-replies-new">
               <form onSubmit={this.handleNewReply}>
-                <Textarea rows="1" value={this.state.replyValue} className="Comment-replies-new-input" placeholder="add a reply" onChange={this.handleReplyChange} onKeyDown={this.handleKeyDown.bind(null, this.handleNewReply)}></Textarea>
-                { this.props.inputButtons &&
+                <Textarea
+                  rows="1"
+                  value={this.state.replyValue}
+                  className="Comment-replies-new-input"
+                  placeholder="add a reply"
+                  onChange={this.handleReplyChange}
+                  onKeyDown={this.handleKeyDown.bind(null, this.handleNewReply)}
+                />
+
+                {this.props.inputButtons &&
                   <Button type="submit" disabled={!this.state.replyValue.length}>Reply</Button>
                 }
               </form>
