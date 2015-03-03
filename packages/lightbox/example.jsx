@@ -65,7 +65,8 @@ module.exports = React.createClass({
   getInitialState() {
     return {
       open: false,
-      activeAsset: 0
+      activeAsset: 0,
+      clickCount: 0,
     };
   },
 
@@ -78,6 +79,12 @@ module.exports = React.createClass({
     /*eslint-disable no-alert*/
     alert(index);
     /*eslint-enable no-alert*/
+  },
+
+  handleButtonClick(n) {
+    this.setState({
+      clickCount: this.state.clickCount + n,
+    });
   },
 
   render() {
@@ -98,6 +105,19 @@ module.exports = React.createClass({
           },
         ])} />
 
+        <h3>Extra menu items</h3>
+        <Lightbox
+          assets={assets.slice(0, 2)}
+          prependMenuItems={[
+            <button>!</button>,
+          ]}
+          appendMenuItems={[
+            <span>[{this.state.clickCount}]</span>,
+            <button onClick={this.handleButtonClick.bind(null, 1)}>+</button>,
+            <button onClick={this.handleButtonClick.bind(null, -1)}>-</button>,
+          ]}
+        />
+
         <h3>Fullscreen</h3>
         <Button onClick={this.toggleFullscreenLightbox}>Open lightbox</Button>
         &nbsp; image number: <select ref="assetSwitcher" defaultValue="0">
@@ -112,7 +132,7 @@ module.exports = React.createClass({
             hide={!this.state.open}
             initialIndex={this.state.activeAsset}
             onClose={this.toggleFullscreenLightbox}
-            />
+          />
         }
       </div>
     );

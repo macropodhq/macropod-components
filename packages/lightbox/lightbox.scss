@@ -3,9 +3,9 @@
 $color-lightbox-background: $color-mine-shaft;
 $color-details-background: $color-onyx;
 $color-lightbox-title: $color-alto;
-$color-control: $color-white;
-$color-control-background: $color-mine-shaft;
-$color-counter: $color-scorpion;
+$color-lightbox-menu-control: $color-white;
+$color-lightbox-menu-control-background: $color-mine-shaft;
+$color-lightbox-menu-text: $color-scorpion;
 $color-checkerboard: #c1c1c1; // Matches Photoshop colour
 
 $lightbox-details-height: 46px;
@@ -98,29 +98,30 @@ $checkerboard-size: 10px;
   .Lightbox-controls {
     float: right;
 
+    color: $color-lightbox-menu-text;
+
     .Lightbox-counter {
-      color: $color-counter;
       display: inline-block;
       margin-right: 0.6em;
     }
 
-    .Lightbox-controls-previous, .Lightbox-controls-next, .Lightbox-controls-close {
-      display: inline-block;
-      cursor: pointer;
-      color: $color-control;
-      background: $color-control-background;
-      font-size: 16px;
-      font-weight: 100;
-      border-radius: 2px;
-      text-align: center;
+    button {
       margin-left: 5px;
       height: 23px;
-      line-height: 23px;
-      width: 23px;
+      min-width: 23px;
+      text-align: center;
+      vertical-align: baseline;
+      background: $color-lightbox-menu-control-background;
+      border: none;
+      border-radius: 2px;
+      color: $color-lightbox-menu-control;
+      font-size: 16px;
+      line-height: 16px;
+      font-weight: 100;
 
       &:hover {
-        background: $color-control;
-        color: $color-control-background;
+        background: $color-lightbox-menu-control;
+        color: $color-lightbox-menu-control-background;
       }
     }
   }
