@@ -187,6 +187,7 @@ const Lightbox = React.createClass({
     onChange: React.PropTypes.func,
     onClose: React.PropTypes.func,
     style: React.PropTypes.object,
+    menuItems: React.PropTypes.arrayOf(React.PropTypes.node),
     assets: React.PropTypes.arrayOf(React.PropTypes.oneOfType([
       React.PropTypes.shape({
         key: React.PropTypes.string,
@@ -292,6 +293,7 @@ const Lightbox = React.createClass({
               {this.props.onClose &&
                 <button className="Lightbox-controls-close" onClick={this.props.onClose}>&times;</button>
               }
+              {this.props.menuItems}
             </div>
           </div>
 

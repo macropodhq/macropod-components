@@ -66,6 +66,7 @@ module.exports = React.createClass({
     return {
       open: false,
       activeAsset: 0,
+      clickCount: 0,
     };
   },
 
@@ -78,6 +79,12 @@ module.exports = React.createClass({
     /*eslint-disable no-alert*/
     alert(index);
     /*eslint-enable no-alert*/
+  },
+
+  handleButtonClick() {
+    this.setState({
+      clickCount: this.state.clickCount + 1,
+    });
   },
 
   render() {
@@ -97,6 +104,15 @@ module.exports = React.createClass({
             path: 'http://jessicastokes.net/',
           },
         ])} />
+
+        <h3>Extra menu items</h3>
+        <Lightbox
+          assets={assets.slice(0, 1)}
+          menuItems={[
+            <span>Clicked: {this.state.clickCount}</span>,
+            <button onClick={this.handleButtonClick}>Click me!</button>,
+          ]}
+        />
 
         <h3>Fullscreen</h3>
         <Button onClick={this.toggleFullscreenLightbox}>Open lightbox</Button>
