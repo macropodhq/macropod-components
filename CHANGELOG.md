@@ -1,5 +1,14 @@
 # Macropod Components Changelog
 
+## [v0.0.4](https://github.com/macropodhq/react-playground/releases/tag/0.0.4)
+
+### Improvements
+
+* [#215](https://github.com/macropodhq/macropod-components/pull/215): Allow custom elements in the `lightbox` menu.
+* [#217](https://github.com/macropodhq/macropod-components/pull/217): Cancelable-edit now has a `maxLength` property.
+* [#218](https://github.com/macropodhq/macropod-components/pull/218): Comments can now be highlighted.
+* [#219](https://github.com/macropodhq/macropod-components/pull/219): Alert has more breathing room from top of browser.
+
 ## [v0.0.3](https://github.com/macropodhq/react-playground/releases/tag/0.0.3)
 
 ### Features
