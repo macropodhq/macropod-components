@@ -31,6 +31,7 @@ module.exports = React.createClass({
         avatar_url: React.PropTypes.string,
       }).isRequired,
       highlighted: React.PropTypes.bool,
+      scrollIntoView: React.PropTypes.bool,
       entry: React.PropTypes.string.isRequired,
       beforeContent: React.PropTypes.node,
       afterContent: React.PropTypes.node,
@@ -152,6 +153,30 @@ module.exports = React.createClass({
         editInput.setSelectionRange(this.state.editValue.length, this.state.editValue.length);
       }
     });
+  },
+
+  componentDidMount() {
+    if (this.props.comment.scrollIntoView) {
+      setTimeout(() => this.getDOMNode().scrollIntoView(), 1);
+    }
+  },
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.comment.scrollIntoView !== this.props.comment.scrollIntoView) {
+      this.setState({
+        scrollIntoView: nextProps.comment.scrollIntoView,
+      });
+    }
+  },
+
+  componentDidUpdate() {
+    if (this.state.scrollIntoView) {
+      this.getDOMNode().scrollIntoView();
+
+      this.setState({
+        scrollIntoView: false,
+      });
+    }
   },
 
   render() {

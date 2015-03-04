@@ -119,6 +119,17 @@ module.exports = React.createClass({
           createdAt: '2015-01-07T11:04:01.453783131+11:00',
           updatedAt: '2015-01-07T12:04:01.453783131+11:00',
         },
+        {
+          id: 11,
+          parentId: null,
+          author: authors[1],
+          entry: 'This comment is automatically scrolled to.',
+          editable: true,
+          deletable: true,
+          createdAt: '2015-01-07T13:04:01.453783131+11:00',
+          updatedAt: '2015-01-07T14:04:01.453783131+11:00',
+          scrollIntoView: true,
+        },
       ],
     };
   },
@@ -185,11 +196,30 @@ module.exports = React.createClass({
     });
   },
 
+  handleScrollIntoViewButton() {
+    var comments = this.state.comments.slice();
+
+    comments[10] = _.extend(_.clone(comments[10]), {
+      scrollIntoView: !comments[10].scrollIntoView,
+    });
+
+    this.setState({
+      comments: comments,
+    });
+
+    if (!comments[10].scrollIntoView) {
+      setTimeout(this.handleScrollIntoViewButton, 1);
+    }
+  },
+
   render() {
     return (
       <div>
         <Button style={{marginBottom: '10px'}} onClick={this.handleButtonToggle}>
           {this.state.inputButtons ? 'Hide buttons' : 'Show Buttons'}
+        </Button>
+        <Button style={{marginBottom: '10px'}} onClick={this.handleScrollIntoViewButton}>
+          Scroll Into View
         </Button>
 
         <br />
