@@ -229,6 +229,7 @@ module.exports = React.createClass({
 
     className.addModifier({
       'inline': this.props.inline,
+      'active': this.state.editing,
     });
 
     return (
