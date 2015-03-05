@@ -227,9 +227,12 @@ module.exports = React.createClass({
   render() {
     const className = new SuitClassSet('CancelableEdit');
 
+    className.addState({
+      'active': this.state.editing,
+    });
+
     className.addModifier({
       'inline': this.props.inline,
-      'active': this.state.editing,
     });
 
     return (
