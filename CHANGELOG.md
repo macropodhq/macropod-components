@@ -1,5 +1,20 @@
 # Macropod Components Changelog
 
+## [v0.0.5](https://github.com/macropodhq/react-playground/releases/tag/0.0.5)
+
+### Features
+
+* [#220](https://github.com/macropodhq/macropod-components/pull/220): Allow comments to specify that they need to be scrolled to.
+* [#221](https://github.com/macropodhq/macropod-components/pull/221), [#222](https://github.com/macropodhq/macropod-components/pull/222): `CancelableEdit` has an `active` class when editing.
+
+### Improvements
+
+* [#225](https://github.com/macropodhq/macropod-components/pull/225): Use spread syntax on icon elements.
+
+### Fixes
+
+* [#223](https://github.com/macropodhq/macropod-components/pull/223): Truncate tags in tag input.
+
 ## [v0.0.4](https://github.com/macropodhq/react-playground/releases/tag/0.0.4)
 
 ### Improvements
