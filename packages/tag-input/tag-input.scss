@@ -36,6 +36,7 @@ $input-border-radius: $border-radius;
     .rw-input {
       border-top-left-radius: $input-border-radius;
       border-bottom-left-radius: $input-border-radius;
+      max-width: 100%;
     }
 
     > .rw-select {
@@ -89,6 +90,7 @@ $input-border-radius: $border-radius;
     display: inline;
     float: left;
     background: none;
+    padding-top: 5px;
   }
 
   .rw-multiselect-wrapper {
@@ -110,14 +112,21 @@ $input-border-radius: $border-radius;
       border-radius: 3px;
       height: inherit;
       display: inline-block;
-      padding: 0 5px;
+      padding: 5px 25px 5px 5px;
       margin: 0 5px 5px 0;
       white-space: nowrap;
       float: left;
+      max-width: 100%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      position: relative;
 
       .rw-btn {
         background: none;
         border: none;
+        position: absolute;
+        right: 2px;
+        top: 4px;
       }
 
       .rw-sr {
@@ -136,6 +145,10 @@ $input-border-radius: $border-radius;
     box-shadow: 0 2px 5px $color-glow;
     overflow: auto !important;
 
+    .rw-widget {
+      width: 100%;
+    }
+
     ul {
       list-style: none;
       margin: 0;
@@ -148,6 +161,10 @@ $input-border-radius: $border-radius;
         &:hover, &.rw-state-focus {
           background: $color-option-hover;
           cursor: pointer;
+        }
+
+        strong {
+          word-break: break-word;
         }
       }
     }
