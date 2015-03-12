@@ -21,7 +21,6 @@ $arrow-size: 12px;
     border-radius: 3px;
     padding: 0.2em 0.6em;
     white-space: nowrap;
-    z-index: 100;
   }
 
   &:before {
@@ -36,6 +35,7 @@ $arrow-size: 12px;
 
   &:after, &:before {
     display: none;
+    z-index: 100;
   }
 
   &:hover:after, &:hover:before {
