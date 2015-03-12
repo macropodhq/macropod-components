@@ -8,7 +8,10 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <span data-tooltip="Tooltip!">Hover over me</span>
+      <div>
+        <span data-tooltip="Tooltip!">Hover over me (right tooltip)</span> <br />
+        <span data-tooltip-left="Tooltip!">Hover over me (left tooltip)</span>
+      </div>
     );
   }
 });
