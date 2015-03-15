@@ -75,6 +75,10 @@ $color-calendar-hover-date: $color-gallery;
           color: $color-white;
           cursor: default;
         }
+
+        &.rw-now {
+          font-weight: bold;
+        }
       }
     }
   }
