@@ -10,6 +10,12 @@ require('../calendar/calendar.scss');
 module.exports = React.createClass({
   displayName: 'CalendarDropdown',
 
+  getDefaultProps() {
+    return {
+      footer: false
+    }
+  },
+
   render() {
     return (
       <Widgets.DateTimePicker {...this.props} />
