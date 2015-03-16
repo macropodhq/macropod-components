@@ -1,5 +1,16 @@
 # Macropod Components Changelog
 
+## [v0.0.6](https://github.com/macropodhq/react-playground/releases/tag/0.0.6)
+
+### Fixes
+
+* [#227](https://github.com/macropodhq/macropod-components/pull/227): Tooltip has a left variation, z-index fix
+
+### Improvements
+
+* [#225](https://github.com/macropodhq/macropod-components/pull/228): Bump `react-widgets`, today is highlighted in the calendar component
+* [#226](https://github.com/macropodhq/macropod-components/pull/226): Better tag input styling
+
 ## [v0.0.5](https://github.com/macropodhq/react-playground/releases/tag/0.0.5)
 
 ### Features
