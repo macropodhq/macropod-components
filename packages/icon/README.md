@@ -36,6 +36,7 @@ The type of icon. Available types are;
 * `briefcase`
 * `bubble`
 * `bubbles`
+* `bug-pin`
 * `bulb`
 * `calculator`
 * `calendar`
