@@ -6,9 +6,8 @@ $color-tooltip: $color-white;
 $arrow-offset: -15px;
 $arrow-size: 12px;
 
-*[data-tooltip] {
+*[data-tooltip], *[data-tooltip-left] {
   position: relative;
-  font-size: 12px;
   cursor: pointer;
 
   &:after {
@@ -21,7 +20,6 @@ $arrow-size: 12px;
     border-radius: 3px;
     padding: 0.2em 0.6em;
     white-space: nowrap;
-    z-index: 100;
   }
 
   &:before {
@@ -36,9 +34,19 @@ $arrow-size: 12px;
 
   &:after, &:before {
     display: none;
+    z-index: 100;
+    font-size: 12px;
   }
 
   &:hover:after, &:hover:before {
     display: inline-block;
+  }
+}
+
+*[data-tooltip-left] {
+  &:after {
+    content: attr(data-tooltip-left);
+    left: auto;
+    right: calc(50% - 14px);
   }
 }
