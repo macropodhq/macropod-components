@@ -1,0 +1,19 @@
+.BugPin-example {
+  column-width: 14em;
+  list-style: none;
+  padding: 0;
+  margin: -1.5em;
+
+  li:not(:hover) {
+    color: black !important;
+  }
+
+  .BugPin {
+  	margin-right: 5px;
+    vertical-align: middle;
+  }
+}
+
+.BugPin-example--large {
+  font-size: 2em;
+}
