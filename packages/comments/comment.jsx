@@ -274,11 +274,13 @@ module.exports = React.createClass({
             </form>
           }
 
-          {!this.state.editing && [
-            this.props.comment.beforeContent,
-            <p className="Comment-text-content">{this.props.comment.entry}</p>,
-            this.props.comment.afterContent,
-          ]}
+          {!this.state.editing &&
+            <p className="Comment-text-content">
+              {this.props.comment.beforeContent && <span className="Comment-text-before">{this.props.comment.beforeContent}</span>}
+              <span className="Comment-text-main">{this.props.comment.entry}</span>
+              {this.props.comment.afterContent && <span className="Comment-text-before">{this.props.comment.afterContent}</span>}
+            </p>
+          }
         </div>
 
         <div className="Comment-replies">
