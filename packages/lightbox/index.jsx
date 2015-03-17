@@ -3,6 +3,7 @@
 const React = require('react/addons');
 const OnResize = require('react-window-mixins').OnResize;
 const SuitClassSet = require('../suit-class-set');
+const Icon = require('../icon');
 
 require('./lightbox.scss');
 
@@ -288,8 +289,8 @@ const Lightbox = React.createClass({
 
               {multipleAssets && [
                 <span className="Lightbox-counter">{this.state.currentAssetIndex + 1} of {this.props.assets.length}</span>,
-                <button className="Lightbox-controls-previous" onClick={this.handlePrevious}>&lt;</button>,
-                <button className="Lightbox-controls-next" onClick={this.handleNext}>&gt;</button>,
+                <button className="Lightbox-controls-previous" onClick={this.handlePrevious}><Icon type='nav-left' font={false} /></button>,
+                <button className="Lightbox-controls-next" onClick={this.handleNext}><Icon type='nav-right' font={false} /></button>,
               ]}
 
               {this.props.onClose &&
