@@ -1,0 +1,5 @@
+@import "placeholders";
+
+.Bar {
+  @extend %clearfix;
+}

@@ -1,0 +1,43 @@
+'use strict';
+
+const React = require('react');
+
+const Bar = require('./');
+const BarItem = require('../bar-item');
+const Icon = require('../icon');
+
+module.exports = React.createClass({
+  displayName: 'BarExample',
+
+  statics: {
+    wide: true,
+  },
+
+  render() {
+    const linkStyle = {
+      color: 'inherit'
+    };
+
+    return (
+      <Bar>
+        <BarItem left>
+          <a href="#" style={linkStyle}>
+            <Icon type="home" />
+          </a>
+        </BarItem>
+        <BarItem center>Account</BarItem>
+        <BarItem right>
+          <a href="#" style={linkStyle}>
+            <Icon type="settings" />
+          </a>
+        </BarItem>
+        <BarItem right>
+          <a href="#" style={linkStyle}>
+            <Icon type="user" />
+          </a>
+        </BarItem>
+      </Bar>
+    );
+  }
+});
+
