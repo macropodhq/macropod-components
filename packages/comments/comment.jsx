@@ -275,11 +275,15 @@ module.exports = React.createClass({
           }
 
           {!this.state.editing &&
-            <p className="Comment-text-content">
-              {this.props.comment.beforeContent && <span className="Comment-text-before">{this.props.comment.beforeContent}</span>}
+            <div className="Comment-text-content">
+              {this.props.comment.beforeContent &&
+                <div className="Comment-text-before">{this.props.comment.beforeContent}</div>
+              }
               <span className="Comment-text-main">{this.props.comment.entry}</span>
-              {this.props.comment.afterContent && <span className="Comment-text-before">{this.props.comment.afterContent}</span>}
-            </p>
+              {this.props.comment.afterContent &&
+                <div className="Comment-text-after">{this.props.comment.afterContent}</div>
+              }
+            </div>
           }
         </div>
 
