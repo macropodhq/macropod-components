@@ -48,6 +48,7 @@ module.exports = React.createClass({
     maxLength: React.PropTypes.number,
     autoSize: React.PropTypes.bool,
     creating: React.PropTypes.bool,
+    rows: React.PropTypes.number,
     onSave: React.PropTypes.func.isRequired,
     onCancel: React.PropTypes.func,
   },
@@ -75,6 +76,7 @@ module.exports = React.createClass({
       allowEmpty: false,
       autoSize: false,
       creating: false,
+      rows: 3,
       onSave: noop,
       onCancel: noop,
     };
@@ -209,7 +211,7 @@ module.exports = React.createClass({
           ref="input"
           key="input"
           maxLength={this.props.maxLength}
-          rows={((this.props.em || this.singleLine) ? 1 : 3)}
+          rows={((this.props.em || this.singleLine) ? 1 : this.props.rows)}
           onKeyDown={this.keyHandler(this.getHotKeys())}
           className={editClassName}
           value={value}
