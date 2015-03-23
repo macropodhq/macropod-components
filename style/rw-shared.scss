@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'RwWidgets';
+  src: url('~react-widgets/dist/fonts/rw-widgets.eot');
+  src: url('~react-widgets/dist/fonts/rw-widgets.eot#iefix') format('embedded-opentype'),
+       url('~react-widgets/dist/fonts/rw-widgets.woff') format('woff'),
+       url('~react-widgets/dist/fonts/rw-widgets.ttf') format('truetype'),
+       url('~react-widgets/dist/fonts/rw-widgets.svg#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Icons
+.rw-i {
+  display: inline-block;
+  font-family: RwWidgets;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1em;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.rw-i-calendar:after { content: '\e808'; }
+.rw-i-caret-down:after { content: '\e801'; }
+.rw-i-caret-up:after { content: '\e800'; }
+.rw-i-caret-left:after { content: '\e807';  }
+.rw-i-caret-right:after { content: '\e806'; }
+.rw-i-clock-o:after { content:'\e80c'; }
+
+.rw-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}

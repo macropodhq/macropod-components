@@ -1,4 +1,5 @@
 @import "colors";
+@import "rw-shared";
 
 $color-calendar: $color-scorpion;
 $color-calendar-selected-date: $color-gull-gray;
@@ -30,29 +31,6 @@ $color-calendar-hover-date: $color-gallery;
     padding-left: 10px;
     padding-right: 10px;
   }
-
-  .rw-i {
-    display: inline-block;
-    font-family: RwWidgets;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1em;
-    font-variant: normal;
-    text-transform: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  .rw-sr {
-    position: absolute;
-    top: 0;
-    left: -99999px;
-  }
-
-  .rw-i-caret-down:after { content: '\e801'; }
-  .rw-i-caret-up:after { content: '\e800'; }
-  .rw-i-caret-left:after { content: '\e807';  }
-  .rw-i-caret-right:after { content: '\e806'; }
 
   .rw-calendar-grid {
     width: 100%;
