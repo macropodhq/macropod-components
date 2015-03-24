@@ -14,6 +14,10 @@ html body .rw-multiselect .rw-multiselect-wrapper {
   border: 0;
 }
 
+html body .rw-multiselect.rw-open .rw-multiselect-wrapper {
+  box-shadow: none;
+}
+
 html body .rw-multiselect.rw-widget.rw-state-focus, 
 html body .rw-multiselect.rw-widget.rw-state-focus:hover {
   border-color: rgba(#363f4b, .5);
@@ -21,8 +25,7 @@ html body .rw-multiselect.rw-widget.rw-state-focus:hover {
 }
 
 html body .rw-multiselect.rw-widget .rw-input {
-  font-size: 14px;
-  padding: 9px 10px;
+  padding: 8px 10px;
   @include text-input-placeholder(.3);
   &:focus {
     @include text-input-placeholder(.15);
@@ -30,10 +33,11 @@ html body .rw-multiselect.rw-widget .rw-input {
 }
 
 html body .rw-multiselect .rw-popup-container {
-  border-color: rgba(#363f4b, .35);
+  border-color: rgba(#363f4b, .5);
   width: calc(100% + 2px) !important;
   left: -1px !important;
-  top: -1px !important;
+  top: -2px !important;
   position: relative;
   z-index: 3;
+  box-shadow: 0 1px 1px rgba(#363f4b, .1);
 }
