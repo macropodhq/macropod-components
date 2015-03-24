@@ -1,18 +1,36 @@
-body .rw-select-list .rw-select-wrapper {
-  display: block;
-  width: 100%;
-  height: 34px;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857;
-  color: #555555;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+@import 'input-generics';
 
-  input {
-    font-size: 14px;
-  }
+
+html body .rw-multiselect.rw-widget {
+  @include text-input-style;
+  padding: 0;
+}
+
+html body .rw-select-list .rw-select-wrapper {
+  border: 0;
+}
+
+html body .rw-multiselect .rw-multiselect-wrapper {
+  border: 0;
+}
+
+html body .rw-multiselect.rw-widget.rw-state-focus, 
+html body .rw-multiselect.rw-widget.rw-state-focus:hover {
+  border-color: rgba(#363f4b, .5);
+  box-shadow: none;
+}
+
+html body .rw-multiselect.rw-widget .rw-input {
+  font-size: 14px;
+  padding: 9px 10px;
+  @include text-input-placeholder(.3);
+}
+
+html body .rw-multiselect .rw-popup-container {
+  border-color: rgba(#363f4b, .35);
+  width: calc(100% + 2px) !important;
+  left: -1px !important;
+  top: -1px !important;
+  position: relative;
+  z-index: 3;
 }
