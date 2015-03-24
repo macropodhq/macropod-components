@@ -1,4 +1,7 @@
+@import 'input-generics';
+
 .Input.Input--Textarea {
+  @include text-input-style;
   height: auto;
   outline: 0;
   font-weight: 400;
