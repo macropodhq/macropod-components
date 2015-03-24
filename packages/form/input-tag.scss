@@ -24,6 +24,9 @@ html body .rw-multiselect.rw-widget .rw-input {
   font-size: 14px;
   padding: 9px 10px;
   @include text-input-placeholder(.3);
+  &:focus {
+    @include text-input-placeholder(.15);
+  }
 }
 
 html body .rw-multiselect .rw-popup-container {
