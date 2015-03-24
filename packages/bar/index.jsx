@@ -31,7 +31,7 @@ module.exports = React.createClass({
         background: this.props.color
       }}>
 
-        <div style={{
+        <div className="Bar-left" style={{
           float: 'left',
           minHeight: 1,
           width: '40%'}}>
@@ -40,7 +40,7 @@ module.exports = React.createClass({
 
         </div>
 
-        <div style={{
+        <div className="Bar-center" style={{
           float: 'left',
           minHeight: 1,
           textAlign: 'center',
@@ -50,7 +50,7 @@ module.exports = React.createClass({
 
         </div>
 
-        <div style={{
+        <div className="Bar-right" style={{
           float: 'right',
           minHeight: 1,
           textAlign: 'right',

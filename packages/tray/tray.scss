@@ -1,0 +1,29 @@
+.Bar-left {
+  width: 70% !important;
+}
+
+.Bar-right {
+  width: 30% !important;
+}
+
+.Tray-Item .Link {
+  font-size: 13px;
+  display: block;
+  color: #3e465c;
+}
+
+.Tray-Group:first-child, .Bar + .Tray-Group {
+  padding-top: 0 !important;
+}
+
+.Tray-Group:last-child {
+  border: 0 !important;
+}
+
+.Tray-Item:first-child {
+  padding-top: 0 !important;
+}
+
+.Tray-Item:last-child {
+  padding-bottom: 0 !important;
+}

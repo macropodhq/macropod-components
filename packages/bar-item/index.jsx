@@ -15,7 +15,7 @@ module.exports = React.createClass({
     };
 
     return (
-      <span className="BarItem" style={style}>
+      <span className="BarItem" style={Object.assign(style, this.props.style || {})}>
         {
           React.Children.map(this.props.children, (element) => {
             if (typeof element === 'string') {
