@@ -200,13 +200,11 @@ module.exports = React.createClass({
         </Link>
       );
     } else {
+      const Control = this.props.autoSize ? AutoSizeTextArea : (this.props.singleLine ? 'input' : 'textarea');
       const value = this.state.editing ? this.state.pendingValue : this.props.value;
-      const Control = this.props.singleLine ?
-        'input' :
-        (this.props.autoSize ? AutoSizeTextArea : 'textarea');
 
-      return (
-        [<label key="label" style={{'display': 'none'}}>{this.props.name}</label>,
+      return [
+        <label key="label" style={{'display': 'none'}}>{this.props.name}</label>,
         <Control
           ref="input"
           key="input"
@@ -221,8 +219,8 @@ module.exports = React.createClass({
           name={this.props.name}
           readOnly={!this.state.editing}
           placeholder={this.props.placeholder}
-        />]
-      );
+        />,
+      ];
     }
   },
 
