@@ -75,6 +75,8 @@ module.exports = React.createClass({
         <CancelableEdit
           className={className.toString()}
           singleLine
+          autoSize
+          rows={1}
           small
           inline
           saveButtonText="Save Todo"
