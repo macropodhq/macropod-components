@@ -7,7 +7,13 @@ require('./bar.scss');
 const Item = React.createClass({
   displayName: 'BarItem',
 
-  render() {
+  getDefaultProps() {
+    return {
+      style: {}
+    }
+  },
+
+  getStyle() {
     const style = {
       padding: typeof this.props.children === 'string' ? 15 : 0,
       display: 'inline-block',
@@ -16,8 +22,12 @@ const Item = React.createClass({
       borderRight: this.props.left ? '1px solid rgba(255, 255, 255, 0.2)' : 0
     };
 
+    return Object.assign(style, this.props.style)
+  },
+
+  render() {
     return (
-      <span className="BarItem" style={Object.assign(style, this.props.style || {})}>
+      <span className="BarItem" style={this.getStyle()}>
         {
           React.Children.map(this.props.children, (element) => {
             if (typeof element === 'string') {
@@ -52,8 +62,8 @@ module.exports = React.createClass({
 
   getDefaultProps() {
     return {
-      color: 'rgb(51, 161, 228)'
-    };
+      style: {}
+    }
   },
 
   buildChildren(align) {
@@ -68,11 +78,17 @@ module.exports = React.createClass({
     return children;
   },
 
+  getStyle() {
+    const style = {
+      background: 'rgb(51, 161, 228)'
+    };
+
+    return Object.assign(style, this.props.style)
+  },
+
   render() {
     return (
-      <header className="Bar" style={{
-        background: this.props.color,
-      }}>
+      <header className="Bar" style={this.getStyle()}>
 
         <div className="Bar-left" style={{
           float: 'left',
