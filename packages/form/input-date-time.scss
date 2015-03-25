@@ -1,6 +1,55 @@
-.Input--CalendarDropdown {
+@import 'input-generics';
+
+html body .rw-datetimepicker.rw-widget {
+  @include text-input-style;
+  padding: 0;
+}
+
+html body .rw-select-list .rw-select-wrapper {
+  border: 0;
+}
+
+html body .rw-multiselect .rw-multiselect-wrapper {
+  border: 0;
+}
+
+html body .rw-multiselect.rw-open .rw-multiselect-wrapper {
+  box-shadow: none;
+}
+
+html body .rw-datetimepicker.rw-widget.rw-state-focus, 
+html body .rw-datetimepicker.rw-widget.rw-state-focus:hover {
+  border-color: rgba(#363f4b, .5);
+  box-shadow: none;
+}
+
+html body .rw-datetimepicker.rw-widget .rw-input {
   display: inline-block;
-  font-family: inherit;
-  width: 240px;
-  max-width: 100%;
+  padding: 8px 10px;
+  text-indent: 0;
+  height: auto;
+  line-height: 1;
+  box-shadow: none;
+  @include text-input-placeholder(.3);
+  &:focus {
+    @include text-input-placeholder(.15);
+  }
+}
+
+html body .rw-datetimepicker .rw-popup-container {
+  width: calc(100% + 2px) !important;
+  box-shadow: none;
+  border-top: 0;
+}
+
+html body .rw-datetimepicker .rw-popup {
+  border: 1px solid rgba(#363f4b, .5);
+  border-top: 0;
+  box-shadow: 0 1px 1px rgba(#363f4b, .1);
+}
+
+html body .rw-calendar .rw-calendar-grid {
+  td {
+    text-align: center;
+  }
 }

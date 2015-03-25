@@ -25,6 +25,7 @@ html body .rw-multiselect.rw-widget.rw-state-focus:hover {
 }
 
 html body .rw-multiselect.rw-widget .rw-input {
+  display: inline-block;
   padding: 8px 10px;
   @include text-input-placeholder(.3);
   &:focus {
