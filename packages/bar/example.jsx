@@ -3,7 +3,6 @@
 const React = require('react');
 
 const Bar = require('./');
-const BarItem = require('../bar-item');
 const Icon = require('../icon');
 
 module.exports = React.createClass({
@@ -20,22 +19,22 @@ module.exports = React.createClass({
 
     return (
       <Bar>
-        <BarItem left>
+        <Bar.Item left>
           <a href="#" style={linkStyle}>
             <Icon type="home" />
           </a>
-        </BarItem>
-        <BarItem center>Account</BarItem>
-        <BarItem right>
+        </Bar.Item>
+        <Bar.Item center>Account</Bar.Item>
+        <Bar.Item right>
           <a href="#" style={linkStyle}>
             <Icon type="settings" />
           </a>
-        </BarItem>
-        <BarItem right>
+        </Bar.Item>
+        <Bar.Item right>
           <a href="#" style={linkStyle}>
             <Icon type="user" />
           </a>
-        </BarItem>
+        </Bar.Item>
       </Bar>
     );
   }
