@@ -8,6 +8,14 @@ require('./input-text.scss');
 module.exports = React.createClass({
   displayName: 'InputText',
 
+  focusInput() {
+    this.refs.input.getDOMNode().focus();
+  },
+
+  selectInputValue() {
+    this.refs.input.getDOMNode().select();
+  },
+
   render() {
     const camelCaseLabel = InputWrapper.camelCase(this.props.label);
 
@@ -16,7 +24,7 @@ module.exports = React.createClass({
         inputType="text"
         label={this.props.label}
         showLabel={this.props.showLabel}>
-          <input {...this.props} type="text" id={`Input--text--${camelCaseLabel}`} className={`Input Input--text Input--text--${camelCaseLabel}`} />
+          <input {...this.props} ref="input" type="text" id={`Input--text--${camelCaseLabel}`} className={`Input Input--text Input--text--${camelCaseLabel}`} />
       </InputWrapper>
     );
   },
