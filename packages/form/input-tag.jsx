@@ -2,12 +2,18 @@
 
 const React = require('react');
 const InputWrapper = require('./input-wrapper');
-const TagInput = require('../tag-input');
+const Widgets = require('react-widgets');
 
 require('./input-tag.scss');
 
 module.exports = React.createClass({
   displayName: 'InputTag',
+
+  getDefaultProps() {
+    return {
+      label: '',
+    };    
+  },
 
   render() {
     return (
@@ -15,7 +21,7 @@ module.exports = React.createClass({
         inputType="Tag"
         label={this.props.label}
         showLabel={this.props.showLabel}>
-            <TagInput {...this.props} />
+          <Widgets.Multiselect {...this.props} />
       </InputWrapper>
     );
   },
