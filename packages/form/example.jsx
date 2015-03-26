@@ -53,7 +53,8 @@ module.exports = React.createClass({
       dateTime: new Date().toISOString(),
       tags: [],
       text: '',
-      textarea: ''
+      textarea: '',
+      textareaAutosize: ''
     };
   },
 
@@ -84,6 +85,12 @@ module.exports = React.createClass({
   handleTextareaChange(e) {
     this.setState({
       textarea: e.target.value,
+    });
+  },
+
+  handleTextareaAutosizeChange(e) {
+    this.setState({
+      textareaAutosize: e.target.value,
     });
   },
 
@@ -125,12 +132,19 @@ module.exports = React.createClass({
           placeholder="Input some multiline text..."
           onChange={this.handleTextareaChange} />
 
+        <InputTextarea
+          label="InputTextareaWithAutoSizeProp"
+          placeholder="Input some multiline text..."
+          autoSize
+          onChange={this.handleTextareaAutosizeChange} />
+
         <p>
           Checkbox Checked: {this.state.checkboxChecked ? 'Yes' : 'No'}<br/>
           Selected Date: {this.state.dateTime}<br/>
           {this.state.tags.length} Tag{this.state.tags.length !== 1 && 's'} Selected<br/>
           Text Field Value: {JSON.stringify(this.state.text)}<br/>
-          Textarea Value: {JSON.stringify(this.state.textarea)}
+          Textarea Value: {JSON.stringify(this.state.textarea)}<br/>
+          TextareAutosizea Value: {JSON.stringify(this.state.textareaAutosize)}
         </p>
 
       </Form>
