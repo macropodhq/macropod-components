@@ -11,7 +11,8 @@ module.exports = React.createClass({
 
   getDefaultProps() {
     return {
-    defaultValue: new Date().toISOString(),
+      defaultValue: new Date().toISOString(),
+      label: '',
     };
   },
 

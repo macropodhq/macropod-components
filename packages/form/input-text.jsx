@@ -8,6 +8,12 @@ require('./input-text.scss');
 module.exports = React.createClass({
   displayName: 'InputText',
 
+  getDefaultProps() {
+    return {
+      label: '',
+    };    
+  },
+
   focusInput() {
     this.refs.input.getDOMNode().focus();
   },

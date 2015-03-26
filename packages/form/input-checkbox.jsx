@@ -6,6 +6,12 @@ const InputWrapper = require('./input-wrapper');
 module.exports = React.createClass({
   displayName: 'InputCheckbox',
 
+  getDefaultProps() {
+    return {
+      label: '',
+    };    
+  },
+
   focusInput() {
     this.refs.input.getDOMNode().focus();
   },

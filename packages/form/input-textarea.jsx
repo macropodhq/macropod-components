@@ -9,6 +9,12 @@ require('./input-textarea.scss');
 module.exports = React.createClass({
   displayName: 'InputTextarea',
 
+  getDefaultProps() {
+    return {
+      label: '',
+    };    
+  },
+
   focusInput() {
     this.refs.input.getDOMNode().focus();
   },
