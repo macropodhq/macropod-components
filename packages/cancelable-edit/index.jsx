@@ -84,7 +84,7 @@ module.exports = React.createClass({
 
   handleChange(e) {
     this.setState({
-      pendingValue: e.target.value,
+      pendingValue: this.props.singleLine ? e.target.value.replace(/\r?\n/g, ' ') : e.target.value,
     });
   },
 
@@ -209,7 +209,7 @@ module.exports = React.createClass({
           ref="input"
           key="input"
           maxLength={this.props.maxLength}
-          rows={((this.props.em || this.singleLine) ? 1 : this.props.rows)}
+          rows={((this.props.em || this.props.singleLine) ? 1 : this.props.rows)}
           onKeyDown={this.keyHandler(this.getHotKeys())}
           className={editClassName}
           value={value}

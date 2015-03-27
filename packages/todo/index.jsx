@@ -55,6 +55,7 @@ module.exports = React.createClass({
             ref="input"
             small
             singleLine
+            autoSize
             creating
             saveButtonText="Create Todo"
             saveButtonTitle="Create Todo"

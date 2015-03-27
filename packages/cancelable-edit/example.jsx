@@ -21,37 +21,69 @@ module.exports = React.createClass({
   render() {
     return (
       <div>
-        <pre> {/*lol es6 literals are too literal */}
-{`<CancelableEdit
-    value={this.state.name}
-    onSave={this.handleNameSave}
-    autoSize
-    placeholder="Name"
-  />`}
-        </pre>
+        <h3>Automatic Sizing</h3>
         <CancelableEdit
           value={this.state.name}
           onSave={this.handleNameSave}
           autoSize
           placeholder="Name"
         />
+        <pre>
+{`<CancelableEdit
+  value={this.state.name}
+  onSave={this.handleNameSave}
+  autoSize
+  placeholder="Name"
+/>`}
+        </pre>
 
-        <br/>
+        <h3>Create mode</h3>
+        <CancelableEdit
+          creating
+          saveButtonText="Create"
+          placeholder="Yo..."
+        />
+        <pre>
+{`<CancelableEdit
+  creating
+  saveButtonText="Create"
+  placeholder="Yo..."
+/>`}
+        </pre>
 
-      <pre>
-{`
-  <CancelableEdit
-    creating
-    saveButtonText="Create"
-    placeholder="Yo..."
-  />
-`}
-      </pre>
-      <CancelableEdit
-        creating
-        saveButtonText="Create"
-        placeholder="Yo..."
-      />
+        <h3>Single-Line Mode</h3>
+        <CancelableEdit
+          value={this.state.name}
+          onSave={this.handleNameSave}
+          singleLine
+          placeholder="Name"
+        />
+        <pre>
+{`<CancelableEdit
+  value={this.state.name}
+  onSave={this.handleNameSave}
+  singleLine
+  placeholder="Name"
+/>`}
+        </pre>
+
+        <h3>Single-Line Mode with Automatic Sizing</h3>
+        <CancelableEdit
+          value={this.state.name}
+          onSave={this.handleNameSave}
+          autoSize
+          singleLine
+          placeholder="Name"
+        />
+        <pre>
+{`<CancelableEdit
+  value={this.state.name}
+  onSave={this.handleNameSave}
+  autoSize
+  singleLine
+  placeholder="Name"
+/>`}
+        </pre>
       </div>
     );
   }
