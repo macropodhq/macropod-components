@@ -1,0 +1,16 @@
+.Bar-left {
+  width: 70% !important;
+}
+
+.Bar-right {
+  width: 30% !important;
+}
+
+.Tray-Group:first-child {
+  padding-top: 0 !important;
+}
+
+.Tray-Group:last-child {
+  border: 0 !important;
+  padding-bottom: 0 !important;
+}
