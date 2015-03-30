@@ -40,19 +40,12 @@ module.exports = React.createClass({
   getInitialState() {
     return {
       show: true,
-      stickyHeight: 0,
     };
   },
 
   handleToggle() {
     this.setState({
       show: !this.state.show,
-    });
-  },
-
-  handleStickyHeight(height) {
-    this.setState({
-      stickyHeight: height,
     });
   },
 
@@ -108,13 +101,11 @@ module.exports = React.createClass({
                   </Tray.Item>
                 </Tray.Group>
               </Tray>
-              <Tray align={Tray.align.RIGHT} stickyHeight={this.state.stickyHeight}>
-                <Tray.Sticky onCalculateHeight={this.handleStickyHeight}>
-                  <Bar>
-                    <Bar.Item style={{border: 0}}>Comment Feed</Bar.Item>
-                    <Bar.Item align={Bar.Item.align.RIGHT}><Icon type="refresh" /></Bar.Item>
-                  </Bar>
-                </Tray.Sticky>
+              <Tray align={Tray.align.RIGHT}>
+                <Bar sticky>
+                  <Bar.Item style={{border: 0}}>Comment Feed</Bar.Item>
+                  <Bar.Item align={Bar.Item.align.RIGHT}><Icon type="refresh" /></Bar.Item>
+                </Bar>
 
                 <Tray.Group>
                   <Tray.Item>

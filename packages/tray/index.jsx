@@ -144,29 +144,50 @@ module.exports = React.createClass({
     return {
       align: align.LEFT,
       fixed: false,
-      stickyHeight: 0,
       style: {},
     };
   },
 
+  getInitialState() {
+    return {
+      stickyHeight: 0,
+    };
+  },
+
   buildSticky() {
-    return _.filter(this.props.children, (element) => {
-      if (element.type.displayName === Sticky.displayName) {
+    const sticky = _.filter(this.props.children, (element) => {
+      if (element.props.sticky) {
         return element;
       }
 
       return false;
     });
+
+    if (sticky.length) {
+      return (
+        <Sticky className="Tray-Sticky" onCalculateHeight={this.handleStickyHeight}>
+          {sticky}
+        </Sticky>
+      );
+    }
   },
 
   buildContent() {
-    return _.filter(this.props.children, (element) => {
-      if (element.type.displayName !== Sticky.displayName) {
+    const content =  _.filter(this.props.children, (element) => {
+      if (!element.props.sticky) {
         return element;
       }
 
       return false;
     });
+
+    if (content.length) {
+      return (
+        <div className="Tray-Content" style={this.getContentStyle()}>
+          {content}
+        </div>
+      );
+    }
   },
 
   getTrayStyle() {
@@ -179,7 +200,13 @@ module.exports = React.createClass({
 
   getContentStyle() {
     return Object.assign({}, style.content, {
-      height: 'calc(100% - ' + this.props.stickyHeight + 'px)',
+      height: 'calc(100% - ' + this.state.stickyHeight + 'px)',
+    });
+  },
+
+  handleStickyHeight(height) {
+    this.setState({
+      stickyHeight: height,
     });
   },
 
@@ -187,9 +214,7 @@ module.exports = React.createClass({
     return (
       <section className="Tray" style={this.getTrayStyle()}>
         {this.buildSticky()}
-        <div className="Tray-Content" style={this.getContentStyle()}>
-          {this.buildContent()}
-        </div>
+        {this.buildContent()}
       </section>
     );
   }
