@@ -2,6 +2,9 @@
 
 const React = require('react');
 const _ = require('lodash-node');
+const Item = require('./item');
+const Group = require('./group');
+const Sticky = require('./sticky');
 
 require('./tray.scss');
 
@@ -19,12 +22,6 @@ const style = {
     margin: '0 0 4px 0',
   },
 
-  group: {
-    margin: 0,
-    padding: '15px 0',
-    borderBottom: '1px solid rgba(238, 238, 238, 1)',
-  },
-
   tray: {
     boxShadow: '0 1px 5px rgba(0, 0, 0, 0.4)',
     background: 'rgb(251, 251, 254)',
@@ -38,91 +35,7 @@ const style = {
     padding: 10,
     overflow: 'auto',
   },
-
-  item: {
-    margin: 0,
-    padding: '3px 0',
-  }
 };
-
-const Group = React.createClass({
-  displayName: 'TrayGroup',
-
-  propTypes: {
-    title: React.PropTypes.string,
-  },
-
-  getDefaultProps() {
-    return {
-      style: {},
-    };
-  },
-
-  getStyle() {
-    return Object.assign({}, style.group, this.props.style);
-  },
-
-  render() {
-    var title = null;
-
-    if (this.props.title) {
-      title = (
-        <dt style={style.title}>
-          {this.props.title}
-        </dt>
-      );
-    }
-
-    return (
-      <dl className="Tray-Group" style={this.getStyle()}>
-        {title}
-        {this.props.children}
-      </dl>
-    )
-  }
-});
-
-const Item = React.createClass({
-  displayName: 'TrayItem',
-
-  getDefaultProps() {
-    return {
-      style: {},
-    };
-  },
-
-  getStyle() {
-    return Object.assign({}, style.item, this.props.style);
-  },
-
-  render() {
-    return (
-      <dd className="Tray-Item" style={style.item}>
-        {this.props.children}
-      </dd>
-    )
-  }
-});
-
-const Sticky = React.createClass({
-  displayName: 'TraySticky',
-
-  propTypes: {
-    onCalculateHeight: React.PropTypes.func.isRequired,
-  },
-
-  componentDidMount() {
-    this.props.onCalculateHeight(this.getDOMNode().getBoundingClientRect().height);
-  },
-
-  render() {
-    return (
-      <div className="Tray-Sticky">
-        {this.props.children}
-      </div>
-    )
-  }
-});
 
 module.exports = React.createClass({
   displayName: 'Tray',
