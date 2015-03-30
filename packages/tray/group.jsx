@@ -28,7 +28,7 @@ module.exports = React.createClass({
   },
 
   render() {
-    var title = null;
+    let title = null;
 
     if (this.props.title) {
       title = (

@@ -4,7 +4,6 @@ const React = require('react');
 const _ = require('lodash-node');
 const Item = require('./item');
 const Group = require('./group');
-const Sticky = require('./sticky');
 
 require('./tray.scss');
 
@@ -44,12 +43,10 @@ module.exports = React.createClass({
     align: align,
     Group: Group,
     Item: Item,
-    Sticky: Sticky,
   },
 
   propTypes: {
     align: React.PropTypes.oneOf(Object.keys(align)),
-    stickyHeight: React.PropTypes.number,
     fixed: React.PropTypes.bool,
   },
 
@@ -67,32 +64,26 @@ module.exports = React.createClass({
     };
   },
 
-  buildSticky() {
-    const sticky = _.filter(this.props.children, (element) => {
-      if (element.props.sticky) {
-        return element;
-      }
-
-      return false;
+  componentDidMount() {
+    this.setState({
+      stickyHeight: this.refs.sticky ? this.refs.sticky.getDOMNode().getBoundingClientRect().height : 0,
     });
+  },
+
+  buildSticky() {
+    const sticky = _.filter(this.props.children, (element) => element.props.sticky);
 
     if (sticky.length) {
       return (
-        <Sticky className="Tray-Sticky" onCalculateHeight={this.handleStickyHeight}>
+        <div ref="sticky">
           {sticky}
-        </Sticky>
+        </div>
       );
     }
   },
 
   buildContent() {
-    const content =  _.filter(this.props.children, (element) => {
-      if (!element.props.sticky) {
-        return element;
-      }
-
-      return false;
-    });
+    const content =  _.filter(this.props.children, (element) => !element.props.sticky);
 
     if (content.length) {
       return (
@@ -114,12 +105,6 @@ module.exports = React.createClass({
   getContentStyle() {
     return Object.assign({}, style.content, {
       height: 'calc(100% - ' + this.state.stickyHeight + 'px)',
-    });
-  },
-
-  handleStickyHeight(height) {
-    this.setState({
-      stickyHeight: height,
     });
   },
 
