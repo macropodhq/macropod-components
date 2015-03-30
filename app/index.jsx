@@ -1,5 +1,9 @@
 'use strict';
 
+if (process.env.NODE_ENV !== 'production') {
+  require('react-a11y')();
+}
+
 const _ = require('lodash-node');
 const React = require('react');
 const Router = require('react-router');
