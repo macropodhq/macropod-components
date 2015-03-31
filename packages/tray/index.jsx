@@ -5,22 +5,12 @@ const _ = require('lodash-node');
 const Item = require('./item');
 const Group = require('./group');
 
-require('./tray.scss');
-
 const align = {
   LEFT: 'LEFT',
   RIGHT: 'RIGHT',
 };
 
 const style = {
-  title: {
-    textTransform: 'uppercase',
-    color: 'rgb(199, 201, 209)',
-    fontSize: 10,
-    letterSpacing: 0.5,
-    margin: '0 0 4px 0',
-  },
-
   tray: {
     boxShadow: '0 1px 5px rgba(0, 0, 0, 0.4)',
     background: 'rgb(251, 251, 254)',
@@ -33,6 +23,15 @@ const style = {
   content: {
     padding: 10,
     overflow: 'auto',
+  },
+
+  trayGroupFirst: {
+    paddingTop: 0,
+  },
+
+  trayGroupLast: {
+    paddingBottom: 0,
+    border: 0,
   },
 };
 
@@ -83,15 +82,41 @@ module.exports = React.createClass({
   },
 
   buildContent() {
-    const content =  _.filter(this.props.children, (element) => !element.props.sticky);
+    let content =  _.filter(this.props.children, (element) => !element.props.sticky);
 
     if (content.length) {
+      const firstIndex = 0;
+      const lastIndex = content.length - 1;
+      let i = 0;
+
+      content = _.transform(content, (result, value, key) => {
+        let nodeStyle = {};
+
+        if (i === firstIndex) {
+          Object.assign(nodeStyle, style.trayGroupFirst);
+        }
+
+        if (i === lastIndex) {
+          Object.assign(nodeStyle, style.trayGroupLast);
+        }
+
+        result[key] = this.replaceNodeStyle(value, nodeStyle);
+
+        i++;
+      });
+
       return (
         <div className="Tray-Content" style={this.getContentStyle()}>
           {content}
         </div>
       );
     }
+  },
+
+  replaceNodeStyle(node, style = {}) {
+    const nodeStyle = node.props && node.props.style || {};
+    const style = Object.assign({}, nodeStyle, style);
+    return React.addons.cloneWithProps(node, {style: style});
   },
 
   getTrayStyle() {

@@ -6,7 +6,6 @@ A component that is pinned to either the left or the right of its parent with 10
 
 ```
 <Tray>
-  <Tray.Sticky />
   <Tray.Group>
     <Tray.Item />
   </Tray.Group>
