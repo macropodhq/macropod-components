@@ -28,7 +28,7 @@
   "scripts": {
     "start": "macropod-start",
     "build": "macropod-prod",
-    "test": "macropod-lint"
+    "lint": "macropod-lint"
   },
   "repository": {
     "type": "git",
