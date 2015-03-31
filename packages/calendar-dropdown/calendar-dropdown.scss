@@ -215,6 +215,10 @@ $list-border-hover: $state-border-hover;
     background: $popup-bg;
     width: 100%;
     overflow: auto;
+
+    &.rw-calendar {
+      padding: 5px 2px;
+    }
   }
 
   .rw-popup-container {
