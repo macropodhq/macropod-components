@@ -1,22 +1,3 @@
-@mixin text-input-placeholder($opacity) {
-  &::-webkit-input-placeholder {
-    color: inherit;
-    opacity: $opacity;
-  }
-  &:-moz-placeholder {
-    color: inherit;
-    opacity: $opacity;
-  }
-  &::-moz-placeholder {
-    color: inherit;
-    opacity: $opacity;
-  }
-  &:-ms-input-placeholder {
-    color: inherit;
-    opacity: $opacity;
-  }
-}
-
 @mixin text-input-style {
   display: block;
   width: 100%;
@@ -29,10 +10,18 @@
   border: 1px solid rgba(#363f4b, .2);
   border-radius: 3px;
   outline: none;
-  @include text-input-placeholder(.3);
+
+  &::placeholder {
+    color: inherit;
+    opacity: .3;
+  }
 
   &:focus {
     border-color: rgba(#363f4b, .5);
-    @include text-input-placeholder(.15);
+
+    &::placeholder {
+      color: inherit;
+      opacity: .15;
+    }
   }
 }

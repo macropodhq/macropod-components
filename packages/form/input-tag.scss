@@ -1,4 +1,4 @@
-@import 'input-generics';
+@import "input-generics";
 @import "colors";
 @import "placeholders";
 
@@ -41,6 +41,18 @@ $input-border-radius: $border-radius;
       border-top-left-radius: $input-border-radius;
       border-bottom-left-radius: $input-border-radius;
       max-width: 100%;
+      display: inline-block;
+      padding: 6px 8px;
+
+      &::placeholder {
+        color: inherit;
+        opacity: .3;
+      }
+
+      &:focus::placeholder {
+        color: inherit;
+        opacity: .15;
+      }
     }
 
     > .rw-select {
@@ -49,8 +61,7 @@ $input-border-radius: $border-radius;
 
     &.rw-state-focus,
     &.rw-state-focus:hover {
-      box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px opacify($input-border-focus, .6);
-      border-color: $input-border-focus;
+      border-color: rgba(#363f4b, .5);
       outline: 0;
     }
 
@@ -98,9 +109,10 @@ $input-border-radius: $border-radius;
   }
 
   .rw-multiselect-wrapper {
-    border: 1px solid $color-border;
+    border: 0;
     border-radius: 3px;
     width: 100%;
+    padding: 2px;
     @extend %clearfix;
   }
 
@@ -140,14 +152,9 @@ $input-border-radius: $border-radius;
   }
 
   .rw-popup-container {
-    width: 100% !important;
-    left: 0 !important;
-    border: 1px solid $color-border;
-    border-radius: 0 0 3px 3px;
-    border-top: none;
-    background: $color-white;
-    box-shadow: 0 2px 5px $color-glow;
-    overflow: auto !important;
+    width: 100%;
+    overflow: auto;
+    z-index: 3;
 
     .rw-widget {
       width: 100%;
@@ -176,7 +183,6 @@ $input-border-radius: $border-radius;
 
   &.rw-open {
     .rw-multiselect-wrapper {
-      box-shadow: 0 0px 5px $color-glow;
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
     }
@@ -184,40 +190,6 @@ $input-border-radius: $border-radius;
 
 }
 
-html body .rw-select-list .rw-select-wrapper {
+.rw-select-list .rw-select-wrapper {
   border: 0;
-}
-
-html body .rw-multiselect .rw-multiselect-wrapper {
-  border: 0;
-  padding: 2px;
-}
-
-html body .rw-multiselect.rw-open .rw-multiselect-wrapper {
-  box-shadow: none;
-}
-
-html body .rw-multiselect.rw-widget.rw-state-focus, 
-html body .rw-multiselect.rw-widget.rw-state-focus:hover {
-  border-color: rgba(#363f4b, .5);
-  box-shadow: none;
-}
-
-html body .rw-multiselect.rw-widget .rw-input {
-  display: inline-block;
-  padding: 6px 8px;
-  @include text-input-placeholder(.3);
-  &:focus {
-    @include text-input-placeholder(.15);
-  }
-}
-
-html body .rw-multiselect .rw-popup-container {
-  border-color: rgba(#363f4b, .5);
-  width: calc(100% + 2px) !important;
-  left: -1px !important;
-  top: -2px !important;
-  position: relative;
-  z-index: 3;
-  box-shadow: 0 1px 1px rgba(#363f4b, .1);
 }

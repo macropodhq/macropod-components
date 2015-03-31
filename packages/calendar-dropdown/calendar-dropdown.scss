@@ -1,3 +1,4 @@
+@import "../form/input-generics";
 @import "colors";
 @import "rw-shared";
 @import "../calendar/calendar";
@@ -36,6 +37,8 @@ $list-border-hover: $state-border-hover;
 
 .rw-datetimepicker {
   padding-right: 1.9em;
+  @include text-input-style;
+  padding: 0;
 
   &.rw-widget {
     position: relative;
@@ -50,6 +53,22 @@ $list-border-hover: $state-border-hover;
     .rw-input {
       border-top-left-radius: $input-border-radius;
       border-bottom-left-radius: $input-border-radius;
+      display: inline-block;
+      padding: 8px 10px;
+      text-indent: 0;
+      height: auto;
+      line-height: 1;
+      box-shadow: none;
+
+      &::placeholder {
+        color: inherit;
+        opacity: .3;
+      }
+
+      &:focus::placeholder {
+        color: inherit;
+        opacity: .15;
+      }
     }
 
     > .rw-select {
@@ -58,8 +77,7 @@ $list-border-hover: $state-border-hover;
 
     &.rw-state-focus,
     &.rw-state-focus:hover {
-      box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px opacify($input-border-focus, .6);
-      border-color: $input-border-focus;
+      border-color: rgba(#363f4b, .5);
       outline: 0;
     }
 
@@ -188,15 +206,13 @@ $list-border-hover: $state-border-hover;
   }
 
   .rw-popup {
-    -webkit-box-shadow: 0 5px 6px rgba(0,0,0,0.2);
-    box-shadow: 0 5px 6px rgba(0,0,0,0.2);
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border-bottom-left-radius: $border-radius-sm;
     border-bottom-right-radius: $border-radius-sm;
-    border: $popup-border 1px solid;
+    border: 1px solid rgba(#363f4b, .5);
+    border-top: 0;
     background: $popup-bg;
-    padding: 2px;
     width: 100%;
     overflow: auto;
   }
@@ -208,6 +224,8 @@ $list-border-hover: $state-border-hover;
     left: -$input-border-width;
     right: -$input-border-width;
     z-index: $popup-zindex;
+    width: calc(100% + 2px) !important;
+    border-top: 0;
 
     &.rw-calendar-popup {
       right: auto;
@@ -219,10 +237,10 @@ $list-border-hover: $state-border-hover;
     margin: 0;
     padding-left: 0;
     list-style: none;
-    padding: 5px 0;
+    padding: 5px 2px;
     overflow: auto;
     outline: 0;
-    height: 100%;
+    max-height: 25vh;
 
     > li {
       cursor: pointer;
