@@ -1,10 +1,8 @@
 'use strict';
 
 const React = require('react');
-const _ = require('lodash-node');
 
 const Alert = require('../alert');
-const Button = require('../button');
 const CancelableEdit = require('../cancelable-edit');
 const Inlay = require('../inlay');
 const DeleteButton = require('../delete-button');

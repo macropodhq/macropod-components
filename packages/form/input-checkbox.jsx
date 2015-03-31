@@ -9,7 +9,7 @@ module.exports = React.createClass({
   getDefaultProps() {
     return {
       label: '',
-    };    
+    };
   },
 
   focusInput() {

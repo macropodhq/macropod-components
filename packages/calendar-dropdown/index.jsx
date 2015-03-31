@@ -12,7 +12,7 @@ module.exports = React.createClass({
   getDefaultProps() {
     return {
       footer: false
-    }
+    };
   },
 
   render() {

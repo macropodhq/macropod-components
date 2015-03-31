@@ -1,6 +1,5 @@
 const React = require('react/addons');
 const AutoSizeTextArea = require('react-textarea-autosize');
-const _ = require('lodash-node');
 
 const Alert = require('../alert');
 const Button = require('../button');

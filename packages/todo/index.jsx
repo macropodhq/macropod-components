@@ -3,7 +3,6 @@
 const React = require('react');
 const _ = require('lodash-node');
 
-const Button = require('../button');
 const CancelableEdit = require('../cancelable-edit');
 
 require('./style');
