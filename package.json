@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "html-loader": "^0.2.3",
-    "macropod-tools": "git://github.com/macropodhq/macropod-tools.git#0.0.7",
+    "macropod-tools": "git://github.com/macropodhq/macropod-tools.git#0.0.10",
     "markdown-loader": "^0.1.2"
   },
   "peerDependencies": {
