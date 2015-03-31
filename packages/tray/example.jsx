@@ -102,7 +102,7 @@ module.exports = React.createClass({
                 </Tray.Group>
               </Tray>
               <Tray align={Tray.align.RIGHT}>
-                <Bar sticky>
+                <Bar sticky leftWidth={70} rightWidth={30}>
                   <Bar.Item style={{border: 0}}>Comment Feed</Bar.Item>
                   <Bar.Item align={Bar.Item.align.RIGHT}><Icon type="refresh" /></Bar.Item>
                 </Bar>
