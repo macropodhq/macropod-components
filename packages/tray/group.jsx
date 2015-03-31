@@ -16,10 +16,23 @@ const style = {
     padding: '15px 0',
     borderBottom: '1px solid rgba(238, 238, 238, 1)',
   },
+
+  first: {
+    paddingTop: 0,
+  },
+
+  last: {
+    paddingBottom: 0,
+    border: 0,
+  },
 }
 
 module.exports = React.createClass({
   displayName: 'TrayGroup',
+
+  statics: {
+    style: style,
+  },
 
   propTypes: {
     title: React.PropTypes.string,

@@ -24,15 +24,6 @@ const style = {
     padding: 10,
     overflow: 'auto',
   },
-
-  trayGroupFirst: {
-    paddingTop: 0,
-  },
-
-  trayGroupLast: {
-    paddingBottom: 0,
-    border: 0,
-  },
 };
 
 module.exports = React.createClass({
@@ -93,11 +84,11 @@ module.exports = React.createClass({
         let nodeStyle = {};
 
         if (i === firstIndex) {
-          Object.assign(nodeStyle, style.trayGroupFirst);
+          Object.assign(nodeStyle, Group.style.first);
         }
 
         if (i === lastIndex) {
-          Object.assign(nodeStyle, style.trayGroupLast);
+          Object.assign(nodeStyle, Group.style.last);
         }
 
         result[key] = this.replaceNodeStyle(value, nodeStyle);
