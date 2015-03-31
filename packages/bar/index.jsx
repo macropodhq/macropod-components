@@ -13,21 +13,18 @@ const style = {
   [align.LEFT]: {
     float: 'left',
     minHeight: 1,
-    width: '40%',
   },
 
   [align.CENTER]: {
     float: 'left',
     minHeight: 1,
     textAlign: 'center',
-    width: '20%',
   },
 
   [align.RIGHT]: {
     float: 'right',
     minHeight: 1,
     textAlign: 'right',
-    width: '40%',
   },
 
   header: {
@@ -107,9 +104,26 @@ module.exports = React.createClass({
     Item: Item,
   },
 
+  propTypes: {
+    leftWidth(props, propName) {
+      if (props[propName]) {
+        if (typeof props[propName] !== 'number') {
+          return new Error(propName + ' should be a number.');
+        }
+
+        if ((props[propName] + props['rightWidth']) > 100) {
+          return new Error(propName + ' ('+ props[propName] +') + rightWidth ('+ props['rightWidth'] +') shouldn\'t add to more than 100%.');
+        }
+      }
+    },
+    rightWidth: React.PropTypes.number,
+  },
+
   getDefaultProps() {
     return {
       style: {},
+      leftWidth: 40,
+      rightWidth: 40,
     }
   },
 
@@ -129,18 +143,30 @@ module.exports = React.createClass({
     return Object.assign(style.header, this.props.style);
   },
 
+  getLeftStyle() {
+    return Object.assign(style[align.LEFT], {width: this.props.leftWidth + '%'});
+  },
+
+  getCenterStyle() {
+    return Object.assign(style[align.CENTER], {width: 100 - (this.props.leftWidth + this.props.rightWidth) + '%'});
+  },
+
+  getRightStyle() {
+    return Object.assign(style[align.RIGHT], {width: this.props.rightWidth + '%'});
+  },
+
   render() {
     return (
       <header className="Bar" style={this.getStyle()}>
-        <div className="Bar-left" style={style[align.LEFT]}>
+        <div className="Bar-left" style={this.getLeftStyle()}>
           {this.buildChildren(align.LEFT)}
         </div>
 
-        <div className="Bar-center" style={style[align.CENTER]}>
+        <div className="Bar-center" style={this.getCenterStyle()}>
           {this.buildChildren(align.CENTER)}
         </div>
 
-        <div className="Bar-right" style={style[align.RIGHT]}>
+        <div className="Bar-right" style={this.getRightStyle()}>
           {this.buildChildren(align.RIGHT)}
         </div>
       </header>

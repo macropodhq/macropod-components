@@ -14,7 +14,19 @@ A component that acts a lot like a 'header'.
 
 ### Bar
 
-None.
+#### `leftWidth`
+
+_Optional_. Width of the `Bar-Left` element, **representing a percentage of the parent**. Options are;
+
+* Not supplied: `40`
+* Any integer
+
+#### `rightWidth`
+
+_Optional_. Width of the `Bar-Right` element, **representing a percentage of the parent**. Options are;
+
+* Not supplied: `40`
+* Any integer
 
 ### Item
 
