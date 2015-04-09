@@ -70,17 +70,23 @@ function wrapPackage(component) {
 const App = React.createClass({
   displayName: 'App',
 
+  mixins: [Router.State],
+
   render() {
-    return (
-      <div>
-        <h1>Macropod Components</h1>
-        <ul className="PlaygroundTOC">
-          <li><Link to="/">All</Link></li>
-          {packages.map(component => <li key={component.path}><Link to={`/${component.name}`}>{component.friendlyName}</Link></li>)}
-        </ul>
-        <RouteHandler />
-      </div>
-    );
+    if (this.getQuery().iframe) {
+      return <RouteHandler />;
+    } else {
+      return (
+        <div>
+          <h1>Macropod Components</h1>
+          <ul className="PlaygroundTOC">
+            <li><Link to="/">All</Link></li>
+            {packages.map(component => <li key={component.path}><Link to={`/${component.name}`}>{component.friendlyName}</Link></li>)}
+          </ul>
+          <RouteHandler />
+        </div>
+      );
+    }
   }
 });
 
@@ -105,6 +111,7 @@ Router.run(
         render() {return wrapPackage(component);}
       })}/>
     )}
+    <Route name="covert-header-content" path="/covert-header-content" handler={require('../packages/covert-header/content')} />
   </Route>,
   Handler => {
     React.render(

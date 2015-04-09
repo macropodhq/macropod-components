@@ -2,31 +2,23 @@
 
 const React = require('react');
 
-const CovertHeader = require('./');
-const Button = require('../button');
+const style = {
+  iframe: {
+    width: '100%',
+    height: 150,
+  },
+};
 
 module.exports = React.createClass({
-  displayName: 'CovertHeaderExample',
+  displayName: 'CovertHeaderIframe',
 
-  getInitialState() {
-    return {
-      show: false
-    };
-  },
-
-  toggleHeader() {
-    this.setState({show: !this.state.show});
+  statics: {
+    wide: true,
   },
 
   render() {
     return (
-      <div>
-        <Button onClick={this.toggleHeader}>{this.state.show ? 'Hide' : 'Show'}</Button>
-
-        <CovertHeader style={{'display': this.state.show ? 'block' : 'none'}}>
-          Scroll up, scroll down.
-        </CovertHeader>
-      </div>
+      <iframe src="/#/covert-header-content?iframe=true" frameBorder={0} style={style.iframe} />
     );
   }
 });
