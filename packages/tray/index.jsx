@@ -18,11 +18,13 @@ const style = {
     maxWidth: '90%',
     top: 0,
     bottom: 0,
+    zIndex: 100,
   },
 
   content: {
     padding: 10,
     overflow: 'auto',
+    color: 'rgb(96, 96, 96)'
   },
 };
 
@@ -61,7 +63,13 @@ module.exports = React.createClass({
   },
 
   buildSticky() {
-    const sticky = _.filter(this.props.children, (element) => element.props.sticky);
+    const sticky = _.filter(this.props.children, (element) => {
+      if (element && element.props) {
+        return element.props.sticky;
+      } else {
+        return false;
+      }
+    });
 
     if (sticky.length) {
       return (
@@ -73,7 +81,13 @@ module.exports = React.createClass({
   },
 
   buildContent() {
-    let content =  _.filter(this.props.children, (element) => !element.props.sticky);
+    let content =  _.filter(this.props.children, (element) => {
+      if (element && element.props) {
+        return !element.props.sticky;
+      } else {
+        return false;
+      }
+    });
 
     if (content.length) {
       const firstIndex = 0;
@@ -126,7 +140,7 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <section className="Tray" style={this.getTrayStyle()}>
+      <section className="Tray" {...this.props} style={this.getTrayStyle()}>
         {this.buildSticky()}
         {this.buildContent()}
       </section>
