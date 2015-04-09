@@ -26,14 +26,14 @@ module.exports = React.createClass({
           </Link>
         </Bar.Item>
         <Bar.Item align={Bar.Item.align.CENTER}>
-          <svg width="40px" height="40px"  viewBox="0 0 600 600" style={{
-            padding: '7px 0 0 0',
+          <svg width="40px" height="40px" viewBox="0 0 64 89" version="1.1" style={{
+            padding: '10px 0 0 0',
             opacity: 0.5,
           }}>
-            <g>
-              <polygon fill="white" points="390,75 256.9,75 100.1,347 233.3,347" />
-              <polygon fill="white" points="366.1,254 209.4,525 343.2,525 500,254" />
-            </g>
+              <g stroke="none" fill="none" fillRule="evenodd">
+                  <path fill="white" d="M19.5,89 C44.0766714,89 64,69.0766714 64,44.5 C64,19.9233286 44.0766714,0 19.5,0 C-5.07667137,0 29.750001,19.9233286 29.750001,44.5 C29.750001,69.0766714 -5.07667137,89 19.5,89 Z" />
+                  <circle fill="white" cx="11" cy="45" r="11" />
+              </g>
           </svg>
         </Bar.Item>
         <Bar.Item align={Bar.Item.align.RIGHT}>
