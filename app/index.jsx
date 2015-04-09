@@ -111,6 +111,7 @@ Router.run(
         render() {return wrapPackage(component);}
       })}/>
     )}
+    <Route name="navigation-content" path="/navigation-content" handler={require('../packages/navigation/content')} />
     <Route name="covert-header-content" path="/covert-header-content" handler={require('../packages/covert-header/content')} />
   </Route>,
   Handler => {
