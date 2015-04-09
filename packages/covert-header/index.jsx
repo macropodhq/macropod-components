@@ -21,14 +21,28 @@
 
 const React = require('react/addons');
 
-require('./covert-header.scss');
+
 const ScrollEvent = require('../scroll-event-mixin');
 const SuitClassSet = require('../suit-class-set');
+
+require('./covert-header.scss');
 
 module.exports = React.createClass({
   displayName: 'CovertHeader',
 
   mixins: [ScrollEvent()],
+
+  propTypes: {
+    offset: React.PropTypes.number,
+    forceShow: React.PropTypes.bool,
+  },
+
+  getDefaultProps() {
+    return {
+      offset: 0,
+      forceShow: false,
+    }
+  },
 
   getInitialState() {
     return {
@@ -37,11 +51,16 @@ module.exports = React.createClass({
   },
 
   onScrollDown() {
-    this.setState({hide: true});
+    const pastOffset = this.props.offset < this.position;
+    if (pastOffset && !this.state.hide && !this.props.forceShow) {
+      this.setState({hide: true});
+    }
   },
 
   onScrollUp() {
-    this.setState({hide: false});
+    if (this.state.hide) {
+      this.setState({hide: false});
+    }
   },
 
   render() {
@@ -52,9 +71,9 @@ module.exports = React.createClass({
     });
 
     return (
-      <header {...this.props} className={covertHeaderClass.toString()} ref="header">
+      <div {...this.props} className={covertHeaderClass.toString()} ref="header">
         {this.props.children}
-      </header>
+      </div>
     );
   }
 });
