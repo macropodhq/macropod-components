@@ -140,19 +140,19 @@ module.exports = React.createClass({
   },
 
   getStyle() {
-    return Object.assign(style.header, this.props.style);
+    return Object.assign({}, style.header, this.props.fixed ? style.fixed : {}, this.props.style);
   },
 
   getLeftStyle() {
-    return Object.assign(style[align.LEFT], {width: this.props.leftWidth + '%'});
+    return Object.assign({}, style[align.LEFT], {width: this.props.leftWidth + '%'});
   },
 
   getCenterStyle() {
-    return Object.assign(style[align.CENTER], {width: 100 - (this.props.leftWidth + this.props.rightWidth) + '%'});
+    return Object.assign({}, style[align.CENTER], {width: 100 - (this.props.leftWidth + this.props.rightWidth) + '%'});
   },
 
   getRightStyle() {
-    return Object.assign(style[align.RIGHT], {width: this.props.rightWidth + '%'});
+    return Object.assign({}, style[align.RIGHT], {width: this.props.rightWidth + '%'});
   },
 
   render() {
