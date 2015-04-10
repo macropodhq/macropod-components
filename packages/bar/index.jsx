@@ -28,7 +28,7 @@ const style = {
   },
 
   header: {
-    background: 'rgb(51, 161, 228)',
+    background: 'rgb(39, 61, 64)',
     overflow: 'hidden',
   },
 
@@ -90,7 +90,7 @@ const Item = React.createClass({
 
   render() {
     return (
-      <span className="BarItem" style={this.getStyle()}>
+      <span className="BarItem" {...this.props} style={this.getStyle()}>
         {this.getChildren()}
       </span>
     );
@@ -129,7 +129,7 @@ module.exports = React.createClass({
 
   buildChildren(align) {
     const children = React.Children.map(this.props.children, (element) => {
-      if (element.props && element.props.align === align) {
+      if (element && element.props && element.props.align === align) {
         return element;
       }
 
@@ -140,19 +140,19 @@ module.exports = React.createClass({
   },
 
   getStyle() {
-    return Object.assign(style.header, this.props.style);
+    return Object.assign({}, style.header, this.props.fixed ? style.fixed : {}, this.props.style);
   },
 
   getLeftStyle() {
-    return Object.assign(style[align.LEFT], {width: this.props.leftWidth + '%'});
+    return Object.assign({}, style[align.LEFT], {width: this.props.leftWidth + '%'});
   },
 
   getCenterStyle() {
-    return Object.assign(style[align.CENTER], {width: 100 - (this.props.leftWidth + this.props.rightWidth) + '%'});
+    return Object.assign({}, style[align.CENTER], {width: 100 - (this.props.leftWidth + this.props.rightWidth) + '%'});
   },
 
   getRightStyle() {
-    return Object.assign(style[align.RIGHT], {width: this.props.rightWidth + '%'});
+    return Object.assign({}, style[align.RIGHT], {width: this.props.rightWidth + '%'});
   },
 
   render() {

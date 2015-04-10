@@ -1,6 +1,7 @@
 'use strict';
 
 const React = require('react');
+const Router = require('react-router');
 
 const SuitClassSet = require('../suit-class-set');
 
@@ -8,7 +9,7 @@ require('./style.scss');
 
 module.exports = React.createClass({
   displayName: 'Link',
-  
+
   propTypes: {
     small: React.PropTypes.bool,
     fill: React.PropTypes.bool,
@@ -21,11 +22,12 @@ module.exports = React.createClass({
       small: false,
       fill: false,
       fillCenter: false,
+      route: false,
     };
   },
 
   render() {
-    const className = new SuitClassSet(this.constructor.displayName);
+    let className = new SuitClassSet(this.constructor.displayName);
 
     className.addModifier({
       'small': this.props.small,
@@ -33,16 +35,20 @@ module.exports = React.createClass({
       'fillCenter': this.props.fillCenter,
     });
 
-    return (
-      <a
-        {...this.props}
-        className={
-          className.toString() +
-          (this.props.className ? ` ${this.props.className}` : '')
-        }
-      >
-        {this.props.children}
-      </a>
-    );
+    className = className.toString() + (this.props.className ? ` ${this.props.className}` : '');
+
+    if (this.props.route) {
+      return (
+        <Router.Link {...this.props} className={className}>
+          {this.props.children}
+        </Router.Link>
+      );
+    } else {
+      return (
+        <a {...this.props} className={className}>
+          {this.props.children}
+        </a>
+      );
+    }
   }
 });

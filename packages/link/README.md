@@ -19,6 +19,10 @@ Often used for create actions.
 
 Slightly smaller link.
 
+### `route`
+
+The element should be `Router.Link` instead of a standard `a`.
+
 ### `fill`
 
 Block style filling its container.

@@ -6,6 +6,7 @@ const style = {
   item: {
     margin: 0,
     padding: '3px 0',
+    overflow: 'hidden',
   },
 }
 
