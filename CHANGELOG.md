@@ -1,5 +1,31 @@
 # Macropod Components Changelog
 
+## [v0.0.7](https://github.com/macropodhq/react-playground/releases/tag/0.0.7)
+
+### Features
+
+* [#229](https://github.com/macropodhq/macropod-components/pull/229): Add bug pin icon.
+* [#236](https://github.com/macropodhq/macropod-components/pull/236): Allow specifying initial rows value in `CancelableEdit`.
+* [#237](https://github.com/macropodhq/macropod-components/pull/237): Make `Todo` items expand to fit multiple lines.
+* [#238](https://github.com/macropodhq/macropod-components/pull/238), [#250](https://github.com/macropodhq/macropod-components/pull/250): Add `Bar` component.
+* [#240](https://github.com/macropodhq/macropod-components/pull/240): Add a hover state function for inline `:hover`.
+* [#249](https://github.com/macropodhq/macropod-components/pull/249): Add `Tray` component.
+
+### Fixes
+
+* [#234](https://github.com/macropodhq/macropod-components/pull/234): Consolidate duplicated rw-widget styles.
+
+### Improvements
+
+* [#230](https://github.com/macropodhq/macropod-components/pull/230): Comment tweaks.
+* [#231](https://github.com/macropodhq/macropod-components/pull/231): Make buttons use icons and adjust sizing.
+* [#235](https://github.com/macropodhq/macropod-components/pull/235): Change Comment-text-content to a div because it contains block elements.
+* [#242](https://github.com/macropodhq/macropod-components/pull/242): Make single-line auto-size text area size correctly.
+* [#251](https://github.com/macropodhq/macropod-components/pull/251): Upgrade `macropod-tools` to 0.0.10.
+* [#252](https://github.com/macropodhq/macropod-components/pull/252): Rename `test` command to `lint` for consistency.
+* [#253](https://github.com/macropodhq/macropod-components/pull/253): Improve `Covert` header.
+* [#255](https://github.com/macropodhq/macropod-components/pull/255): General cleanup.
+
 ## [v0.0.6](https://github.com/macropodhq/react-playground/releases/tag/0.0.6)
 
 ### Fixes
