@@ -27,7 +27,7 @@ module.exports = React.createClass({
   },
 
   render() {
-    var className = new SuitClassSet(this.constructor.displayName);
+    let className = new SuitClassSet(this.constructor.displayName);
 
     className.addModifier({
       'small': this.props.small,
