@@ -19,6 +19,7 @@ The type of icon. Available types are;
 
 * `action-redo`
 * `action-undo`
+* `add`
 * `addressbook`
 * `anchor`
 * `arrow-down`
@@ -49,6 +50,7 @@ The type of icon. Available types are;
 * `chemistry`
 * `clock`
 * `close`
+* `close-filled`
 * `cloud-download`
 * `cloud-upload`
 * `compass`
@@ -88,6 +90,7 @@ The type of icon. Available types are;
 * `fire`
 * `flag`
 * `folder`
+* `folder-filled`
 * `folder-alt`
 * `frame`
 * `game-controller`
@@ -99,6 +102,7 @@ The type of icon. Available types are;
 * `grid`
 * `handbag`
 * `heart`
+* `heart-filled`
 * `home`
 * `hourglass`
 * `info`
@@ -152,6 +156,7 @@ The type of icon. Available types are;
 * `screen-smartphone`
 * `screen-tablet`
 * `settings`
+* `settings-filled`
 * `share`
 * `share-alt`
 * `shield`
@@ -171,6 +176,7 @@ The type of icon. Available types are;
 * `speech`
 * `speedometer`
 * `star`
+* `star-filled`
 * `support`
 * `symbol-female`
 * `symbol-male`
@@ -180,15 +186,21 @@ The type of icon. Available types are;
 * `trophy`
 * `umbrella`
 * `user`
+* `user-filled`
 * `user-female`
 * `user-follow`
+* `user-follow-filled`
 * `user-following`
 * `user-unfollow`
 * `users`
+* `users-filled`
 * `vector`
 * `volume-1`
+* `volume-1-filled`
 * `volume-2`
+* `volume-2-filled`
 * `volume-off`
+* `volume-off-filled`
 * `wallet`
 * `wrench`
 

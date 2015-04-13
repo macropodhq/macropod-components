@@ -71,7 +71,7 @@ module.exports = React.createClass({
       <Bar sticky>
         <Bar.Item>
           <Link style={style.link} onClick={this.toggleLeftTray}>
-            <Icon style={style.icon} type="folder" />
+            <Icon style={style.icon} type="folder-filled" />
           </Link>
         </Bar.Item>
       </Bar>
@@ -85,7 +85,7 @@ module.exports = React.createClass({
 
         <Bar.Item align={Bar.Item.align.RIGHT}>
           <Link style={style.link} onClick={this.toggleRightTray}>
-            <Icon style={style.icon} type="user" />
+            <Icon style={style.icon} type="user-filled" />
           </Link>
         </Bar.Item>
       </Bar>
@@ -142,12 +142,12 @@ module.exports = React.createClass({
           barItems={[
             <Bar.Item align={Bar.Item.align.LEFT}>
               <Link style={style.link} onClick={this.toggleLeftTray}>
-                <Icon style={style.icon} type="folder" />
+                <Icon style={style.icon} type="folder-filled" />
               </Link>
             </Bar.Item>,
             <Bar.Item align={Bar.Item.align.RIGHT}>
               <Link style={style.link} onClick={this.toggleRightTray}>
-            <Icon style={style.icon} type="user" />
+            <Icon style={style.icon} type="user-filled" />
               </Link>
             </Bar.Item>,
             <Bar.Item align={Bar.Item.align.CENTER}>
