@@ -186,6 +186,7 @@ The type of icon. Available types are;
 * `trophy`
 * `umbrella`
 * `user`
+* `user-filled`
 * `user-female`
 * `user-follow`
 * `user-follow-filled`
