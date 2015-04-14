@@ -1,5 +1,16 @@
 # Macropod Components Changelog
 
+## [v0.0.8](https://github.com/macropodhq/react-playground/releases/tag/0.0.8)
+
+### Features
+
+* [#256](https://github.com/macropodhq/macropod-components/pull/256), [#259](https://github.com/macropodhq/macropod-components/pull/259): Add `Navigation` component.
+* [#258](https://github.com/macropodhq/macropod-components/pull/258): `Icon` updates.
+
+### Fixes
+
+* [#261](https://github.com/macropodhq/macropod-components/pull/261): Build fixes.
+
 ## [v0.0.7](https://github.com/macropodhq/react-playground/releases/tag/0.0.7)
 
 ### Features

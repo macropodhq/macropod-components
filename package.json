@@ -1,7 +1,7 @@
 {
   "name": "macropod-components",
-  "version": "0.0.7",
-  "description": "Macropod react stuff",
+  "version": "0.0.8",
+  "description": "A library of components that we use at Macropod",
   "dependencies": {
     "MD5": "^1.2.1",
     "fecha": "^0.2.1",
