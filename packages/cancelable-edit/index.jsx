@@ -1,5 +1,4 @@
 const React = require('react/addons');
-const AutoSizeTextArea = require('react-textarea-autosize');
 
 const InputText = require('../form/input-text');
 const InputTextarea = require('../form/input-textarea');
