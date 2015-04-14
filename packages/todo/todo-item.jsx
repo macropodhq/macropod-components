@@ -74,7 +74,6 @@ module.exports = React.createClass({
           className={className.toString()}
           singleLine
           autoSize
-          small
           inline
           saveButtonText="Save Todo"
           saveButtonTitle="Save Todo"
