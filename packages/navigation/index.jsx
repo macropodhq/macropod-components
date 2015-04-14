@@ -39,6 +39,7 @@ module.exports = React.createClass({
       rightTrayContent: [],
       leftTrayContent: [],
       scrollOffset: 0,
+      style: {},
     }
   },
 
@@ -88,7 +89,7 @@ module.exports = React.createClass({
     return (
       <div>
         <CovertHeader offset={this.props.scrollOffset} forceShow={this.props.showLeftTray || this.props.showRightTray}>
-          <Bar>
+          <Bar style={this.props.style}>
             {this.props.barItems}
           </Bar>
         </CovertHeader>
