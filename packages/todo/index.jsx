@@ -44,15 +44,19 @@ module.exports = React.createClass({
   },
 
   render() {
+
+    const hasTodoItems = (this.props.subtasks.length > 0) ? true : false;
+
     return (
       <div className="Todo">
-        <div className="Todo-list">
-          {_.map(this.props.subtasks, this.renderSubtask)}
-        </div>
+        {hasTodoItems &&
+          <div className="Todo-list">
+            {_.map(this.props.subtasks, this.renderSubtask)}
+          </div>
+        }
         <div className="Todo-controls">
           <CancelableEdit
             ref="input"
-            small
             singleLine
             autoSize
             creating

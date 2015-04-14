@@ -68,8 +68,8 @@ module.exports = React.createClass({
           className="TodoItem-complete"
           checked={this.props.completed}
           onChange={this.props.onCompletionChange.bind(null, !this.props.completed)}
-          type="checkbox"
-        />
+          type="checkbox" />
+
         <CancelableEdit
           className={className.toString()}
           singleLine
@@ -80,12 +80,12 @@ module.exports = React.createClass({
           saveButtonTitle="Save Todo"
           saveButtonTitleInvalid="Todo items can not be empty"
           value={this.props.name}
-          onSave={this.props.onNameChange}
-        />
+          onSave={this.props.onNameChange} />
+
         <DeleteButton
           className="TodoItem-delete"
-          onClick={this.handleAskDelete}
-        />
+          onClick={this.handleAskDelete} />
+          
         { this.state.showAlert &&
           <Alert
               cancelable

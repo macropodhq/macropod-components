@@ -4,23 +4,50 @@
 $color-todo-list-item-complete: $color-gull-gray !default;
 $color-todo-list-item-border: $color-catskill-white !default;
 
+.Todo-list {
+  margin-bottom: 10px;
+}
+
 .TodoItem {
-  @extend %clearfix;
-  padding-left: 10px;
-  border-bottom: 1px solid $color-todo-list-item-border;
+  height: auto;
+  padding: 2px 0;
 }
 
 .TodoItem-complete {
-  float: left;
-  margin-top: 21px;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  top: 13px;
 }
 
 .TodoItem-edit {
-  width: calc(100% - 75px);
-  margin: 10px;
+  display: inline-block;
+  vertical-align: top;
+  width: calc(100% - 50px);
+  margin: 0 10px;
+
+  .Form-item {
+    margin: 0;
+
+    label {
+      display: none;
+    }
+  }
+
+  &.is-active {
+
+    .Form-item {
+      margin-bottom: 10px;
+    }
+  }
+
 }
 
 .TodoItem-edit--complete {
+
+  display: inline-block;
+  vertical-align: top;
+
   .CancelableEdit-edit {
     color: $color-todo-list-item-complete;
     text-decoration: line-through;
@@ -28,7 +55,8 @@ $color-todo-list-item-border: $color-catskill-white !default;
 }
 
 .TodoItem-delete {
-  margin-top: 16px;
-  margin-right: 10px;
-  float: right;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  top: 6px;
 }
