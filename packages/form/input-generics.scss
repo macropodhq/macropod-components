@@ -1,3 +1,5 @@
+$input-border-color: #363f4b;
+
 @mixin text-input-style {
   display: block;
   width: 100%;
@@ -8,20 +10,19 @@
   color: inherit;
   background-color: #fff;
   background-image: none;
-  border: 1px solid rgba(#363f4b, .2);
+  border: 1px solid rgba($input-border-color, .1);
   border-radius: 3px;
   outline: none;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-
+  transition: all .1s;
   &::placeholder {
     color: inherit;
     opacity: .3;
   }
-
   &:focus {
-    border-color: rgba(#363f4b, .5);
+    border-color: rgba($input-border-color, .3);
 
     &::placeholder {
       color: inherit;
