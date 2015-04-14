@@ -160,9 +160,9 @@ module.exports = React.createClass({
         this.setState({
           editing: true,
           pendingValue: this.props.value,
-        }, () => this.refs.input.getDOMNode().focus());
+        }, () => this.refs.input.focusInput());
       } else {
-        this.refs.input.getDOMNode().focus();
+        this.refs.input.focusInput();
       }
     }
   },
@@ -226,7 +226,6 @@ module.exports = React.createClass({
           maxLength={this.props.maxLength}
           rows={((this.props.em || this.props.singleLine) ? 1 : this.props.rows)}
           spellCheck={false}
-          label={this.props.name ? this.props.name : ''}
           onKeyDown={this.keyHandler(this.getHotKeys())}
           value={value}
           onFocus={this.handleFocus}

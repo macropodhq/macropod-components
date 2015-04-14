@@ -1,13 +1,4 @@
-@import "colors";
-
-$cancelable-edit-font-weight: 400 !default;
-
-$color-cancelable-edit: $color-scorpion !default;
-$color-cancelable-edit-border: $color-catskill-white !default;
-$color-cancelable-edit-hover-border: mix(#111, #ffe, 10) !default;
-$color-cancelable-edit-focus-border: $color-gull-gray !default;
-$color-cancelable-edit-background: darken($color-white, 1) !default;
-$color-cancelable-edit-hover-background: #ffe !default;
+@import '../form/input-generics';
 
 
 @mixin CancelableEdit-edit() {
@@ -49,19 +40,15 @@ input.CancelableEdit-edit.is-editing {
 }
 
 .CancelableEdit {
-
+  
   &:not(.is-active) {
     
     .Input {
       cursor: pointer;
       border-color: transparent;
-      // border-style: dashed;
-      // background: $color-cancelable-edit-hover-background;
-      // border-color: $color-cancelable-edit-hover-border;
       
       &:hover {
-        background: rgba(#363f4b, .05);
-        // border-color: $color-cancelable-edit-hover-border;
+        background: rgba($input-border-color, .05);
       }
 
     }
