@@ -219,16 +219,15 @@ module.exports = React.createClass({
       const InputField = this.props.autoSize ? InputTextarea : (this.props.singleLine ? InputText : InputTextarea);
       const value = this.state.editing ? this.state.pendingValue : this.props.value;
 
-      return [
-        <label key="label" style={{'display': 'none'}}>{this.props.name}</label>,
+      return (
         <InputField
           ref="input"
           key="input"
           maxLength={this.props.maxLength}
           rows={((this.props.em || this.props.singleLine) ? 1 : this.props.rows)}
           spellCheck={false}
+          label={this.props.name ? this.props.name : ''}
           onKeyDown={this.keyHandler(this.getHotKeys())}
-          className={editClassName}
           value={value}
           onFocus={this.handleFocus}
           autoSize={this.props.autoSize}
@@ -236,9 +235,8 @@ module.exports = React.createClass({
           onChange={this.handleChange}
           name={this.props.name}
           readOnly={!this.state.editing}
-          placeholder={this.props.placeholder} />,
-      ];
-
+          placeholder={this.props.placeholder} />
+      );
     }
   },
 

@@ -9,6 +9,7 @@ $color-cancelable-edit-focus-border: $color-gull-gray !default;
 $color-cancelable-edit-background: darken($color-white, 1) !default;
 $color-cancelable-edit-hover-background: #ffe !default;
 
+
 @mixin CancelableEdit-edit() {
   line-height: 1.3;
   color: $color-cancelable-edit;
@@ -43,30 +44,86 @@ input.CancelableEdit-edit.is-editing {
     background-color: $color-cancelable-edit-hover-background;
     border: 1px solid $color-cancelable-edit-hover-border;
     cursor: pointer;
+
   }
 }
 
-textarea.CancelableEdit-edit {
-  // Extra padding because 
-  padding: 6px 10px 7px 10px;
+.CancelableEdit {
+
+  &:not(.is-active) {
+    
+    .Input {
+      cursor: pointer;
+      border-color: transparent;
+      // border-style: dashed;
+      // background: $color-cancelable-edit-hover-background;
+      // border-color: $color-cancelable-edit-hover-border;
+      
+      &:hover {
+        background: rgba(#363f4b, .05);
+        // border-color: $color-cancelable-edit-hover-border;
+      }
+
+    }
+
+  }
+
 }
 
-.CancelableEdit--inline {
-  float: left;
-}
+// input.CancelableEdit-edit.is-editing {
+//   margin-bottom: 6px; // to match textareas
+// }
 
-.CancelableEdit-edit--em {
-  font-size: 28px;
-  font-weight: $cancelable-edit-font-weight;
-  letter-spacing: -0.05em;
-}
+// .CancelableEdit-edit {
+//   line-height: 1.3em;
+//   color: $color-cancelable-edit;
+//   font-weight: $cancelable-edit-font-weight;
+//   background-color: $color-cancelable-edit-background;
+//   border: 1px solid transparent;
+//   outline: 0;
+//   resize: none;
+//   width: 100%;
+//   border-radius: 3px;
+//   padding: 5px 10px;
+//   cursor: text;
 
-.CancelableEdit-controls {
-  overflow: hidden;
-  padding: 0 0 10px;
-  border-bottom: 1px solid $color-cancelable-edit-border;
-  margin: 2px 0 0 0;
-  bottom: 0;
-  width: 100%;
-  text-align: right;
-}
+//   &.is-editing {
+//     border: 1px solid $color-cancelable-edit-focus-border;
+//     box-shadow: inset 0 1px 1px rgba(0, 0, 0 ,.075), 0 0 8px #66afe9;
+//   }
+
+//   &[readonly] {
+//     background: transparent;
+
+//     &:hover {
+//       background: $color-cancelable-edit-hover-background;
+//       border: 1px solid $color-cancelable-edit-hover-border;
+//       cursor: pointer;
+//     }
+//   }
+// }
+
+// textarea.CancelableEdit-edit {
+//   // Extra padding because 
+//   padding: 6px 10px 7px 10px;
+// }
+
+// .CancelableEdit--inline {
+//   float: left;
+// }
+
+// .CancelableEdit-edit--em {
+//   font-size: 28px;
+//   font-weight: $cancelable-edit-font-weight;
+//   letter-spacing: -0.05em;
+// }
+
+// .CancelableEdit-controls {
+//   overflow: hidden;
+//   padding: 0 0 10px;
+//   border-bottom: 1px solid $color-cancelable-edit-border;
+//   margin: 2px 0 0 0;
+//   bottom: 0;
+//   width: 100%;
+//   text-align: right;
+// }
