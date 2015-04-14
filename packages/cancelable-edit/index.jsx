@@ -1,6 +1,9 @@
 const React = require('react/addons');
 const AutoSizeTextArea = require('react-textarea-autosize');
 
+const InputText = require('../form/input-text');
+const InputTextarea = require('../form/input-textarea');
+
 const Alert = require('../alert');
 const Button = require('../button');
 const Link = require('../link');
@@ -205,18 +208,21 @@ module.exports = React.createClass({
     });
 
     if (this.props.creating && !this.state.editing) {
+
       return (
         <Link ref="link" tabIndex="0" href="#" fill={this.props.fill} onClick={this.handleClick}>
           {this.props.createText || this.props.placeholder}
         </Link>
       );
+
     } else {
-      const Control = this.props.autoSize ? AutoSizeTextArea : (this.props.singleLine ? 'input' : 'textarea');
+
+      const InputField = this.props.autoSize ? InputTextarea : (this.props.singleLine ? InputText : InputTextarea);
       const value = this.state.editing ? this.state.pendingValue : this.props.value;
 
       return [
         <label key="label" style={{'display': 'none'}}>{this.props.name}</label>,
-        <Control
+        <InputField
           ref="input"
           key="input"
           maxLength={this.props.maxLength}
@@ -225,11 +231,14 @@ module.exports = React.createClass({
           className={editClassName}
           value={value}
           onFocus={this.handleFocus}
+          autoSize={this.props.autoSize}
+          onClick={this.handleClick}
           onChange={this.handleChange}
           name={this.props.name}
-          placeholder={this.props.placeholder}
-        />,
+          readOnly={!this.state.editing}
+          placeholder={this.props.placeholder} />,
       ];
+
     }
   },
 
