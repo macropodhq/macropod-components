@@ -226,6 +226,7 @@ module.exports = React.createClass({
           key="input"
           maxLength={this.props.maxLength}
           rows={((this.props.em || this.props.singleLine) ? 1 : this.props.rows)}
+          spellCheck={false}
           onKeyDown={this.keyHandler(this.getHotKeys())}
           className={editClassName}
           value={value}
