@@ -62,6 +62,7 @@ module.exports = React.createClass({
     rows: React.PropTypes.number,
     onSave: React.PropTypes.func.isRequired,
     onCancel: React.PropTypes.func,
+    showLabel: React.PropTypes.bool,
   },
 
   getInitialState() {
@@ -90,6 +91,7 @@ module.exports = React.createClass({
       rows: 3,
       onSave: noop,
       onCancel: noop,
+      showLabel: false,
     };
   },
 
@@ -234,7 +236,8 @@ module.exports = React.createClass({
           onChange={this.handleChange}
           name={this.props.name}
           readOnly={!this.state.editing}
-          placeholder={this.props.placeholder} />
+          placeholder={this.props.placeholder}
+          showLabel={this.props.showLabel} />
       );
     }
   },
