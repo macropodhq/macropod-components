@@ -74,7 +74,6 @@ module.exports = React.createClass({
           className={className.toString()}
           singleLine
           autoSize
-          inline
           saveButtonText="Save Todo"
           saveButtonTitle="Save Todo"
           saveButtonTitleInvalid="Todo items can not be empty"
