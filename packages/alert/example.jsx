@@ -2,6 +2,10 @@
 
 const React = require('react');
 
+const InputText = require('../form/input-text');
+const InputTextarea = require('../form/input-textarea');
+const InputCheckbox = require('../form/input-checkbox');
+
 const Button = require('../button');
 const Alert = require('./');
 
@@ -69,14 +73,29 @@ module.exports = React.createClass({
   render() {
     return (
       <div>
-        <input type="text" onChange={this.handleTitleChange} value={this.state.alertTitle} />
-        <br />
-        <textarea onChange={this.handleContentChange} value={this.state.alertContent} />
-        <br />
-        <label><input type="checkbox" onChange={this.handleCancelableChange} checked={this.state.alertCancelable}/>Cancelable</label>
-        <br />
-        <label><input type="checkbox" onChange={this.handleDangerChange} checked={this.state.alertDanger}/>Danger</label>
-        <br />
+        <InputText
+          onChange={this.handleTitleChange}
+          value={this.state.alertTitle}
+          showLabel={false} />
+
+        <InputTextarea
+          onChange={this.handleContentChange}
+          value={this.state.alertContent}
+          showLabel={false}
+          autoSize />
+
+        <InputCheckbox 
+          onChange={this.handleCancelableChange}
+          checked={this.state.alertCancelable}
+          showLabel={false}
+          checkboxLabel="Cancelable" />
+
+        <InputCheckbox 
+          onChange={this.handleDangerChange}
+          checked={this.state.alertDanger}
+          showLabel={false}
+          checkboxLabel="Danger" />
+          
         <Button onClick={this.handleClick}>Show Alert</Button>
 
         <br />
