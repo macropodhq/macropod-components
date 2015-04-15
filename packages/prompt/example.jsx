@@ -97,6 +97,7 @@ module.exports = React.createClass({
           onChange={this.handleContentChange}
           value={this.state.promptContent}
           showLabel={false}
+          autoSize
           placeholder="prompt content" />
 
         <InputText 
