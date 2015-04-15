@@ -265,6 +265,7 @@ module.exports = React.createClass({
               <InputTextarea
                 rows="1"
                 autoSize
+                showLabel={false}
                 ref="editInput"
                 value={this.state.editValue}
                 className="Comment-editInput"
@@ -300,6 +301,7 @@ module.exports = React.createClass({
                 <InputTextarea
                   rows="1"
                   autoSize
+                  showLabel={false}
                   value={this.state.replyValue}
                   className="Comment-replies-new-input"
                   placeholder="add a reply"
