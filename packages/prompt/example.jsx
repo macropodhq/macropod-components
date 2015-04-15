@@ -2,6 +2,10 @@
 
 const React = require('react');
 
+const InputText = require('../form/input-text');
+const InputTextarea = require('../form/input-textarea');
+const InputCheckbox = require('../form/input-checkbox');
+
 const Button = require('../button');
 const Prompt = require('./');
 
@@ -83,16 +87,33 @@ module.exports = React.createClass({
   render() {
     return (
       <div>
-        <input type="text" onChange={this.handleTitleChange} value={this.state.promptTitle} />
-        <br />
-        <textarea onChange={this.handleContentChange} value={this.state.promptContent} />
-        <br />
-        <input type="text" onChange={this.handleDefaultValueChange} value={this.state.promptDefaultValue} />
-        <br />
-        <label><input type="checkbox" onChange={this.handleCancelableChange} checked={this.state.promptCancelable}></input> Cancelable</label>
-        <br />
-        <label><input type="checkbox" onChange={this.handleValidateInputChange} checked={this.state.promptValidateInput}></input> Validate (require even lengthed input)</label>
-        <br />
+        <InputText 
+          onChange={this.handleTitleChange}
+          value={this.state.promptTitle}
+          showLabel={false} />
+
+        <InputTextarea
+          onChange={this.handleContentChange}
+          value={this.state.promptContent}
+          showLabel={false} />
+
+        <InputText 
+          onChange={this.handleDefaultValueChange}
+          value={this.state.promptDefaultValue}
+          showLabel={false} />
+
+        <InputCheckbox 
+          onChange={this.handleCancelableChange}
+          checked={this.state.promptCancelable}
+          showLabel={false}
+          checkboxLabel="Cancelable" />
+
+        <InputCheckbox 
+          onChange={this.handleValidateInputChange}
+          checked={this.state.promptValidateInput}
+          showLabel={false}
+          checkboxLabel="Validate (require even lengthed input)" />
+          
         <Button onClick={this.handleClick}>Show Prompt</Button>
 
         <br />
