@@ -6,6 +6,7 @@ const SuitClassSet = require('../suit-class-set');
 
 const DropdownMenu = require('../dropdown-menu');
 const Avatar = require('../avatar');
+const Icon = require('../icon');
 const Button = require('../button');
 const CommentReply = require('./comment-reply');
 const DateFormatter = require('../datetime-format');
@@ -196,7 +197,9 @@ module.exports = React.createClass({
     if (this.props.starable || this.props.comment.deletable || this.props.comment.editable) {
       dropdownContent = (
         <div>
-          <a href="#" className="Comment-dropdownToggle" ref="menuAnchor" onClick={this.handleMenuToggle}>&hellip;</a>
+          <a href="#" className="Comment-dropdownToggle" ref="menuAnchor" onClick={this.handleMenuToggle}>
+            <Icon type="settings" font={false} />
+          </a>
 
           <DropdownMenu className="DropdownMenu" anchor={this.refs.menuAnchor} visible={this.state.showMenu} close={this.handleMenuToggle}>
             <dl>

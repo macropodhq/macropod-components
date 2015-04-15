@@ -14,8 +14,12 @@
 
   .Comment-dropdownToggle {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 10px;
+    right: 10px;
+    color: #bbb;
+    &:hover {
+      color: #666;
+    }
   }
 
   .Avatar {
@@ -89,6 +93,10 @@
   
     .Form-item {
       margin-bottom: 0;
+
+      & + .Button {
+        margin-top: 10px;
+      }
 
       label {
         display: none;
