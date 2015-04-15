@@ -1,5 +1,7 @@
 const React = require('react');
 
+const InputText = require('../form/input-text');
+
 const KeyMixin = require('./');
 
 const keys = [
@@ -41,10 +43,10 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <input
+      <InputText
         value={this.state.value}
         onKeyDown={this.keyHandler(keys)}
-      />
+        showLabel={false} />
     );
   }
 });
