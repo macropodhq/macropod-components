@@ -1,6 +1,7 @@
 'use strict';
 
 const React = require('react');
+const Icon = require('../icon');
 
 require('./style.scss');
 
@@ -9,9 +10,8 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <button {...this.props} className={'IconButton ' + this.constructor.displayName + (this.props.className ? ` ${this.props.className}` : '')}>
-        ×
-      </button>
+      <Icon {...this.props} className={this.constructor.displayName + (this.props.className ? ` ${this.props.className}` : '')} type="close-filled" font={false} />
+
     );
   }
 });
