@@ -90,17 +90,20 @@ module.exports = React.createClass({
         <InputText 
           onChange={this.handleTitleChange}
           value={this.state.promptTitle}
-          showLabel={false} />
+          showLabel={false}
+          placeholder="prompt title" />
 
         <InputTextarea
           onChange={this.handleContentChange}
           value={this.state.promptContent}
-          showLabel={false} />
+          showLabel={false}
+          placeholder="prompt content" />
 
         <InputText 
           onChange={this.handleDefaultValueChange}
           value={this.state.promptDefaultValue}
-          showLabel={false} />
+          showLabel={false}
+          placeholder="prompt default value" />
 
         <InputCheckbox 
           onChange={this.handleCancelableChange}
@@ -113,7 +116,7 @@ module.exports = React.createClass({
           checked={this.state.promptValidateInput}
           showLabel={false}
           checkboxLabel="Validate (require even lengthed input)" />
-          
+
         <Button onClick={this.handleClick}>Show Prompt</Button>
 
         <br />
