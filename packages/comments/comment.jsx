@@ -2,6 +2,7 @@
 const React = require('react/addons');
 const _ = require('lodash-node');
 const Textarea = require('react-textarea-autosize');
+const InputTextarea = require('../form/input-textarea');
 const SuitClassSet = require('../suit-class-set');
 
 const DropdownMenu = require('../dropdown-menu');
@@ -259,8 +260,9 @@ module.exports = React.createClass({
         <div className="Comment-text">
           {this.state.editing &&
             <form onSubmit={this.handleEdit}>
-              <Textarea
+              <InputTextarea
                 rows="1"
+                autoSize
                 ref="editInput"
                 value={this.state.editValue}
                 className="Comment-editInput"
@@ -293,8 +295,9 @@ module.exports = React.createClass({
           {this.props.comment.isDiscussion !== false && this.props.comment.repliable !== false &&
             <div className="Comment-replies-new">
               <form onSubmit={this.handleNewReply}>
-                <Textarea
+                <InputTextarea
                   rows="1"
+                  autoSize
                   value={this.state.replyValue}
                   className="Comment-replies-new-input"
                   placeholder="add a reply"
