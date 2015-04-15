@@ -76,13 +76,15 @@ module.exports = React.createClass({
         <InputText
           onChange={this.handleTitleChange}
           value={this.state.alertTitle}
-          showLabel={false} />
+          showLabel={false}
+          placeholder="alert title" />
 
         <InputTextarea
           onChange={this.handleContentChange}
           value={this.state.alertContent}
           showLabel={false}
-          autoSize />
+          autoSize
+          placeholder="alert title" />
 
         <InputCheckbox 
           onChange={this.handleCancelableChange}
