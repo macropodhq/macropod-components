@@ -1,7 +1,6 @@
 'use strict';
 const React = require('react/addons');
 const _ = require('lodash-node');
-const Textarea = require('react-textarea-autosize');
 const InputTextarea = require('../form/input-textarea');
 const SuitClassSet = require('../suit-class-set');
 
