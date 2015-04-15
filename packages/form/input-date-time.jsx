@@ -29,6 +29,7 @@ module.exports = React.createClass({
         inputType="DateTime"
         label={this.props.label}
         showLabel={this.props.showLabel}>
+
         <CalendarDropdown
           id={`Input--DateTime--${camelCaseLabel}`}
           className={'Input--CalendarDropdown'}
@@ -36,7 +37,8 @@ module.exports = React.createClass({
           onChange={this.onChange}
           defaultValue={defaultValue}
           format="d MMM yyyy h:mm tt"
-        />
+          duration={50} />
+
       </InputWrapper>
     );
   },
