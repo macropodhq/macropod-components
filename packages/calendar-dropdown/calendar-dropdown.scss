@@ -1,294 +1,39 @@
-@import "../form/input-generics";
-@import "colors";
 @import "rw-shared";
 @import "../calendar/calendar";
 
-$line-height: 1.94em;
-
-$btn-bg: $color-white;
-$btn-color: #333;
-$btn-border: #ccc;
-
-$border-radius: 4px;
-$border-radius-sm: 3px;
-
-$input-color: #555;
-$input-height: $line-height;
-$input-bg: $color-white;
-$input-bg-disabled: #eee;
-$input-border: #ccc;
-$input-border-focus: #66afe9;
-$input-border-width: 1px;
-$input-border-radius: $border-radius;
-
-$popup-border: #ccc;
-$popup-zindex: 1005;
-$popup-bg: $color-white;
-
-$state-bg-focus: $color-gull-gray;
-$state-border-focus: $color-gull-gray;
-$state-color-focus: #333;
-$state-bg-hover: $color-gallery;
-$state-border-hover: $color-gallery;
-$state-color-hover: #333;
-
-$list-bg-hover: $state-bg-hover;
-$list-border-hover: $state-border-hover;
-
 .rw-datetimepicker {
-  padding-right: 1.9em;
-  @include text-input-style;
-  padding: 0;
+  padding: 0;  
 
-  &.rw-widget {
-    position: relative;
-    outline: 0;
-    -moz-background-clip: border-box;
-    -webkit-background-clip: border-box;
-    background-clip: border-box;
-    background-color: $input-bg;
-    border: $input-border $input-border-width solid;
-    border-radius: $input-border-radius;
+  .rw-input {
+    width: calc(100% - 35px);
+  }
+
+  .rw-btn-calendar, .rw-btn-time {
+    width: 35px;
+    line-height: $input-line-height;
+    border: 0;
+  } 
+
+  &.rw-has-neither {
+    padding-left: 0;
+    padding-right: 0;
 
     .rw-input {
-      border-top-left-radius: $input-border-radius;
-      border-bottom-left-radius: $input-border-radius;
-      display: inline-block;
-      padding: 8px 10px;
-      text-indent: 0;
-      height: auto;
-      line-height: 1;
-      box-shadow: none;
-
-      &::placeholder {
-        color: inherit;
-        opacity: .3;
-      }
-
-      &:focus::placeholder {
-        color: inherit;
-        opacity: .15;
-      }
+      width: 100%;
+      border-radius: $input-border-radius;
     }
-
-    > .rw-select {
-      border-left: $input-border 1px solid;
-    }
-
-    &.rw-state-focus,
-    &.rw-state-focus:hover {
-      border-color: rgba(#363f4b, .5);
-      outline: 0;
-    }
-
-    &.rw-state-readonly,
-    &.rw-state-readonly > .rw-multiselect-wrapper {
-      cursor: not-allowed;
-    }
-
-    &.rw-state-disabled {
-      &,
-      &:hover,
-      &:active {
-        box-shadow: none;
-        background-color: $input-bg-disabled;
-        border-color: $input-border;
-      }
-    }
-
-    &.rw-rtl {
-
-      .rw-input {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        border-top-left-radius: $input-border-radius;
-        border-bottom-left-radius: $input-border-radius;
-      }
-
-      > .rw-select {
-        border-right: $input-border 1px solid;
-        border-left: none;
-      }
-    }
-  }
-
-  &.rw-open.rw-widget,
-  &.rw-open > .rw-select-wrapper {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
-  .rw-select {
-    position: absolute;
-    width: 1.9em;
-    height: 100%;
-    right: 0;
-
-    &.rw-btn,
-    & > .rw-btn {
-      height: 100%;
-      vertical-align: middle;
-      outline: 0;
-    }
-
-    .rw-rtl & {
-      left: 0;
-      right: auto;
-    }
-  }
-
-  .rw-state-focus {
-    background-color: $state-bg-focus;
-    border: $state-border-focus 1px solid;
-    color: $state-color-focus;
-  }
-
-  > .rw-select > .rw-btn {
-    color: $btn-color;
-    line-height: $line-height;
-    display: inline-block;
-    margin: 0;
-    text-align: center;
-    vertical-align: middle;
-    background: none;
-    background-image: none;
-    border: 1px solid transparent;
-    padding: 0;
-    white-space: nowrap;
-    width: 1.8em;
-  }
-
-  > .rw-input {
-    width: 100%;
-    border: none;
-    outline: 0;
-
-    &::-moz-placeholder {
-      color: #999;
-      opacity: 1; // See https://github.com/twbs/bootstrap/pull/11526
-    }
-    &:-ms-input-placeholder {
-      color: #999;
-    }
-    &::-webkit-input-placeholder {
-      color: #999;
-    }
-  }
-
-  input.rw-input {
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-  }
-
-  &:active {
-    &, &.rw-state-focus {
-      background-image: none;
-      box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
-    }
-  }
-
-  &.rw-rtl {
-    padding-right: 0;
-    padding-left: 1.9em;
   }
 
   &.rw-has-both {
-    padding-right: 3.8em;
 
-    &.rw-rtl {
-      padding-right: 0;
-      padding-left: 3.8em;
+    .rw-input {
+      width: calc(100% - 70px);
     }
+
   }
 
   &.rw-has-both > .rw-select {
-    width: 3.8em;
-    height: 100%;
-  }
-
-  .rw-popup {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: $border-radius-sm;
-    border-bottom-right-radius: $border-radius-sm;
-    border: 1px solid rgba(#363f4b, .5);
-    border-top: 0;
-    background: $popup-bg;
-    width: 100%;
-    overflow: auto;
-
-    &.rw-calendar {
-      padding: 5px 2px;
-    }
-  }
-
-  .rw-popup-container {
-    position: absolute;
-    top: 100%;
-    margin-top: 1px;
-    left: -$input-border-width;
-    right: -$input-border-width;
-    z-index: $popup-zindex;
-    width: calc(100% + 2px) !important;
-    border-top: 0;
-
-    &.rw-calendar-popup {
-      right: auto;
-      width: 200px; //15em; ?
-    }
-  }
-
-  ul.rw-list {
-    margin: 0;
-    padding-left: 0;
-    list-style: none;
-    padding: 5px 2px;
-    overflow: auto;
-    outline: 0;
-    max-height: 25vh;
-
-    > li {
-      cursor: pointer;
-      border: 1px solid transparent;
-      padding-left: 10px;
-      padding-right: 10px;
-      border-radius: $border-radius-sm;
-    }
-
-    > li:hover {
-      background-color: $list-bg-hover;
-      border-color: $list-border-hover;
-    }
-
-    > li.rw-state-focus {
-      background-color: $state-bg-focus;
-      border: $state-border-focus 1px solid;
-      color: $state-color-focus;
-    }
-
-    > li.rw-state-selected {
-      background-color: $state-bg-focus;
-      border: $state-border-focus 1px solid;
-      color: $state-color-focus;
-    }
-  }
-
-  .rw-input {
-    color: $input-color;
-    height: $input-height;
-    line-height: $input-height;
-    padding: 0.177em 0;
-    text-indent: 0.64em;
-
-    &[disabled] {
-      -webkit-box-shadow: none; // iOS <4.3 & Android <4.1
-      box-shadow: none;
-      opacity: 1;
-      background-color: $input-bg-disabled;
-      border-color: $input-border;
-    }
-
-    &[readonly] {
-      cursor: not-allowed;
-    }
+    white-space: nowrap;
+    height: 100%; 
   }
 }

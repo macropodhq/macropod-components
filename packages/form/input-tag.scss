@@ -1,25 +1,6 @@
-@import "input-generics";
-@import "colors";
+@import "inputs";
+@import "rw-shared";
 @import "placeholders";
-
-$color-border: $color-catskill-white;
-$color-option-hover: $color-gallery;
-$color-option-text: $color-scorpion;
-$color-glow: $color-border;
-
-$line-height: 1.94em;
-
-$border-radius: 4px;
-$border-radius-sm: 3px;
-
-$input-color: #555;
-$input-height: $line-height;
-$input-bg: $color-white;
-$input-bg-disabled: #eee;
-$input-border: #ccc;
-$input-border-focus: #66afe9;
-$input-border-width: 1px;
-$input-border-radius: $border-radius;
 
 .rw-multiselect {
   position: relative;
@@ -42,7 +23,6 @@ $input-border-radius: $border-radius;
       border-bottom-left-radius: $input-border-radius;
       max-width: 100%;
       display: inline-block;
-      padding: 6px 8px;
 
       &::placeholder {
         color: inherit;
@@ -105,29 +85,27 @@ $input-border-radius: $border-radius;
     display: inline;
     float: left;
     background: none;
-    padding: 8px 5px 10px 5px;
   }
 
   .rw-multiselect-wrapper {
     border: 0;
-    border-radius: 3px;
+    border-radius: $input-border-radius;
     width: 100%;
-    padding: 2px;
     @extend %clearfix;
   }
 
   .rw-multiselect-taglist {
+    @extend %cleafix;
     margin: 0;
-    padding: 0;
+    padding: 2px 0 0 3px;
     list-style: none;
-    color: $color-option-text;
 
     li {
-      background: $color-option-hover;
+      background: $input-state-hover;
       border-radius: 3px;
       height: inherit;
       display: inline-block;
-      padding: 3px 25px 5px 5px;
+      padding: 4px 23px 5px 7px;
       margin: 3px;
       white-space: nowrap;
       float: left;
@@ -140,8 +118,8 @@ $input-border-radius: $border-radius;
         background: none;
         border: none;
         position: absolute;
-        right: 6px;
-        top: 4px;
+        right: 7px;
+        top: 6px;
         padding: 0;
       }
 
@@ -149,10 +127,13 @@ $input-border-radius: $border-radius;
         display: none;
       }
     }
+
+    &+ .rw-input {
+      margin-top: -2px;
+    }
   }
 
   .rw-popup-container {
-    width: 100%;
     overflow: auto;
     z-index: 3;
 
@@ -167,10 +148,9 @@ $input-border-radius: $border-radius;
 
       li {
         padding: 5px;
-        color: $color-option-text;
 
         &:hover, &.rw-state-focus {
-          background: $color-option-hover;
+          background: $input-state-hover;
           cursor: pointer;
         }
 

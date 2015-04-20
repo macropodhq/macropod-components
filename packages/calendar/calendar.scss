@@ -6,65 +6,120 @@ $color-calendar-selected-date: $color-gull-gray;
 $color-calendar-hover-date: $color-gallery;
 
 .rw-calendar {
-  color: $color-calendar;
+  background-color: $widget-bg;
+  width: 100%;
   font-size: 12px;
+  border: 0;
 
+  thead > tr {
+    
+  }
+
+  .rw-btn {
+    
+  }
   .rw-header {
-    text-align: center;
-    margin-bottom: 5px;
-  }
-
-  .rw-btn:hover {
-    background: $color-calendar-hover-date;
-    border-radius: 4px;
-  }
-
-  .rw-btn-view {
-    background: none;
-    border: none;
-    font-weight: bold;
-  }
-
-  .rw-btn-left, .rw-btn-right {
-    background: none;
-    border: none;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .rw-calendar-grid {
-    width: 100%;
+    padding-bottom: 5px;
     text-align: center;
 
-    thead th {
-      font-weight: bold;
-      border: none;
-      background: none;
-      text-align: center;
+    .rw-btn {
+      display: inline-block;
+      height: 30px;
+      font-weight: 600;
+      min-width: 35px;
+      line-height: $input-line-height;
+      padding: 5px;
+      border-radius: $input-border-radius;
+      outline: 0;
+      vertical-align: top;
+      &:hover {
+        background-color: $input-state-hover;
+      }
     }
 
-    tbody {
-      td button {
-        border: none;
-        background: none;
-        padding-top: 4px;
-        padding-bottom: 2px;
+    
+    .rw-btn-left,
+    .rw-btn-right {
+      width: 30px;
+    }
 
-        &.rw-off-range {
-          opacity: 0.5;
-        }
+    .rw-btn-view {
 
-        &.rw-state-selected, &.rw-state-selected:hover {
-          border-radius: 4px;
-          background: $color-calendar-selected-date;
-          color: $color-white;
-          cursor: default;
-        }
-
-        &.rw-now {
-          font-weight: bold;
-        }
+      &:hover {
+        background-color: $input-state-hover;
       }
+
+      &[disabled] {
+        @include state-disabled;
+      }
+    }
+  }
+
+  .rw-footer {
+    border-top: 1px solid $input-border;
+    
+    .rw-btn {
+      width: 100%;
+      white-space: normal;
+      
+      &:hover {
+        background-color: $input-state-hover;
+      }
+
+      &[disabled] {
+        @include state-disabled;
+      }
+    }
+  }
+}
+
+
+.rw-calendar-grid {
+  height: 200 / 14em;
+  table-layout: fixed;
+  width: 100%;
+
+  th {
+    text-align: center;
+    padding:    0;
+  }
+
+  .rw-btn {
+    text-align: center;
+  }
+
+  td {
+    text-align: center;
+
+    .rw-btn {
+      border-radius: $input-border-radius;
+      outline: 0;
+      padding: 8px 9px;
+      margin: 1px;
+
+      &:hover {
+        background-color:   $state-bg-hover;
+      }
+      &.rw-off-range {
+        color: lighten($btn-color, 50%)
+      }
+
+      &.rw-state-selected {
+        background-color:   $state-bg-select;
+        color: $state-color-select;
+      }
+
+    }
+  }
+
+  &.rw-nav-view {
+
+    .rw-btn {
+      padding: 8px 9px;
+      display: inline-block;
+      overflow: hidden;
+      text-align: center;
+      white-space: normal;
     }
   }
 }

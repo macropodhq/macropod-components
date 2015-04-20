@@ -21,7 +21,11 @@ module.exports = React.createClass({
         inputType="Tag"
         label={this.props.label}
         showLabel={this.props.showLabel}>
-          <Widgets.Multiselect {...this.props} />
+
+          <Widgets.Multiselect 
+            {...this.props}
+            duration={50} />
+
       </InputWrapper>
     );
   },
