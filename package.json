@@ -7,6 +7,7 @@
     "fecha": "^0.2.1",
     "keymaster": "^1.6.2",
     "lodash-node": "^2.4.1",
+    "marked": "^0.3.3",
     "normalize.css": "~3.0.2",
     "open-sans": "git://github.com/bungeshea/open-sans.git",
     "react": "^0.12.2",

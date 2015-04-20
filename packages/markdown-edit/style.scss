@@ -9,21 +9,35 @@ $color-cancelable-edit-focus-border: $color-gull-gray !default;
 $color-cancelable-edit-background: darken($color-white, 1) !default;
 $color-cancelable-edit-hover-background: #ffe !default;
 
-input.CancelableEdit-edit.is-editing {
+input.MarkdownEdit-edit.is-editing {
   margin-bottom: 6px; // to match textareas
 }
 
-.CancelableEdit-edit {
-  line-height: 1.3em;
+.MarkdownEdit-edit,
+.MarkdownEdit-markdown {
+  line-height: 1.3;
   color: $color-cancelable-edit;
   font-weight: $cancelable-edit-font-weight;
   background-color: transparent;
   border: 1px solid transparent;
   outline: 0;
-  resize: none;
   width: 100%;
   border-radius: 3px;
   padding: 5px 10px;
+}
+
+.MarkdownEdit-markdown {
+  & > *:first-child {
+    margin-top: 0;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.MarkdownEdit-edit {
+  resize: none;
   cursor: text;
 
   &:focus {
@@ -42,22 +56,16 @@ input.CancelableEdit-edit.is-editing {
   }
 }
 
-textarea.CancelableEdit-edit {
+textarea.MarkdownEdit-edit {
   // Extra padding because 
   padding: 6px 10px 7px 10px;
 }
 
-.CancelableEdit--inline {
+.MarkdownEdit--inline {
   float: left;
 }
 
-.CancelableEdit-edit--em {
-  font-size: 28px;
-  font-weight: $cancelable-edit-font-weight;
-  letter-spacing: -0.05em;
-}
-
-.CancelableEdit-controls {
+.MarkdownEdit-controls {
   overflow: hidden;
   padding: 0 0 10px;
   border-bottom: 1px solid $color-cancelable-edit-border;
