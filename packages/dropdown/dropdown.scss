@@ -13,6 +13,11 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: 35px;
+    width: 34px;
+    border-left: 1px solid $input-border-color;
+    
+    &:hover {
+      background-color: $input-state-hover;
+    }
   }
 }
