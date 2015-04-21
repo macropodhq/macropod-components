@@ -56,7 +56,6 @@ module.exports = React.createClass({
     inline: React.PropTypes.bool,
     allowEmpty: React.PropTypes.bool,
     maxLength: React.PropTypes.number,
-    autoSize: React.PropTypes.bool,
     creating: React.PropTypes.bool,
     rows: React.PropTypes.number,
     onSave: React.PropTypes.func.isRequired,
@@ -88,7 +87,6 @@ module.exports = React.createClass({
       small: false,
       inline: false,
       allowEmpty: false,
-      autoSize: false,
       creating: false,
       rows: 3,
       onSave: noop,
@@ -226,12 +224,11 @@ module.exports = React.createClass({
         <div className={markdownClassName} dangerouslySetInnerHTML={{__html: marked(value, {renderer: this.markedRenderer,})}} />,
       ];
     } else {
-      const Control = this.props.autoSize ? AutoSizeTextArea : 'textarea';
       const value = this.state.editing ? this.state.pendingValue : this.props.value;
 
       return [
         <label key="label" style={{'display': 'none'}}>{this.props.name}</label>,
-        <Control
+        <AutoSizeTextArea
           ref="input"
           key="input"
           maxLength={this.props.maxLength}
