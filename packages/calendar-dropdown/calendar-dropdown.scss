@@ -6,14 +6,11 @@
   .rw-input {
     width: calc(100% - 35px);
   }
-
-  .rw-btn-time {
-    border-left: 1px solid $input-border-color !important;
-  }
   
 
   .rw-btn-calendar, .rw-btn-time {
-    width: 35px;
+    width: 34px;
+    border-left: 1px solid $input-border-color !important;
     line-height: $input-line-height;
     border: 0;
     
@@ -42,6 +39,7 @@
 
   &.rw-has-both > .rw-select {
     white-space: nowrap;
-    height: 100%; 
+    height: 100%;
+    border-left: 0;
   }
 }
