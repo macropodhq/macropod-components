@@ -1,4 +1,3 @@
-@import "rw-shared";
 @import "../calendar/calendar";
 
 .rw-datetimepicker {
@@ -8,12 +7,7 @@
     width: calc(100% - 35px);
   }
 
-  .rw-btn-calendar {
-    background-image: url('../icon/svgs/icon-calendar.svg');  
-  }
-
   .rw-btn-time {
-    background-image: url('../icon/svgs/icon-clock.svg'); 
     border-left: 1px solid $input-border-color !important;
   }
   
@@ -22,10 +16,6 @@
     width: 35px;
     line-height: $input-line-height;
     border: 0;
-    background-size: 13px;
-    background-repeat: no-repeat;
-    background-position: center;
-    font-size: 0;
     
     &:hover {
       background-color: $input-state-hover;
