@@ -428,9 +428,9 @@ $focus-rgba: rgba(red($input-border-focus), green($input-border-focus), blue($in
 
   > .rw-input {
     background-color:   transparent;
-    padding-top:    0;
-    padding-bottom: 0;
-    padding-right:  0;
+    // padding-top:    0;
+    // padding-bottom: 0;
+    // padding-right:  0;
     overflow: hidden;
     text-overflow: ellipsis;
   }
