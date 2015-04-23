@@ -22,6 +22,7 @@
       border-bottom-left-radius: $input-border-radius;
       max-width: 100%;
       display: inline-block;
+      height: 34px;
 
       &::placeholder {
         color: inherit;
@@ -89,6 +90,7 @@
   .rw-multiselect-wrapper {
     border: 0;
     border-radius: $input-border-radius;
+    padding: 2px;
     width: 100%;
     @extend %clearfix;
   }
@@ -96,7 +98,7 @@
   .rw-multiselect-taglist {
     @extend %cleafix;
     margin: 0;
-    padding: 2px 0 0 3px;
+    padding: 0;
     list-style: none;
 
     li {
@@ -118,7 +120,7 @@
         border: none;
         position: absolute;
         right: 7px;
-        top: 6px;
+        top: 5px;
         padding: 0;
       }
 
@@ -161,10 +163,8 @@
   }
 
   &.rw-open {
-    .rw-multiselect-wrapper {
-      border-bottom-left-radius: 0px;
-      border-bottom-right-radius: 0px;
-    }
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
 }
