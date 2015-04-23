@@ -1,6 +1,7 @@
 const React = require('react/addons');
 const AutoSizeTextArea = require('react-textarea-autosize');
 const _ = require('lodash-node');
+const marked = require('marked');
 
 const Alert = require('../alert');
 const Button = require('../button');
@@ -38,7 +39,7 @@ const hotKeys = [
 ];
 
 module.exports = React.createClass({
-  displayName: 'CancelableEdit',
+  displayName: 'MarkdownEdit',
 
   mixins: [KeyMixin],
   propTypes: {
@@ -51,12 +52,11 @@ module.exports = React.createClass({
     warnMessage: React.PropTypes.string,
     placeholder: React.PropTypes.string,
     createText: React.PropTypes.string,
+    defaultStyles: React.PropTypes.bool,
     small: React.PropTypes.bool,
     inline: React.PropTypes.bool,
-    em: React.PropTypes.bool,
     allowEmpty: React.PropTypes.bool,
     maxLength: React.PropTypes.number,
-    autoSize: React.PropTypes.bool,
     creating: React.PropTypes.bool,
     rows: React.PropTypes.number,
     onSave: React.PropTypes.func.isRequired,
@@ -66,6 +66,7 @@ module.exports = React.createClass({
   getInitialState() {
     return {
       editing: false,
+      previewing: false,
       pendingValue: '',
       showAlert: false,
     };
@@ -79,12 +80,15 @@ module.exports = React.createClass({
       saveButtonTitleInvalid: 'Save',
       cancelButtonText: 'Cancel',
       cancelButtonTitle: 'Cancel',
+      editButtonText: 'Edit',
+      editButtonTitle: 'Edit',
+      previewButtonText: 'Preview',
+      previewButtonTitle: 'Preview',
       warnMessage: 'Are you sure you want to discard your changes?',
+      defaultStyles: true,
       small: false,
       inline: false,
-      em: false,
       allowEmpty: false,
-      autoSize: false,
       creating: false,
       rows: 3,
       onSave: noop,
@@ -92,41 +96,49 @@ module.exports = React.createClass({
     };
   },
 
+  componentWillMount() {
+    this.markedRenderer = new marked.Renderer();
+    const linkRenderer = this.markedRenderer.link;
+    this.markedRenderer.link = (href, title, text) => linkRenderer.call(this.markedRenderer, href, title, text).replace(/<a /, '<a target="_blank" ');
+  },
+
   handleChange(e) {
     this.setState({
-      pendingValue: this.props.singleLine ? e.target.value.replace(/\r?\n/g, ' ') : e.target.value,
+      pendingValue: e.target.value,
     });
   },
 
   handleConfirmCancel() {
     this.setState({
       showAlert: false,
-    }, () => this.refs.input.getDOMNode().focus());
+    }, () => {
+      if (typeof this.refs.input !== 'undefined') {
+        this.refs.input.getDOMNode().focus();
+      }
+    });
   },
 
   handleConfirmOk() {
     this.setState({
       editing: false,
+      previewing: false,
       showAlert: false,
     }, () => this.props.onCancel());
   },
 
   handleCancel() {
     if (this.unsaved()) {
-      this.refs.input.getDOMNode().blur();
+      if (typeof this.refs.input !== 'undefined') {
+        this.refs.input.getDOMNode().blur();
+      }
       this.setState({
         showAlert: true,
       });
     } else {
       this.setState({
         editing: false,
+        previewing: false,
       }, () => this.props.onCancel());
-    }
-  },
-
-  handleSaveSingleLine() {
-    if (this.props.singleLine) {
-      this.handleSave();
     }
   },
 
@@ -137,6 +149,7 @@ module.exports = React.createClass({
       this.props.onSave(saveValue);
       this.setState({
         editing: false,
+        previewing: false,
         pendingValue: '',
       });
     }
@@ -153,22 +166,32 @@ module.exports = React.createClass({
       (this.state.pendingValue !== ''));
   },
 
-  handleFocus() {
+  handleClick(evt) {
+    evt.preventDefault();
     if (this.isMounted()) {
       if (!this.state.editing) {
         this.setState({
           editing: true,
+          previewing: false,
           pendingValue: this.props.value,
-        }, () => this.refs.input.getDOMNode().focus());
+        }, () => {
+          if (typeof this.refs.input !== 'undefined') {
+            this.refs.input.getDOMNode().focus();
+          }
+        });
       } else {
-        this.refs.input.getDOMNode().focus();
+        if (typeof this.refs.input !== 'undefined') {
+          this.refs.input.getDOMNode().focus();
+        }
       }
     }
   },
 
-  handleClick(evt) {
-    evt.preventDefault();
-    this.handleFocus();
+  handlePreview() {
+    console.log('handlePreview');
+    this.setState({
+      previewing: !this.state.previewing,
+    });
   },
 
   handleBlur() {
@@ -181,54 +204,49 @@ module.exports = React.createClass({
     }, 0);
   },
 
-  getHotKeys() {
-    const hk = hotKeys.slice();
-
-    if (this.props.singleLine) {
-      hk.push({
-        mask: {key: 'Enter', metaKey: false, altKey: false},
-        cb: 'handleSaveSingleLine',
-      });
-    }
-
-    return hk;
-  },
-
   renderContent(parentClassName) {
     const editClassName = parentClassName.createDescendent('edit');
-
-    editClassName.addModifier({
-      'em': this.props.em,
-    });
+    const markdownClassName = parentClassName.createDescendent('markdown');
 
     editClassName.addState({
       'editing': this.state.editing,
     });
 
+    markdownClassName.addModifier({
+      'defaultStyles': this.props.defaultStyles,
+    });
+
     if (this.props.creating && !this.state.editing) {
       return (
-        <Link ref="link" tabIndex="0" href="#" fill={this.props.fill} onClick={this.handleClick}>
+        <Link tabIndex="0" href="#" fill={this.props.fill} onClick={this.handleClick}>
           {this.props.createText || this.props.placeholder}
         </Link>
       );
-    } else {
-      const Control = this.props.autoSize ? AutoSizeTextArea : (this.props.singleLine ? 'input' : 'textarea');
+    } else if (this.state.previewing || !this.state.editing) {
       const value = this.state.editing ? this.state.pendingValue : this.props.value;
 
       return [
         <label key="label" style={{'display': 'none'}}>{this.props.name}</label>,
-        <Control
+        <div className={markdownClassName} dangerouslySetInnerHTML={{__html: marked(value, {renderer: this.markedRenderer,})}} />,
+      ];
+    } else {
+      const value = this.state.editing ? this.state.pendingValue : this.props.value;
+
+      return [
+        <label key="label" style={{'display': 'none'}}>{this.props.name}</label>,
+        <AutoSizeTextArea
           ref="input"
           key="input"
           maxLength={this.props.maxLength}
-          rows={((this.props.em || this.props.singleLine) ? 1 : this.props.rows)}
-          onKeyDown={this.keyHandler(this.getHotKeys())}
+          rows={this.props.rows}
+          onKeyDown={this.keyHandler(hotKeys)}
           className={editClassName}
           value={value}
-          onFocus={this.handleFocus}
           onChange={this.handleChange}
           name={this.props.name}
+          readOnly={!this.state.editing}
           placeholder={this.props.placeholder}
+          onBlur={this.handleBlur}
         />,
       ];
     }
@@ -247,6 +265,17 @@ module.exports = React.createClass({
 
     return (
       <div className={className.toString() + (this.props.className ? ` ${this.props.className}` : '')} onBlur={this.handleBlur}>
+        { !this.props.creating && !this.state.editing && 
+            <Button
+                style={{'float': 'right'}}
+                title={this.props.editButtonTitle}
+                small={this.props.small}
+                success
+                onClick={this.handleClick}
+              >
+              {this.props.editButtonText}
+            </Button>
+        }
         { this.renderContent(className) }
         { this.state.editing &&
           <div className="CancelableEdit-control">
@@ -266,6 +295,14 @@ module.exports = React.createClass({
                 onClick={this.handleCancel}
               >
               {this.props.cancelButtonText}
+            </Button>
+            <Button
+                title={this.props.previewButtonTitle}
+                small={this.props.small}
+                skeleton
+                onClick={this.handlePreview}
+              >
+              {this.props.previewButtonText}
             </Button>
             { this.state.showAlert &&
               <Alert
