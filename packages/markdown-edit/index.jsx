@@ -52,6 +52,7 @@ module.exports = React.createClass({
     warnMessage: React.PropTypes.string,
     placeholder: React.PropTypes.string,
     createText: React.PropTypes.string,
+    defaultStyles: React.PropTypes.bool,
     small: React.PropTypes.bool,
     inline: React.PropTypes.bool,
     allowEmpty: React.PropTypes.bool,
@@ -84,6 +85,7 @@ module.exports = React.createClass({
       previewButtonText: 'Preview',
       previewButtonTitle: 'Preview',
       warnMessage: 'Are you sure you want to discard your changes?',
+      defaultStyles: true,
       small: false,
       inline: false,
       allowEmpty: false,
@@ -208,6 +210,10 @@ module.exports = React.createClass({
 
     editClassName.addState({
       'editing': this.state.editing,
+    });
+
+    markdownClassName.addModifier({
+      'defaultStyles': this.props.defaultStyles,
     });
 
     if (this.props.creating && !this.state.editing) {
