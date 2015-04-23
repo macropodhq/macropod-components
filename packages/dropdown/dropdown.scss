@@ -1,12 +1,21 @@
-@import "rw-shared";
+@import "inputs";
 
 .rw-dropdownlist {
   position: relative;
   cursor: pointer;
   overflow: hidden;
+  line-height: auto;
 
   &.rw-open {
     overflow: visible;
+  }
+
+  &:hover {
+
+    .rw-dropdownlist-picker {
+      background-color: $input-state-hover;
+    }
+
   }
 
   .rw-dropdownlist-picker {
@@ -14,7 +23,7 @@
     right: 0;
     top: 0;
     width: 34px;
-    border-left: 1px solid $input-border-color;
+    border-left: 1px solid $input-border-color !important;
     
     &:hover {
       background-color: $input-state-hover;

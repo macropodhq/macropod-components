@@ -1,5 +1,4 @@
 @import "inputs";
-@import "rw-shared";
 @import "placeholders";
 
 .rw-multiselect {
@@ -14,8 +13,8 @@
     -moz-background-clip: border-box;
     -webkit-background-clip: border-box;
     background-clip: border-box;
-    background-color: $input-bg;
-    border: $input-border $input-border-width solid;
+    background-color: $input-background-color;
+    border: $input-border-color $input-border-width solid;
     border-radius: $input-border-radius;
 
     .rw-input {
@@ -36,7 +35,7 @@
     }
 
     > .rw-select {
-      border-left: $input-border 1px solid;
+      border-left: $input-border-color 1px solid;
     }
 
     &.rw-state-focus,
@@ -55,8 +54,8 @@
       &:hover,
       &:active {
         box-shadow: none;
-        background-color: $input-bg-disabled;
-        border-color: $input-border;
+        background-color: $input-background-color;
+        border-color: $input-border-color;
       }
     }
 
@@ -70,7 +69,7 @@
       }
 
       > .rw-select {
-        border-right: $input-border 1px solid;
+        border-right: $input-border-color 1px solid;
         border-left: none;
       }
     }
