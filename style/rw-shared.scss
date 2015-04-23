@@ -102,7 +102,7 @@ $popup-zindex:              1005;
 
 @mixin state-hover {
   background-color: $state-bg-hover;
-  border-color: $state-bg-hover;
+  border-color: $input-border-color;
   color:            $state-color-hover;
 }
 
@@ -154,6 +154,8 @@ $popup-zindex:              1005;
   height:         $input-height;
   line-height:    $input-line-height;
   padding:        $input-padding;
+  border:         0 !important;
+  margin:         0 !important;
 
   &[disabled] {
     @include state-disabled;
@@ -416,7 +418,7 @@ $focus-rgba: rgba(red($input-border-focus), green($input-border-focus), blue($in
 .rw-numberpicker,
 .rw-dropdownlist {
   &:hover {
-    border-color: $state-border-hover;
+    border-color: $input-border-color;
   }
 }
 
