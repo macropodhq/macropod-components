@@ -9,12 +9,8 @@ $color-cancelable-edit-focus-border: $color-gull-gray !default;
 $color-cancelable-edit-background: darken($color-white, 1) !default;
 $color-cancelable-edit-hover-background: #ffe !default;
 
-input.CancelableEdit-edit.is-editing {
-  margin-bottom: 6px; // to match textareas
-}
-
-.CancelableEdit-edit {
-  line-height: 1.3em;
+@mixin CancelableEdit-edit() {
+  line-height: 1.3;
   color: $color-cancelable-edit;
   font-weight: $cancelable-edit-font-weight;
   background-color: transparent;
@@ -24,6 +20,14 @@ input.CancelableEdit-edit.is-editing {
   width: 100%;
   border-radius: 3px;
   padding: 5px 10px;
+}
+
+input.CancelableEdit-edit.is-editing {
+  margin-bottom: 6px; // to match textareas
+}
+
+.CancelableEdit-edit {
+  @include CancelableEdit-edit();
   cursor: text;
 
   &:focus {

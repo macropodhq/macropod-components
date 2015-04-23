@@ -247,7 +247,7 @@ module.exports = React.createClass({
   },
 
   render() {
-    const className = new SuitClassSet('MarkdownEdit');
+    const className = new SuitClassSet('CancelableEdit');
 
     className.addState({
       'active': this.state.editing,
