@@ -1,5 +1,5 @@
 const React = require('react/addons');
-const AutoSizeTextArea = require('react-textarea-autosize');
+const InputTextarea = require('../form/input-textarea');
 const _ = require('lodash-node');
 const marked = require('marked');
 
@@ -115,7 +115,7 @@ module.exports = React.createClass({
       showAlert: false,
     }, () => {
       if (typeof this.refs.input !== 'undefined') {
-        this.refs.input.getDOMNode().focus();
+        this.refs.input.focusInput();
       }
     });
   },
@@ -131,7 +131,7 @@ module.exports = React.createClass({
   handleCancel() {
     if (this.unsaved()) {
       if (typeof this.refs.input !== 'undefined') {
-        this.refs.input.getDOMNode().blur();
+        
       }
       this.setState({
         showAlert: true,
@@ -178,12 +178,12 @@ module.exports = React.createClass({
           pendingValue: this.props.value,
         }, () => {
           if (typeof this.refs.input !== 'undefined') {
-            this.refs.input.getDOMNode().focus();
+            this.refs.input.focusInput();
           }
         });
       } else {
         if (typeof this.refs.input !== 'undefined') {
-          this.refs.input.getDOMNode().focus();
+          this.refs.input.focusInput();
         }
       }
     }
@@ -248,7 +248,7 @@ module.exports = React.createClass({
 
       return [
         <label key="label" style={{'display': 'none'}}>{this.props.name}</label>,
-        <AutoSizeTextArea
+        <InputTextarea
           ref="input"
           key="input"
           maxLength={this.props.maxLength}
@@ -261,7 +261,7 @@ module.exports = React.createClass({
           readOnly={!this.state.editing}
           placeholder={this.props.placeholder}
           onBlur={this.handleBlur}
-        />,
+          autoSize />,
       ];
     }
   },

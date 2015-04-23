@@ -1,17 +1,6 @@
-@import "../cancelable-edit/style";
+@import 'inputs';
 
 .CancelableEdit-markdown {
-  @include CancelableEdit-edit();
-  padding: 6px 10px;
-  cursor: default;
-
-  & > *:first-child {
-    margin-top: 0;
-  }
-
-  & > *:last-child {
-    margin-bottom: 0;
-  }
 
   &.is-placeholder {
     opacity: 0.5;

@@ -1,44 +1,5 @@
 @import 'inputs';
 
-
-@mixin CancelableEdit-edit() {
-  line-height: 1.3;
-  color: $color-cancelable-edit;
-  font-weight: $cancelable-edit-font-weight;
-  background-color: transparent;
-  border: 1px solid transparent;
-  outline: 0;
-  resize: none;
-  width: 100%;
-  border-radius: 3px;
-}
-
-input.CancelableEdit-edit.is-editing {
-  margin-bottom: 6px; // to match textareas
-}
-
-.CancelableEdit-edit {
-  @include CancelableEdit-edit();
-  padding: 5px 10px;
-  cursor: text;
-
-  &:focus {
-    border: 1px solid $color-cancelable-edit-focus-border;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0 ,.075), 0 0 8px #66afe9;
-  }
-
-  &.is-editing {
-    background-color: $color-cancelable-edit-background;
-  }
-
-  &:not(.is-editing):hover {
-    background-color: $color-cancelable-edit-hover-background;
-    border: 1px solid $color-cancelable-edit-hover-border;
-    cursor: pointer;
-
-  }
-}
-
 .CancelableEdit {
   
   &:not(.is-active) {
@@ -48,7 +9,7 @@ input.CancelableEdit-edit.is-editing {
       border-color: transparent;
       
       &:hover {
-        background: rgba($input-border-color, .05);
+        background: $input-state-hover;
       }
 
     }
