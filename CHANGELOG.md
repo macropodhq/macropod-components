@@ -1,5 +1,15 @@
 # Macropod Components Changelog
 
+## [v0.0.9](https://github.com/macropodhq/react-playground/releases/tag/0.0.9)
+
+### Features
+
+* [#263](https://github.com/macropodhq/macropod-components/pull/263): Add `MarkdownEdit` component.
+
+### Improvements
+
+* [#262](https://github.com/macropodhq/macropod-components/pull/262): Update `macropod-tools` to v0.0.13.
+
 ## [v0.0.8](https://github.com/macropodhq/react-playground/releases/tag/0.0.8)
 
 ### Features
