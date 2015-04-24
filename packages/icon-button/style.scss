@@ -1,0 +1,34 @@
+@import "colors";
+
+$icon-button-size: 1.65em;
+
+$color-icon-button: #eee !default;
+$color-icon-button-background: #bbb !default;
+
+$color-icon-button-hover: white !default;
+$color-icon-button-background-hover: $color-fountain-blue !default;
+
+.IconButton {
+  display: inline-block;
+  color: $color-icon-button;
+  background-color: $color-icon-button-background;
+  border-radius: ($icon-button-size / 2);
+  height: $icon-button-size;
+  width: $icon-button-size;
+  padding: 0;
+  line-height: 0;
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+  outline: none;
+
+  &:focus {
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1),0 0 6px rgba(0,0,0,.3);
+  }
+
+  &:focus,
+  &:hover {
+    color: $color-icon-button-hover;
+    background-color: $color-icon-button-background-hover;
+  }
+}

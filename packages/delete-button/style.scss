@@ -1,29 +1,12 @@
-$color-button-delete: #eee !default;
-$color-button-delete-background: #bbb !default;
+@import "../icon-button/style";
 
 $color-button-delete-hover: white !default;
 $color-button-delete-background-hover: #d46060 !default;
 
+.IconButton.DeleteButton {
+  letter-spacing: -.5px;
 
-.DeleteButton {
-  display: inline-block;
-  color: $color-button-delete;
-  background-color: $color-button-delete-background;
-  border-radius: 100%;
-  height: 18px;
-  width: 18px;
-  padding: 0;
-  line-height: 18px;
-  text-align: center;
-  vertical-align: middle;
-  border: none;
-  outline: none;
-  letter-spacing: -0.5px;
-
-  &:focus {
-    box-shadow: 0 0 0 1px rgba(0,0,0,.1),0 0 6px rgba(0,0,0,.3);
-  }
-
+  &:focus,
   &:hover {
     color: $color-button-delete-hover;
     background-color: $color-button-delete-background-hover;
