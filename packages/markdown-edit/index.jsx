@@ -85,6 +85,7 @@ module.exports = React.createClass({
       previewButtonText: 'Preview',
       previewButtonTitle: 'Preview',
       warnMessage: 'Are you sure you want to discard your changes?',
+      placeholder: '',
       defaultStyles: true,
       small: false,
       inline: false,
@@ -212,6 +213,10 @@ module.exports = React.createClass({
       'editing': this.state.editing,
     });
 
+    markdownClassName.addState({
+      'placeholder': !this.state.editing && (typeof this.props.value !== 'string' || this.props.value.length < 1),
+    });
+
     markdownClassName.addModifier({
       'defaultStyles': this.props.defaultStyles,
     });
@@ -223,7 +228,11 @@ module.exports = React.createClass({
         </Link>
       );
     } else if (this.state.previewing || !this.state.editing) {
-      const value = this.state.editing ? this.state.pendingValue : this.props.value;
+      const value = this.state.editing
+        ? this.state.pendingValue
+        : (typeof this.props.value === 'string' && this.props.value.length > 0
+            ? this.props.value
+            : this.props.placeholder);
 
       return [
         <label key="label" style={{'display': 'none'}}>{this.props.name}</label>,
