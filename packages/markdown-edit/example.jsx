@@ -8,7 +8,7 @@ module.exports = React.createClass({
 
   getInitialState() {
     return {
-      name: `Markdown Sample
+      markdown: `Markdown Sample
 ================
 
 ## Paragraphs, Headers, Blockquotes
@@ -100,9 +100,9 @@ you've got to put paragraph tags in your blockquotes:
     };
   },
 
-  handleNameSave(name) {
+  handleNameSave(markdown) {
     this.setState({
-      name: name,
+      markdown: markdown,
     });
   },
 
@@ -111,17 +111,17 @@ you've got to put paragraph tags in your blockquotes:
       <div>
         <h3>Automatic Sizing</h3>
         <CancelableEdit
-          value={this.state.name}
+          value={this.state.markdown}
           onSave={this.handleNameSave}
           autoSize
-          placeholder="Name"
+          placeholder="Markdown"
         />
         <pre>
 {`<CancelableEdit
-  value={this.state.name}
+  value={this.state.markdown}
   onSave={this.handleNameSave}
   autoSize
-  placeholder="Name"
+  placeholder="Markdown"
 />`}
         </pre>
 

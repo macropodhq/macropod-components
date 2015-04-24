@@ -5,6 +5,7 @@ const marked = require('marked');
 
 const Alert = require('../alert');
 const Button = require('../button');
+const IconButton = require('../icon-button');
 const Link = require('../link');
 const KeyMixin = require('../key-mixin');
 const SuitClassSet = require('../suit-class-set');
@@ -85,6 +86,7 @@ module.exports = React.createClass({
       previewButtonText: 'Preview',
       previewButtonTitle: 'Preview',
       warnMessage: 'Are you sure you want to discard your changes?',
+      placeholder: '',
       defaultStyles: true,
       small: false,
       inline: false,
@@ -196,7 +198,11 @@ module.exports = React.createClass({
 
   handleBlur() {
     setTimeout(() => {
-      if (!isChildOf(document.activeElement, this.getDOMNode()) && ((this.state.pendingValue.length < 1) || !this.unsaved())) {
+      if (
+        !this.state.showAlert &&
+        !isChildOf(document.activeElement, this.getDOMNode()) &&
+        ((this.state.pendingValue.length < 1) || !this.unsaved())
+      ) {
         this.setState({
           editing: false,
         }, () => this.props.onCancel());
@@ -212,6 +218,10 @@ module.exports = React.createClass({
       'editing': this.state.editing,
     });
 
+    markdownClassName.addState({
+      'placeholder': !this.state.editing && (typeof this.props.value !== 'string' || this.props.value.length < 1),
+    });
+
     markdownClassName.addModifier({
       'defaultStyles': this.props.defaultStyles,
     });
@@ -223,7 +233,11 @@ module.exports = React.createClass({
         </Link>
       );
     } else if (this.state.previewing || !this.state.editing) {
-      const value = this.state.editing ? this.state.pendingValue : this.props.value;
+      const value = this.state.editing
+        ? this.state.pendingValue
+        : (typeof this.props.value === 'string' && this.props.value.length > 0
+            ? this.props.value
+            : this.props.placeholder);
 
       return [
         <label key="label" style={{'display': 'none'}}>{this.props.name}</label>,
@@ -266,15 +280,11 @@ module.exports = React.createClass({
     return (
       <div className={className.toString() + (this.props.className ? ` ${this.props.className}` : '')} onBlur={this.handleBlur}>
         { !this.props.creating && !this.state.editing && 
-            <Button
+            <IconButton
                 style={{'float': 'right'}}
+                type="pencil"
                 title={this.props.editButtonTitle}
-                small={this.props.small}
-                success
-                onClick={this.handleClick}
-              >
-              {this.props.editButtonText}
-            </Button>
+                onClick={this.handleClick} />
         }
         { this.renderContent(className) }
         { this.state.editing &&

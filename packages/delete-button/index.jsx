@@ -9,7 +9,7 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <button {...this.props} className={this.constructor.displayName + (this.props.className ? ` ${this.props.className}` : '')}>
+      <button {...this.props} className={'IconButton ' + this.constructor.displayName + (this.props.className ? ` ${this.props.className}` : '')}>
         ×
       </button>
     );
