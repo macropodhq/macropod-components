@@ -1,5 +1,15 @@
 # Macropod Components Changelog
 
+## [v0.0.10](https://github.com/macropodhq/react-playground/releases/tag/0.0.10)
+
+### Features
+
+* [#265](https://github.com/macropodhq/macropod-components/pull/265): Add `IconButton` component.
+
+### Improvements
+
+* [#265](https://github.com/macropodhq/macropod-components/pull/265): Tweaks and enhancements to the `MarkdownEdit` component.
+
 ## [v0.0.9](https://github.com/macropodhq/react-playground/releases/tag/0.0.9)
 
 ### Features
