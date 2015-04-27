@@ -30,8 +30,6 @@ $input-state-focus: rgba($input-base-color, .50);
   border-radius: $input-border-radius;
   outline: none;
   box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   transition: all .1s;
   &::placeholder {
     color: $input-placeholder-color;
