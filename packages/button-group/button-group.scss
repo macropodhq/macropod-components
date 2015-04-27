@@ -1,7 +1,7 @@
 $color-border: rgba(0,0,0,0.2);
 
 .ButtonGroup {
-  > * {
+  > .Button {
     border-radius: 0;
     border: {
       top: 2px solid $color-border;
