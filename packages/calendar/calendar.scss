@@ -90,7 +90,7 @@ $color-calendar-hover-date: $color-gallery;
       padding: 8px 9px;
       margin: 1px;
 
-      &:hover {
+      &:hover, &.rw-state-focus {
         background-color:   $state-bg-hover;
       }
       &.rw-off-range {
