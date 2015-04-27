@@ -189,8 +189,8 @@ module.exports = React.createClass({
     }
   },
 
-  handlePreview() {
-    console.log('handlePreview');
+  handlePreview(evt) {
+    evt.preventDefault();
     this.setState({
       previewing: !this.state.previewing,
     });
@@ -279,7 +279,7 @@ module.exports = React.createClass({
 
     return (
       <div className={className.toString() + (this.props.className ? ` ${this.props.className}` : '')} onBlur={this.handleBlur}>
-        { !this.props.creating && !this.state.editing && 
+        { !this.props.creating && !this.state.editing &&
             <IconButton
                 style={{'float': 'right'}}
                 type="pencil"
