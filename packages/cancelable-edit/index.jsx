@@ -209,15 +209,12 @@ module.exports = React.createClass({
     });
 
     if (this.props.creating && !this.state.editing) {
-
       return (
         <Link ref="link" tabIndex="0" href="#" fill={this.props.fill} onClick={this.handleClick}>
           {this.props.createText || this.props.placeholder}
         </Link>
       );
-
     } else {
-
       const InputField = this.props.autoSize ? InputTextarea : (this.props.singleLine ? InputText : InputTextarea);
       const value = this.state.editing ? this.state.pendingValue : this.props.value;
 
