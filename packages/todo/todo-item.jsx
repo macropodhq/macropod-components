@@ -1,10 +1,8 @@
 'use strict';
 
 const React = require('react');
-const _ = require('lodash-node');
 
 const Alert = require('../alert');
-const Button = require('../button');
 const CancelableEdit = require('../cancelable-edit');
 const Inlay = require('../inlay');
 const DeleteButton = require('../delete-button');
@@ -70,24 +68,22 @@ module.exports = React.createClass({
           className="TodoItem-complete"
           checked={this.props.completed}
           onChange={this.props.onCompletionChange.bind(null, !this.props.completed)}
-          type="checkbox"
-        />
+          type="checkbox" />
+
         <CancelableEdit
           className={className.toString()}
           singleLine
           autoSize
-          small
-          inline
           saveButtonText="Save Todo"
           saveButtonTitle="Save Todo"
           saveButtonTitleInvalid="Todo items can not be empty"
           value={this.props.name}
-          onSave={this.props.onNameChange}
-        />
+          onSave={this.props.onNameChange} />
+
         <DeleteButton
           className="TodoItem-delete"
-          onClick={this.handleAskDelete}
-        />
+          onClick={this.handleAskDelete} />
+          
         { this.state.showAlert &&
           <Alert
               cancelable

@@ -3,6 +3,7 @@
 const React = require('react/addons');
 
 const Alert = require('../alert');
+const InputText = require('../form/input-text');
 
 require('./prompt.scss');
 
@@ -31,7 +32,8 @@ module.exports = React.createClass({
   },
 
   componentDidMount() {
-    this.refs.promptInput.getDOMNode().focus();
+    this.refs.promptInput.focusInput();
+    this.refs.promptInput.selectInputValue();
     this.setState({
       valid: this.props.validateInput(this.props.defaultValue),
     });
@@ -85,8 +87,15 @@ module.exports = React.createClass({
         cancelText={this.props.cancelText}
         okText={this.props.okText}
         okDisabled={!this.state.valid}>
-        <p>{this.props.content}</p>
-        <input type="text" ref="promptInput" onChange={this.handleValueChange} onKeyUp={this.handleKeyUp} defaultValue={this.props.defaultValue} placeholder={this.props.placeholder} />
+
+        <InputText
+          label={this.props.content}
+          onChange={this.handleValueChange}
+          onKeyUp={this.handleKeyUp}
+          defaultValue={this.props.defaultValue}
+          placeholder={this.props.placeholder}
+          ref="promptInput"
+        />
       </Alert>
     );
   },

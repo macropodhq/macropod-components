@@ -1,15 +1,3 @@
-'use strict';
+console.warn('Tag input now resides in /form/input-tag and this component will deprecated in future versions.')
 
-const React = require('react/addons');
-
-const Widgets = require('react-widgets');
-
-require('./tag-input.scss');
-
-module.exports = React.createClass({
-  displayName: 'TagInput',
-
-  render() {
-    return (<Widgets.Multiselect {...this.props} />);
-  }
-});
+module.exports = require('../form/input-tag');

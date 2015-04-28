@@ -1,7 +1,10 @@
+@import 'inputs';
+
 .Input.Input--Textarea {
+  @include text-input-style;
   height: auto;
   outline: 0;
   font-weight: 400;
   vertical-align: top;
-  resize: vertical;
+  resize: none;
 }

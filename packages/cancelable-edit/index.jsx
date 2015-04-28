@@ -1,6 +1,7 @@
 const React = require('react/addons');
-const AutoSizeTextArea = require('react-textarea-autosize');
-const _ = require('lodash-node');
+
+const InputText = require('../form/input-text');
+const InputTextarea = require('../form/input-textarea');
 
 const Alert = require('../alert');
 const Button = require('../button');
@@ -61,6 +62,7 @@ module.exports = React.createClass({
     rows: React.PropTypes.number,
     onSave: React.PropTypes.func.isRequired,
     onCancel: React.PropTypes.func,
+    showLabel: React.PropTypes.bool,
   },
 
   getInitialState() {
@@ -89,6 +91,7 @@ module.exports = React.createClass({
       rows: 3,
       onSave: noop,
       onCancel: noop,
+      showLabel: false,
     };
   },
 
@@ -159,9 +162,9 @@ module.exports = React.createClass({
         this.setState({
           editing: true,
           pendingValue: this.props.value,
-        }, () => this.refs.input.getDOMNode().focus());
+        }, () => this.refs.input.focusInput());
       } else {
-        this.refs.input.getDOMNode().focus();
+        this.refs.input.focusInput();
       }
     }
   },
@@ -212,25 +215,27 @@ module.exports = React.createClass({
         </Link>
       );
     } else {
-      const Control = this.props.autoSize ? AutoSizeTextArea : (this.props.singleLine ? 'input' : 'textarea');
+      const InputField = this.props.autoSize ? InputTextarea : (this.props.singleLine ? InputText : InputTextarea);
       const value = this.state.editing ? this.state.pendingValue : this.props.value;
 
-      return [
-        <label key="label" style={{'display': 'none'}}>{this.props.name}</label>,
-        <Control
+      return (
+        <InputField
           ref="input"
           key="input"
           maxLength={this.props.maxLength}
           rows={((this.props.em || this.props.singleLine) ? 1 : this.props.rows)}
+          spellCheck={false}
           onKeyDown={this.keyHandler(this.getHotKeys())}
-          className={editClassName}
           value={value}
           onFocus={this.handleFocus}
+          autoSize={this.props.autoSize}
+          onClick={this.handleClick}
           onChange={this.handleChange}
           name={this.props.name}
+          readOnly={!this.state.editing}
           placeholder={this.props.placeholder}
-        />,
-      ];
+          showLabel={this.props.showLabel} />
+      );
     }
   },
 

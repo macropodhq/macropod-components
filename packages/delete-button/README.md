@@ -1,6 +1,6 @@
 # DeleteButton
 
-A red, circled cross rendering wrapper around `React.DOM.button`.
+A red, circled cross rendered using the `close-filled` icon in SVG format.
 
 ## Usage
 
@@ -11,7 +11,3 @@ A red, circled cross rendering wrapper around `React.DOM.button`.
 ## Properties
 
 No custom properties apply.
-
-### More
-
-Other properties are passed to the `button` element, information on supported attributes can be found [in the React docs](http://facebook.github.io/react/docs/tags-and-attributes.html#supported-attributes)

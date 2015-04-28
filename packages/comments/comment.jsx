@@ -1,11 +1,12 @@
 'use strict';
 const React = require('react/addons');
 const _ = require('lodash-node');
-const Textarea = require('react-textarea-autosize');
+const InputTextarea = require('../form/input-textarea');
 const SuitClassSet = require('../suit-class-set');
 
 const DropdownMenu = require('../dropdown-menu');
 const Avatar = require('../avatar');
+const Icon = require('../icon');
 const Button = require('../button');
 const CommentReply = require('./comment-reply');
 const DateFormatter = require('../datetime-format');
@@ -196,7 +197,9 @@ module.exports = React.createClass({
     if (this.props.starable || this.props.comment.deletable || this.props.comment.editable) {
       dropdownContent = (
         <div>
-          <a href="#" className="Comment-dropdownToggle" ref="menuAnchor" onClick={this.handleMenuToggle}>&hellip;</a>
+          <a href="#" className="Comment-dropdownToggle" ref="menuAnchor" onClick={this.handleMenuToggle}>
+            <Icon type="settings" font={false} />
+          </a>
 
           <DropdownMenu className="DropdownMenu" anchor={this.refs.menuAnchor} visible={this.state.showMenu} close={this.handleMenuToggle}>
             <dl>
@@ -259,8 +262,10 @@ module.exports = React.createClass({
         <div className="Comment-text">
           {this.state.editing &&
             <form onSubmit={this.handleEdit}>
-              <Textarea
+              <InputTextarea
                 rows="1"
+                autoSize
+                showLabel={false}
                 ref="editInput"
                 value={this.state.editValue}
                 className="Comment-editInput"
@@ -293,8 +298,10 @@ module.exports = React.createClass({
           {this.props.comment.isDiscussion !== false && this.props.comment.repliable !== false &&
             <div className="Comment-replies-new">
               <form onSubmit={this.handleNewReply}>
-                <Textarea
+                <InputTextarea
                   rows="1"
+                  autoSize
+                  showLabel={false}
                   value={this.state.replyValue}
                   className="Comment-replies-new-input"
                   placeholder="add a reply"

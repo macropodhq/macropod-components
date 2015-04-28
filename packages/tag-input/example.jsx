@@ -1,7 +1,6 @@
 'use strict';
 
 const React = require('react');
-const _ = require('lodash-node');
 const TagInput = require('./');
 
 module.exports = React.createClass({
@@ -60,12 +59,12 @@ module.exports = React.createClass({
         name: value
       };
 
-      var options = this.state.options.slice(0);
+      const options = this.state.options.slice(0);
       options.push(newValue);
 
       this.setState({options: options});
 
-      var value = this.state.value.slice(0);
+      value = this.state.value.slice(0);
       value.push(newValue);
 
       this.handleChange(value);

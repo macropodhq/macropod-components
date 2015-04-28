@@ -4,7 +4,7 @@ const React = require('react');
 const _ = require('lodash-node');
 const Comments = require('./');
 const Button = require('../button');
-const Textarea = require('react-textarea-autosize');
+const InputTextarea = require('../form/input-textarea');
 
 
 const authors = [
@@ -153,7 +153,7 @@ module.exports = React.createClass({
     }
 
     const keyCode = e.keyCode || e.which;
-    
+
     if (keyCode === 13 && !e.ctrlKey && !e.shiftKey){
       callback();
       return false;
@@ -225,8 +225,9 @@ module.exports = React.createClass({
         <br />
 
         <form onSubmit={this.handleNewDiscussion}>
-          <Textarea
+          <InputTextarea
             rows="1"
+            autoSize
             ref="newDiscussionInput"
             onKeyDown={this.handleKeyDown.bind(null, this.handleNewDiscussion)}
             placeholder="add new discussion"

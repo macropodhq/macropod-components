@@ -1,7 +1,6 @@
 'use strict';
 const React = require('react/addons');
 const _ = require('lodash-node');
-/*global Comment:false*/
 const Comment = require('./comment');
 
 module.exports = React.createClass({

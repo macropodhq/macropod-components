@@ -2,7 +2,10 @@
 
 const React = require('react');
 
+const InputText = require('../form/input-text');
+const InputTextarea = require('../form/input-textarea');
 const Button = require('../button');
+
 const Guider = require('./');
 
 module.exports = React.createClass({
@@ -47,7 +50,7 @@ module.exports = React.createClass({
 
   handleContentChange(e) {
     this.setState({
-      guiderConent: e.target.value,
+      guiderContent: e.target.value,
     });
   },
 
@@ -67,10 +70,17 @@ module.exports = React.createClass({
 
         <div>Was the guider "completed"? <strong>{this.state.guiderSuccess}</strong></div>
         <br />
-        <input type="text" onChange={this.handleTitleChange} value={this.state.guiderTitle} />
-        <br />
-        <textarea onChange={this.handleContentChange} value={this.state.guiderContent} />
-        <br />
+
+        <InputText
+          onChange={this.handleTitleChange}
+          value={this.state.guiderTitle}
+          showLabel={false} />
+
+        <InputTextarea
+          onChange={this.handleContentChange}
+          value={this.state.guiderContent}
+          showLabel={false} />
+
         <Button onClick={this.handleClick}>Guide me!</Button>
       </div>
     );

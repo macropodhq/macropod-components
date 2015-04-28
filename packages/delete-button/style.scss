@@ -3,12 +3,18 @@
 $color-button-delete-hover: white !default;
 $color-button-delete-background-hover: #d46060 !default;
 
-.IconButton.DeleteButton {
-  letter-spacing: -.5px;
 
-  &:focus,
-  &:hover {
-    color: $color-button-delete-hover;
-    background-color: $color-button-delete-background-hover;
+.DeleteButton {
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  user-select: none;
+  path {
+    fill: $color-icon-button-background;
+  }
+
+  &:focus, &:hover {
+    path {
+      fill: $color-button-delete-background-hover;
+    }
   }
 }

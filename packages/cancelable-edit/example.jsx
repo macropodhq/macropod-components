@@ -27,6 +27,7 @@ module.exports = React.createClass({
           onSave={this.handleNameSave}
           autoSize
           placeholder="Name"
+          label="thingo"
         />
         <pre>
 {`<CancelableEdit

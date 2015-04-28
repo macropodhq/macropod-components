@@ -1,0 +1,46 @@
+@import "colors";
+
+$input-base-color: #363f4b;
+$input-background-color: #fff;
+$input-border-color: rgba($input-base-color, .25);
+$input-border-radius: 3px;
+$input-border-width: 1px;
+
+$input-text-color: inherit;
+$input-placeholder-color: inherit;
+
+$input-height: 38px;
+$input-padding: 8px 10px;
+$input-line-height: 1.3;
+
+$input-state-hover: rgba($input-base-color, .10);
+$input-state-focus: rgba($input-base-color, .50);
+
+@mixin text-input-style {
+  display: block;
+  width: 100%;
+  height: $input-height;
+  min-height: $input-height;
+  padding: $input-padding;
+  line-height: $input-line-height;
+  color: $input-text-color;
+  background-color: $input-background-color;
+  background-image: none;
+  border: $input-border-width solid $input-border-color;
+  border-radius: $input-border-radius;
+  outline: none;
+  box-sizing: border-box;
+  transition: all .1s;
+  &::placeholder {
+    color: $input-placeholder-color;
+    opacity: .3;
+  }
+  &:focus {
+    border-color: $input-state-focus;
+
+    &::placeholder {
+      color: inherit;
+      opacity: .15;
+    }
+  }
+}
