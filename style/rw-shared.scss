@@ -195,10 +195,6 @@ $popup-zindex:              1005;
   }
 }
 
-.rw-now {
-  border: $input-border-width solid $input-state-hover;
-}
-
 .rw-state-focus {
   @include state-focus;
 }
