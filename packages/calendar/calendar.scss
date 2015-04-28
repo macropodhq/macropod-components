@@ -1,15 +1,16 @@
 @import "colors";
 @import "rw-shared";
 
-$color-calendar: $color-scorpion;
-$color-calendar-selected-date: $color-gull-gray;
-$color-calendar-hover-date: $color-gallery;
-
 .rw-calendar {
   background-color: $widget-bg;
   width: 100%;
   font-size: 12px;
-  border: 0;
+  padding: 10px 0;
+  border: $input-border-width solid transparent;
+
+  &.rw-state-focus {
+    border-color: $input-state-hover;
+  }
   
   .rw-header {
     padding-bottom: 5px;
@@ -90,16 +91,29 @@ $color-calendar-hover-date: $color-gallery;
       padding: 8px 9px;
       margin: 1px;
 
+      &.rw-now {
+        border: 2px solid $state-bg-hover;
+      }
+
       &:hover, &.rw-state-focus {
         background-color:   $state-bg-hover;
+        border-color: transparent;
+
       }
       &.rw-off-range {
         color: lighten($btn-color, 50%)
       }
 
       &.rw-state-selected {
-        background-color:   $state-bg-select;
+        background-color:   rgba($state-bg-select, .4);
         color: $state-color-select;
+        border-color: transparent;
+
+        &:hover, &.rw-state-focus {
+          background-color:   $state-bg-select;
+          color: $state-color-select;
+          border-color: transparent;
+        }
       }
 
     }
