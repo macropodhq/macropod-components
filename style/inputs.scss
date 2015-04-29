@@ -1,7 +1,7 @@
 @import "colors";
 
-$input-base-color: #363f4b;
-$input-background-color: #fff;
+$input-base-color: #243b5d;
+$input-background-color: #fdfdff;
 $input-border-color: rgba($input-base-color, .25);
 $input-border-radius: 3px;
 $input-border-width: 1px;
@@ -33,7 +33,7 @@ $input-state-focus: rgba($input-base-color, .50);
   transition: all .1s;
   &::placeholder {
     color: $input-placeholder-color;
-    opacity: .3;
+    opacity: .4;
   }
   &:focus {
     border-color: $input-state-focus;

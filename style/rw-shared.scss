@@ -1,10 +1,6 @@
 @import "inputs";
 
 // Variables
-
-
-
-
 $btn-bg:                    #fff;
 $btn-color:                 #333;
 $btn-border:                #ccc;
@@ -17,16 +13,16 @@ $state-bg-hover:            $input-state-hover;
 $state-border-hover:        $input-state-hover;
 $state-color-hover:         #333;
 
-$widget-bg:                 #fff;
-$widget-border:             #ccc;
+$widget-bg:                 $input-background-color;
+$widget-border:             $input-border-color;
 
-$state-bg-focus:            #fff;
-$state-border-focus:        $input-state-focus;
+$state-bg-focus:            $input-state-hover;
+$state-border-focus:        $input-state-hover;
 $state-color-focus:         #333;
 
-$input-color:               $input-state-hover;
-$input-bg:                  #fff;
-$input-bg-disabled:         $input-state-hover;
+$input-color:               $input-text-color;
+$input-bg:                  $input-background-color;
+$input-bg-disabled:         $input-text-color;
 
 $input-bg-gradient:         none;
 $input-color-placeholder:   inherit;
@@ -37,7 +33,7 @@ $input-border:              $input-border-color;
 $input-bg-hover:            $input-state-hover;
 $input-border-hover:        $input-state-hover;
 
-$input-border-focus:        $state-border-focus; 
+$input-border-focus:        $input-state-focus; 
 
 $dropdown-bg:               $input-bg;
 $dropdown-border:           $input-border;
@@ -48,6 +44,7 @@ $list-border-hover:         $state-border-hover;
 $popup-bg:                  $widget-bg;
 $popup-border:              $widget-border;
 $popup-zindex:              1005;
+
 
 // Mixins
 @mixin list-unstyled {
@@ -96,13 +93,13 @@ $popup-zindex:              1005;
 
 @mixin state-select {
   background-color: $state-bg-select;
-  border-color: $state-bg-select;
+  border-color:     $state-bg-select;
   color:            $state-color-select;
 }
 
 @mixin state-hover {
   background-color: $state-bg-hover;
-  border-color: $input-border-color;
+  border-color:     $input-border-color;
   color:            $state-color-hover;
 }
 
@@ -129,8 +126,6 @@ $popup-zindex:              1005;
 // Core Styles
 .rw-widget {
   outline: 0;
-  -moz-background-clip: border-box;
-  -webkit-background-clip: border-box;
   background-clip: border-box;
 }
 
@@ -151,6 +146,7 @@ $popup-zindex:              1005;
 }
 
 .rw-input {
+  background:     $input-bg;
   height:         $input-height;
   line-height:    $input-line-height;
   padding:        $input-padding;
@@ -507,7 +503,7 @@ $focus-rgba: rgba(red($input-border-focus), green($input-border-focus), blue($in
   position: absolute;
   @include border-top-radius(0);
   @include border-bottom-radius($input-border-radius);
-  border:           $state-border-focus $input-border-width solid;
+  border:           $state-border-select $input-border-width solid;
   border-top:       0;
   background:       $popup-bg;
   padding:          2px;
@@ -524,11 +520,7 @@ $focus-rgba: rgba(red($input-border-focus), green($input-border-focus), blue($in
     @include border-top-radius($input-border-radius);
     @include border-bottom-radius(0);
   }
-
-  &.rw-calendar {
-    border: $state-border-focus $input-border-width solid;
-    border-top:       0;
-  }
+  
 }
 
 .rw-popup-container {
