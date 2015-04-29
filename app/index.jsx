@@ -8,7 +8,6 @@ const Link = Router.Link;
 const RouteHandler = Router.RouteHandler;
 const SuitClassSet = require('../packages/suit-class-set');
 
-require('open-sans/scss/open-sans.scss');
 require('normalize.css/normalize.css');
 require('./index.scss');
 
