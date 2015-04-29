@@ -39,7 +39,15 @@ If that completes without showing any errors, `npm start` will run the developme
 
 Port 3000 is shared with some other projects and services, so if you get an error about the port being taken, you can prepend `PORT=` and a different port number to the `npm start` command to change it. For example, `PORT=8080 npm start` will launch it on port 8080, meaning the playground would be accessible in your browser at <http://localhost:8080>.
 
-## Contributing Packages
+## Contributing
+
+### Code Style
+
+ESLint rules are configured, and the project can be linted by running `npm run lint` from the project directory. Please try to follow the advice given by ESLint's output as best you can. Ideally, with each new pull request, the number of problems reported by ESLint should either decrease, or remain the same.
+
+An `.editorconfig` file is included with the project to increase consistency of file formatting. Please [install the appropriate plugin](http://editorconfig.org/#download) for your preferred editor.
+
+### New Packages
 
 Creating a new package is easy, simply create a directory within `packages` with the name you want to use for your component, within it, you should create at least two files;
 
