@@ -8,7 +8,6 @@ $arrow-size: 12px;
 
 *[data-tooltip], *[data-tooltip-left] {
   position: relative;
-  cursor: pointer;
 
   &:after {
     content: attr(data-tooltip);

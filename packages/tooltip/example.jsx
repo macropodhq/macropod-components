@@ -8,9 +8,9 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <div>
-        <span data-tooltip="Tooltip!">Hover over me (right tooltip)</span> <br />
-        <span data-tooltip-left="Tooltip!">Hover over me (left tooltip)</span>
+      <div style={{cursor: 'default'}}>
+        <p><span data-tooltip="Tooltip!">Hover over me (right tooltip)</span></p>
+        <p><span data-tooltip-left="Tooltip!">Hover over me (left tooltip)</span></p>
       </div>
     );
   }
