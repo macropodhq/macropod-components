@@ -1,5 +1,17 @@
 # Macropod Components Changelog
 
+## [v0.0.11](https://github.com/macropodhq/react-playground/releases/tag/0.0.11)
+
+### Features
+
+* [#272](https://github.com/macropodhq/macropod-components/pull/272): `button-group` is now `link-group`, and looks a world better  .
+
+### Improvements
+
+* [#273](https://github.com/macropodhq/macropod-components/pull/273): `default` cursor for tooltip.
+* [#270](https://github.com/macropodhq/macropod-components/pull/270): Massive sanitation of form components.
+* [#269](https://github.com/macropodhq/macropod-components/pull/269): :focus and :hover styles for Calendar.
+
 ## [v0.0.10](https://github.com/macropodhq/react-playground/releases/tag/0.0.10)
 
 ### Features
