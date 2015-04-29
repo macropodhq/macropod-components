@@ -1,8 +1,9 @@
-@import "inputs";
 @import "rw-shared";
+@import "placeholders";
 
 .rw-multiselect {
   position: relative;
+  @extend %clearfix;
 
   &.rw-widget {
     @include text-input-style;
