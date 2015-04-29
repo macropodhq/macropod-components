@@ -1,30 +1,37 @@
+@import 'inputs';
+
 .LinkGroup {
   .Link {
-    border: 1px solid rgba(#333, .15);
+    border: $input-border-width solid $input-border-color;
     border-right-width: 0;
-    height: 36px;
-    padding: 8px 10px;
+    height: $input-height;
+    padding: $input-padding;
     display: inline-block;
-    color: #333;
+    color: $input-text-color;
     transition: background .2s;
+    line-height: 1.3;
 
     &:hover {
-      background: #eee;
+      background: $input-state-hover;
     }
     &.active {
-      background: #ccc;
-      border-right-width: 1px;
+      background: $input-state-focus;
+      color: $input-state-focus-text;
+      border-right-width: $input-border-width;
       &+ .Link {
         border-left-width: 0;
+      }
+      &:last-child {
+       border-right-width: $input-border-width;
       }
     }
 
     &:first-child {
-      border-radius: 3px 0 0 3px;
+      border-radius: $input-border-radius 0 0 $input-border-radius;
     }
     &:last-child {
-     border-radius: 0 3px 3px 0; 
-     border-right-width: 1px;
+      border-radius: 0 $input-border-radius $input-border-radius 0;
+      border-right-width: $input-border-width;
     }
   }
 }
