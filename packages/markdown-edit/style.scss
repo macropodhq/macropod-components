@@ -1,12 +1,23 @@
 @import 'inputs';
 
 .CancelableEdit-markdown {
+  padding: $input-padding;
+
+  & > *:first-child {
+    margin-top: 0;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
 
   &.is-placeholder {
     opacity: 0.5;
     user-select: none;
     pointer-events: none;
   }
+
+
 
   &.CancelableEdit-markdown--defaultStyles {
     blockquote {
