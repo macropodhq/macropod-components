@@ -7,11 +7,27 @@
     display: inline-block; // Get pointer events even where text doesn't appear
   }
 
-  .Form-item-label {
+  .Form-item-label, .Form-item-error {
     display: block;
     max-width: 100%;
-    margin-bottom: 5px;
     font-weight: 600;
+    font-size: 90%;
+  }
+  .Form-item-label {
+    margin-bottom: 5px;
+  }
+  .Form-item-error {
+    margin-top: 5px;
+    font-weight: 400;
+  }
+}
+
+.Form-item.Form-item--error {
+  .Input, .rw-widget {
+    border-color: $input-state-error !important;
+  }
+  .Form-item-label, .Form-item-error {
+    color: $input-state-error;
   }
 }
 

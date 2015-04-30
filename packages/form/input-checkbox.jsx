@@ -23,7 +23,9 @@ module.exports = React.createClass({
       <InputWrapper
         inputType="checkbox"
         label={this.props.label}
-        showLabel={this.props.showLabel}>
+        showLabel={this.props.showLabel}
+        errorMessage={this.props.errorMessage}>
+        
         <label>
           <input {...this.props} ref="input" type="checkbox" id={`Input--checkbox--${camelCaseLabel}`} className={`Input Input--checkbox Input--checkbox--${camelCaseLabel}`} />
           {this.props.checkboxLabel}

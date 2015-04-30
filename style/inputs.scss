@@ -17,6 +17,8 @@ $input-state-hover: rgba($input-base-color, .10);
 $input-state-focus: rgba($input-base-color, .50);
 $input-state-focus-text: #fff;
 
+$input-state-error: #d46060;
+
 @mixin text-input-style {
   display: block;
   width: 100%;

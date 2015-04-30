@@ -53,14 +53,18 @@ module.exports = React.createClass({
       dateTime: new Date().toISOString(),
       tags: [],
       text: '',
+      textError: '',
       textarea: '',
-      textareaAutosize: ''
+      textareaAutosize: '',
+      checkboxError: '',
+      textInputError: '',
     };
   },
 
   handleCheckboxCheckedToggle() {
     this.setState({
-      checkboxChecked: !this.state.checkboxChecked
+      checkboxChecked: !this.state.checkboxChecked,
+      checkboxError: (this.state.checkboxChecked ? 'This checkbox must be ticked' : ''),
     });
   },
 
@@ -79,6 +83,13 @@ module.exports = React.createClass({
   handleTextChange(e) {
     this.setState({
       text: e.target.value,
+    });
+  },
+
+  handleTextErrorChange(e) {
+    this.setState({
+      textError: e.target.value,
+      textInputError: (!e.target.value ? 'This field must be filled out' : ''),
     });
   },
 
@@ -104,6 +115,7 @@ module.exports = React.createClass({
           label="InputCheckbox"
           checkboxLabel="This is the checkbox's label!"
           value={this.state.checkboxChecked}
+          errorMessage={this.state.checkboxError}
           onChange={this.handleCheckboxCheckedToggle} />
 
         <InputDateTime
@@ -126,6 +138,12 @@ module.exports = React.createClass({
           label="InputText"
           placeholder="Input some text..."
           onChange={this.handleTextChange} />
+
+        <InputText
+          label="InputTextWithError"
+          placeholder="Type something and then delete it to see an error message..."
+          errorMessage={this.state.textInputError}
+          onChange={this.handleTextErrorChange} />
 
         <InputTextarea
           label="InputTextarea"
