@@ -11,6 +11,7 @@ module.exports = React.createClass({
   getDefaultProps() {
     return {
       label: '',
+      type: 'text',
     };
   },
 
@@ -27,10 +28,10 @@ module.exports = React.createClass({
 
     return (
       <InputWrapper
-        inputType="text"
+        inputType={this.props.type}
         label={this.props.label}
         showLabel={this.props.showLabel}>
-          <input {...this.props} ref="input" type="text" id={`Input--text--${camelCaseLabel}`} className={`Input Input--text Input--text--${camelCaseLabel}`} />
+          <input {...this.props} ref="input" type={this.props.type} id={`Input--text--${camelCaseLabel}`} className={`Input Input--text Input--text--${camelCaseLabel}`} />
       </InputWrapper>
     );
   },
