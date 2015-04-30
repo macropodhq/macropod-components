@@ -1,10 +1,19 @@
 # Macropod Components Changelog
 
+## [v0.0.12](https://github.com/macropodhq/react-playground/releases/tag/0.0.12)
+
+### Improvements
+
+* [#274](https://github.com/macropodhq/macropod-components/pull/274): Add `.editorconfig` file and point out its presence.
+* [#275](https://github.com/macropodhq/macropod-components/pull/275): Switch to our Open Sands rather than Open Sans.
+* [#276](https://github.com/macropodhq/macropod-components/pull/276): Improve consistency of the todo item delete dialog.
+* [#279](https://github.com/macropodhq/macropod-components/pull/279): Fix dropdown right overflow.
+
 ## [v0.0.11](https://github.com/macropodhq/react-playground/releases/tag/0.0.11)
 
 ### Features
 
-* [#272](https://github.com/macropodhq/macropod-components/pull/272): `button-group` is now `link-group`, and looks a world better  .
+* [#272](https://github.com/macropodhq/macropod-components/pull/272): `button-group` is now `link-group`, and looks a world better.
 
 ### Improvements
 
