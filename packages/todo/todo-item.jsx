@@ -4,11 +4,10 @@ const React = require('react');
 
 const Alert = require('../alert');
 const CancelableEdit = require('../cancelable-edit');
-const Inlay = require('../inlay');
 const DeleteButton = require('../delete-button');
 const SuitClassSet = require('../suit-class-set');
 
-const MAX_ALERT_LENGTH = 23;
+const MAX_ALERT_LENGTH = 72;
 
 module.exports = React.createClass({
   displayName: 'TodoItem',
@@ -86,17 +85,14 @@ module.exports = React.createClass({
           
         { this.state.showAlert &&
           <Alert
-              cancelable
-              title="Confirm Delete"
-              onOk={this.handleConfirmOk}
-              onCancel={this.handleConfirmCancel}
-              okText="Delete"
-              danger
-            >
-            Are you sure you want to delete: <Inlay>
-                {this.props.name.substr(0, MAX_ALERT_LENGTH)}
-                {this.props.name.length > MAX_ALERT_LENGTH && '...'}
-              </Inlay> ?
+            cancelable
+            title="Confirm Delete"
+            onOk={this.handleConfirmOk}
+            onCancel={this.handleConfirmCancel}
+            okText="Delete"
+            danger
+          >
+            Are you sure you want to delete “{this.props.name.length > MAX_ALERT_LENGTH ? `${this.props.name.substr(0, MAX_ALERT_LENGTH - 1)}…` : this.props.name}”?
           </Alert>
         }
       </div>
