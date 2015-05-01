@@ -18,11 +18,17 @@
       background: $input-state-focus;
       color: $input-state-focus-text;
       border-right-width: $input-border-width;
+      cursor: default;
+
       &+ .Link {
         border-left-width: 0;
       }
       &:last-child {
        border-right-width: $input-border-width;
+      }
+      &:hover {
+        background: $input-state-focus;
+        opacity: 0.8;
       }
     }
 
