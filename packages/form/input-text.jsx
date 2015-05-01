@@ -30,7 +30,8 @@ module.exports = React.createClass({
       <InputWrapper
         inputType={this.props.type}
         label={this.props.label}
-        showLabel={this.props.showLabel}>
+        showLabel={this.props.showLabel}
+        errorMessage={this.props.errorMessage}>
           <input {...this.props} ref="input" type={this.props.type} id={`Input--text--${camelCaseLabel}`} className={`Input Input--text Input--text--${camelCaseLabel}`} />
       </InputWrapper>
     );

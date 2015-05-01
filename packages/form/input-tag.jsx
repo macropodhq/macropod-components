@@ -20,7 +20,8 @@ module.exports = React.createClass({
       <InputWrapper
         inputType="Tag"
         label={this.props.label}
-        showLabel={this.props.showLabel}>
+        showLabel={this.props.showLabel}
+        errorMessage={this.props.errorMessage}>
 
           <Widgets.Multiselect 
             {...this.props}

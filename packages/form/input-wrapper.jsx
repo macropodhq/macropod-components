@@ -10,12 +10,14 @@ const InputWrapper = React.createClass({
   propTypes: {
     inputType: React.PropTypes.string.isRequired,
     label: React.PropTypes.string.isRequired,
-    showLabel: React.PropTypes.bool.isRequired
+    showLabel: React.PropTypes.bool.isRequired,
+    errorMessage: React.PropTypes.string.isRequired,
   },
 
   getDefaultProps() {
     return {
-      showLabel: true
+      showLabel: true,
+      errorMessage: '',
     };
   },
 
@@ -30,11 +32,14 @@ const InputWrapper = React.createClass({
 
   render() {
     const camelCaseLabel = InputWrapper.camelCase(this.props.label);
+    const errorClass = (this.props.errorMessage ? 'Form-item--error' : '');
+
 
     return (
-      <div className={`Form-item Form-item--${camelCaseLabel}`}>
+      <div className={`Form-item Form-item--${camelCaseLabel} ${errorClass}`}>
         {this.props.showLabel && <label className="Form-item-label" htmlFor={`Input--${this.props.inputType}--${camelCaseLabel}`}>{this.props.label}</label>}
         {this.props.children}
+        {this.props.errorMessage && <div className="Form-item-error">{this.props.errorMessage}</div>}
       </div>
     );
   },

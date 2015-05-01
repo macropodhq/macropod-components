@@ -28,7 +28,8 @@ module.exports = React.createClass({
       <InputWrapper
         inputType="DateTime"
         label={this.props.label}
-        showLabel={this.props.showLabel}>
+        showLabel={this.props.showLabel}
+        errorMessage={this.props.errorMessage}>
 
         <CalendarDropdown
           id={`Input--DateTime--${camelCaseLabel}`}
