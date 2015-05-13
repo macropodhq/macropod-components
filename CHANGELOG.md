@@ -1,5 +1,15 @@
 # Macropod Components Changelog
 
+## [v0.0.13](https://github.com/macropodhq/react-playground/releases/tag/0.0.13)
+
+### Improvements
+
+* [#280](https://github.com/macropodhq/macropod-components/pull/280): Add support for passing custom type prop to text input (email, password, etc)
+* [#281](https://github.com/macropodhq/macropod-components/pull/281): Form styles support basic error messages
+* [#282](https://github.com/macropodhq/macropod-components/pull/282): `active` links don't look clickable
+* [#284](https://github.com/macropodhq/macropod-components/pull/284): Larger `icon-add` size
+* [#285](https://github.com/macropodhq/macropod-components/pull/285): Inherit vertical align from svg `Icon`
+
 ## [v0.0.12](https://github.com/macropodhq/react-playground/releases/tag/0.0.12)
 
 ### Improvements
