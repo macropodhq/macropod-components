@@ -1,6 +1,6 @@
 {
   "name": "macropod-components",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "A library of components that we use at Macropod",
   "dependencies": {
     "MD5": "^1.2.1",

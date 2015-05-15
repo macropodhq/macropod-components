@@ -1,5 +1,11 @@
 # Macropod Components Changelog
 
+## [v0.0.14](https://github.com/macropodhq/react-playground/releases/tag/0.0.14)
+
+### Improvements
+
+* [#286](https://github.com/macropodhq/macropod-components/pull/286): Handle values provided by AutoFill or other means.
+
 ## [v0.0.13](https://github.com/macropodhq/react-playground/releases/tag/0.0.13)
 
 ### Improvements
