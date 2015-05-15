@@ -5,7 +5,7 @@ const React = require('react');
 const style = {
   item: {
     margin: 0,
-    padding: '3px 0',
+    padding: '5px 0',
     overflow: 'hidden',
   },
 }

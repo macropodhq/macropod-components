@@ -13,7 +13,7 @@ const style = {
 
   group: {
     margin: 0,
-    padding: '15px 0',
+    padding: '10px 0',
     borderBottom: '1px solid rgba(238, 238, 238, 1)',
   },
 
