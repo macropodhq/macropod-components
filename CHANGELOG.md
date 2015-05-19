@@ -1,5 +1,11 @@
 # Macropod Components Changelog
 
+## [v0.0.15](https://github.com/macropodhq/react-playground/releases/tag/0.0.15)
+
+### Improvements
+[#287](https://github.com/macropodhq/macropod-components/pull/287): Assorted minor style tweaks
+
+*
 ## [v0.0.14](https://github.com/macropodhq/react-playground/releases/tag/0.0.14)
 
 ### Improvements
