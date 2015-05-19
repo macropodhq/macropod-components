@@ -4,6 +4,7 @@ const React = require('react');
 
 const Bar = require('../bar');
 const Tray = require('../tray');
+const CovertHeader = require('../covert-header');
 
 const style = {
   clickOverlay: {
@@ -87,9 +88,11 @@ module.exports = React.createClass({
   render() {
     return (
       <div>
-        <Bar style={this.props.style}>
-          {this.props.barItems}
-        </Bar>
+        <CovertHeader offset={this.props.scrollOffset} forceShow={this.props.showLeftTray || this.props.showRightTray}>
+          <Bar style={this.props.style}>
+            {this.props.barItems}
+          </Bar>
+        </CovertHeader>
 
         { (this.props.showLeftTray || this.props.showRightTray) &&
             <div style={style.clickOverlay} onClick={this.props.onTrayBlur}/>
