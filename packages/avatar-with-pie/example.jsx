@@ -38,5 +38,5 @@ module.exports = React.createClass({
         <AvatarWithPie complete="7" total="7" firstName="James" lastName="Coleman" size="s" circle={true} />
       </div>
     );
-  }
+  },
 });

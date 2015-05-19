@@ -24,7 +24,7 @@ const style = {
   content: {
     padding: 10,
     overflow: 'auto',
-    color: 'rgb(96, 96, 96)'
+    color: 'rgb(96, 96, 96)',
   },
 };
 
@@ -81,7 +81,7 @@ module.exports = React.createClass({
   },
 
   buildContent() {
-    let content =  _.filter(this.props.children, (element) => {
+    let content = _.filter(this.props.children, (element) => {
       if (element && element.props) {
         return !element.props.sticky;
       } else {
@@ -118,10 +118,10 @@ module.exports = React.createClass({
     }
   },
 
-  replaceNodeStyle(node, style = {}) {
+  replaceNodeStyle(node, newStyle = {}) {
     const nodeStyle = node.props && node.props.style || {};
-    const style = Object.assign({}, nodeStyle, style);
-    return React.addons.cloneWithProps(node, {style: style});
+    newStyle = Object.assign({}, nodeStyle, newStyle);
+    return React.addons.cloneWithProps(node, {style: newStyle});
   },
 
   getTrayStyle() {
@@ -145,5 +145,5 @@ module.exports = React.createClass({
         {this.buildContent()}
       </section>
     );
-  }
+  },
 });

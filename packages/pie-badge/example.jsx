@@ -19,5 +19,5 @@ module.exports = React.createClass({
         <PieBadge total="5" complete="5" />
       </div>
     );
-  }
+  },
 });

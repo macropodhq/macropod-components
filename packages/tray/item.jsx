@@ -8,7 +8,7 @@ const style = {
     padding: '5px 0',
     overflow: 'hidden',
   },
-}
+};
 
 module.exports = React.createClass({
   displayName: 'TrayItem',
@@ -28,6 +28,6 @@ module.exports = React.createClass({
       <dd className="Tray-Item" style={style.item}>
         {this.props.children}
       </dd>
-    )
-  }
+    );
+  },
 });

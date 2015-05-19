@@ -4,7 +4,7 @@ const _ = require('lodash-node');
 const empty = '';
 const space = ' ';
 const dash = '-';
-const doubleDash = dash+dash;
+const doubleDash = dash + dash;
 
 function isValidString(string) {
   return _.isString(string) && string.indexOf(space) === -1;

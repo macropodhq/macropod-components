@@ -47,5 +47,5 @@ module.exports = React.createClass({
         </pre>
       </div>
     );
-  }
+  },
 });

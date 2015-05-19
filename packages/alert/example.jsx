@@ -20,7 +20,7 @@ module.exports = React.createClass({
       alertContent: 'A thing has happened and we want you to know before you continue to use the app.',
       alertCancelable: false,
       alertDanger: false,
-      alertValue: ''
+      alertValue: '',
     };
   },
 
@@ -48,25 +48,25 @@ module.exports = React.createClass({
 
   handleTitleChange(event) {
     this.setState({
-      alertTitle: event.target.value
+      alertTitle: event.target.value,
     });
   },
 
   handleContentChange(event) {
     this.setState({
-      alertContent: event.target.value
+      alertContent: event.target.value,
     });
   },
 
   handleCancelableChange(event) {
     this.setState({
-      alertCancelable: event.target.checked
+      alertCancelable: event.target.checked,
     });
   },
 
   handleDangerChange(event) {
     this.setState({
-      alertDanger: event.target.checked
+      alertDanger: event.target.checked,
     });
   },
 
@@ -86,18 +86,18 @@ module.exports = React.createClass({
           autoSize
           placeholder="alert title" />
 
-        <InputCheckbox 
+        <InputCheckbox
           onChange={this.handleCancelableChange}
           checked={this.state.alertCancelable}
           showLabel={false}
           checkboxLabel="Cancelable" />
 
-        <InputCheckbox 
+        <InputCheckbox
           onChange={this.handleDangerChange}
           checked={this.state.alertDanger}
           showLabel={false}
           checkboxLabel="Danger" />
-          
+
         <Button onClick={this.handleClick}>Show Alert</Button>
 
         <br />
@@ -116,5 +116,5 @@ module.exports = React.createClass({
         }
       </div>
     );
-  }
+  },
 });

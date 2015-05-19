@@ -6,7 +6,7 @@ const ScrollEventMixin = require('./');
 
 const scrollevent = ScrollEventMixin({
   interval: 100,
-  timeout: 300
+  timeout: 300,
 });
 
 module.exports = React.createClass({
@@ -16,7 +16,7 @@ module.exports = React.createClass({
 
   getInitialState() {
     return {
-      content: 'You haven\'t scrolled yet.'
+      content: 'You haven\'t scrolled yet.',
     };
   },
 
@@ -32,5 +32,5 @@ module.exports = React.createClass({
     return (
       <span>{this.state.content}</span>
     );
-  }
+  },
 });

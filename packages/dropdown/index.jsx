@@ -11,5 +11,5 @@ module.exports = React.createClass({
 
   render() {
     return (<Widgets.DropdownList {...this.props} />);
-  }
+  },
 });

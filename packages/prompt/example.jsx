@@ -21,7 +21,7 @@ module.exports = React.createClass({
       promptDefaultValue: 'A lot!',
       promptCancelable: true,
       promptValidateInput: true,
-      promptValue: ''
+      promptValue: '',
     };
   },
 
@@ -49,31 +49,31 @@ module.exports = React.createClass({
 
   handleTitleChange(event) {
     this.setState({
-      promptTitle: event.target.value
+      promptTitle: event.target.value,
     });
   },
 
   handleContentChange(event) {
     this.setState({
-      promptContent: event.target.value
+      promptContent: event.target.value,
     });
   },
 
   handleDefaultValueChange(event) {
     this.setState({
-      promptDefaultValue: event.target.value
+      promptDefaultValue: event.target.value,
     });
   },
 
   handleCancelableChange(event) {
     this.setState({
-      promptCancelable: event.target.checked
+      promptCancelable: event.target.checked,
     });
   },
 
   handleValidateInputChange(event) {
     this.setState({
-      promptValidateInput: event.target.checked
+      promptValidateInput: event.target.checked,
     });
   },
 
@@ -87,7 +87,7 @@ module.exports = React.createClass({
   render() {
     return (
       <div>
-        <InputText 
+        <InputText
           onChange={this.handleTitleChange}
           value={this.state.promptTitle}
           showLabel={false}
@@ -100,19 +100,19 @@ module.exports = React.createClass({
           autoSize
           placeholder="prompt content" />
 
-        <InputText 
+        <InputText
           onChange={this.handleDefaultValueChange}
           value={this.state.promptDefaultValue}
           showLabel={false}
           placeholder="prompt default value" />
 
-        <InputCheckbox 
+        <InputCheckbox
           onChange={this.handleCancelableChange}
           checked={this.state.promptCancelable}
           showLabel={false}
           checkboxLabel="Cancelable" />
 
-        <InputCheckbox 
+        <InputCheckbox
           onChange={this.handleValidateInputChange}
           checked={this.state.promptValidateInput}
           showLabel={false}
@@ -138,5 +138,5 @@ module.exports = React.createClass({
         }
       </div>
     );
-  }
+  },
 });

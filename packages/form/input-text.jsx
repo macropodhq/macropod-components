@@ -25,7 +25,7 @@ module.exports = React.createClass({
   },
 
   autoCompleteOn() {
-    return (''+this.props.autoComplete).toLowerCase() !== 'off';
+    return ('' + this.props.autoComplete).toLowerCase() !== 'off';
   },
 
   enableUnmanagedChangeHandler() {

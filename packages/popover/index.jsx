@@ -11,14 +11,14 @@ const PopoverContent = React.createClass({
   getInitialState() {
     return {
       showDropdown: false,
-      style: {}
+      style: {},
     };
   },
 
   getDefaultProps() {
     return {
       offset: 10,
-      align: 'left'
+      align: 'left',
     };
   },
 
@@ -55,12 +55,12 @@ const PopoverContent = React.createClass({
       position: 'absolute',
       zIndex: 10000,
       height: dropdownHeight,
-      width: this.getWidth()
+      width: this.getWidth(),
     };
 
     if (!_.isEqual(nextStyleState, this.state.style)) {
       this.setState({
-        style: nextStyleState
+        style: nextStyleState,
       });
     }
   },
@@ -104,7 +104,7 @@ const PopoverContent = React.createClass({
       right: 0,
       bottom: 0,
       left: 0,
-      zIndex: 1000
+      zIndex: 1000,
     };
 
     return (
@@ -114,7 +114,7 @@ const PopoverContent = React.createClass({
         </div>
       </div>
     );
-  }
+  },
 });
 
 module.exports = React.createClass({
@@ -124,8 +124,8 @@ module.exports = React.createClass({
 
   propTypes: {
     anchor: React.PropTypes.shape({
-      getDOMNode: React.PropTypes.func.isRequired
-    })
+      getDOMNode: React.PropTypes.func.isRequired,
+    }),
   },
 
   renderLayer() {
@@ -138,5 +138,5 @@ module.exports = React.createClass({
 
   render() {
     return null;
-  }
+  },
 });

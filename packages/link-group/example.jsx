@@ -3,7 +3,6 @@
 const React = require('react');
 
 const LinkGroup = require('./');
-const Button = require('../button');
 const Link = require('../link');
 
 module.exports = React.createClass({
@@ -17,5 +16,5 @@ module.exports = React.createClass({
         <Link route to="link-group" query={{right: true}}>Right</Link>
       </LinkGroup>
     );
-  }
+  },
 });

@@ -11,7 +11,6 @@ module.exports = React.createClass({
   render() {
     return (
       <Icon {...this.props} className={this.constructor.displayName + (this.props.className ? ` ${this.props.className}` : '')} type="close-filled" font={false} />
-
     );
-  }
+  },
 });

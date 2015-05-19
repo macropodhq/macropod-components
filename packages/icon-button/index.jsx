@@ -14,5 +14,5 @@ module.exports = React.createClass({
         <Icon type={this.props.type} />
       </button>
     );
-  }
+  },
 });

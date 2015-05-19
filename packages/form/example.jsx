@@ -12,36 +12,36 @@ const InputTextarea = require('./input-textarea');
 const tagOptions = [
   {
     id: 1,
-    name: 'Eggs'
+    name: 'Eggs',
   },
   {
     id: 2,
-    name: 'Bacon'
+    name: 'Bacon',
   },
   {
     id: 3,
-    name: 'Hash Browns'
+    name: 'Hash Browns',
   },
   {
     id: 4,
-    name: 'Sausage'
+    name: 'Sausage',
   },
   {
     id: 5,
-    name: 'Tomato'
+    name: 'Tomato',
   },
   {
     id: 6,
-    name: 'Toast'
+    name: 'Toast',
   },
   {
     id: 7,
-    name: 'Quinoa'
+    name: 'Quinoa',
   },
   {
     id: 8,
-    name: 'Salmon'
-  }
+    name: 'Salmon',
+  },
 ];
 
 module.exports = React.createClass({
@@ -68,40 +68,40 @@ module.exports = React.createClass({
     });
   },
 
-  handleDateTimeChange(value) {
+  handleDateTimeChange(dateTime) {
     this.setState({
-      dateTime: value,
+      dateTime,
     });
   },
 
-  handleTagChange(selection) {
+  handleTagChange(tags) {
     this.setState({
-      tags: selection
+      tags,
     });
   },
 
-  handleTextChange(e) {
+  handleTextChange(evt) {
     this.setState({
-      text: e.target.value,
+      text: evt.target.value,
     });
   },
 
-  handleTextErrorChange(e) {
+  handleTextErrorChange(evt) {
     this.setState({
-      textError: e.target.value,
-      textInputError: (!e.target.value ? 'This field must be filled out' : ''),
+      textError: evt.target.value,
+      textInputError: (!evt.target.value ? 'This field must be filled out' : ''),
     });
   },
 
-  handleTextareaChange(e) {
+  handleTextareaChange(evt) {
     this.setState({
-      textarea: e.target.value,
+      textarea: evt.target.value,
     });
   },
 
-  handleTextareaAutosizeChange(e) {
+  handleTextareaAutosizeChange(evt) {
     this.setState({
-      textareaAutosize: e.target.value,
+      textareaAutosize: evt.target.value,
     });
   },
 
@@ -167,5 +167,5 @@ module.exports = React.createClass({
 
       </Form>
     );
-  }
+  },
 });

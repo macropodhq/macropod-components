@@ -13,5 +13,5 @@ module.exports = React.createClass({
     return (
       <Widgets.Calendar {...this.props} />
     );
-  }
+  },
 });

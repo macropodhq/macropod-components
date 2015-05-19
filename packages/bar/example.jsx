@@ -7,7 +7,7 @@ const Icon = require('../icon');
 const Link = require('../link');
 
 const linkStyle = {
-  color: 'inherit'
+  color: 'inherit',
 };
 
 module.exports = React.createClass({
@@ -48,6 +48,6 @@ module.exports = React.createClass({
         </Bar.Item>
       </Bar>
     );
-  }
+  },
 });
 

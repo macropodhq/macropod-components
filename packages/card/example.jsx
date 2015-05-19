@@ -25,7 +25,7 @@ module.exports = React.createClass({
             </dl>,
             <dl key={2}>
               <dd><a href="#">secondary action</a></dd>
-            </dl>
+            </dl>,
           ]}
         >
           <p>content</p>
@@ -52,7 +52,7 @@ module.exports = React.createClass({
             <dl key={1}>
               <dd><a href="#">edit project</a></dd>
               <dd><a href="#">delete project</a></dd>
-            </dl>
+            </dl>,
           ]}
         >
           <div className="ProjectsCard-stats">
@@ -74,5 +74,5 @@ module.exports = React.createClass({
         </Card>
       </div>
     );
-  }
+  },
 });

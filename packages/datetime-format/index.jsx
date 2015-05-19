@@ -8,5 +8,5 @@ module.exports = {
   date: DateFormatter('D MMM YYYY'),
   dateTime: DateFormatter('D MMM YYYY h:mm A'),
   time: DateFormatter('h:mm A'),
-  custom: (date, format) => DateFormatter(format)(date)
+  custom: (date, format) => DateFormatter(format)(date),
 };

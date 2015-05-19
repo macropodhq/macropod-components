@@ -3,10 +3,8 @@
 const React = require('react');
 
 const Bar = require('../bar');
-const Tray = require('../tray');
 const Icon = require('../icon');
 const Link = require('../link');
-const Avatar = require('../avatar');
 const Navigation = require('./');
 
 const style = {
@@ -74,7 +72,7 @@ module.exports = React.createClass({
             <Icon style={style.icon} type="folder-filled" />
           </Link>
         </Bar.Item>
-      </Bar>
+      </Bar>,
     ];
   },
 
@@ -182,5 +180,5 @@ module.exports = React.createClass({
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic molestiae veritatis a assumenda quis, ipsam dolore temporibus dignissimos ex reiciendis molestias commodi incidunt doloribus sint, nobis fugit nesciunt sit quasi.</p>
       </div>
     );
-  }
+  },
 });

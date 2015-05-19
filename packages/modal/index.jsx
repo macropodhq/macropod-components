@@ -28,7 +28,7 @@ module.exports = React.createClass({
 
   componentDidMount() {
     this.setState({
-      showModal: true
+      showModal: true,
     });
     this.setVisibleState();
     document.body.classList.add('isUnscrollable');
@@ -55,7 +55,7 @@ module.exports = React.createClass({
       return;
     }
     this.setState({
-      modalVisible: true
+      modalVisible: true,
     });
   },
 
@@ -64,7 +64,7 @@ module.exports = React.createClass({
       return;
     }
     this.setState({
-      showModal: false
+      showModal: false,
     });
 
     animationCallback(this._layer.querySelector('.Modal-dialog'), this.props.onClose);
@@ -80,7 +80,7 @@ module.exports = React.createClass({
 
     modalClasses.addModifier({
       'visible': this.state.showModal,
-      'invisible': !this.state.showModal
+      'invisible': !this.state.showModal,
     });
 
     const dialogClasses = modalClasses.createDescendent('dialog');
@@ -119,5 +119,5 @@ module.exports = React.createClass({
 
   render() {
     return null;
-  }
+  },
 });

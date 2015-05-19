@@ -21,7 +21,7 @@ The quick brown fox jumped over the lazy
 dog's back.
 
 > This is a blockquote.
-> 
+>
 > This is the second paragraph in the blockquote.
 >
 > ## This is an H2 in a blockquote
@@ -140,5 +140,5 @@ you've got to put paragraph tags in your blockquotes:
         </pre>
       </div>
     );
-  }
+  },
 });

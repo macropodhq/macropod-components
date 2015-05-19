@@ -7,9 +7,9 @@ module.exports = {
     }
 
     let callbacks = _.map(eventMaskCbPairs,
-      (value) => _.all(value.mask,
+      (pair) => _.all(pair.mask,
         (value, key) => e[key] === value
-      ) && value.cb
+      ) && pair.cb
     );
     callbacks = _.compact(callbacks);
 

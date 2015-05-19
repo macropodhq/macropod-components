@@ -29,7 +29,7 @@ const packages = _.map(packageRequire.keys(), path => {
     friendlyName: name.split(/[ -]+/).map(e => e[0].toUpperCase() + e.substr(1)).join(' '),
     name,
     path,
-    readme
+    readme,
   };
 
 });
@@ -86,7 +86,7 @@ const App = React.createClass({
         </div>
       );
     }
-  }
+  },
 });
 
 const AllComponentsHandler = React.createClass({
@@ -98,7 +98,7 @@ const AllComponentsHandler = React.createClass({
         {packages.map(wrapPackage)}
       </div>
     );
-  }
+  },
 });
 
 Router.run(
@@ -107,7 +107,9 @@ Router.run(
     {packages.map(component =>
       <Route name={component.name} path={`/${component.name}`} handler={React.createClass({
         displayName: `${component.friendlyName.split(' ').join('')}ExampleRouteHandler`,
-        render() {return wrapPackage(component);}
+        render() {
+          return wrapPackage(component);
+        },
       })}/>
     )}
     <Route name="navigation-content" path="/navigation-content" handler={require('../packages/navigation/content')} />

@@ -20,5 +20,5 @@ module.exports = React.createClass({
     return (
       <iframe src="/#/covert-header-content?iframe=true" frameBorder={0} style={style.iframe} />
     );
-  }
+  },
 });

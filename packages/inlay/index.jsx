@@ -10,12 +10,16 @@ module.exports = React.createClass({
   },
 
   render() {
-    return <span style={{
-        borderRadius: 3,
-        background: '#eee',
-        padding: 3,
-      }}>
+    return (
+      <span
+        style={{
+          borderRadius: 3,
+          background: '#eee',
+          padding: 3,
+        }}
+      >
         {this.props.children}
-    </span>;
+      </span>
+    );
   },
 });

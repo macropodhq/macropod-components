@@ -11,7 +11,7 @@ module.exports = React.createClass({
 
   getDefaultProps() {
     return {
-      footer: false
+      footer: false,
     };
   },
 
@@ -19,5 +19,5 @@ module.exports = React.createClass({
     return (
       <Widgets.DateTimePicker {...this.props} />
     );
-  }
+  },
 });
