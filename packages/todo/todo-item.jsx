@@ -47,7 +47,7 @@ module.exports = React.createClass({
 
   handleAskDelete() {
     this.setState({
-      showAlert: true
+      showAlert: true,
     });
   },
 
@@ -82,7 +82,7 @@ module.exports = React.createClass({
         <DeleteButton
           className="TodoItem-delete"
           onClick={this.handleAskDelete} />
-          
+
         { this.state.showAlert &&
           <Alert
             cancelable
@@ -97,5 +97,5 @@ module.exports = React.createClass({
         }
       </div>
     );
-  }
+  },
 });

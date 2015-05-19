@@ -10,7 +10,7 @@ module.exports = React.createClass({
 
   getInitialState() {
     return {
-      subtasks: []
+      subtasks: [],
     };
   },
 
@@ -19,7 +19,7 @@ module.exports = React.createClass({
 
     subtasks.push({id: Math.random(), name: name, completed: false});
     this.setState({
-      subtasks: subtasks
+      subtasks,
     }, () => this.refs.todo.focusNewInput());
   },
 
@@ -59,5 +59,5 @@ module.exports = React.createClass({
         onDelete={this.handleDelete}
       />
     );
-  }
+  },
 });

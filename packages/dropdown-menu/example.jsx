@@ -12,7 +12,7 @@ module.exports = React.createClass({
   getInitialState() {
     return {
       showFirstMenu: false,
-      showSecondMenu: false
+      showSecondMenu: false,
     };
   },
 
@@ -89,5 +89,5 @@ module.exports = React.createClass({
         </DropdownMenu>
       </div>
     );
-  }
+  },
 });

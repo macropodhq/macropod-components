@@ -10,7 +10,7 @@ module.exports = React.createClass({
 
   getInitialState() {
     return {
-      showPopover: false
+      showPopover: false,
     };
   },
 
@@ -30,5 +30,5 @@ module.exports = React.createClass({
         </Popover>
       </div>
     );
-  }
+  },
 });

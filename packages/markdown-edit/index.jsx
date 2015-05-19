@@ -1,6 +1,5 @@
 const React = require('react/addons');
 const InputTextarea = require('../form/input-textarea');
-const _ = require('lodash-node');
 const marked = require('marked');
 
 const Alert = require('../alert');
@@ -130,9 +129,6 @@ module.exports = React.createClass({
 
   handleCancel() {
     if (this.unsaved()) {
-      if (typeof this.refs.input !== 'undefined') {
-        
-      }
       this.setState({
         showAlert: true,
       });
@@ -241,7 +237,7 @@ module.exports = React.createClass({
 
       return [
         <label key="label" style={{'display': 'none'}}>{this.props.name}</label>,
-        <div className={markdownClassName} dangerouslySetInnerHTML={{__html: marked(value, {renderer: this.markedRenderer,})}} />,
+        <div className={markdownClassName} dangerouslySetInnerHTML={{__html: marked(value, {renderer: this.markedRenderer})}} />,
       ];
     } else {
       const value = this.state.editing ? this.state.pendingValue : this.props.value;
@@ -330,5 +326,5 @@ module.exports = React.createClass({
         }
       </div>
     );
-  }
+  },
 });

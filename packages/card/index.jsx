@@ -18,13 +18,13 @@ module.exports = React.createClass({
 
   getInitialState() {
     return {
-      showActions: false
+      showActions: false,
     };
   },
 
   getDefaultProps() {
     return {
-      actions: null
+      actions: null,
     };
   },
 
@@ -57,5 +57,5 @@ module.exports = React.createClass({
         </div>
       </div>
     );
-  }
+  },
 });

@@ -12,43 +12,43 @@ module.exports = React.createClass({
       options: [
         {
           id: 1,
-          name: 'Eggs'
+          name: 'Eggs',
         },
         {
           id: 2,
-          name: 'Bacon'
+          name: 'Bacon',
         },
         {
           id: 3,
-          name: 'Hash Browns'
+          name: 'Hash Browns',
         },
         {
           id: 4,
-          name: 'Sausage'
+          name: 'Sausage',
         },
         {
           id: 5,
-          name: 'Tomato'
+          name: 'Tomato',
         },
         {
           id: 6,
-          name: 'Toast'
+          name: 'Toast',
         },
         {
           id: 7,
-          name: 'Quinoa'
+          name: 'Quinoa',
         },
         {
           id: 8,
-          name: 'Salmon'
-        }
-      ]
+          name: 'Salmon',
+        },
+      ],
     };
   },
 
   handleChange(selection) {
     this.setState({
-      value: selection
+      value: selection,
     });
   },
 
@@ -56,7 +56,7 @@ module.exports = React.createClass({
     if (typeof value === 'string' && value.length > 0) {
       const newValue = {
         id: this.state.options.length + 2,
-        name: value
+        name: value,
       };
 
       const options = this.state.options.slice(0);
@@ -83,5 +83,5 @@ module.exports = React.createClass({
         value={this.state.value}
         onCreate={this.handleCreate} />
     );
-  }
+  },
 });

@@ -7,20 +7,20 @@ const Dropdown = require('./');
 const options = [
   {
     id: 1,
-    name: 'Google'
+    name: 'Google',
   },
   {
     id: 2,
-    name: 'Yahoo'
+    name: 'Yahoo',
   },
   {
     id: 3,
-    name: 'Bing'
+    name: 'Bing',
   },
   {
     id: 4,
-    name: 'DuckDuckGo'
-  }
+    name: 'DuckDuckGo',
+  },
 ];
 
 module.exports = React.createClass({
@@ -28,7 +28,7 @@ module.exports = React.createClass({
 
   getInitialState() {
     return {
-      selection: 1
+      selection: 1,
     };
   },
 
@@ -40,5 +40,5 @@ module.exports = React.createClass({
     return (
       <Dropdown data={options} value={this.state.selection} onChange={this.handleChange} textField="name" valueField="id" duration={0} />
     );
-  }
+  },
 });

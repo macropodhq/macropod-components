@@ -20,5 +20,5 @@ module.exports = React.createClass({
         {DateFormatter.custom(Date.now(), 'DD/MM/YYYY')}
       </div>
     );
-  }
+  },
 });

@@ -21,5 +21,5 @@ module.exports = React.createClass({
         ))}
       </ul>
     );
-  }
+  },
 });

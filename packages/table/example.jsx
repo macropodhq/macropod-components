@@ -43,7 +43,7 @@ const data = [
   {episode: 'To\'hajiilee', number: 59, director: 'Michelle MacLaren', status: 'Airing', thumbnail: require('./images/5.jpg')},
   {episode: 'Ozymandias', number: 60, director: 'Rian Johnson', status: 'Upcoming', thumbnail: require('./images/6.jpg')},
   {episode: 'Granite State', number: 61, director: 'Peter Gould', status: 'Upcoming', thumbnail: require('./images/7.jpg')},
-  {episode: 'Felina', number: 62, director: 'Vince Gilligan', status: 'Upcoming', thumbnail: require('./images/8.jpg')}
+  {episode: 'Felina', number: 62, director: 'Vince Gilligan', status: 'Upcoming', thumbnail: require('./images/8.jpg')},
 ];
 
 module.exports = React.createClass({
@@ -56,10 +56,10 @@ module.exports = React.createClass({
   render() {
     return (
       <Table
-        keys={[ 'number' ]}
+        keys={['number']}
         columns={columns}
         initialData={data}
         initialSortBy={{prop: 'number', order: 'asc'}} />
     );
-  }
+  },
 });

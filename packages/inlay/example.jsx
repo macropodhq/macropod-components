@@ -13,5 +13,5 @@ module.exports = React.createClass({
         I like to say <Inlay>blah</Inlay>
       </div>
     );
-  }
+  },
 });

@@ -12,7 +12,7 @@ module.exports = React.createClass({
     NAVIGATION_ITEM_CLASSNAME: 'ActionsBar-navigation-link',
     NAVIGATION_TITLE_CLASSNAME: 'ActionsBar-navigation-title',
     ACTION_ITEM_CLASSNAME: 'ActionsBar-actions-control',
-    ACTION_SEARCH_CLASSNAME: 'ActionsBar-actions-search'
+    ACTION_SEARCH_CLASSNAME: 'ActionsBar-actions-search',
   },
 
   render() {
@@ -31,5 +31,5 @@ module.exports = React.createClass({
 
       </section>
     );
-  }
+  },
 });

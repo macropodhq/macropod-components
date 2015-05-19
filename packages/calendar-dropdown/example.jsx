@@ -26,5 +26,5 @@ module.exports = React.createClass({
         <CalendarDropdown onChange={this.handleChange} value={this.state.selectedDate} />
       </div>
     );
-  }
+  },
 });

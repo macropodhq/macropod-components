@@ -9,7 +9,7 @@ module.exports = React.createClass({
 
   getInitialState() {
     return {
-      count: 0
+      count: 0,
     };
   },
 
@@ -28,5 +28,5 @@ module.exports = React.createClass({
         You've clicked {this.state.count} link{this.state.count === 1 ? '' : 's'}
       </div>
     );
-  }
+  },
 });

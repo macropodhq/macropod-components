@@ -10,6 +10,8 @@ require('./lightbox.scss');
 const noop = () => {};
 
 const AssetImage = React.createClass({
+  displayName: 'AssetImage',
+
   mixins: [OnResize],
 
   getInitialState() {
@@ -24,7 +26,7 @@ const AssetImage = React.createClass({
       return;
     }
     this.setState({
-      zoomed: !this.state.zoomed
+      zoomed: !this.state.zoomed,
     });
   },
 
@@ -42,7 +44,7 @@ const AssetImage = React.createClass({
 
     this.setState({
       zoomable: zoomable,
-      zoomed: zoomable ? this.state.zoomed : false
+      zoomed: zoomable ? this.state.zoomed : false,
     });
   },
 
@@ -76,6 +78,8 @@ const AssetImage = React.createClass({
 });
 
 const AssetIframe = React.createClass({
+  displayName: 'AssetIframe',
+
   render() {
     return (
       <iframe className="AssetIframe" src={this.props.asset.path} frameBorder="0" />
@@ -88,6 +92,8 @@ const AssetIframe = React.createClass({
 });
 
 const AssetLink = React.createClass({
+  displayName: 'AssetLink',
+
   render() {
     return (
       <a className="AssetLink" href={this.props.asset.path} target="_blank">Download <em>{this.props.asset.title}</em></a>
@@ -161,8 +167,8 @@ const Lightbox = React.createClass({
       }
 
       for (let i = 0; i < this._containers.length; i++) {
-        let ac = this._containers[i].media.split('/', 2),
-            bc = media.split('/', 2);
+        let ac = this._containers[i].media.split('/', 2);
+        let bc = media.split('/', 2);
 
         if (ac[0] === bc[0] && ac[1] === bc[1]) {
           return this._containers[i].container;
@@ -266,7 +272,7 @@ const Lightbox = React.createClass({
 
     lightboxClass.addModifier({
       'multiple': multipleAssets,
-      'fullscreen': !!this.props.fullscreen
+      'fullscreen': !!this.props.fullscreen,
     });
 
     let currentAsset = this.getCurrentAsset();
@@ -289,8 +295,8 @@ const Lightbox = React.createClass({
 
               {multipleAssets && [
                 <span className="Lightbox-counter">{this.state.currentAssetIndex + 1} of {this.props.assets.length}</span>,
-                <button className="Lightbox-controls-previous" onClick={this.handlePrevious}><Icon type='nav-left' font={false} /></button>,
-                <button className="Lightbox-controls-next" onClick={this.handleNext}><Icon type='nav-right' font={false} /></button>,
+                <button className="Lightbox-controls-previous" onClick={this.handlePrevious}><Icon type="nav-left" font={false} /></button>,
+                <button className="Lightbox-controls-next" onClick={this.handleNext}><Icon type="nav-right" font={false} /></button>,
               ]}
 
               {this.props.onClose &&
@@ -307,7 +313,7 @@ const Lightbox = React.createClass({
         </div>
       </div>
     );
-  }
+  },
 });
 
 module.exports = Lightbox;

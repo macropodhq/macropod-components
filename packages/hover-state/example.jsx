@@ -13,14 +13,14 @@ const style = {
   hover: {
     background: 'blue',
   },
-}
+};
 
 module.exports = React.createClass({
   displayName: 'HoverMixinExample',
 
   getInitialState() {
     return {
-      hover: false
+      hover: false,
     };
   },
 
@@ -36,5 +36,5 @@ module.exports = React.createClass({
     return (
       <div {...attachHoverState(this)} style={this.getStyle()} />
     );
-  }
+  },
 });

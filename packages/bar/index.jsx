@@ -36,13 +36,13 @@ const style = {
     padding: 15,
     display: 'inline-block',
   },
-}
+};
 
 const Item = React.createClass({
   displayName: 'BarItem',
 
   statics: {
-    align: align
+    align: align,
   },
 
   propTypes: {
@@ -53,19 +53,19 @@ const Item = React.createClass({
     return {
       style: {},
       align: align.LEFT,
-    }
+    };
   },
 
   getStyle() {
-    const style = {
+    const localStyle = {
       padding: typeof this.props.children === 'string' ? 15 : 0,
       display: 'inline-block',
       color: 'rgba(255,255,255,0.5)',
       borderLeft: this.props.align === align.RIGHT ? '1px solid rgba(0,0,0,.15)' : 0,
-      borderRight: this.props.align === align.LEFT ? '1px solid rgba(0,0,0,.15)' : 0
+      borderRight: this.props.align === align.LEFT ? '1px solid rgba(0,0,0,.15)' : 0,
     };
 
-    return Object.assign(style, this.props.style);
+    return Object.assign(localStyle, this.props.style);
   },
 
   getChildSyle(element) {
@@ -94,7 +94,7 @@ const Item = React.createClass({
         {this.getChildren()}
       </span>
     );
-  }
+  },
 });
 
 module.exports = React.createClass({
@@ -111,8 +111,8 @@ module.exports = React.createClass({
           return new Error(propName + ' should be a number.');
         }
 
-        if ((props[propName] + props['rightWidth']) > 100) {
-          return new Error(propName + ' ('+ props[propName] +') + rightWidth ('+ props['rightWidth'] +') shouldn\'t add to more than 100%.');
+        if ((props[propName] + props.rightWidth) > 100) {
+          return new Error(propName + ' (' + props[propName] + ') + rightWidth (' + props.rightWidth + ') shouldn\'t add to more than 100%.');
         }
       }
     },
@@ -124,12 +124,12 @@ module.exports = React.createClass({
       style: {},
       leftWidth: 40,
       rightWidth: 40,
-    }
+    };
   },
 
-  buildChildren(align) {
+  buildChildren(alignment) {
     const children = React.Children.map(this.props.children, (element) => {
-      if (element && element.props && element.props.align === align) {
+      if (element && element.props && element.props.align === alignment) {
         return element;
       }
 
@@ -171,5 +171,5 @@ module.exports = React.createClass({
         </div>
       </header>
     );
-  }
+  },
 });

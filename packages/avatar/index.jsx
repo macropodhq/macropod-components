@@ -115,5 +115,5 @@ module.exports = React.createClass({
         <span className="Avatar-image" aria-hidden="true" style={{backgroundImage: this.getBackgroundImage(src, email)}}></span>
       </span>
     );
-  }
+  },
 });

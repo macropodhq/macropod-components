@@ -40,7 +40,7 @@ module.exports = React.createClass({
       leftTrayContent: [],
       scrollOffset: 0,
       style: {},
-    }
+    };
   },
 
   trayItems(group) {
@@ -49,7 +49,7 @@ module.exports = React.createClass({
         <Tray.Item>
           {item}
         </Tray.Item>
-      )
+      );
     });
   },
 
@@ -63,7 +63,7 @@ module.exports = React.createClass({
         );
       });
 
-      return [].concat(groups).concat(this.props.rightTrayBar)
+      return [].concat(groups).concat(this.props.rightTrayBar);
     } else {
       return this.props.rightTrayBar;
     }
@@ -79,7 +79,7 @@ module.exports = React.createClass({
         );
       });
 
-      return [].concat(groups).concat(this.props.leftTrayBar)
+      return [].concat(groups).concat(this.props.leftTrayBar);
     } else {
       return this.props.leftTrayBar;
     }
@@ -111,5 +111,5 @@ module.exports = React.createClass({
         }
       </div>
     );
-  }
+  },
 });

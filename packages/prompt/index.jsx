@@ -27,7 +27,7 @@ module.exports = React.createClass({
 
   getInitialState() {
     return {
-      valid: true
+      valid: true,
     };
   },
 
@@ -50,7 +50,7 @@ module.exports = React.createClass({
       content: '',
       cancelText: 'Cancel',
       okText: 'OK',
-      validateInput: () => true
+      validateInput: () => true,
     };
   },
 

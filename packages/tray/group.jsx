@@ -25,7 +25,7 @@ const style = {
     paddingBottom: 0,
     border: 0,
   },
-}
+};
 
 module.exports = React.createClass({
   displayName: 'TrayGroup',
@@ -64,6 +64,6 @@ module.exports = React.createClass({
         {title}
         {this.props.children}
       </dl>
-    )
-  }
+    );
+  },
 });

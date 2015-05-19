@@ -41,7 +41,7 @@ module.exports = React.createClass({
     return {
       offset: 0,
       forceShow: false,
-    }
+    };
   },
 
   getInitialState() {
@@ -67,7 +67,7 @@ module.exports = React.createClass({
     const covertHeaderClass = new SuitClassSet('CovertHeader');
 
     covertHeaderClass.addModifier({
-      'hide': this.state.hide
+      'hide': this.state.hide,
     });
 
     return (
@@ -75,5 +75,5 @@ module.exports = React.createClass({
         {this.props.children}
       </div>
     );
-  }
+  },
 });

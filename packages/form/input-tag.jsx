@@ -21,12 +21,12 @@ module.exports = React.createClass({
         inputType="Tag"
         label={this.props.label}
         showLabel={this.props.showLabel}
-        errorMessage={this.props.errorMessage}>
-
-          <Widgets.Multiselect 
-            {...this.props}
-            duration={50} />
-
+        errorMessage={this.props.errorMessage}
+      >
+        <Widgets.Multiselect
+          {...this.props}
+          duration={50}
+        />
       </InputWrapper>
     );
   },

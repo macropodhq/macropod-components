@@ -18,7 +18,7 @@ module.exports = React.createClass({
     const classes = new SuitClassSet('Loading');
 
     classes.addModifier({
-      'small': this.props.size === 'small'
+      'small': this.props.size === 'small',
     });
 
     return (
@@ -39,5 +39,5 @@ module.exports = React.createClass({
       }
       </div>
     );
-  }
+  },
 });

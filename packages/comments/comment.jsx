@@ -63,7 +63,7 @@ module.exports = React.createClass({
       onReply: noop,
       onEdit: noop,
       onDelete: noop,
-      inputButtons: false
+      inputButtons: false,
     };
   },
 
@@ -73,7 +73,7 @@ module.exports = React.createClass({
       starred: false,
       editing: false,
       replyValue: '',
-      editValue: this.props.comment.entry
+      editValue: this.props.comment.entry,
     };
   },
 
@@ -146,7 +146,7 @@ module.exports = React.createClass({
   handleEditToggle() {
     this.setState({
       editing: !this.state.editing,
-      editValue: this.props.comment.entry
+      editValue: this.props.comment.entry,
     }, () => {
       if (this.state.editing) {
         let editInput = this.refs.editInput.getDOMNode();
@@ -318,5 +318,5 @@ module.exports = React.createClass({
         </div>
       </div>
     );
-  }
+  },
 });

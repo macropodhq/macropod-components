@@ -3,7 +3,7 @@ const _ = require('lodash-node');
 module.exports = (options) => {
   const defaults = {
     interval: 100,
-    timeout: 200
+    timeout: 200,
   };
 
   const _options = _.assign({}, defaults, options);
@@ -82,6 +82,6 @@ module.exports = (options) => {
       if (typeof this.onScrollDown === 'function') {
         this.onScrollDown();
       }
-    }
+    },
   };
 };

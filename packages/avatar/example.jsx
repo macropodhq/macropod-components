@@ -31,5 +31,5 @@ module.exports = React.createClass({
         <Avatar firstName="James" lastName="Coleman" size="s" circle={true} />
       </div>
     );
-  }
+  },
 });

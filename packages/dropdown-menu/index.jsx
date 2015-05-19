@@ -9,7 +9,7 @@ module.exports = React.createClass({
 
   propTypes: {
     footer: React.PropTypes.node,
-    align: React.PropTypes.oneOf(['left', 'right'])
+    align: React.PropTypes.oneOf(['left', 'right']),
   },
 
   render() {
@@ -33,5 +33,5 @@ module.exports = React.createClass({
         </div>
       </Popover>
     );
-  }
+  },
 });

@@ -55,5 +55,5 @@ Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut ferm
         }
       </div>
     );
-  }
+  },
 });

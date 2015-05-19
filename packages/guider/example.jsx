@@ -84,5 +84,5 @@ module.exports = React.createClass({
         <Button onClick={this.handleClick}>Guide me!</Button>
       </div>
     );
-  }
+  },
 });

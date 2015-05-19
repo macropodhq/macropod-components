@@ -48,5 +48,5 @@ module.exports = React.createClass({
         onKeyDown={this.keyHandler(keys)}
         showLabel={false} />
     );
-  }
+  },
 });

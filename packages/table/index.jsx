@@ -15,12 +15,12 @@ module.exports = React.createClass({
     columns: React.PropTypes.array.isRequired,
     initialData: React.PropTypes.array.isRequired,
     initialPageLength: React.PropTypes.number,
-    pageLengthOptions: React.PropTypes.array
+    pageLengthOptions: React.PropTypes.array,
   },
 
   getDefaultProps() {
     return {
-      pageLengthOptions: [ 5, 10, 15 ]
+      pageLengthOptions: [5, 10, 15],
     };
   },
 
@@ -31,5 +31,5 @@ module.exports = React.createClass({
       initialPageLength={this.props.initialPageLength || this.props.initialData.length}
       pageLengthOptions={this.props.pageLengthOptions}
     />);
-  }
+  },
 });

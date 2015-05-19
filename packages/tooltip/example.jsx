@@ -13,5 +13,5 @@ module.exports = React.createClass({
         <p><span data-tooltip-left="Tooltip!">Hover over me (left tooltip)</span></p>
       </div>
     );
-  }
+  },
 });

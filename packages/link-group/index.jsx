@@ -40,5 +40,5 @@ module.exports = React.createClass({
         {this.getChildren()}
       </div>
     );
-  }
+  },
 });
