@@ -61,8 +61,8 @@ const Item = React.createClass({
       padding: typeof this.props.children === 'string' ? 15 : 0,
       display: 'inline-block',
       color: 'rgba(255,255,255,0.5)',
-      borderLeft: this.props.align === align.RIGHT ? '1px solid rgba(255, 255, 255, 0.2)' : 0,
-      borderRight: this.props.align === align.LEFT ? '1px solid rgba(255, 255, 255, 0.2)' : 0
+      borderLeft: this.props.align === align.RIGHT ? '1px solid rgba(0,0,0,.15)' : 0,
+      borderRight: this.props.align === align.LEFT ? '1px solid rgba(0,0,0,.15)' : 0
     };
 
     return Object.assign(style, this.props.style);
