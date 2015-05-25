@@ -1,12 +1,12 @@
-@import "colors";
+@import "../../style/colors.scss";
 
 $icon-button-size: 1.65em;
 
-$color-icon-button: #eee !default;
-$color-icon-button-background: #bbb !default;
+$color-icon-button: #eee;
+$color-icon-button-background: #bbb;
 
-$color-icon-button-hover: white !default;
-$color-icon-button-background-hover: $color-fountain-blue !default;
+$color-icon-button-hover: white;
+$color-icon-button-background-hover: rgba(106, 160, 195, 1);
 
 .IconButton {
   display: inline-block;
@@ -23,7 +23,7 @@ $color-icon-button-background-hover: $color-fountain-blue !default;
   outline: none;
 
   &:focus {
-    box-shadow: 0 0 0 1px rgba(0,0,0,.1),0 0 6px rgba(0,0,0,.3);
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 0 6px rgba(0,0,0,.3);
   }
 
   &:focus,

@@ -1,8 +1,8 @@
-@import "colors";
-@import "placeholders";
+@import "../../style/colors.scss";
+@import "../../style/placeholders.scss";
 
 .Comment {
-  @extend %clearfix;
+  @mixin clearfix;
   clear: both;
   margin: 15px 0;
   padding: 10px;
@@ -89,7 +89,7 @@
     margin: 5px -10px -10px;
     background: #eee;
     box-shadow: 1px 0 0 rgba(0,0,0,.05), -1px 0 0 rgba(0,0,0,.05), 0 1px 0 rgba(0,0,0,.05);
-  
+
     .Form-item {
       margin-bottom: 0;
 
@@ -100,7 +100,7 @@
   }
 
   .Comment-replies-new {
-    @extend %clearfix;
+    @mixin clearfix;
     padding: 10px;
   }
 

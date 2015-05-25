@@ -1,10 +1,11 @@
-@import "../node_modules/open-sands/scss/open-sans.scss";
+/*@import "../node_modules/open-sands/scss/open-sans.scss";
 $open-sans-path: "~open-sands/fonts";
 $open-sans-formats: ("woff");
 
-@include open-sans-font-face-light();
-@include open-sans-font-face-regular();
-@include open-sans-font-face-semibold();
+@mixin open-sans-font-face-light();
+@mixin open-sans-font-face-regular();
+@mixin open-sans-font-face-semibold();*/
+@import "../style/rw-core.scss";
 
 * {
   box-sizing: border-box;

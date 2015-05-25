@@ -1,9 +1,9 @@
-@import "colors";
+@import "../../style/colors.scss";
 
 $default-size: 40px;
 $color-main: $color-alto;
 $color-secondary: $color-silver-chalice;
-$color-path: $color-scorpion;
+$color-path: rgba(96, 96, 96, 1);
 
 .Loading {
   width: 100%;

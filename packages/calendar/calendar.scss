@@ -1,16 +1,16 @@
-@import "rw-shared";
+@import "../../style/rw-shared.scss";
 
 .rw-calendar {
-  background-color: $widget-bg;
+  background-color: $input-color;
   width: 100%;
   font-size: 12px;
   padding: 10px 0;
   border: $input-border-width solid transparent;
 
   &.rw-state-focus {
-    border-color: $input-state-hover;
+    border-color: $state-bg-hover;
   }
-  
+
   .rw-header {
     padding-bottom: 5px;
     text-align: center;
@@ -26,11 +26,11 @@
       outline: 0;
       vertical-align: top;
       &:hover {
-        background-color: $input-state-hover;
+        background-color: $state-bg-hover;
       }
     }
 
-    
+
     .rw-btn-left,
     .rw-btn-right {
       width: 30px;
@@ -39,28 +39,28 @@
     .rw-btn-view {
 
       &:hover {
-        background-color: $input-state-hover;
+        background-color: $state-bg-hover;
       }
 
       &[disabled] {
-        @include state-disabled;
+        /*@mixin state-disabled;*/
       }
     }
   }
 
   .rw-footer {
-    border-top: 1px solid $input-border;
-    
+    border-top: 1px solid $input-border-width;
+
     .rw-btn {
       width: 100%;
       white-space: normal;
-      
+
       &:hover {
-        background-color: $input-state-hover;
+        background-color: $state-bg-hover;
       }
 
       &[disabled] {
-        @include state-disabled;
+        /*@mixin state-disabled;*/
       }
     }
   }
@@ -100,17 +100,17 @@
 
       }
       &.rw-off-range {
-        color: lighten($btn-color, 50%)
+        color: lighten(#333, 50%)
       }
 
       &.rw-state-selected {
-        background-color:   rgba($state-bg-select, .4);
-        color: $state-color-select;
+        background-color:   rgba($state-bg-focus, .4);
+        color: $state-color-focus;
         border-color: transparent;
 
         &:hover, &.rw-state-focus {
-          background-color:   $state-bg-select;
-          color: $state-color-select;
+          background-color:   $state-bg-focus;
+          color: $state-color-focus;
           border-color: transparent;
         }
       }

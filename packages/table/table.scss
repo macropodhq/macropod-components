@@ -1,10 +1,9 @@
-@import "mixins";
-@import "colors";
+@import "../../style/colors.scss";
 
 $color-table-border: $color-gallery;
 $color-table: $color-silver-chalice;
-$color-page: $color-scorpion;
-$color-page-active: $color-white;
+$color-page: rgba(96, 96, 96, 1);
+$color-page-active: $(color-white);
 $color-page-active-background: $color-silver-chalice;
 $color-page-border: $color-silver-chalice;
 $color-page-hover-background: $color-gallery;
@@ -30,7 +29,8 @@ $color-page-disabled: $color-alto;
     }
   }
 
-  .pull-left { // there isn't a better selector for this :'(
+  .pull-left {
+    /*there isn't a better selector for this :'(*/
     float: left;
   }
 

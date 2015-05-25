@@ -1,21 +1,20 @@
-@import "colors";
-@import "variables";
-@import "placeholders";
+@import "../../style/colors.scss";
+@import "../../style/variables.scss";
+@import "../../style/placeholders.scss";
 
-// Component Overrides
-$app-base-padding: $app-base-padding;
-$app-header-bg: $color-indigo;
-$sort-bg: $color-indigo;
-$app-base-padding: 20px;
+/*Component Overrides*/
+
+$app-header-bg: $(color-indigo);
+$sort-bg: $(color-indigo);
 $nav-secondary-height: 60px;
-$color-nav-link: $color-white;
-$color-action-icon: $color-white;
-$color-search-border: $color-white;
-$color-search-text: $color-silver-chalice;
+$color-nav-link: $(color-white);
+$color-action-icon: $(color-white);
+$color-search-border: $(color-white);
+$color-search-text: $(color-silver-chalice);
 
 .ActionsBar {
+  @mixin clearfix;
   background: $app-header-bg;
-  @extend %clearfix;
   padding: 0 $app-base-padding;
 
   .ActionsBar-title {
@@ -27,7 +26,8 @@ $color-search-text: $color-silver-chalice;
     font-weight: 300;
     color: #fff;
     outline: 0;
-    @extend %header-secondary-heights;
+    line-height: $nav-secondary-height;
+    height: $nav-secondary-height;
     font-size: 21px;
     width: 200px;
     cursor: pointer;
@@ -44,12 +44,13 @@ $color-search-text: $color-silver-chalice;
     }
     .ActionsBar-navigation-link {
       height: $nav-secondary-height;
-      line-height: $nav-secondary-height - 3px;
+      line-height: calc($nav-secondary-height - 3px);
       display: inline-block;
-      color: rgba($color-nav-link, .7);
+      color: $color-nav-link;
       margin: 0 12px 0 0;
       text-decoration: none;
-      @extend %header-secondary-heights;
+      line-height: $nav-secondary-height;
+      height: $nav-secondary-height;
       &:hover, &.active {
         color: $color-nav-link;
         text-decoration: none;
@@ -64,14 +65,16 @@ $color-search-text: $color-silver-chalice;
     float: right;
 
     .ActionsBar-actions-control {
-      @extend %header-block;
-      @extend %header-secondary-heights;
-      color: rgba($color-action-icon, .6);
+      display: inline-block;
+      vertical-align: top;
+      line-height: $nav-secondary-height;
+      height: $nav-secondary-height;
+      color: $color-action-icon;
       padding: 0 5px;
       text-decoration: none;
       vertical-align: middle;
       path {
-        fill: rgba($color-action-icon, .6);
+        fill: $color-action-icon;
       }
       &:hover {
         text-decoration: none;
@@ -83,7 +86,7 @@ $color-search-text: $color-silver-chalice;
       }
     }
 
-    // Searchbox Styles
+    /*Searchbox Styles*/
     .ActionsBar-actions-search {
       @media(max-width: 750px) {
         display: none;
@@ -98,7 +101,7 @@ $color-search-text: $color-silver-chalice;
           display: block;
         }
       }
-      border: 1px solid rgba($color-search-border, .6);
+      border: 1px solid $color-search-border;
       background: none;
       border-radius: 4px;
       font-weight: 400;
@@ -106,10 +109,11 @@ $color-search-text: $color-silver-chalice;
       padding: 0 10px;
       font-size: 13px;
       line-height: 1;
-      @extend %header-block;
+      display: inline-block;
+      vertical-align: top;
       width: 150px;
       border-radius: 20px;
-      height: $nav-secondary-height - 28px;
+      height: calc($nav-secondary-height - 28px);
       margin: 13px 0;
 
       &::placeholder {

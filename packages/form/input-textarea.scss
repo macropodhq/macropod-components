@@ -1,7 +1,7 @@
-@import 'inputs';
+@import "../../style/inputs.scss";
 
-.Input.Input--Textarea {
-  @include text-input-style;
+.Input.Input--textarea {
+  @mixin text-input-style;
   height: auto;
   outline: 0;
   font-weight: 400;

@@ -1,8 +1,8 @@
-@import "colors";
-@import "placeholders";
+@import "../../style/colors.scss";
+@import "../../style/placeholders.scss";
 
-$color-todo-list-item-complete: $color-gull-gray !default;
-$color-todo-list-item-border: $color-catskill-white !default;
+$color-todo-list-item-complete: rgba(158, 175, 186, 1);
+$color-todo-list-item-border: rgba(228, 233, 241, 1);
 
 .Todo-list {
   margin-bottom: 10px;

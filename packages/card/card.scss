@@ -1,7 +1,7 @@
-@import "colors";
+@import "../../style/colors.scss";
 
-$color-card-background: $color-white;
-$color-header-content-text: $color-gull-gray;
+$color-card-background: $(color-white);
+$color-header-content-text: rgba(158, 175, 186, 1);
 
 $app-base-screen-xsmall:        320px;
 $app-base-screen-small:         550px;
