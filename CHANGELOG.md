@@ -1,5 +1,10 @@
 # Macropod Components Changelog
 
+## [v0.0.16](https://github.com/macropodhq/react-playground/releases/tag/0.0.16)
+
+### Improvements
+[#290](https://github.com/macropodhq/macropod-components/pull/290): Linting fixes
+
 ## [v0.0.15](https://github.com/macropodhq/react-playground/releases/tag/0.0.15)
 
 ### Improvements
