@@ -27,7 +27,7 @@ $arrow-size: 12px;
     border-right: $arrow-size solid transparent;
     border-bottom: $arrow-size solid $color-background;
     position: absolute;
-    left: calc(50% - $(arrow-size));
+    left: calc(50% - $arrow-size);
     bottom: $arrow-offset;
   }
 

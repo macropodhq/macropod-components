@@ -57,7 +57,7 @@ $avatar-l: 50px;
   height: $avatar-s;
   line-height: $avatar-s;
   .Avatar-image, .Avatar-initials {
-    font-size: $avatar-s / 2.25;
+    font-size: calc($avatar-s / 2.25);
     width: $avatar-s;
     height: $avatar-s;
   }
@@ -67,7 +67,7 @@ $avatar-l: 50px;
   height: $avatar-m;
   line-height: $avatar-m;
   .Avatar-image, .Avatar-initials {
-    font-size: $avatar-m / 2.25;
+    font-size: calc($avatar-m / 2.25);
     width: $avatar-m;
     height: $avatar-m;
   }
@@ -77,7 +77,7 @@ $avatar-l: 50px;
   height: $avatar-l;
   line-height: $avatar-l;
   .Avatar-image, .Avatar-initials {
-    font-size: $avatar-l / 2.25;
+    font-size: calc($avatar-l / 2.25);
     width: $avatar-l;
     height: $avatar-l;
   }

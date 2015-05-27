@@ -12,7 +12,7 @@ $color-icon-button-background-hover: rgba(106, 160, 195, 1);
   display: inline-block;
   color: $color-icon-button;
   background-color: $color-icon-button-background;
-  border-radius: ($icon-button-size / 2);
+  border-radius: calc($icon-button-size / 2);
   height: $icon-button-size;
   width: $icon-button-size;
   padding: 0;
