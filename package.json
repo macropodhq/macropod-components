@@ -8,7 +8,6 @@
     "lodash-node": "^2.4.1",
     "marked": "^0.3.3",
     "normalize.css": "~3.0.2",
-    "react": "^0.12.2",
     "react-components": "^0.2.0",
     "react-data-components": "^0.3.0",
     "react-textarea-autosize": "^1.0.6",
