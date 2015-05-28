@@ -1,7 +1,7 @@
-@import "colors";
+@import "../../style/colors.scss";
 
-$color-card-background: $color-white;
-$color-header-content-text: $color-gull-gray;
+$color-card-background: $(color-white);
+$color-header-content-text: rgba(158, 175, 186, 1);
 
 $app-base-screen-xsmall:        320px;
 $app-base-screen-small:         550px;
@@ -15,19 +15,19 @@ $app-base-screen-large:         1024px;
   display: inline-block;
   vertical-align: top;
   overflow: auto;
-  @media (min-width: $app-base-screen-large + 1) {
+  @media (min-width: 1025px) {
     width: calc(25% - 10px);
     &:nth-child(4n+1) {
       clear: left;
     }
   }
-  @media(min-width: $app-base-screen-medium + 1) and (max-width: $app-base-screen-large) {
+  @media(min-width: 751px) and (max-width: $app-base-screen-large) {
     width: calc(33% - 10px);
     &:nth-child(3n+1) {
       clear: left;
     }
   }
-  @media(min-width: $app-base-screen-small + 1) and (max-width: $app-base-screen-medium) {
+  @media(min-width: 551px) and (max-width: $app-base-screen-medium) {
     width: calc(50% - 10px);
     &:nth-child(2n+1) {
       clear: left;

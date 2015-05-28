@@ -1,12 +1,12 @@
-@import "rw-shared";
-@import "placeholders";
+@import "../../style/rw-shared.scss";
+@import "../../style/placeholders.scss";
 
 .rw-multiselect {
   position: relative;
-  @extend %clearfix;
+  @mixin clearfix;
 
   &.rw-widget {
-    @include text-input-style;
+    @mixin text-input-style;
     height: auto;
     padding: 0;
     position: relative;
@@ -42,7 +42,7 @@
 
     &.rw-state-focus,
     &.rw-state-focus:hover {
-      border-color: rgba(#363f4b, .5);
+      border-color: #363f4b.5;
       outline: 0;
     }
 
@@ -93,11 +93,11 @@
     border-radius: $input-border-radius;
     padding: 2px;
     width: 100%;
-    @extend %clearfix;
+    @mixin clearfix;
   }
 
   .rw-multiselect-taglist {
-    @extend %cleafix;
+    @mixin clearfix;
     margin: 0;
     padding: 0;
     list-style: none;

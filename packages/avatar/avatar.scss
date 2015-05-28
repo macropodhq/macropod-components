@@ -52,21 +52,33 @@ $avatar-l: 50px;
   }
 }
 
-@mixin avatarSizing($classes, $size) {
-  @each $class in $classes {
-    .#{$class} {
-      width: $size;
-      height: $size;
-      line-height: $size;
-      .Avatar-image, .Avatar-initials {
-        font-size: $size / 2.25;
-        width: $size;
-        height: $size;
-      }
-    }
+.avatar-s, .Avatar--s {
+  width: $avatar-s;
+  height: $avatar-s;
+  line-height: $avatar-s;
+  .Avatar-image, .Avatar-initials {
+    font-size: calc($avatar-s / 2.25);
+    width: $avatar-s;
+    height: $avatar-s;
   }
 }
-
-@include avatarSizing(('avatar-s', 'Avatar--s'), $avatar-s);
-@include avatarSizing(('avatar-m', 'Avatar--m'), $avatar-m);
-@include avatarSizing(('avatar-l', 'Avatar--l'), $avatar-l);
+.avatarm, .Avatar-m {
+  width: $avatar-m;
+  height: $avatar-m;
+  line-height: $avatar-m;
+  .Avatar-image, .Avatar-initials {
+    font-size: calc($avatar-m / 2.25);
+    width: $avatar-m;
+    height: $avatar-m;
+  }
+}
+.avatar-l, .Avatar--l {
+  width: $avatar-l;
+  height: $avatar-l;
+  line-height: $avatar-l;
+  .Avatar-image, .Avatar-initials {
+    font-size: calc($avatar-l / 2.25);
+    width: $avatar-l;
+    height: $avatar-l;
+  }
+}

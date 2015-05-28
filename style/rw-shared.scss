@@ -1,539 +1,113 @@
-@import "inputs";
+@import "./inputs.scss";
 
-// Variables
+/*Variables*/
 $btn-bg:                    #fff;
 $btn-color:                 #333;
 $btn-border:                #ccc;
 
-$state-bg-select:           $input-state-focus;
-$state-border-select:       $input-state-focus;
+$state-bg-select:           rgba(#243b5d, .50);
+$state-border-select:       rgba(#243b5d, .50);
 $state-color-select:        #fff;
 
-$state-bg-hover:            $input-state-hover;
-$state-border-hover:        $input-state-hover;
+$state-bg-hover:            rgba(#243b5d, .10);
+$state-border-hover:        rgba(#243b5d, .10);
 $state-color-hover:         #333;
 
-$widget-bg:                 $input-background-color;
-$widget-border:             $input-border-color;
+$widget-bg:                 #fdfdff;
+$widget-border:             rgba(#243b5d, .25);
 
-$state-bg-focus:            $input-state-hover;
-$state-border-focus:        $input-state-hover;
+$state-bg-focus:            rgba(#243b5d, .10);
+$state-border-focus:        rgba(#243b5d, .10);
 $state-color-focus:         #333;
 
-$input-color:               $input-text-color;
-$input-bg:                  $input-background-color;
-$input-bg-disabled:         $input-text-color;
+$input-color:               inherit;
+$input-bg:                  #fdfdff;
+$input-bg-disabled:         inherit;
 
 $input-bg-gradient:         none;
 $input-color-placeholder:   inherit;
 
-$input-border-radius:       $input-border-radius;
-$input-border:              $input-border-color;
+$input-border-radius:       3px;
+$input-border:              rgba(#243b5d, .25);
 
-$input-bg-hover:            $input-state-hover;
-$input-border-hover:        $input-state-hover;
+$input-bg-hover:            rgba(#243b5d, .10);
+$input-border-hover:        rgba(#243b5d, .10);
 
-$input-border-focus:        $input-state-focus; 
+$input-border-focus:        rgba(#243b5d, .50);
 
-$dropdown-bg:               $input-bg;
-$dropdown-border:           $input-border;
+$dropdown-bg:               #fdfdff;
+$dropdown-border:           rgba(#243b5d, .25);
 
-$list-bg-hover:             $state-bg-hover;
-$list-border-hover:         $state-border-hover;
+$list-bg-hover:             rgba(#243b5d, .10);
+$list-border-hover:         rgba(#243b5d, .10);
 
-$popup-bg:                  $widget-bg;
-$popup-border:              $widget-border;
+$popup-bg:                  #fdfdff;
+$popup-border:              rgba(#243b5d, .25);
 $popup-zindex:              1005;
 
 
-// Mixins
-@mixin list-unstyled {
+/*Mixins*/
+@define-mixin list-unstyled {
   margin: 0;
   padding-left: 0;
   list-style: none;
 }
 
-@mixin list-inline() {
-  @include list-unstyled;
+@define-mixin list-inline {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
 
-  > li {
+  & > li {
     display: inline-block;
     padding-left: 5px;
     padding-right: 5px;
   }
 }
 
-
-
-@mixin border-left-radius($radius) {
+@define-mixin border-left-radius $radius {
   border-bottom-left-radius: $radius;
      border-top-left-radius: $radius;
 }
 
-@mixin border-bottom-radius($radius) {
+@define-mixin border-bottom-radius $radius {
   border-bottom-right-radius: $radius;
    border-bottom-left-radius: $radius;
 }
 
-@mixin border-top-radius($radius) {
+@define-mixin border-top-radius $radius {
   border-top-right-radius: $radius;
    border-top-left-radius: $radius;
 }
 
-@mixin border-right-radius($radius) {
+@define-mixin border-right-radius $radius {
   border-bottom-right-radius: $radius;
      border-top-right-radius: $radius;
 }
 
-@mixin transition($transition) {
+@define-mixin transition $transition {
   -webkit-transition: $transition;
        -o-transition: $transition;
           transition: $transition;
 }
 
-@mixin state-select {
+@define-mixin state-select {
   background-color: $state-bg-select;
   border-color:     $state-bg-select;
   color:            $state-color-select;
 }
 
-@mixin state-hover {
+@define-mixin state-hover {
   background-color: $state-bg-hover;
   border-color:     $input-border-color;
   color:            $state-color-hover;
 }
 
-@mixin state-disabled {
+@define-mixin state-disabled {
   cursor: not-allowed;
 }
 
-@mixin state-focus {
+@define-mixin state-focus {
   background-color: $state-bg-focus;
   color:            $state-color-focus;
 }
-
-@mixin clearfix() {
-  &:before,
-  &:after {
-    content: " "; 
-    display: table;
-  }
-  &:after {
-    clear: both;
-  }
-}
-
-// Core Styles
-.rw-widget {
-  outline: 0;
-  background-clip: border-box;
-}
-
-.rw-btn {
-  display: inline-block;
-  margin: 0;
-  text-align: center;
-  vertical-align: middle;
-  background: none;
-  background-image: none;
-  border: 1px solid transparent;
-  padding: 0;
-  white-space: nowrap;
-}
-
-.rw-rtl {
-  direction: rtl;
-}
-
-.rw-input {
-  background:     $input-bg;
-  height:         $input-height;
-  line-height:    $input-line-height;
-  padding:        $input-padding;
-  border:         0 !important;
-  margin:         0 !important;
-
-  &[disabled] {
-    @include state-disabled;
-    opacity: 1;
-    background-color: $input-bg-disabled;
-    border-color: $input-border;
-  }
-
-  &[readonly]{
-    cursor: not-allowed;
-  }
-}
-
-.rw-i.rw-loading {
-  width: 16px;
-  height: 100%;
-
-  &:before{
-    content: ""
-  }
-}
-
-
-.rw-loading-mask {
-  border-radius:    $input-border-radius;
-  position:         relative;
-
-  &:after{
-    content: '';
-    position:   absolute;
-    background-color: #fff;
-    opacity: 0.7;
-    top: 0;
-    left: 0; 
-    height: 100%;
-    width: 100%;
-  }
-}
-
-.rw-state-focus {
-  @include state-focus;
-}
-
-.rw-state-selected {
-  @include state-select;
-}
-
-&.rw-state-disabled {
-  @include state-disabled;
-  opacity: 1;
-}
-
-.rw-btn,
-.rw-dropdownlist {
-  cursor: pointer;
-}
-
-.rw-btn {
-  &[disabled],
-  .rw-state-disabled &,
-  .rw-state-readonly & {
-    @include state-disabled;
-    pointer-events: none;
-    cursor: not-allowed;
-    filter: alpha(opacity=65);
-    opacity: .65;
-  }
-}
-
-ul.rw-list {
-  @include list-unstyled();
-  padding: 5px 0;
-  overflow: auto;
-  outline: 0;
-  height: 100%;
-
-  > li {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    outline: 0;
-  }
-
-  > li.rw-list-optgroup {
-    font-weight: bold;
-  }
-
-  > li.rw-list-option {
-    cursor: pointer;
-    margin: 2px;
-    padding: 5px 10px;
-    border-radius: $input-border-radius;
-
-    &:hover {
-      background-color: $list-bg-hover;
-      border-color:     $list-border-hover;
-    }
-
-    &.rw-state-focus {
-      @include state-focus;
-    }
-
-    &.rw-state-selected {
-      @include state-select;
-    }
-  }
-}
-
-ul.rw-list {
-
-  &.rw-list-grouped {
-
-    > li.rw-list-optgroup {
-      padding-left: 10px;
-    }
-
-    > li.rw-list-option {
-      padding-left: 20px;
-    }
-  }
-}
-
-
-.rw-widget {
-  position: relative;
-}
-
-.rw-open.rw-widget,
-.rw-open > .rw-multiselect-wrapper {
-  @include border-bottom-radius(0);
-}
-
-.rw-open-up.rw-widget,
-.rw-open-up > .rw-multiselect-wrapper {
-  @include border-top-radius(0);
-}
-
-.rw-combobox,
-.rw-datetimepicker,
-.rw-numberpicker,
-.rw-dropdownlist,
-.rw-multiselect {
-  & .rw-list {
-    max-height: 200px;
-    height: auto;
-  }
-}
-
-$focus-rgba: rgba(red($input-border-focus), green($input-border-focus), blue($input-border-focus), .6);
-
-.rw-widget {
-  background-color:   $input-bg;
-  border:             $input-border $input-border-width solid;
-  border-radius:      $input-border-radius;
-
-  .rw-input {
-    @include border-left-radius($input-border-radius);
-
-    .rw-rtl & {
-      @include border-left-radius(0);
-      @include border-right-radius($input-border-radius);
-    }
-  }
-
-  > .rw-select {
-    border-left: $input-border 1px solid;
-
-    .rw-rtl & {
-      border-right: $input-border 1px solid;
-      border-left:  none;
-    }
-  }
-
-  &.rw-state-focus,
-  &.rw-state-focus:hover {
-    border-color: $input-border-focus;
-    outline: 0;
-  }
-
-  &.rw-state-readonly,
-  &.rw-state-readonly > .rw-multiselect-wrapper {
-    cursor: not-allowed;
-  }
-
-  &.rw-state-disabled {
-    &,
-    &:hover,
-    &:active {
-      background-color: $input-bg-disabled;
-      border-color: $input-border;
-    }
-  }
-}
-
-
-.rw-combobox,
-.rw-datetimepicker,
-.rw-numberpicker,
-.rw-dropdownlist {
-
-  &.rw-rtl {
-
-  }
-
-  > .rw-input {
-    width: 100%;
-    border: none;
-    outline: 0;
-  }
-}
-
-
-.rw-select {
-  position: absolute;
-  height: 100%;
-  right: 0;
-
-  &.rw-btn,
-  & > .rw-btn {
-    height: 100%;
-    vertical-align: middle;
-    outline: 0;
-  }
-
-  .rw-rtl & {
-    left: 0;
-    right: auto;
-  }
-}
-
-
-//input inset
-.rw-multiselect,
-.rw-combobox input.rw-input,
-.rw-datetimepicker input.rw-input,
-.rw-numberpicker input.rw-input {
-}
-
-
-.rw-combobox:active,
-.rw-datetimepicker:active,
-.rw-dropdownlist:active,
-.rw-header > .rw-btn:active,
-.rw-numberpicker .rw-btn.rw-state-active {
-  &,
-  &.rw-state-focus {
-    background-image: none;
-  }
-}
-
-
-.rw-combobox,
-.rw-datetimepicker,
-.rw-numberpicker,
-.rw-dropdownlist {
-  &:hover {
-    border-color: $input-border-color;
-  }
-}
-
-.rw-dropdownlist {
-  &.rw-state-disabled,
-  &.rw-state-readonly {
-    cursor: not-allowed;
-  }
-
-  > .rw-input {
-    background-color:   transparent;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  > .rw-select,
-  > .rw-select.rw-rtl {
-    border-width: 0;
-  }
-}
-
-.rw-numberpicker {
-
-  .rw-btn {
-    display: block;
-    height: $input-height / 2;
-    line-height: $input-height / 2;
-    width: 100%;
-    border-width: 0;
-  }
-}
-
-
-
-// Icon Font
-// @font-face {
-//   font-family: 'RwWidgets';
-//   src: url('~react-widgets/dist/fonts/rw-widgets.eot');
-//   src: url('~react-widgets/dist/fonts/rw-widgets.eot#iefix') format('embedded-opentype'),
-//        url('~react-widgets/dist/fonts/rw-widgets.woff') format('woff'),
-//        url('~react-widgets/dist/fonts/rw-widgets.ttf') format('truetype'),
-//        url('~react-widgets/dist/fonts/rw-widgets.svg#fontawesomeregular') format('svg');
-//   font-weight: normal;
-//   font-style: normal;
-// }
-
-// Icons
-.rw-i {
-  display: inline-block;
-  background-size: 13px;
-  background-repeat: no-repeat;
-  background-position: center;
-  font-size: 0;
-  height: 100%;
-  width: 100%;
-}
-
-.rw-i-calendar { 
-  background-image: url('../icon/svgs/icon-calendar.svg'); 
-}
-.rw-i-caret-down { 
-  background-image: url('../icon/svgs/icon-nav-down.svg'); 
-}
-.rw-i-caret-up { 
-  background-image: url('../icon/svgs/icon-nav-up.svg'); 
-}
-.rw-i-caret-left { 
-  background-image: url('../icon/svgs/icon-nav-left.svg'); 
-}
-.rw-i-caret-right { 
-  background-image: url('../icon/svgs/icon-nav-right.svg'); 
-}
-.rw-i-clock-o { 
-  background-image: url('../icon/svgs/icon-clock.svg'); 
-}
-
-.rw-sr {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  border: 0;
-}
-
-// Popups
-.rw-popup  {
-  position: absolute;
-  @include border-top-radius(0);
-  @include border-bottom-radius($input-border-radius);
-  border:           $state-border-select $input-border-width solid;
-  border-top:       0;
-  background:       $popup-bg;
-  padding:          2px;
-  overflow:         auto;
-  
-  // the offsets allows for drop shadow to not be clipped by the container
-  margin-bottom:    10px;
-  left:             0;
-  right:            0;
-
-  .rw-dropup > & {
-    margin-bottom: 0;
-    margin-top:    10px;
-    @include border-top-radius($input-border-radius);
-    @include border-bottom-radius(0);
-  }
-  
-}
-
-.rw-popup-container {
-  position: absolute;
-  top: 100%;
-  margin-top: $input-border-width;
-  z-index: $popup-zindex;
-  left: $input-border-width * -1;
-  right: $input-border-width * -1;
-
-  &.rw-dropup {
-    top:    auto;
-    bottom: 100%;    
-  }
-}
-

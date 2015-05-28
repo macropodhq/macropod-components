@@ -1,10 +1,11 @@
-@import 'inputs';
+@import "../../style/inputs.scss";
 
 .Form-item {
   margin-bottom: 10px;
 
   label {
-    display: inline-block; // Get pointer events even where text doesn't appear
+    display: inline-block;
+    /*Get pointer events even where text doesn't appear*/
   }
 
   .Form-item-label, .Form-item-error {
@@ -32,13 +33,6 @@
 }
 
 .Input {
-  &[type=text], 
-  &[type=email], 
-  &[type=password],
-  &[type=search] {
-    @include text-input-style;
-  }
-
   &[type=checkbox] {
     width: 14px;
     height: 14px;

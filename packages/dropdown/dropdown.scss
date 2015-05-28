@@ -1,6 +1,4 @@
-@import "inputs";
-@import "rw-shared";
-
+@import "../../style/rw-shared.scss";
 
 .rw-dropdownlist {
   position: relative;
@@ -13,7 +11,7 @@
   }
 
   .rw-input {
-    // Not sure why this needs to be tweaked, but it does for visual consistency.
+    /*Not sure why this needs to be tweaked, but it does for visual consistency.*/
     padding: 9px 45px 0 10px;
   }
 
@@ -31,7 +29,7 @@
     top: 0;
     width: 34px;
     border-left: 1px solid $input-border-color !important;
-    
+
     &:hover {
       background-color: $input-state-hover;
     }

@@ -1,25 +1,25 @@
-@import "colors";
+@import "../../style/colors.scss";
 
-$button-font-family: 'Open Sans', 'Helvetica Neue', 'Arial', 'Helvetica', 'sans-serif' !default;
-$button-font-weight: 400 !default;
-$button-font-size: .8em !default;
+$button-font-family: 'Open Sans', 'Helvetica Neue', 'Arial', 'Helvetica', 'sans-serif';
+$button-font-weight: 400;
+$button-font-size: .8em;
 
-$color-button-default: $color-white !default;
-$color-button-default-background: $color-fountain-blue !default;
+$color-button-default: $(color-white);
+$color-button-default-background: rgba(106, 160, 195, 1);
 
-$color-button-success: $color-white !default;
-$color-button-success-background: $color-sushi !default;
+$color-button-success: $(color-white);
+$color-button-success-background: rgba(144, 194, 79, 1);
 
-$color-button-cancel: $color-scorpion !default;
-$color-button-cancel-background: transparent !default;
+$color-button-cancel: rgba(96, 96, 96, 1);
+$color-button-cancel-background: transparent;
 
-$color-button-danger: $color-white !default;
-$color-button-danger-background: $color-alizarin-crimson !default;
+$color-button-danger: $(color-white);
+$color-button-danger-background: rgba(220, 45, 49, 1);
 
-$color-button-skeleton: $color-scorpion !default;
+$color-button-skeleton: rgba(96, 96, 96, 1);
 
 .Button + .Button {
-  margin-left: 5px;  // pad buttons when they are next to each other
+  margin-left: 5px;
 }
 
 .Button {
@@ -67,7 +67,7 @@ $color-button-skeleton: $color-scorpion !default;
   background-image: none;
   text-shadow: none;
   outline: 0;
-  
+
   &:focus {
     background: rgba(0, 0, 0, .1);
   }
@@ -78,7 +78,8 @@ $color-button-skeleton: $color-scorpion !default;
   background-color: $color-button-danger-background;
 }
 
-.Button--skeleton { // TODO: replace with a <a> link component
+.Button--skeleton {
+  /*TODO: replace with a <a> link component*/
   color: $color-button-skeleton;
   background-color: transparent;
   background-image: none;

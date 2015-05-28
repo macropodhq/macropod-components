@@ -1,7 +1,7 @@
-@import "../icon-button/style";
+@import "../icon-button/style.scss";
 
-$color-button-delete-hover: white !default;
-$color-button-delete-background-hover: #d46060 !default;
+$color-button-delete-hover: white;
+$color-button-delete-background-hover: #d46060;
 
 
 .DeleteButton {

@@ -1,4 +1,4 @@
-@import "colors";
+@import "../../style/colors.scss";
 
 $modal-max-width: 1280px;
 $modal-main-breakpoint: 600px;
@@ -7,12 +7,12 @@ $modal-padding: 15px;
 $modal-header-height: 45px;
 $modal-footer-height: 55px;
 
-$color-dialog-background: $color-white;
-$color-modal-box-shadow: rgba($color-black, 0.5);
-$color-modal-background: rgba($color-black, 0.4);
+$color-dialog-background: $(color-white);
+$color-modal-box-shadow: rgba(#000, 0.5);
+$color-modal-background: rgba(#000, 0.4);
 
-$color-modal-close: $color-gull-gray;
-$color-modal-close-hover: $color-mine-shaft;
+$color-modal-close: rgba(158, 175, 186, 1);
+$color-modal-close-hover: rgba(32, 32, 32, 1);
 
 $transition-length: 0.3s;
 $transition-easing: cubic-bezier(1.000, 0.000, 0.000, 1.000);
@@ -61,18 +61,18 @@ $transition-easing: cubic-bezier(1.000, 0.000, 0.000, 1.000);
   &.Modal-dialog--withHeader {
     .Modal-content {
       padding-top: 0;
-      height: calc(100% - #{$modal-header-height});
+      height: calc(100% - $(modal-header-height));
     }
   }
   &.Modal-dialog--withFooter {
     .Modal-content {
       padding-bottom: 0;
-      height: calc(100% - #{$modal-footer-height});
+      height: calc(100% - $(modal-footer-height));
     }
-  }  
+  }
   &.Modal-dialog--withHeader.Modal-dialog--withFooter {
     .Modal-content {
-      height: calc(100% - #{$modal-header-height + $modal-footer-height});
+      height: calc(100% - ($(modal-header-height) + $(modal-footer-height)));
     }
   }
 
@@ -84,7 +84,7 @@ $transition-easing: cubic-bezier(1.000, 0.000, 0.000, 1.000);
     animation: scaleOut $transition-length;
   }
 
-  // TODO: this should not be
+  /*TODO: this should not be*/
   &.Modal-dialog--newTask {
     max-width: 850px;
 
@@ -106,7 +106,7 @@ $transition-easing: cubic-bezier(1.000, 0.000, 0.000, 1.000);
 .Modal-header {
   padding: 10px 20px;
   height: $modal-header-height;
-  line-height: $modal-header-height - 20px;
+  line-height: calc($modal-header-height - 20px);
   h2 {
     display: inlline-block;
     margin: 0;
@@ -121,7 +121,7 @@ $transition-easing: cubic-bezier(1.000, 0.000, 0.000, 1.000);
   right: 10px;
   text-decoration: none;
   color: $color-modal-close;
-  line-height: $modal-header-height - 20px;
+  line-height: calc($modal-header-height - 20px);
   &:hover {
     color: $color-modal-close-hover;
   }

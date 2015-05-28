@@ -1,7 +1,7 @@
-@import "colors";
+@import "../../style/colors.scss";
 
-$color-background: $color-mine-shaft;
-$color-tooltip: $color-white;
+$color-background: rgba(32, 32, 32, 1);
+$color-tooltip: $(color-white);
 
 $arrow-offset: -.5em;
 $arrow-size: .4em;
@@ -28,7 +28,7 @@ $arrow-size: .4em;
     border-right: $arrow-size solid transparent;
     border-bottom: $arrow-size solid rgba($color-background, .9);
     position: absolute;
-    left: calc(50% - #{$arrow-size});
+    left: calc(50% - $arrow-size);
     bottom: $arrow-offset;
   }
 

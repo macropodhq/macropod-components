@@ -1,4 +1,4 @@
-@import "../calendar/calendar";
+@import "../calendar/calendar.scss";
 
 .rw-datetimepicker {
   padding: 0;
@@ -6,18 +6,18 @@
   .rw-input {
     width: calc(100% - 35px);
   }
-  
+
 
   .rw-btn-calendar, .rw-btn-time {
     width: 34px;
     border-left: 1px solid $input-border-color !important;
     line-height: $input-line-height;
     border: 0;
-    
+
     &:hover {
       background-color: $input-state-hover;
     }
-  } 
+  }
 
   &.rw-has-neither {
     padding-left: 0;
