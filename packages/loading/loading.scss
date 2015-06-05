@@ -38,6 +38,13 @@ $color-path: $color-scorpion;
     }
   }
 
+  &.Loading--medium {
+    svg {
+      width: 29px;
+      height: 29px;
+    }
+  }
+
   .Loading-top {
     animation: fadeloop 1.5s infinite 0.4s;
   }
