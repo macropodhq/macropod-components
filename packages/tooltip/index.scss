@@ -3,29 +3,30 @@
 $color-background: $color-mine-shaft;
 $color-tooltip: $color-white;
 
-$arrow-offset: -15px;
-$arrow-size: 12px;
+$arrow-offset: -.5em;
+$arrow-size: .4em;
 
 *[data-tooltip], *[data-tooltip-left] {
   position: relative;
 
   &:after {
     content: attr(data-tooltip);
-    background: $color-background;
+    background: rgba($color-background, .9);
     color: $color-tooltip;
     position: absolute;
     bottom: -2.45em;
     left: calc(50% - 14px);
     border-radius: 3px;
-    padding: 0.2em 0.6em;
+    padding: .5em 1em;
     white-space: nowrap;
+    font-style: normal;
   }
 
   &:before {
     content: "";
     border-left: $arrow-size solid transparent;
     border-right: $arrow-size solid transparent;
-    border-bottom: $arrow-size solid $color-background;
+    border-bottom: $arrow-size solid rgba($color-background, .9);
     position: absolute;
     left: calc(50% - #{$arrow-size});
     bottom: $arrow-offset;
@@ -34,7 +35,8 @@ $arrow-size: 12px;
   &:after, &:before {
     display: none;
     z-index: 100;
-    font-size: 12px;
+    font-size: 13px !important;
+    line-height: 13px !important;
   }
 
   &:hover:after, &:hover:before {
