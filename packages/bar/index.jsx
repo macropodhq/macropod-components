@@ -29,12 +29,16 @@ const style = {
 
   header: {
     background: 'rgb(39, 61, 64)',
-    overflow: 'hidden',
+    overflow: 'visible',
   },
 
   itemChild: {
     padding: 15,
     display: 'inline-block',
+  },
+
+  clear: {
+    clear: 'both',
   },
 };
 
@@ -169,6 +173,8 @@ module.exports = React.createClass({
         <div className="Bar-right" style={this.getRightStyle()}>
           {this.buildChildren(align.RIGHT)}
         </div>
+
+        <div className="Bar-clear" style={style.clear}></div>
       </header>
     );
   },

@@ -19,6 +19,7 @@ module.exports = React.createClass({
 
     classes.addModifier({
       'small': this.props.size === 'small',
+      'medium': this.props.size === 'medium',
     });
 
     return (
