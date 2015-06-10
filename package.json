@@ -7,7 +7,6 @@
     "fecha": "^0.2.1",
     "lodash-node": "^2.4.1",
     "marked": "^0.3.3",
-    "normalize.css": "~3.0.2",
     "open-sands": "^1.0.3",
     "react-components": "^0.2.0",
     "react-data-components": "^0.3.0",
@@ -19,10 +18,13 @@
     "html-loader": "^0.2.3",
     "macropod-tools": "git://github.com/macropodhq/macropod-tools.git#0.0.13",
     "markdown-loader": "^0.1.2",
+    "normalize.css": "~3.0.2",
+    "react": ">=0.12.0",
     "react-router": ">=0.12.0"
   },
   "peerDependencies": {
-    "react": ">=0.12.0"
+    "react": ">=0.12.0",
+    "react-router": ">=0.12.0"
   },
   "scripts": {
     "start": "macropod-start",
