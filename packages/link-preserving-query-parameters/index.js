@@ -4,7 +4,7 @@ import Router from 'react-router';
 export default function LinkPreservingQueryParametersFactory(queryParameters) {
 
   if (!Array.isArray(queryParameters)) {
-    return Router.Link;
+    throw new Error('LinkPreservingQueryParametersFactory was not supplied an array of parameters to preserve. Either parameters should be supplied, or a Router.Link element should be used if you don\'t require the query preservation functionality.');
   }
 
   return React.createClass({
