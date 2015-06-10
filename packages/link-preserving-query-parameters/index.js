@@ -3,7 +3,7 @@ import Router from 'react-router';
 
 export default function LinkPreservingQueryParametersFactory(queryParameters) {
 
-  if (!(queryParameters instanceof Array)) {
+  if (!Array.isArray(queryParameters)) {
     return Router.Link;
   }
 
