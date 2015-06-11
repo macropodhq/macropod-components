@@ -1,27 +1,36 @@
 # Macropod Components Changelog
 
+## [v0.0.19](https://github.com/macropodhq/react-playground/releases/tag/0.0.19)
+
+### Features
+
+* [#294](https://github.com/macropodhq/macropod-components/pull/294): Add `LinkPreservingQueryParameters`
+
 ## [v0.0.18](https://github.com/macropodhq/react-playground/releases/tag/0.0.18)
 
 ### Improvements
-[#293](https://github.com/macropodhq/macropod-components/pull/293): Minor improvements to facilitate stack client updates
+
+* [#293](https://github.com/macropodhq/macropod-components/pull/293): Minor improvements to facilitate stack client updates
 
 ## [v0.0.17](https://github.com/macropodhq/react-playground/releases/tag/0.0.17)
 
 ### Improvements
-[#292](https://github.com/macropodhq/macropod-components/pull/292): Lock version of react-widgets to 2.3.0
-[#291](https://github.com/macropodhq/macropod-components/pull/291): Update react to 0.13.0
+
+* [#292](https://github.com/macropodhq/macropod-components/pull/292): Lock version of react-widgets to 2.3.0
+* [#291](https://github.com/macropodhq/macropod-components/pull/291): Update react to 0.13.0
 
 ## [v0.0.16](https://github.com/macropodhq/react-playground/releases/tag/0.0.16)
 
 ### Improvements
-[#290](https://github.com/macropodhq/macropod-components/pull/290): Linting fixes
+
+* [#290](https://github.com/macropodhq/macropod-components/pull/290): Linting fixes
 
 ## [v0.0.15](https://github.com/macropodhq/react-playground/releases/tag/0.0.15)
 
 ### Improvements
-[#287](https://github.com/macropodhq/macropod-components/pull/287): Assorted minor style tweaks
 
-*
+* [#287](https://github.com/macropodhq/macropod-components/pull/287): Assorted minor style tweaks
+
 ## [v0.0.14](https://github.com/macropodhq/react-playground/releases/tag/0.0.14)
 
 ### Improvements
