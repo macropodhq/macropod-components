@@ -5,6 +5,7 @@ const InputWrapper = require('./input-wrapper');
 const TextareaAutosize = require('react-textarea-autosize');
 
 require('./input-textarea.scss');
+require('./input-text.scss');
 
 module.exports = React.createClass({
   displayName: 'InputTextarea',
@@ -37,8 +38,8 @@ module.exports = React.createClass({
         <TextareaField
           {...this.props}
           ref="input"
-          id={`Input--Textarea--${camelCaseLabel}`}
-          className={`Input Input--Textarea Input--Textarea--${camelCaseLabel}`}
+          id={`Input--textarea--${camelCaseLabel}`}
+          className={`Input Input--textarea Input--textarea--${camelCaseLabel}`}
         />
       </InputWrapper>
     );
