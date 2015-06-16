@@ -6,7 +6,7 @@ const Modal = require('../modal');
 const Steps = require('../steps');
 const Button = require('../button');
 
-require('./guider.scss');
+require('./guider.pcss');
 
 const noop = () => {};
 

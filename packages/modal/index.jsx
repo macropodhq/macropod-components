@@ -6,7 +6,7 @@ const LayeredComponentMixin = require('react-components/layered-component-mixin'
 const animationCallback = require('../style-utilities').animationCallback;
 const SuitClassSet = require('../suit-class-set');
 
-require('./modal.scss');
+require('./modal.pcss');
 
 module.exports = React.createClass({
   displayName: 'Modal',

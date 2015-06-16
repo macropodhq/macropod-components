@@ -3,7 +3,7 @@
 const React = require('react');
 
 const Button = require('./');
-require('./example.scss');
+require('./example.pcss');
 
 module.exports = React.createClass({
   displayName: 'ButtonExample',

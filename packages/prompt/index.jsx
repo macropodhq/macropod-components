@@ -5,7 +5,7 @@ const React = require('react/addons');
 const Alert = require('../alert');
 const InputText = require('../form/input-text');
 
-require('./prompt.scss');
+require('./prompt.pcss');
 
 const noop = () => {};
 

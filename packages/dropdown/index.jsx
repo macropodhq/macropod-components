@@ -4,7 +4,7 @@ const React = require('react/addons');
 
 const Widgets = require('react-widgets');
 
-require('./dropdown.scss');
+require('./dropdown.pcss');
 
 module.exports = React.createClass({
   displayName: 'Dropdown',

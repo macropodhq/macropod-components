@@ -2,7 +2,7 @@
 
 const React = require('react');
 
-require('./index.scss');
+require('./index.pcss');
 
 module.exports = React.createClass({
   displayName: 'Form',

@@ -1,6 +1,6 @@
 'use strict';
 
-require('./button.scss');
+require('./button.pcss');
 
 const React = require('react/addons');
 const SuitClassSet = require('../suit-class-set');

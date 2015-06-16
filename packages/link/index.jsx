@@ -5,7 +5,7 @@ const Router = require('react-router');
 
 const SuitClassSet = require('../suit-class-set');
 
-require('./style.scss');
+require('./style.pcss');
 
 module.exports = React.createClass({
   displayName: 'Link',

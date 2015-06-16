@@ -3,7 +3,7 @@
 const React = require('react');
 const Icon = require('../icon');
 
-require('./style.scss');
+require('./style.pcss');
 
 module.exports = React.createClass({
   displayName: 'DeleteButton',

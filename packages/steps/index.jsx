@@ -3,7 +3,7 @@
 const React = require('react/addons');
 const SuitClassSet = require('../suit-class-set');
 
-require('./steps.scss');
+require('./steps.pcss');
 
 module.exports = React.createClass({
   displayName: 'Steps',

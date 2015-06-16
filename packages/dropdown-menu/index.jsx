@@ -2,7 +2,7 @@
 const React = require('react/addons');
 const Popover = require('../popover');
 const SuitClassSet = require('../suit-class-set');
-require('./dropdown-menu.scss');
+require('./dropdown-menu.pcss');
 
 module.exports = React.createClass({
   displayName: 'DropdownMenu',

@@ -25,7 +25,7 @@ const React = require('react/addons');
 const ScrollEvent = require('../scroll-event-mixin');
 const SuitClassSet = require('../suit-class-set');
 
-require('./covert-header.scss');
+require('./covert-header.pcss');
 
 module.exports = React.createClass({
   displayName: 'CovertHeader',

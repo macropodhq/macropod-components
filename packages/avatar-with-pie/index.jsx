@@ -5,7 +5,7 @@ const Avatar = require('../avatar');
 const PieBadge = require('../pie-badge');
 const SuitClassSet = require('../suit-class-set');
 
-require('./avatar-with-pie.scss');
+require('./avatar-with-pie.pcss');
 
 module.exports = React.createClass({
   displayName: 'AvatarWithPie',

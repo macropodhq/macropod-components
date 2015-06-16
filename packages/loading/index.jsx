@@ -2,7 +2,7 @@
 
 const React = require('react/addons');
 const SuitClassSet = require('../suit-class-set');
-require('./loading.scss');
+require('./loading.pcss');
 
 module.exports = React.createClass({
   displayName: 'Loading',

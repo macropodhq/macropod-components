@@ -4,7 +4,7 @@ const React = require('react');
 const DropdownMenu = require('../dropdown-menu');
 const Icon = require('../icon');
 
-require('./card.scss');
+require('./card.pcss');
 
 module.exports = React.createClass({
   displayName: 'Card',

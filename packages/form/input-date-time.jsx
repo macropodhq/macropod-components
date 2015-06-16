@@ -4,7 +4,7 @@ const React = require('react');
 const CalendarDropdown = require('../calendar-dropdown');
 const InputWrapper = require('./input-wrapper');
 
-require('./input-date-time.scss');
+require('./input-date-time.pcss');
 
 module.exports = React.createClass({
   displayName: 'InputDateTime',

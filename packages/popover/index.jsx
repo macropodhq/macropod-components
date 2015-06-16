@@ -3,7 +3,7 @@ const React = require('react/addons');
 const _ = require('lodash-node');
 const Layer = require('react-components/layered-component-mixin');
 
-require('./popover.scss');
+require('./popover.pcss');
 
 const PopoverContent = React.createClass({
   displayName: 'PopoverContent',

@@ -4,7 +4,7 @@ const React = require('react');
 
 const Icon = require('./');
 
-require('./example.scss');
+require('./example.pcss');
 
 const svgIcons = require.context('./svgs', true, /\.svg$/).keys().map(name => name.replace(/.\/icon-/i, '').replace(/.svg$/i, '')).sort();
 

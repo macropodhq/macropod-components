@@ -4,7 +4,7 @@ const React = require('react');
 
 const DropdownMenu = require('./');
 const Button = require('../button');
-require('./example.scss');
+require('./example.pcss');
 
 module.exports = React.createClass({
   displayName: 'DropdownMenuExample',

@@ -9,7 +9,7 @@ const RouteHandler = Router.RouteHandler;
 const SuitClassSet = require('../packages/suit-class-set');
 
 require('normalize.css/normalize.css');
-require('./index.scss');
+require('./index.pcss');
 
 const packageRequire = require.context('../packages', true, /example\.jsx/);
 const packageReadmeRequire = require.context('../packages', true, /readme\.md/i);

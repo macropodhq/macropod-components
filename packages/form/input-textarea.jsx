@@ -4,8 +4,8 @@ const React = require('react');
 const InputWrapper = require('./input-wrapper');
 const TextareaAutosize = require('react-textarea-autosize');
 
-require('./input-textarea.scss');
-require('./input-text.scss');
+require('./input-textarea.pcss');
+require('./input-text.pcss');
 
 module.exports = React.createClass({
   displayName: 'InputTextarea',

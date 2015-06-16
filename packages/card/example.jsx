@@ -4,7 +4,7 @@ const React = require('react');
 const Avatar = require('../avatar');
 
 const Card = require('./');
-require('./example.scss');
+require('./example.pcss');
 
 module.exports = React.createClass({
   displayName: 'CardExample',

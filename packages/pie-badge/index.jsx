@@ -3,7 +3,7 @@
 const React = require('react/addons');
 const SuitClassSet = require('../suit-class-set');
 
-require('./pie-badge.scss');
+require('./pie-badge.pcss');
 
 module.exports = React.createClass({
   displayName: 'PieBadge',

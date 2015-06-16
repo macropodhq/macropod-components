@@ -1,6 +1,6 @@
 'use strict';
 
-require('./link-group.scss');
+require('./link-group.pcss');
 
 const React = require('react');
 const Router = require('react-router');

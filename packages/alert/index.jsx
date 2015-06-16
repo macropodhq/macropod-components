@@ -5,7 +5,7 @@ const React = require('react/addons');
 const Modal = require('../modal');
 const Button = require('../button');
 
-require('./alert.scss');
+require('./alert.pcss');
 
 const noop = () => {};
 

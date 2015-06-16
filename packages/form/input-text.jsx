@@ -3,7 +3,7 @@
 const React = require('react');
 const InputWrapper = require('./input-wrapper');
 
-require('./input-text.scss');
+require('./input-text.pcss');
 
 module.exports = React.createClass({
   displayName: 'InputText',

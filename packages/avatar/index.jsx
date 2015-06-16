@@ -6,7 +6,7 @@ const keyMirror = require('react/lib/keyMirror');
 const SuitClassSet = require('../suit-class-set');
 const _ = require('lodash-node');
 
-require('./avatar.scss');
+require('./avatar.pcss');
 
 const sizes = {
   's': 20,

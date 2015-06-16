@@ -2,7 +2,7 @@
 
 const React = require('react');
 
-require('./input-wrapper.scss');
+require('./input-wrapper.pcss');
 
 const InputWrapper = React.createClass({
   displayName: 'InputWrapper',

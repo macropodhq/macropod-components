@@ -42,7 +42,7 @@ module.exports = React.createClass({
   },
 
   componentDidMount() {
-    require('./iframe.scss');
+    require('./iframe.pcss');
   },
 
   hideTrays() {

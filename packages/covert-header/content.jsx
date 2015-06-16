@@ -20,7 +20,7 @@ module.exports = React.createClass({
   displayName: 'CovertHeaderExample',
 
   componentDidMount() {
-    require('./iframe.scss');
+    require('./iframe.pcss');
   },
 
   render() {

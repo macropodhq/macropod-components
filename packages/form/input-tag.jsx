@@ -4,7 +4,7 @@ const React = require('react');
 const InputWrapper = require('./input-wrapper');
 const Widgets = require('react-widgets');
 
-require('./input-tag.scss');
+require('./input-tag.pcss');
 
 module.exports = React.createClass({
   displayName: 'InputTag',

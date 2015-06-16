@@ -5,7 +5,7 @@ const OnResize = require('react-window-mixins').OnResize;
 const SuitClassSet = require('../suit-class-set');
 const Icon = require('../icon');
 
-require('./lightbox.scss');
+require('./lightbox.pcss');
 
 const noop = () => {};
 

@@ -11,7 +11,7 @@ const Button = require('../button');
 const CommentReply = require('./comment-reply');
 const DateFormatter = require('../datetime-format');
 
-require('./comment.scss');
+require('./comment.pcss');
 
 const noop = () => {};
 

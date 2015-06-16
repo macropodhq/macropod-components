@@ -6,7 +6,7 @@ const React = require('react/addons');
 
 const DataTable = require('react-data-components').DataTable;
 
-require('./table.scss');
+require('./table.pcss');
 
 module.exports = React.createClass({
   displayName: 'Table',

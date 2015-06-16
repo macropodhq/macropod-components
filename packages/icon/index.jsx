@@ -4,7 +4,7 @@ const React = require('react/addons');
 const _ = require('lodash-node');
 const keyMirror = require('react/lib/keyMirror');
 
-require('./icon.scss');
+require('./icon.pcss');
 
 const iconTypes = require.context('./svgs', true, /\.svg$/).keys().map(name => name.replace(/.\/icon-/i, '').replace(/.svg$/i, '')).sort();
 
