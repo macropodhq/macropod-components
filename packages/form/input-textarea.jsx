@@ -27,7 +27,7 @@ export default React.createClass({
 
   render() {
     const normalisedProps = InputWrapper.normaliseProps(this.props);
-    const camelCaseLabel = InputWrapper.camelCase(this.props.label);
+    const camelCaseLabel = InputWrapper.camelCase(normalisedProps.label);
     const TextareaField = this.props.autoSize ? TextareaAutosize : 'textarea';
 
     return (
