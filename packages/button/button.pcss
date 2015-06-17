@@ -34,16 +34,16 @@ $color-button-skeleton: rgba(96, 96, 96, 1);
   font-family: $button-font-family;
   font-weight: $button-font-weight;
   text-align: center;
-  text-shadow: 0 1px 0 rgba(#000, .15);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
   color: $color-button-default;
   background-color: $color-button-default-background;
-  background-image: linear-gradient(to bottom, rgba(#000, 0) 50%, rgba(#000, .1) 100%);
+  background-image: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, .1) 100%);
   white-space: nowrap;
   user-select: none;
 
   &[disabled] {
     color: transparentize(white, 0.2);
-    background-image: linear-gradient(to bottom, rgba(#ccc, .6) 0%, rgba(#ccc, .6) 100%);
+    background-image: linear-gradient(to bottom, color(#ccc alpha(60%)) 0%, color(#ccc alpha(60%)) 100%);
 
     &:hover {
       opacity: 1;

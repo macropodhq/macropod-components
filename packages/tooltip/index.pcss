@@ -11,7 +11,7 @@ $arrow-size: .4em;
 
   &:after {
     content: attr(data-tooltip);
-    background: rgba($color-background, .9);
+    background: color($color-background alpha(90%));
     color: $color-tooltip;
     position: absolute;
     bottom: -2.45em;
@@ -26,7 +26,7 @@ $arrow-size: .4em;
     content: "";
     border-left: $arrow-size solid transparent;
     border-right: $arrow-size solid transparent;
-    border-bottom: $arrow-size solid rgba($color-background, .9);
+    border-bottom: $arrow-size solid color($color-background alpha(90%));
     position: absolute;
     left: calc(50% - $arrow-size);
     bottom: $arrow-offset;
