@@ -16,15 +16,15 @@ module.exports = React.createClass({
   },
 
   render() {
+    const normalisedProps = InputWrapper.normaliseProps(this.props);
+
     return (
       <InputWrapper
+        {...normalisedProps}
         inputType="Tag"
-        label={this.props.label}
-        showLabel={this.props.showLabel}
-        errorMessage={this.props.errorMessage}
       >
         <Widgets.Multiselect
-          {...this.props}
+          {...normalisedProps}
           duration={50}
         />
       </InputWrapper>

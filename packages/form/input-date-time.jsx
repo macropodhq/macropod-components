@@ -21,16 +21,15 @@ module.exports = React.createClass({
   },
 
   render() {
+    const normalisedProps = InputWrapper.normaliseProps(this.props);
     const camelCaseLabel = InputWrapper.camelCase(this.props.label);
     const defaultValue = new Date(this.props.defaultValue);
 
     return (
       <InputWrapper
+        {...normalisedProps}
         inputType="DateTime"
-        label={this.props.label}
-        showLabel={this.props.showLabel}
-        errorMessage={this.props.errorMessage}>
-
+      >
         <CalendarDropdown
           id={`Input--DateTime--${camelCaseLabel}`}
           className={'Input--CalendarDropdown'}
@@ -38,8 +37,8 @@ module.exports = React.createClass({
           onChange={this.onChange}
           defaultValue={defaultValue}
           format="d MMM yyyy h:mm tt"
-          duration={50} />
-
+          duration={50}
+        />
       </InputWrapper>
     );
   },
