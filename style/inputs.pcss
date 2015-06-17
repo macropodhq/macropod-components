@@ -2,7 +2,7 @@
 
 $input-base-color: #243b5d;
 $input-background-color: #fdfdff;
-$input-border-color: rgba(#243b5d, .25);
+$input-border-color: color($input-base-color alpha(25%));
 $input-border-radius: 3px;
 $input-border-width: 1px;
 
@@ -13,8 +13,8 @@ $input-height: 38px;
 $input-padding: 8px 10px;
 $input-line-height: 1.3;
 
-$input-state-hover: rgba(#243b5d, .10);
-$input-state-focus: rgba(#243b5d, .50);
+$input-state-hover: color($input-base-color alpha(10%));
+$input-state-focus: color($input-base-color alpha(50%));
 $input-state-focus-text: #fff;
 
 $input-state-error: #d46060;
