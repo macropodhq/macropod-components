@@ -1,27 +1,25 @@
-'use strict';
+import React from 'react';
+import InputWrapper from './input-wrapper';
 
-const React = require('react');
-const InputWrapper = require('./input-wrapper');
+import './input-text.scss';
 
-require('./input-text.scss');
-
-module.exports = React.createClass({
+export default React.createClass({
   displayName: 'InputText',
 
-  propTypes: {
-    label: React.PropTypes.node,
-    type: React.PropTypes.string.isRequired,
+  propTypes: Object.assign({}, InputWrapper.publicProps, {
     autoComplete: React.PropTypes.oneOfType([
       React.PropTypes.string,
       React.PropTypes.bool,
     ]),
-  },
+    onChange: React.PropTypes.function,
+    type: React.PropTypes.string.isRequired,
+  }),
 
   getDefaultProps() {
-    return {
-      label: '',
+    return Object.assign({}, InputWrapper.getDefaultProps(), {
       type: 'text',
-    };
+      onChange: () => {},
+    });
   },
 
   autoCompleteOn() {
@@ -49,7 +47,7 @@ module.exports = React.createClass({
     this.disableUnmanagedChangeHandler();
   },
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps() {
     if (this.autoCompleteOn()) {
       this.enableUnmanagedChangeHandler();
     } else {
@@ -61,7 +59,7 @@ module.exports = React.createClass({
     const target = this.refs.input.getDOMNode();
 
     if (target.value !== this.handleUnmanagedChange.lastValue) {
-      if (typeof this.handleUnmanagedChange.lastValue !== 'undefined' && this.props.onChange instanceof Function) {
+      if (typeof this.handleUnmanagedChange.lastValue !== 'undefined') {
         this.props.onChange({
           currentTarget: target,
           target,
@@ -74,9 +72,7 @@ module.exports = React.createClass({
   },
 
   handleChange(evt) {
-    if (this.props.onChange instanceof Function) {
-      this.props.onChange(evt);
-    }
+    this.props.onChange(evt);
 
     if (this.autoCompleteOn()) {
       this.handleUnmanagedChange.lastValue = evt.target.value;
@@ -92,20 +88,19 @@ module.exports = React.createClass({
   },
 
   render() {
+    const normalisedProps = InputWrapper.normaliseProps(this.props);
     const camelCaseLabel = InputWrapper.camelCase(this.props.label);
 
     return (
       <InputWrapper
-        inputType={this.props.type}
-        label={this.props.label}
-        showLabel={this.props.showLabel}
-        errorMessage={this.props.errorMessage}
+        {...normalisedProps}
+        inputType="text"
       >
         <input
-          {...this.props}
+          {...normalisedProps}
           onChange={this.handleChange}
           ref="input"
-          type={this.props.type}
+          type={normalisedProps.type}
           id={`Input--text--${camelCaseLabel}`}
           className={`Input Input--text Input--text--${camelCaseLabel}`}
         />
