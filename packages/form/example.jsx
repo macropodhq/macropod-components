@@ -1,13 +1,11 @@
-'use strict';
+import React from 'react';
 
-const React = require('react');
-
-const Form = require('./');
-const InputCheckbox = require('./input-checkbox');
-const InputDateTime = require('./input-date-time');
-const InputTag = require('./input-tag');
-const InputText = require('./input-text');
-const InputTextarea = require('./input-textarea');
+import Form from './';
+import InputCheckbox from './input-checkbox';
+import InputDateTime from './input-date-time';
+import InputTag from './input-tag';
+import InputText from './input-text';
+import InputTextarea from './input-textarea';
 
 const tagOptions = [
   {
@@ -64,7 +62,7 @@ module.exports = React.createClass({
   handleCheckboxCheckedToggle() {
     this.setState({
       checkboxChecked: !this.state.checkboxChecked,
-      checkboxError: (this.state.checkboxChecked ? 'This checkbox must be ticked' : ''),
+      checkboxError: (this.state.checkboxChecked ? 'This checkbox must be checked' : ''),
     });
   },
 
@@ -116,13 +114,19 @@ module.exports = React.createClass({
           checkboxLabel="This is the checkbox's label!"
           value={this.state.checkboxChecked}
           errorMessage={this.state.checkboxError}
-          onChange={this.handleCheckboxCheckedToggle} />
+          onChange={this.handleCheckboxCheckedToggle}
+          description="This is a checkbox input. It also has validation which says it must be checked"
+        />
 
         <InputDateTime
           label="InputDateTime"
           value={this.state.dateTime}
           onChange={this.handleDateTimeChange}
-          defaultValue={new Date().toISOString()} />
+          defaultValue={new Date().toISOString()}
+          description={
+            <span>Here's a date input, this is using <a href="http://jquense.github.io/react-widgets/docs/#/datetime-picker" target="_blank">React Widgets' <code>DateTimePicker</code></a></span>
+          }
+        />
 
         <InputTag
           label="InputTag"
@@ -132,29 +136,41 @@ module.exports = React.createClass({
           placeholder="Make some breakfast..."
           duration={0}
           textField="name"
-          valueField="id" />
+          valueField="id"
+          description={
+            <span>This is a tag input, it's using <a href="http://jquense.github.io/react-widgets/docs/#/multiselect" target="_blank">React Widgets' <code>MultiSelect</code></a></span>
+          }
+        />
 
         <InputText
           label="InputText"
           placeholder="Input some text..."
-          onChange={this.handleTextChange} />
+          onChange={this.handleTextChange}
+          description="Here's a nice text input"
+        />
 
         <InputText
           label="InputTextWithError"
           placeholder="Type something and then delete it to see an error message..."
           errorMessage={this.state.textInputError}
-          onChange={this.handleTextErrorChange} />
+          onChange={this.handleTextErrorChange}
+          description="Here's a text input showing validation behaviour!"
+        />
 
         <InputTextarea
           label="InputTextarea"
           placeholder="Input some multiline text..."
-          onChange={this.handleTextareaChange} />
+          onChange={this.handleTextareaChange}
+          description="Here's a standard text area"
+        />
 
         <InputTextarea
           label="InputTextareaWithAutoSizeProp"
           placeholder="Input some multiline text..."
           autoSize
-          onChange={this.handleTextareaAutosizeChange} />
+          onChange={this.handleTextareaAutosizeChange}
+          description="Here's an automatically sizing text area"
+        />
 
         <p>
           Checkbox Checked: {this.state.checkboxChecked ? 'Yes' : 'No'}<br/>

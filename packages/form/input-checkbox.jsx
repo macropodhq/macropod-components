@@ -17,18 +17,17 @@ module.exports = React.createClass({
   },
 
   render() {
-    const camelCaseLabel = InputWrapper.camelCase(this.props.label);
+    const normalisedProps = InputWrapper.normaliseProps(this.props);
+    const camelCaseLabel = InputWrapper.camelCase(normalisedProps.label);
 
     return (
       <InputWrapper
+        {...normalisedProps}
         inputType="checkbox"
-        label={this.props.label}
-        showLabel={this.props.showLabel}
-        errorMessage={this.props.errorMessage}
       >
         <label>
           <input
-            {...this.props}
+            {...normalisedProps}
             ref="input"
             type="checkbox"
             id={`Input--checkbox--${camelCaseLabel}`}

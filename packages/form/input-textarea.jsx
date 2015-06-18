@@ -1,17 +1,19 @@
-'use strict';
+import React from 'react';
+import InputWrapper from './input-wrapper';
+import TextareaAutosize from 'react-textarea-autosize';
 
-const React = require('react');
-const InputWrapper = require('./input-wrapper');
-const TextareaAutosize = require('react-textarea-autosize');
+import './input-textarea.scss';
 
-require('./input-textarea.scss');
-
-module.exports = React.createClass({
+export default React.createClass({
   displayName: 'InputTextarea',
+
+  propTypes: Object.assign({}, InputWrapper.publicProps, {
+    autoSize: React.PropTypes.bool.isRequired,
+  }),
 
   getDefaultProps() {
     return {
-      label: '',
+      autoSize: false,
     };
   },
 
@@ -24,18 +26,17 @@ module.exports = React.createClass({
   },
 
   render() {
-    const camelCaseLabel = InputWrapper.camelCase(this.props.label);
+    const normalisedProps = InputWrapper.normaliseProps(this.props);
+    const camelCaseLabel = InputWrapper.camelCase(normalisedProps.label);
     const TextareaField = this.props.autoSize ? TextareaAutosize : 'textarea';
 
     return (
       <InputWrapper
+        {...normalisedProps}
         inputType="Textarea"
-        label={this.props.label}
-        showLabel={this.props.showLabel}
-        errorMessage={this.props.errorMessage}
       >
         <TextareaField
-          {...this.props}
+          {...normalisedProps}
           ref="input"
           id={`Input--Textarea--${camelCaseLabel}`}
           className={`Input Input--Textarea Input--Textarea--${camelCaseLabel}`}
