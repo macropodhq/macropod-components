@@ -1,5 +1,11 @@
 # Macropod Components Changelog
 
+## [v0.0.21](https://github.com/macropodhq/react-playground/releases/tag/0.0.21)
+
+### Features
+
+* [#299](https://github.com/macropodhq/macropod-components/pull/299): Add `InputDropdown` Form component
+
 ## [v0.0.20](https://github.com/macropodhq/react-playground/releases/tag/0.0.20)
 
 ### Features
