@@ -1,8 +1,6 @@
 @import "colors";
 
 $default-size: 40px;
-$color-main: $color-alto;
-$color-secondary: $color-silver-chalice;
 $color-path: $color-scorpion;
 
 .Loading {
@@ -12,17 +10,6 @@ $color-path: $color-scorpion;
   svg {
     width: $default-size;
     height: $default-size;
-  }
-
-  .Loading-main {
-    fill: $color-main;
-  }
-
-  .Loading-secondary {
-    fill: $color-secondary;
-  }
-
-  .Loading--circle {
     animation: rotate 0.8s infinite linear;
     transform-origin: center;
 
@@ -44,24 +31,6 @@ $color-path: $color-scorpion;
       height: 29px;
     }
   }
-
-  .Loading-top {
-    animation: fadeloop 1.5s infinite 0.4s;
-  }
-
-  .Loading-middle {
-    animation: fadeloop 1.5s infinite 0.2s;
-  }
-
-  .Loading-bottom {
-    animation: fadeloop 1.5s infinite 0s;
-  }
-}
-
-@keyframes fadeloop {
-  0%   {opacity: 0;}
-  50%  {opacity: 1;}
-  100% {opacity: 0;}
 }
 
 @keyframes rotate {
