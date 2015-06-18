@@ -1,5 +1,16 @@
 # Macropod Components Changelog
 
+## [v0.0.20](https://github.com/macropodhq/react-playground/releases/tag/0.0.20)
+
+### Features
+
+* [#296](https://github.com/macropodhq/macropod-components/pull/296): Add support to `Form` elements for descriptions
+
+### Removals
+
+* [#295](https://github.com/macropodhq/macropod-components/pull/295): Remove `AppHeader` and `ActionsBar`
+* [#297](https://github.com/macropodhq/macropod-components/pull/297): Remove Stack-branded loading indicator
+
 ## [v0.0.19](https://github.com/macropodhq/react-playground/releases/tag/0.0.19)
 
 ### Features
