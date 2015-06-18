@@ -4,8 +4,28 @@ import Form from './';
 import InputCheckbox from './input-checkbox';
 import InputDateTime from './input-date-time';
 import InputTag from './input-tag';
+import InputDropdown from './input-dropdown';
 import InputText from './input-text';
 import InputTextarea from './input-textarea';
+
+const dropdownOptions = [
+  {
+    id: 1,
+    name: 'Google',
+  },
+  {
+    id: 2,
+    name: 'Yahoo',
+  },
+  {
+    id: 3,
+    name: 'Bing',
+  },
+  {
+    id: 4,
+    name: 'DuckDuckGo',
+  },
+];
 
 const tagOptions = [
   {
@@ -125,6 +145,18 @@ module.exports = React.createClass({
           defaultValue={new Date().toISOString()}
           description={
             <span>Here's a date input, this is using <a href="http://jquense.github.io/react-widgets/docs/#/datetime-picker" target="_blank">React Widgets' <code>DateTimePicker</code></a></span>
+          }
+        />
+
+        <InputDropdown
+          label="InputDropdown"
+          value={this.state.dropdownSelection}
+          onChange={this.handleTagChange}
+          data={dropdownOptions}
+          textField="name"
+          valueField="id"
+          description={
+            <span>This is a dropdown input, it's using <a href="http://jquense.github.io/react-widgets/docs/#/dropdownlist" target="_blank">React Widgets' <code>DropdownList</code></a></span>
           }
         />
 
