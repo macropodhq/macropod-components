@@ -7,9 +7,17 @@ require('./loading.scss');
 module.exports = React.createClass({
   displayName: 'Loading',
 
+  propTypes: {
+    style: React.PropTypes.object,
+    type: function(props, propName) {
+      if (props[propName]) {
+        return new Error(`The \`${propName}\` property is no longer supported by the \`Loading\` component. The standard spinner will be shown.`);
+      }
+    },
+  },
+
   getDefaultProps() {
     return {
-      type: 'stack',
       style: {},
     };
   },
