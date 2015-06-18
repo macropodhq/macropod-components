@@ -11,9 +11,8 @@ module.exports = React.createClass({
     return (
       <div>
         <Loading />
-        <Loading type="circle" />
+        <Loading size="medium" />
         <Loading size="small" />
-        <Loading type="circle" size="small" />
       </div>
     );
   },
