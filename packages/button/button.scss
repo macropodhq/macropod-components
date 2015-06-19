@@ -5,16 +5,16 @@ $button-font-weight: 400 !default;
 $button-font-size: .8em !default;
 
 $color-button-default: $color-white !default;
-$color-button-default-background: $color-fountain-blue !default;
+$color-button-default-background: rgb(136, 153, 172) !default;
 
 $color-button-success: $color-white !default;
-$color-button-success-background: $color-sushi !default;
+$color-button-success-background: rgb(0, 197, 158) !default;
 
 $color-button-cancel: $color-scorpion !default;
 $color-button-cancel-background: transparent !default;
 
 $color-button-danger: $color-white !default;
-$color-button-danger-background: $color-alizarin-crimson !default;
+$color-button-danger-background: rgb(255, 104, 77) !default;
 
 $color-button-skeleton: $color-scorpion !default;
 
@@ -37,7 +37,6 @@ $color-button-skeleton: $color-scorpion !default;
   text-shadow: 0 1px 0 rgba(#000, .15);
   color: $color-button-default;
   background-color: $color-button-default-background;
-  background-image: linear-gradient(to bottom, rgba(#000, 0) 50%, rgba(#000, .1) 100%);
   white-space: nowrap;
   user-select: none;
 
@@ -67,7 +66,7 @@ $color-button-skeleton: $color-scorpion !default;
   background-image: none;
   text-shadow: none;
   outline: 0;
-  
+
   &:focus {
     background: rgba(0, 0, 0, .1);
   }
