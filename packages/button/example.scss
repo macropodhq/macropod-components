@@ -1,4 +1,12 @@
-.Button--huedemo {
+.ButtonExample {
+  text-align: center;
+}
+
+.ButtonExample .Button {
+  margin-bottom: 15px;
+}
+
+.ButtonExample .Button--custom {
   animation: hue-rotate 60s linear infinite;
 }
 
