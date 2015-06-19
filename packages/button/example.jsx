@@ -20,15 +20,15 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <div>
-        <Button onClick={this.handleClick}>What what?</Button>
-        <Button className="Button--huedemo" onClick={this.handleClick}>Accepts a <code>className</code>, and accepts any <code>background-color</code></Button>
-        <Button success onClick={this.handleClick}>Can indicate success</Button>
-        <Button cancel onClick={this.handleClick}>Can indicate cancel</Button>
-        <Button danger onClick={this.handleClick}>Can indicate danger</Button>
-        <Button skeleton onClick={this.handleClick}>Can be a skeleton (no border, outline or background)</Button>
-        <Button disabled onClick={this.handleClick}>Can be disabled</Button>
-        <Button small onClick={this.handleClick}>Can be small</Button>
+      <div className="ButtonExample">
+        <Button onClick={this.handleClick}>Default</Button><br />
+        <Button success onClick={this.handleClick}>Success</Button><br />
+        <Button danger onClick={this.handleClick}>Danger</Button><br />
+        <Button disabled onClick={this.handleClick}>Disabled (default)</Button><br />
+        <Button cancel onClick={this.handleClick}>Cancel</Button><br />
+        <Button skeleton onClick={this.handleClick}>Skeleton (no border, outline or background)</Button><br />
+        <Button small onClick={this.handleClick}>Small</Button><br />
+        <Button className="Button--custom" onClick={this.handleClick}>Custom</Button>
         <br/>
         You've clicked {this.state.count} button{this.state.count === 1 ? '' : 's'}
       </div>
