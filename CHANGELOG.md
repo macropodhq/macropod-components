@@ -1,5 +1,15 @@
 # Macropod Components Changelog
 
+## [v0.0.22](https://github.com/macropodhq/react-playground/releases/tag/0.0.22)
+
+### Features
+
+* [#300](https://github.com/macropodhq/macropod-components/pull/300): Updated `Button` colors
+
+### Improvements
+
+* [#301](https://github.com/macropodhq/macropod-components/pull/301) / [#302](https://github.com/macropodhq/macropod-components/pull/302): Updated `Button` examples
+
 ## [v0.0.21](https://github.com/macropodhq/react-playground/releases/tag/0.0.21)
 
 ### Features
