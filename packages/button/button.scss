@@ -25,11 +25,10 @@ $color-button-skeleton: $color-scorpion !default;
 .Button {
   display: inline-block;
   border: 0;
-  border-radius: 3px;
+  border-radius: .3em;
   margin-bottom: 0;
-  padding: 0 1.5em;
-  height: 3em;
-  line-height: 3em;
+  padding: .8em 1.5em;
+  line-height: 1.25em;
   font-size: $button-font-size;
   font-family: $button-font-family;
   font-weight: $button-font-weight;
@@ -37,7 +36,6 @@ $color-button-skeleton: $color-scorpion !default;
   text-shadow: 0 1px 0 rgba(#000, .15);
   color: $color-button-default;
   background-color: $color-button-default-background;
-  white-space: nowrap;
   user-select: none;
 
   &[disabled] {
@@ -89,7 +87,5 @@ $color-button-skeleton: $color-scorpion !default;
 }
 
 .Button--small {
-  padding: 0 1em;
-  height: 2em;
-  line-height: 2em;
+  padding: .45em 1em;
 }
