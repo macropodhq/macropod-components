@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -e
+set -x
+
+SHA1=`git rev-parse --short HEAD | tr -d "\n"`
+
+DEPLOY_FILE=$SHA1.zip
+
+cat ops/Dockerrun.aws.json.template | sed "s#<TAG>#${SHA1}#" | sed "s#<CONTAINER_URL>#${CONTAINER_URL}#g" > Dockerrun.aws.json
+zip -r $DEPLOY_FILE Dockerrun.aws.json
+
+aws s3 cp $DEPLOY_FILE s3://macropod-deploy/$APP_NAME/$DEPLOY_FILE
+
+aws elasticbeanstalk create-application-version --application-name "$APP_NAME" --version-label $SHA1 --source-bundle S3Bucket=macropod-deploy,S3Key=$APP_NAME/$DEPLOY_FILE  || /bin/true #don't fail if rebuilding
+
+# Update Elastic Beanstalk environment to new version
+aws elasticbeanstalk update-environment --environment-name $APP_ENV --version-label ${SHA1}
+
+# spin while the status is "grey"
+while aws elasticbeanstalk describe-environments --environment-names $APP_ENV | grep '"Health": "Grey"'; do
+  sleep 5
+done
+
+# this will return non-zero if the status isn't "green"
+aws elasticbeanstalk describe-environments --environment-names $APP_ENV | grep '"Health": "Green"'
