@@ -237,7 +237,7 @@ module.exports = React.createClass({
 
       return [
         <label key="label" style={{'display': 'none'}}>{this.props.name}</label>,
-        <div className={markdownClassName} dangerouslySetInnerHTML={{__html: marked(value, {renderer: this.markedRenderer})}} />,
+        <div className={markdownClassName} dangerouslySetInnerHTML={{__html: marked(value, {sanitize: true, renderer: this.markedRenderer})}} />,
       ];
     } else {
       const value = this.state.editing ? this.state.pendingValue : this.props.value;
