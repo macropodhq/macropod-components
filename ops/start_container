@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# This script is only used inside the docker container
+
+nginx -g "daemon off;"
