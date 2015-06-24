@@ -40,7 +40,9 @@ module.exports = React.createClass({
   },
 
   focusNewInput() {
-    this.refs.input.focus();
+    if (this.isMounted && this.refs.input) {
+      this.refs.input.handleFocus();
+    }
   },
 
   render() {
