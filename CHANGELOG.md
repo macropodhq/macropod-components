@@ -1,5 +1,25 @@
 # Macropod Components Changelog
 
+## [v0.0.23](https://github.com/macropodhq/react-playground/releases/tag/0.0.23)
+
+### Fixes
+
+* [#305](https://github.com/macropodhq/macropod-components/pull/305): Fix refocusing on todo creator
+
+### Features
+
+* [#300](https://github.com/macropodhq/macropod-components/pull/300): Updated `Button` colors
+
+### Improvements
+
+* [#303](https://github.com/macropodhq/macropod-components/pull/303): Sanitize `marked-edit` so you can't inject HTML
+* [#306](https://github.com/macropodhq/macropod-components/pull/306): Add a `max-width` to markdown images
+* [#307](https://github.com/macropodhq/macropod-components/pull/307): Bump `macropod-tools` to 0.0.17
+
+### Housekeeping
+
+* [#304](https://github.com/macropodhq/macropod-components/pull/304): Setup deployment
+
 ## [v0.0.22](https://github.com/macropodhq/react-playground/releases/tag/0.0.22)
 
 ### Features
