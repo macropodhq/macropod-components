@@ -6,6 +6,10 @@ set -x
 
 export parent_dir=`pwd`
 
+if [ !-d $parent_dir/dist/.git ]; then
+  rm -rf $parent_dir/dist
+fi
+
 echo "--- Fetching existing repo"
 if [ -d "$parent_dir/dist" ]; then
     cd $parent_dir/dist
