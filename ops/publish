@@ -27,6 +27,7 @@ docker run --rm -i -t \
   node:0.10.38 /bin/sh -c "npm prune && npm install && npm run build"
 
 cd $parent_dir/dist
+git add *.js
 git commit -a -m "Publish"
 if [ ! -z "$PUBLISH" ]; then
   git push -f git@github.com:macropodhq/macropod-components.git gh-pages
