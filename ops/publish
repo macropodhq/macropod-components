@@ -6,7 +6,7 @@ set -x
 
 export parent_dir=`pwd`
 
-if [ !-d $parent_dir/dist/.git ]; then
+if [ ! -d $parent_dir/dist/.git ]; then
   rm -rf $parent_dir/dist
 fi
 
@@ -15,8 +15,6 @@ if [ -d "$parent_dir/dist" ]; then
     cd $parent_dir/dist
     git fetch origin
     git checkout -f origin/gh-pages
-    git commit -a -m "Publish"
-    git push -f origin gh-pages
 else
     cd $parent_dir
     git clone https://github.com/macropodhq/macropod-components.git dist -b gh-pages --single-branch
@@ -27,3 +25,7 @@ docker run --rm -i -t \
   -w /build \
   node:0.10.38 /bin/sh -c "npm prune && npm install && npm run build"
 
+git commit -a -m "Publish"
+if [ ! -z "$PUBLISH" ]; then
+  git push -f origin gh-pages
+fi
