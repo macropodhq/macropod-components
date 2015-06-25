@@ -28,5 +28,5 @@ docker run --rm -i -t \
 cd $parent_dir/dist
 git commit -a -m "Publish"
 if [ ! -z "$PUBLISH" ]; then
-  git push -f origin gh-pages
+  git push -f git@github.com:macropodhq/macropod-components.git gh-pages
 fi
