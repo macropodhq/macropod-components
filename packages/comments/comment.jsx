@@ -131,13 +131,13 @@ module.exports = React.createClass({
     this.handleEditToggle();
   },
 
-  handleKeyDown(callback, e) {
+  handleKeyDown(callback, evt) {
     if (!evt) {
       evt = window.event; // TODO: is this ever so? makes this harder to test
     }
 
     const keyCode = evt.keyCode || evt.which;
-    if (keyCode === 13 && !evt.ctrlKey && !evt.shiftKey){
+    if (keyCode === 13 && !evt.ctrlKey && !evt.shiftKey) {
       callback();
       evt.preventDefault();
     }
