@@ -1,5 +1,11 @@
 # Macropod Components Changelog
 
+## [v0.0.24](https://github.com/macropodhq/react-playground/releases/tag/0.0.24)
+
+### Improvements
+
+* [#308](https://github.com/macropodhq/macropod-components/pull/308), [#310](https://github.com/macropodhq/macropod-components/pull/310): Make many components resolution-independent
+
 ## [v0.0.23](https://github.com/macropodhq/react-playground/releases/tag/0.0.23)
 
 ### Fixes
