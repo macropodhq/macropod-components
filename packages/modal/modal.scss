@@ -15,8 +15,7 @@ $color-modal-background: rgba($color-black, 0.4);
 $color-modal-close: $color-gull-gray;
 $color-modal-close-hover: $color-mine-shaft;
 
-$transition-length: 0.3s;
-$transition-easing: cubic-bezier(1.000, 0.000, 0.000, 1.000);
+$animation-length: 0.3s;
 
 .isUnscrollable {
   overflow: hidden;
@@ -32,7 +31,6 @@ $transition-easing: cubic-bezier(1.000, 0.000, 0.000, 1.000);
   z-index: 1050;
   background-color: $color-modal-background;
   opacity: 0;
-  transition: all $transition-length $transition-easing;
   height: 100%;
   box-sizing: border-box;
   padding: pixelsToEm(30);
@@ -43,7 +41,6 @@ $transition-easing: cubic-bezier(1.000, 0.000, 0.000, 1.000);
 
   &.Modal--visible {
     opacity: 1;
-    transition: all $transition-length $transition-easing;
   }
 
   &.Modal--forceMobile {
@@ -57,7 +54,6 @@ $transition-easing: cubic-bezier(1.000, 0.000, 0.000, 1.000);
 
 .Modal-dialog {
   position: relative;
-  transition: all $transition-length $transition-easing;
   box-shadow: 0 pixelsToEm(3) pixelsToEm(9) $color-modal-box-shadow;
   background: $color-dialog-background;
   border-radius: pixelsToEm(2);
@@ -87,11 +83,11 @@ $transition-easing: cubic-bezier(1.000, 0.000, 0.000, 1.000);
   }
 
   .Modal--visible & {
-    animation: scaleIn $transition-length;
+    animation: scaleIn $animation-length;
   }
 
   .Modal--invisible & {
-    animation: scaleOut $transition-length;
+    animation: scaleOut $animation-length;
   }
 
   // TODO: this should not be
