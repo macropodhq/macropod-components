@@ -29,14 +29,14 @@ module.exports = React.createClass({
     };
   },
 
-  handleClose() {
+  handleClose(evt) {
+    evt.preventDefault();
     this.props.onClose();
-    return false;
   },
 
-  handleNext() {
+  handleNext(evt) {
+    evt.preventDefault();
     this.props.onNext();
-    return false;
   },
 
   render() {

@@ -59,7 +59,8 @@ module.exports = React.createClass({
     });
   },
 
-  handleClose() {
+  handleClose(evt) {
+    evt.preventDefault();
     if (!this.isMounted()) {
       return;
     }
@@ -68,7 +69,6 @@ module.exports = React.createClass({
     });
 
     animationCallback(this._layer.querySelector('.Modal-dialog'), this.props.onClose);
-    return false;
   },
 
   stopPropagation(event) {

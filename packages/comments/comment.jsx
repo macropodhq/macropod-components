@@ -132,14 +132,14 @@ module.exports = React.createClass({
   },
 
   handleKeyDown(callback, e) {
-    if (!e) {
-      e = window.event; // TODO: is this ever so? makes this harder to test
+    if (!evt) {
+      evt = window.event; // TODO: is this ever so? makes this harder to test
     }
 
-    const keyCode = e.keyCode || e.which;
-    if (keyCode === 13 && !e.ctrlKey && !e.shiftKey){
+    const keyCode = evt.keyCode || evt.which;
+    if (keyCode === 13 && !evt.ctrlKey && !evt.shiftKey){
       callback();
-      return false;
+      evt.preventDefault();
     }
   },
 
