@@ -81,6 +81,7 @@ module.exports = React.createClass({
     modalClasses.addModifier({
       'visible': this.state.showModal,
       'invisible': !this.state.showModal,
+      'forceMobile': this.props.forceMobile === true,
     });
 
     const dialogClasses = modalClasses.createDescendent('dialog');

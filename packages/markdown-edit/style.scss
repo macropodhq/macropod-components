@@ -1,4 +1,5 @@
-@import 'inputs';
+@import "inputs";
+@import "pixels-to-em";
 
 .CancelableEdit-markdown {
   padding: $input-padding;
@@ -17,14 +18,12 @@
     pointer-events: none;
   }
 
-
-
   &.CancelableEdit-markdown--defaultStyles {
     blockquote {
       margin: 0;
-      padding: 0 15px;
+      padding: 0 pixelsToEm(15);
       color: #777;
-      border-left: 4px solid #ddd;
+      border-left: pixelsToEm(4) solid #ddd;
     }
 
     code {
@@ -32,7 +31,7 @@
       margin: 0;
       font-size: 85%;
       background-color: rgba(0,0,0,0.04);
-      border-radius: 3px;
+      border-radius: pixelsToEm(3);
     }
 
     img {
@@ -40,12 +39,12 @@
     }
 
     pre {
-      padding: 16px;
+      padding: pixelsToEm(16);
       overflow: auto;
       font-size: 85%;
       line-height: 1.45;
       background-color: #f7f7f7;
-      border-radius: 3px;
+      border-radius: pixelsToEm(3);
 
       code {
         background-color: transparent;

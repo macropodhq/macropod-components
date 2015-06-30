@@ -60,14 +60,14 @@ module.exports = React.createClass({
     }
   },
 
-  handleCancel() {
+  handleCancel(evt) {
+    evt.preventDefault();
     this.props.onCancel(this.state.value);
-    return false;
   },
 
-  handleOk() {
+  handleOk(evt) {
+    evt.preventDefault();
     this.props.onOk(this.state.value);
-    return false;
   },
 
   handleValueChange(event) {
