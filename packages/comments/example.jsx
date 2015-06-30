@@ -147,16 +147,15 @@ module.exports = React.createClass({
     this.setState({comments: updatedComments});
   },
 
-  handleKeyDown(callback, e) {
-    if (!e) {
-      e = window.event;
+  handleKeyDown(callback, evt) {
+    if (!evt) {
+      evt = window.event;
     }
 
-    const keyCode = e.keyCode || e.which;
-
-    if (keyCode === 13 && !e.ctrlKey && !e.shiftKey){
+    const keyCode = evt.keyCode || evt.which;
+    if (keyCode === 13 && !evt.ctrlKey && !evt.shiftKey){
       callback();
-      return false;
+      evt.preventDefault();
     }
   },
 

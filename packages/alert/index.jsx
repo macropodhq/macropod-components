@@ -42,14 +42,14 @@ module.exports = React.createClass({
     };
   },
 
-  handleCancel() {
+  handleCancel(evt) {
+    evt.preventDefault();
     this.props.onCancel();
-    return false;
   },
 
-  handleOk() {
+  handleOk(evt) {
+    evt.preventDefault();
     this.props.onOk();
-    return false;
   },
 
   componentDidMount() {
