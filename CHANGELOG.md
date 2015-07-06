@@ -1,5 +1,15 @@
 # Macropod Components Changelog
 
+## [v0.0.25](https://github.com/macropodhq/react-playground/releases/tag/0.0.25)
+
+### Features
+
+* [#311](https://github.com/macropodhq/macropod-components/pull/311): Add `MarkdownSnippet`
+
+### Improvements
+
+* [#309](https://github.com/macropodhq/macropod-components/pull/309): Normalise event naming, and standardise on `preventDefault`
+
 ## [v0.0.24](https://github.com/macropodhq/react-playground/releases/tag/0.0.24)
 
 ### Improvements
