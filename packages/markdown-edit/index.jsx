@@ -1,6 +1,5 @@
 const React = require('react/addons');
 const InputTextarea = require('../form/input-textarea');
-const marked = require('marked');
 
 const Alert = require('../alert');
 const Button = require('../button');
@@ -8,8 +7,7 @@ const IconButton = require('../icon-button');
 const Link = require('../link');
 const KeyMixin = require('../key-mixin');
 const SuitClassSet = require('../suit-class-set');
-
-require('./style');
+const MarkdownSnippet = require('../markdown-snippet');
 
 const noop = () => {};
 
@@ -53,6 +51,12 @@ module.exports = React.createClass({
     placeholder: React.PropTypes.string,
     createText: React.PropTypes.string,
     defaultStyles: React.PropTypes.bool,
+    linkTarget: React.PropTypes.oneOf([
+      '_self',
+      '_blank',
+      '_parent',
+      '_top',
+    ]),
     small: React.PropTypes.bool,
     inline: React.PropTypes.bool,
     allowEmpty: React.PropTypes.bool,
@@ -95,12 +99,6 @@ module.exports = React.createClass({
       onSave: noop,
       onCancel: noop,
     };
-  },
-
-  componentWillMount() {
-    this.markedRenderer = new marked.Renderer();
-    const linkRenderer = this.markedRenderer.link;
-    this.markedRenderer.link = (href, title, text) => linkRenderer.call(this.markedRenderer, href, title, text).replace(/<a /, '<a target="_blank" ');
   },
 
   handleChange(e) {
@@ -237,7 +235,7 @@ module.exports = React.createClass({
 
       return [
         <label key="label" style={{'display': 'none'}}>{this.props.name}</label>,
-        <div className={markdownClassName} dangerouslySetInnerHTML={{__html: marked(value, {sanitize: true, renderer: this.markedRenderer})}} />,
+        <MarkdownSnippet key="markdown" markdown={value} linkTarget={this.props.linkTarget} defaultStyles={this.props.defaultStyles} />,
       ];
     } else {
       const value = this.state.editing ? this.state.pendingValue : this.props.value;
