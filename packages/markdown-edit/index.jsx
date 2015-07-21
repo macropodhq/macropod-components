@@ -127,7 +127,8 @@ module.exports = React.createClass({
     }, () => this.props.onCancel());
   },
 
-  handleCancel() {
+  handleCancel(evt) {
+    evt.preventDefault();
     if (this.unsaved()) {
       this.setState({
         showAlert: true,
@@ -140,7 +141,8 @@ module.exports = React.createClass({
     }
   },
 
-  handleSave() {
+  handleSave(evt) {
+    evt.preventDefault();
     if (this.validInput()) {
       const saveValue = this.state.pendingValue;
 
@@ -257,7 +259,8 @@ module.exports = React.createClass({
           readOnly={!this.state.editing}
           placeholder={this.props.placeholder}
           onBlur={this.handleBlur}
-          autoSize />,
+          autoSize
+        />,
       ];
     }
   },
@@ -276,49 +279,50 @@ module.exports = React.createClass({
     return (
       <div className={className.toString() + (this.props.className ? ` ${this.props.className}` : '')} onBlur={this.handleBlur}>
         { !this.props.creating && !this.state.editing &&
-            <IconButton
-                style={{'float': 'right'}}
-                type="pencil"
-                title={this.props.editButtonTitle}
-                onClick={this.handleClick} />
+          <IconButton
+            style={{'float': 'right'}}
+            type="pencil"
+            title={this.props.editButtonTitle}
+            onClick={this.handleClick}
+          />
         }
         { this.renderContent(className) }
         { this.state.editing &&
           <div className="CancelableEdit-control">
             <Button
-                disabled={!this.validInput()}
-                title={this.validInput() ? this.props.saveButtonTitle : this.props.saveButtonTitleInvalid}
-                small={this.props.small}
-                success
-                onClick={this.handleSave}
-              >
+              disabled={!this.validInput()}
+              title={this.validInput() ? this.props.saveButtonTitle : this.props.saveButtonTitleInvalid}
+              small={this.props.small}
+              success
+              onClick={this.handleSave}
+            >
               {this.props.saveButtonText}
             </Button>
             <Button
-                title={this.props.cancelButtonTitle}
-                small={this.props.small}
-                skeleton
-                onClick={this.handleCancel}
-              >
+              title={this.props.cancelButtonTitle}
+              small={this.props.small}
+              skeleton
+              onClick={this.handleCancel}
+            >
               {this.props.cancelButtonText}
             </Button>
             <Button
-                title={this.props.previewButtonTitle}
-                small={this.props.small}
-                skeleton
-                onClick={this.handlePreview}
-              >
+              title={this.props.previewButtonTitle}
+              small={this.props.small}
+              skeleton
+              onClick={this.handlePreview}
+            >
               {this.props.previewButtonText}
             </Button>
             { this.state.showAlert &&
               <Alert
-                  danger
-                  cancelable
-                  onOk={this.handleConfirmOk}
-                  onCancel={this.handleConfirmCancel}
-                  okText="Discard"
-                  title="Discard Changes"
-                >
+                danger
+                cancelable
+                onOk={this.handleConfirmOk}
+                onCancel={this.handleConfirmCancel}
+                okText="Discard"
+                title="Discard Changes"
+              >
                 {this.props.warnMessage}
               </Alert>
             }
