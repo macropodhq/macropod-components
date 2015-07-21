@@ -19,7 +19,7 @@ $color-button-danger-background: rgb(255, 104, 77) !default;
 $color-button-skeleton: $color-scorpion !default;
 
 .Button + .Button {
-  margin-left: 5px;  // pad buttons when they are next to each other
+  margin-left: 5px; // pad buttons when they are next to each other
 }
 
 .Button {
@@ -33,23 +33,35 @@ $color-button-skeleton: $color-scorpion !default;
   font-family: $button-font-family;
   font-weight: $button-font-weight;
   text-align: center;
-  text-shadow: 0 1px 0 rgba(#000, .15);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .15);
   color: $color-button-default;
   background-color: $color-button-default-background;
   user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent; // needed for some Android devices
 
   &[disabled] {
-    color: transparentize(white, 0.2);
-    background-image: linear-gradient(to bottom, rgba(#ccc, .6) 0%, rgba(#ccc, .6) 100%);
-
-    &:hover {
+    &,
+    &:hover,
+    &:active {
+      color: transparentize(white, .3);
       opacity: 1;
       cursor: not-allowed;
+      background-image: linear-gradient(to bottom, rgba(192, 192, 192, .7) 0%, rgba(192, 192, 192, .7) 100%);
     }
+  }
+
+  &:focus {
+    outline: 0;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, .15) 0%, rgba(255, 255, 255, .15) 100%);
   }
 
   &:hover {
     opacity: .9;
+  }
+
+  &:active {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, .3) 0%, rgba(255, 255, 255, .3) 100%);
   }
 }
 
@@ -63,10 +75,13 @@ $color-button-skeleton: $color-scorpion !default;
   background-color: $color-button-cancel-background;
   background-image: none;
   text-shadow: none;
-  outline: 0;
 
   &:focus {
     background: rgba(0, 0, 0, .1);
+  }
+
+  &:active {
+    background: rgba(0, 0, 0, .2);
   }
 }
 
@@ -81,8 +96,11 @@ $color-button-skeleton: $color-scorpion !default;
   background-image: none;
 
   &:focus {
-    outline: 0;
     background: rgba(0, 0, 0, .1);
+  }
+
+  &:active {
+    background: rgba(0, 0, 0, .2);
   }
 }
 
