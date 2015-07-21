@@ -1,6 +1,7 @@
 @import "colors";
+@import "pixels-to-em";
 
-$default-size: 40px;
+$default-size: pixelsToEm(40);
 $color-path: $color-scorpion;
 
 .Loading {
@@ -20,15 +21,15 @@ $color-path: $color-scorpion;
 
   &.Loading--small {
     svg {
-      width: 16px;
-      height: 16px;
+      width: pixelsToEm(16);
+      height: pixelsToEm(16);
     }
   }
 
   &.Loading--medium {
     svg {
-      width: 29px;
-      height: 29px;
+      width: pixelsToEm(29);
+      height: pixelsToEm(29);
     }
   }
 }
