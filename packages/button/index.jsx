@@ -55,7 +55,13 @@ module.exports = React.createClass({
     });
 
     return (
-      <button {...this.props} className={buttonClass.toString() + (this.props.className ? ` ${this.props.className}` : '')}>{this.props.children}</button>
+      <button
+        {...this.props}
+        className={buttonClass.toString() + (this.props.className ? ` ${this.props.className}` : '')}
+        onTouchStart={() => {}}
+      >
+        {this.props.children}
+      </button>
     );
   },
 });
