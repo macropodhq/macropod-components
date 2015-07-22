@@ -1,5 +1,15 @@
 # Macropod Components Changelog
 
+## [v0.0.26](https://github.com/macropodhq/react-playground/releases/tag/0.0.26)
+
+### Improvements
+
+* [#315](https://github.com/macropodhq/macropod-components/pull/315): `preventDefault` on `MarkdownEdit`
+* [#316](https://github.com/macropodhq/macropod-components/pull/316): Add a viewport declaration to the playground for mobile devices
+* [#317](https://github.com/macropodhq/macropod-components/pull/317): Normalise `Button` highlights
+* [#318](https://github.com/macropodhq/macropod-components/pull/318): Make `Loading` indicator scale to the font size
+* [#321](https://github.com/macropodhq/macropod-components/pull/321): Update body size to 16px
+
 ## [v0.0.25](https://github.com/macropodhq/react-playground/releases/tag/0.0.25)
 
 ### Features
