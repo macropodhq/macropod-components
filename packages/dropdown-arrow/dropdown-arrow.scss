@@ -1,0 +1,87 @@
+@import "inputs";
+@import "rw-shared";
+
+
+.rw-dropdownlist {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  line-height: auto;
+
+  &.rw-open {
+    overflow: visible;
+  }
+
+  .rw-input {
+    // Not sure why this needs to be tweaked, but it does for visual consistency.
+    padding: 9px 45px 0 10px;
+  }
+  .rw-select{
+  }
+  &:hover {
+
+    .rw-dropdownlist-picker {
+      background-color: $input-state-hover;
+    }
+
+  }
+
+  .rw-dropdownlist-picker {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 34px;
+    border-left: 1px solid $input-border-color !important;
+
+    &:hover {
+      background-color: $input-state-hover;
+    }
+  }
+}
+.dropdown-arrow-container{
+  .rw-dropdownlist{
+    border: none;
+  }
+  .rw-input {
+    display: none;
+    height: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .rw-select{
+    height: 0px;
+    display: none;
+  }
+  .rw-popup-container{
+    min-width: 140px;
+  }
+  .rw-popup{
+    border-top: rgba(36,59,93,0.5) 1px solid;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+  button.trigger{
+      background: none;
+      border: none;
+      outline: none;
+      width: 100%;
+      text-align: right;
+      color: #666;
+      -webkit-font-smoothing: antialiased;
+      font-weight: bold;
+      font-size: 12px;
+    &:after{
+      color: #adadad;
+      content: '▼';
+      font-size: 10px;
+      padding-left: 3px;
+    }
+  }
+}
+
+
+
+
+
+
+
