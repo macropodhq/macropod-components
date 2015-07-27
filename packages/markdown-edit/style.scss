@@ -1,56 +1,13 @@
 @import "inputs";
-@import "pixels-to-em";
 
 .CancelableEdit-markdown {
-  padding: $input-padding;
-
-  & > *:first-child {
-    margin-top: 0;
+  .MarkdownSnippet {
+    padding: $input-padding;
   }
 
-  & > *:last-child {
-    margin-bottom: 0;
-  }
-
-  &.is-placeholder {
+  &.is-placeholder .MarkdownSnippet {
     opacity: 0.5;
     user-select: none;
     pointer-events: none;
-  }
-
-  &.CancelableEdit-markdown--defaultStyles {
-    blockquote {
-      margin: 0;
-      padding: 0 pixelsToEm(15);
-      color: #777;
-      border-left: pixelsToEm(4) solid #ddd;
-    }
-
-    code {
-      padding: 0.2em;
-      margin: 0;
-      font-size: 85%;
-      background-color: rgba(0,0,0,0.04);
-      border-radius: pixelsToEm(3);
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    pre {
-      padding: pixelsToEm(16);
-      overflow: auto;
-      font-size: 85%;
-      line-height: 1.45;
-      background-color: #f7f7f7;
-      border-radius: pixelsToEm(3);
-
-      code {
-        background-color: transparent;
-        font-size: 1em;
-        padding: 0;
-      }
-    }
   }
 }

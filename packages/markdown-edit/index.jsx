@@ -1,6 +1,5 @@
 const React = require('react/addons');
 const InputTextarea = require('../form/input-textarea');
-const marked = require('marked');
 
 const Alert = require('../alert');
 const Button = require('../button');
@@ -8,6 +7,7 @@ const IconButton = require('../icon-button');
 const Link = require('../link');
 const KeyMixin = require('../key-mixin');
 const SuitClassSet = require('../suit-class-set');
+const MarkdownSnippet = require('../markdown-snippet');
 
 require('./style');
 
@@ -53,6 +53,12 @@ module.exports = React.createClass({
     placeholder: React.PropTypes.string,
     createText: React.PropTypes.string,
     defaultStyles: React.PropTypes.bool,
+    linkTarget: React.PropTypes.oneOf([
+      '_self',
+      '_blank',
+      '_parent',
+      '_top',
+    ]),
     small: React.PropTypes.bool,
     inline: React.PropTypes.bool,
     allowEmpty: React.PropTypes.bool,
@@ -95,12 +101,6 @@ module.exports = React.createClass({
       onSave: noop,
       onCancel: noop,
     };
-  },
-
-  componentWillMount() {
-    this.markedRenderer = new marked.Renderer();
-    const linkRenderer = this.markedRenderer.link;
-    this.markedRenderer.link = (href, title, text) => linkRenderer.call(this.markedRenderer, href, title, text).replace(/<a /, '<a target="_blank" ');
   },
 
   handleChange(e) {
@@ -210,18 +210,9 @@ module.exports = React.createClass({
 
   renderContent(parentClassName) {
     const editClassName = parentClassName.createDescendent('edit');
-    const markdownClassName = parentClassName.createDescendent('markdown');
 
     editClassName.addState({
       'editing': this.state.editing,
-    });
-
-    markdownClassName.addState({
-      'placeholder': !this.state.editing && (typeof this.props.value !== 'string' || this.props.value.length < 1),
-    });
-
-    markdownClassName.addModifier({
-      'defaultStyles': this.props.defaultStyles,
     });
 
     if (this.props.creating && !this.state.editing) {
@@ -239,7 +230,7 @@ module.exports = React.createClass({
 
       return [
         <label key="label" style={{'display': 'none'}}>{this.props.name}</label>,
-        <div className={markdownClassName} dangerouslySetInnerHTML={{__html: marked(value, {sanitize: true, renderer: this.markedRenderer})}} />,
+        <MarkdownSnippet key="markdown" markdown={value} linkTarget={this.props.linkTarget} defaultStyles={this.props.defaultStyles} />,
       ];
     } else {
       const value = this.state.editing ? this.state.pendingValue : this.props.value;
@@ -266,10 +257,11 @@ module.exports = React.createClass({
   },
 
   render() {
-    const className = new SuitClassSet('CancelableEdit');
+    const className = new SuitClassSet('CancelableEdit-markdown');
 
     className.addState({
       'active': this.state.editing,
+      'placeholder': !this.state.editing && (typeof this.props.value !== 'string' || this.props.value.length < 1),
     });
 
     className.addModifier({
