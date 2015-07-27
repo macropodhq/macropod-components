@@ -9,6 +9,8 @@ const KeyMixin = require('../key-mixin');
 const SuitClassSet = require('../suit-class-set');
 const MarkdownSnippet = require('../markdown-snippet');
 
+require('./style');
+
 const noop = () => {};
 
 const isChildOf = function(child, parent) {
@@ -206,18 +208,9 @@ module.exports = React.createClass({
 
   renderContent(parentClassName) {
     const editClassName = parentClassName.createDescendent('edit');
-    const markdownClassName = parentClassName.createDescendent('markdown');
 
     editClassName.addState({
       'editing': this.state.editing,
-    });
-
-    markdownClassName.addState({
-      'placeholder': !this.state.editing && (typeof this.props.value !== 'string' || this.props.value.length < 1),
-    });
-
-    markdownClassName.addModifier({
-      'defaultStyles': this.props.defaultStyles,
     });
 
     if (this.props.creating && !this.state.editing) {
@@ -261,10 +254,11 @@ module.exports = React.createClass({
   },
 
   render() {
-    const className = new SuitClassSet('CancelableEdit');
+    const className = new SuitClassSet('CancelableEdit-markdown');
 
     className.addState({
       'active': this.state.editing,
+      'placeholder': !this.state.editing && (typeof this.props.value !== 'string' || this.props.value.length < 1),
     });
 
     className.addModifier({

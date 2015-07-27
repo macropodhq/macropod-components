@@ -1,0 +1,13 @@
+@import "inputs";
+
+.CancelableEdit-markdown {
+  .MarkdownSnippet {
+    padding: $input-padding;
+  }
+
+  &.is-placeholder .MarkdownSnippet {
+    opacity: 0.5;
+    user-select: none;
+    pointer-events: none;
+  }
+}
