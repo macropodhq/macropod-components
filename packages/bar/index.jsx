@@ -51,7 +51,7 @@ const Item = React.createClass({
     });
 
     return (
-      <span className={itemClass} {...this.props}>
+      <span {...this.props} className={itemClass}>
         {this.getChildren()}
       </span>
     );
