@@ -1,0 +1,26 @@
+.Link {
+  color: #6aa0c3;
+  font-size: 0.9em;
+  font-family: 'Open Sans', 'Helvetica Neue', 'Arial', 'Helvetica', 'sans-serif';
+  font-weight: 400;
+  cursor: pointer;
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+.Link:hover {
+  opacity: 1;
+}
+
+.Link--fillCenter {
+  display: block;
+  text-align: center;
+}
+
+.Link--fill {
+  display: block;
+}
+
+.Link--small {
+  font-size: 0.7em;
+}

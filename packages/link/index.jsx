@@ -2,10 +2,9 @@
 
 const React = require('react');
 const Router = require('react-router');
+const cx = React.addons.classSet;
 
-const SuitClassSet = require('../suit-class-set');
-
-require('./style.scss');
+import styles from './link.mcss';
 
 module.exports = React.createClass({
   displayName: 'Link',
@@ -27,25 +26,23 @@ module.exports = React.createClass({
   },
 
   render() {
-    let className = new SuitClassSet(this.constructor.displayName);
-
-    className.addModifier({
-      'small': this.props.small,
-      'fill': this.props.fill,
-      'fillCenter': this.props.fillCenter,
+    const linkClass = cx({
+      [styles.Link]: true,
+      [styles['Link--small']]: this.props.small,
+      [styles['Link--fill']]: this.props.fill,
+      [styles['Link--fillCenter']]: this.props.fillCenter,
+      [this.props.className]: this.props.className,
     });
-
-    className = className.toString() + (this.props.className ? ` ${this.props.className}` : '');
 
     if (this.props.route) {
       return (
-        <Router.Link {...this.props} className={className}>
+        <Router.Link {...this.props} className={linkClass}>
           {this.props.children}
         </Router.Link>
       );
     } else {
       return (
-        <a {...this.props} className={className}>
+        <a {...this.props} className={linkClass}>
           {this.props.children}
         </a>
       );
