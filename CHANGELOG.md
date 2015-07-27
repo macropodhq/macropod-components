@@ -1,5 +1,13 @@
 # Macropod Components Changelog
 
+## [v0.0.26](https://github.com/macropodhq/react-playground/releases/tag/0.0.27)
+
+### Improvements
+
+* [#320](https://github.com/macropodhq/macropod-components/pull/320): Update `MarkdownEdit` to use `MarkdownSnippet`
+* [#323](https://github.com/macropodhq/macropod-components/pull/323): Convert `Bar` to `.mcss`
+* [#324](https://github.com/macropodhq/macropod-components/pull/324): Convert `Link` to `.mcss`
+
 ## [v0.0.26](https://github.com/macropodhq/react-playground/releases/tag/0.0.26)
 
 ### Improvements
