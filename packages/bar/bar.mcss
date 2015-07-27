@@ -1,0 +1,42 @@
+.Bar {
+  composes: clear from "../../style/helpers.mcss";
+  background: rgb(39, 61, 64);
+  overflow: visible;
+}
+
+.Bar-left,
+.Bar-center,
+.Bar-right {
+  float: left;
+  min-height: 1px;
+}
+
+.Bar-center {
+  text-align: center;
+}
+
+.Bar-right {
+  text-align: right;
+}
+
+.Item {
+  display: inline-block;
+  color: rgba(255,255,255,0.5);
+}
+
+.Item--left {
+  border-right: 1px solid rgba(0,0,0,.15);
+}
+
+.Item--right {
+  border-left: 1px solid rgba(0,0,0,.15);
+}
+
+.Item--string {
+  padding: 15px;
+}
+
+.Item-child {
+  padding: 15px;
+  display: inline-block;
+}

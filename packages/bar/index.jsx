@@ -2,44 +2,14 @@
 
 const React = require('react');
 const _ = require('lodash-node');
+const cx = React.addons.classSet;
+
+import styles from './bar.mcss';
 
 const align = {
   LEFT: 'LEFT',
   CENTER: 'CENTER',
   RIGHT: 'RIGHT',
-};
-
-const style = {
-  [align.LEFT]: {
-    float: 'left',
-    minHeight: 1,
-  },
-
-  [align.CENTER]: {
-    float: 'left',
-    minHeight: 1,
-    textAlign: 'center',
-  },
-
-  [align.RIGHT]: {
-    float: 'right',
-    minHeight: 1,
-    textAlign: 'right',
-  },
-
-  header: {
-    background: 'rgb(39, 61, 64)',
-    overflow: 'visible',
-  },
-
-  itemChild: {
-    padding: 15,
-    display: 'inline-block',
-  },
-
-  clear: {
-    clear: 'both',
-  },
 };
 
 const Item = React.createClass({
@@ -55,29 +25,8 @@ const Item = React.createClass({
 
   getDefaultProps() {
     return {
-      style: {},
       align: align.LEFT,
     };
-  },
-
-  getStyle() {
-    const localStyle = {
-      padding: typeof this.props.children === 'string' ? 15 : 0,
-      display: 'inline-block',
-      color: 'rgba(255,255,255,0.5)',
-      borderLeft: this.props.align === align.RIGHT ? '1px solid rgba(0,0,0,.15)' : 0,
-      borderRight: this.props.align === align.LEFT ? '1px solid rgba(0,0,0,.15)' : 0,
-    };
-
-    return Object.assign(localStyle, this.props.style);
-  },
-
-  getChildSyle(element) {
-    const childStyle = element.props && _.isObject(element.props.style) ?
-      Object.assign({}, style.itemChild, element.props.style) :
-      style.itemChild;
-
-    return childStyle;
   },
 
   getChildren() {
@@ -86,15 +35,23 @@ const Item = React.createClass({
         return element;
       }
 
-      return React.addons.cloneWithProps(element, {style: this.getChildSyle(element)});
+      return React.addons.cloneWithProps(element, {className: styles['Item-child']});
     });
 
     return children;
   },
 
   render() {
+    const itemClass = cx({
+      [styles.Item]: true,
+      [styles['Item--left']]: this.props.align === align.LEFT,
+      [styles['Item--right']]: this.props.align === align.RIGHT,
+      [styles['Item--string']]: typeof this.props.children === 'string',
+      [this.props.className]: this.props.className,
+    });
+
     return (
-      <span className="BarItem" {...this.props} style={this.getStyle()}>
+      <span className={itemClass} {...this.props}>
         {this.getChildren()}
       </span>
     );
@@ -125,7 +82,6 @@ module.exports = React.createClass({
 
   getDefaultProps() {
     return {
-      style: {},
       leftWidth: 40,
       rightWidth: 40,
     };
@@ -143,38 +99,43 @@ module.exports = React.createClass({
     return children;
   },
 
-  getStyle() {
-    return Object.assign({}, style.header, this.props.fixed ? style.fixed : {}, this.props.style);
-  },
-
   getLeftStyle() {
-    return Object.assign({}, style[align.LEFT], {width: this.props.leftWidth + '%'});
+    return {
+      width: this.props.leftWidth + '%',
+    };
   },
 
   getCenterStyle() {
-    return Object.assign({}, style[align.CENTER], {width: 100 - (this.props.leftWidth + this.props.rightWidth) + '%'});
+    return {
+      width: 100 - (this.props.leftWidth + this.props.rightWidth) + '%',
+    };
   },
 
   getRightStyle() {
-    return Object.assign({}, style[align.RIGHT], {width: this.props.rightWidth + '%'});
+    return {
+      width: this.props.rightWidth + '%',
+    };
   },
 
   render() {
+    const barClass = cx({
+      [styles.Bar]: true,
+      [this.props.className]: this.props.className,
+    });
+
     return (
-      <header className="Bar" style={this.getStyle()}>
-        <div className="Bar-left" style={this.getLeftStyle()}>
+      <header className={barClass}>
+        <div className={styles['Bar-left']} style={this.getLeftStyle()}>
           {this.buildChildren(align.LEFT)}
         </div>
 
-        <div className="Bar-center" style={this.getCenterStyle()}>
+        <div className={styles['Bar-center']} style={this.getCenterStyle()}>
           {this.buildChildren(align.CENTER)}
         </div>
 
-        <div className="Bar-right" style={this.getRightStyle()}>
+        <div className={styles['Bar-right']} style={this.getRightStyle()}>
           {this.buildChildren(align.RIGHT)}
         </div>
-
-        <div className="Bar-clear" style={style.clear}></div>
       </header>
     );
   },
