@@ -1,6 +1,16 @@
 # Macropod Components Changelog
 
-## [v0.0.26](https://github.com/macropodhq/react-playground/releases/tag/0.0.27)
+## [v0.0.28](https://github.com/macropodhq/react-playground/releases/tag/0.0.28)
+
+### Fixes
+
+* [#325](https://github.com/macropodhq/macropod-components/pull/325): Pass `className` after spread so it doesn't get overwritten
+
+### Improvements
+
+* [#326](https://github.com/macropodhq/macropod-components/pull/326): Remove inner shadow from text inputs on iOS
+
+## [v0.0.27](https://github.com/macropodhq/react-playground/releases/tag/0.0.27)
 
 ### Improvements
 
