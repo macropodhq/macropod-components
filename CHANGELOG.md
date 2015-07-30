@@ -1,5 +1,11 @@
 # Macropod Components Changelog
 
+## [v0.0.29](https://github.com/macropodhq/react-playground/releases/tag/0.0.29)
+
+### Fixes
+
+* [#327](https://github.com/macropodhq/macropod-components/pull/327): Fix missing input borders in Chrome
+
 ## [v0.0.28](https://github.com/macropodhq/react-playground/releases/tag/0.0.28)
 
 ### Fixes
