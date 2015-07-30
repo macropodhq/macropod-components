@@ -38,10 +38,10 @@ $input-state-error: #d46060;
   font-family: inherit;
   font-size: inherit;
   /* Hide inner shadow on iOS */
-  -webkit-appearance: caret;
-  -moz-appearance: caret;
-  -o-appearance: caret;
-  appearance: caret;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
 
   &::placeholder {
     color: $input-placeholder-color;
