@@ -1,6 +1,6 @@
 'use strict';
 
-const React = require('react/addons');
+import React from 'react';
 
 const Widgets = require('react-widgets');
 
@@ -11,27 +11,33 @@ module.exports = React.createClass({
   displayName: 'DropDownArrow',
 
   getInitialState() {
-    return { open: false };
+    return { open: false, overlayShown: false  };
   },
 
   changeHandler() {
-  	console.log('changeHandler');
-  	this.setState({ open: !this.state.open});
+  	this.setState({ open: !this.state.open, overlayShown: !this.state.open});
   },
 
-  // <Dropdown open={this.state.open} onSelect={this.setState.bind(this, {open: !this.state.open})}/>
   render() {
 
-   	var classNames = 'trigger';
-  	var open = this.state.open;
+    var layer = null;
+    if (this.state.overlayShown) {
+        layer = (
+            <div onClick={this.changeHandler} className="overlay"></div>
+        );
+    }
 
-    return (<div className="dropdown-arrow-container">
-    			<button onClick={this.changeHandler} className={classNames} >{this.props.label}</button>
-      			<Widgets.DropdownList
-      				onSelect={this.changeHandler}
-      				open={open}
-      				{...this.props}
-      			/>
-     		</div>);
-  },
+  	return (
+  		<div className="dropdown-arrow-container">
+  			<button onClick={this.changeHandler} className="trigger" >{this.props.label}</button>
+        {layer}
+        <Widgets.DropdownList
+  				onSelect={this.changeHandler}
+  				open={this.state.open}
+  				{...this.props}
+  			/>
+   		</div>
+   	);
+  }
+
 });

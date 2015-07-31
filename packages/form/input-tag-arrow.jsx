@@ -1,6 +1,6 @@
 'use strict';
 
-const React = require('react/addons');
+import React from 'react';
 const Widgets = require('react-widgets');
 
 require('./input-tag-arrow.scss');
@@ -10,32 +10,44 @@ module.exports = React.createClass({
   displayName: 'InputTagArrow',
 
   getInitialState() {
-    return { open: false };
+    return { open: false, layerShown: false };
   },
 
   changeHandler() {
-    this.setState({ open: !this.state.open});
-  },
-
-  checkOpen() {
-    if(!this.state.open){
-      this.setState({ open: !this.state.open});
-    }
+    this.setState({ open: !this.state.open, overlayShown: !this.state.open});
   },
 
   render() {
-    var classNames = 'trigger';
-    var open = this.state.open;
+    var layer = null;
 
-    return (<div className="multiselect-arrow-container">
-            <button  onClick={this.changeHandler} className={classNames} >{this.props.label}</button>
-            <Widgets.Multiselect
-              {...this.props}
-              onClick={this.checkOpen}
-              open={open}
-              duration={50}
-            />
-          </div>
+    if (this.state.overlayShown) {
+      layer = (
+        <div onClick={this.changeHandler} className="overlay"></div>
+      );
+    }
+    var cx = React.addons.classSet;
+    var classes = cx({
+      'empty': this.state.isEmpty,
+      'multiselect-arrow-container':true
+    });
+    return (
+      <div className={classes}>
+        <div onClick={this.changeHandler} className="droparrow-trigger" >{this.props.label}</div>
+        {layer}
+        <Widgets.Multiselect
+          {...this.props}
+          onClick={this.optionClickHandler}
+          open={this.state.open}
+          duration={50}
+        />
+      </div>
     );
   },
 });
+
+
+
+
+
+
+
