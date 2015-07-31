@@ -27,8 +27,14 @@ class MarkdownSnippet extends React.Component {
   componentWillMount() {
     // Monkey patching of Marked
     this.renderer = new marked.Renderer();
+
+    // Allow overriding link targets
     const linkRenderer = this.renderer.link;
     this.renderer.link = (href, title, text) => linkRenderer.call(this.renderer, href, title, text).replace(/<a /, `<a target="${this.renderer.link.linkTarget || '_self'}" `);
+
+    // Images have hyperlinks
+    const imageRenderer = this.renderer.image;
+    this.renderer.image = (href, title, text) => this.renderer.link(href, title, imageRenderer.call(this.renderer, href, '', text));
   }
 
   render() {
