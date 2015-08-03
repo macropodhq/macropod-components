@@ -1,3 +1,0 @@
-@function pixelsToEm($pixels, $fontSize: 16){
-  @return ($pixels / $fontSize) * 1em;
-}

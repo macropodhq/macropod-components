@@ -1,12 +1,11 @@
 @import "colors";
-@import "pixels-to-em";
 
-$modal-max-width: pixelsToEm(1280);
-$modal-main-breakpoint: pixelsToEm(600);
-$modal-padding: pixelsToEm(15);
+$modal-max-width: 1280px;
+$modal-main-breakpoint: 600px;
+$modal-padding: 15px;
 
-$modal-header-height: pixelsToEm(45);
-$modal-footer-height: pixelsToEm(55);
+$modal-header-height: 45px;
+$modal-footer-height: 55px;
 
 $color-dialog-background: $color-white;
 $color-modal-box-shadow: rgba($color-black, 0.5);
@@ -33,7 +32,7 @@ $animation-length: 0.3s;
   opacity: 0;
   height: 100%;
   box-sizing: border-box;
-  padding: pixelsToEm(30);
+  padding: 30px;
 
   * {
     box-sizing: border-box;
@@ -44,19 +43,19 @@ $animation-length: 0.3s;
   }
 
   &.Modal--forceMobile {
-    padding: pixelsToEm(5);
+    padding: 5px;
   }
 
   @media (max-width: $modal-main-breakpoint) {
-    padding: pixelsToEm(5);
+    padding: 5px;
   }
 }
 
 .Modal-dialog {
   position: relative;
-  box-shadow: 0 pixelsToEm(3) pixelsToEm(9) $color-modal-box-shadow;
+  box-shadow: 0 3px 9px $color-modal-box-shadow;
   background: $color-dialog-background;
-  border-radius: pixelsToEm(2);
+  border-radius: 2px;
   overflow: hidden;
   width: 100%;
   margin: 0 auto;
@@ -92,7 +91,7 @@ $animation-length: 0.3s;
 
   // TODO: this should not be
   &.Modal-dialog--newTask {
-    max-width: pixelsToEm(850);
+    max-width: 850px;
 
     .Task-attributes *, .Task-attributes *:hover {
       cursor: default !important;
@@ -100,44 +99,44 @@ $animation-length: 0.3s;
   }
 
   .Modal--forceMobile & {
-    border-radius: pixelsToEm(2);
+    border-radius: 2px;
     height: 100%;
     width: 100%;
     max-width: 100% !important;
-    min-height: pixelsToEm(1);
+    min-height: 1px;
     border: 0;
   }
 
   @media (max-width: $modal-main-breakpoint) {
-    border-radius: pixelsToEm(2);
+    border-radius: 2px;
     height: 100%;
     width: 100%;
     max-width: 100% !important;
-    min-height: pixelsToEm(1);
+    min-height: 1px;
     border: 0;
   }
 }
 
 .Modal-header {
-  padding: pixelsToEm(10) pixelsToEm(20);
+  padding: 10px 20px;
   height: $modal-header-height;
-  line-height: $modal-header-height - pixelsToEm(20);
+  line-height: $modal-header-height - 20px;
 
   h2 {
     display: inlline-block;
     margin: 0;
     font-weight: 400;
-    font-size: pixelsToEm(18);
+    font-size: 18px;
   }
 }
 
 .Modal-close {
   position: absolute;
-  top: pixelsToEm(10);
-  right: pixelsToEm(10);
+  top: 10px;
+  right: 10px;
   text-decoration: none;
   color: $color-modal-close;
-  line-height: $modal-header-height - pixelsToEm(20);
+  line-height: $modal-header-height - 20px;
 
   &:hover {
     color: $color-modal-close-hover;
@@ -146,11 +145,11 @@ $animation-length: 0.3s;
 
 .Modal-content {
   overflow: auto;
-  padding: pixelsToEm(10) pixelsToEm(20);
+  padding: 10px 20px;
 }
 
 .Modal-footer {
-  padding: pixelsToEm(10) pixelsToEm(20) pixelsToEm(20);
+  padding: 10px 20px 20px;
   text-align: right;
   height: $modal-footer-height;
 }
