@@ -35,7 +35,7 @@ const Item = React.createClass({
         return element;
       }
 
-      return React.addons.cloneWithProps(element, {className: styles['Item-child']});
+      return React.addons.cloneWithProps(element, {className: element.props.className || styles['Item-child']});
     });
 
     return children;
@@ -43,7 +43,7 @@ const Item = React.createClass({
 
   render() {
     const itemClass = cx({
-      [styles.Item]: true,
+      [styles.Item]: !this.props.className,
       [styles['Item--left']]: this.props.align === align.LEFT,
       [styles['Item--right']]: this.props.align === align.RIGHT,
       [styles['Item--string']]: typeof this.props.children === 'string',
@@ -118,13 +118,8 @@ module.exports = React.createClass({
   },
 
   render() {
-    const barClass = cx({
-      [styles.Bar]: true,
-      [this.props.className]: this.props.className,
-    });
-
     return (
-      <header className={barClass}>
+      <header className={this.props.className || styles.Bar}>
         <div className={styles['Bar-left']} style={this.getLeftStyle()}>
           {this.buildChildren(align.LEFT)}
         </div>
