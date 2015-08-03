@@ -1,5 +1,12 @@
 # Macropod Components Changelog
 
+## [v0.0.30](https://github.com/macropodhq/react-playground/releases/tag/0.0.30)
+
+### Improvements
+
+* [#328](https://github.com/macropodhq/macropod-components/pull/328): Images have hyperlinks
+* [#329](https://github.com/macropodhq/macropod-components/pull/329): Restore `pixelsToEm`-affected measurements to pixels
+
 ## [v0.0.29](https://github.com/macropodhq/react-playground/releases/tag/0.0.29)
 
 ### Fixes
