@@ -18,7 +18,7 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <iframe src="/#/navigation-content?iframe=true" frameBorder={0} style={style.iframe} />
+      <iframe src="/#navigation-content?iframe=true" frameBorder={0} style={style.iframe} />
     );
   },
 });
