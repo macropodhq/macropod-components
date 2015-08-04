@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "html-loader": "^0.2.3",
-    "macropod-tools": "https://github.com/macropodhq/macropod-tools.git#0.0.23",
+    "macropod-tools": "https://github.com/macropodhq/macropod-tools.git#0.0.26",
     "markdown-loader": "^0.1.2",
     "normalize.css": "~3.0.2",
     "react": ">=0.12.0",
