@@ -1,9 +1,5 @@
 'use strict';
 
-if (process.env.NODE_ENV !== 'production') {
-  require('react-a11y')();
-}
-
 const _ = require('lodash-node');
 const React = require('react');
 const Router = require('react-router');
@@ -11,6 +7,10 @@ const Route = Router.Route;
 const Link = Router.Link;
 const RouteHandler = Router.RouteHandler;
 const SuitClassSet = require('../packages/suit-class-set');
+
+if (process.env.NODE_ENV !== 'production') {
+  require('react-a11y')(React);
+}
 
 require('normalize.css/normalize.css');
 require('./index.scss');
