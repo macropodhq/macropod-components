@@ -1,34 +1,30 @@
 'use strict';
 
-require('./link-group.scss');
-
 const React = require('react');
 const Router = require('react-router');
 const _ = require('lodash-node');
+const cx = require('classnames');
+
+import styles from './link-group.mcss';
 
 module.exports = React.createClass({
   displayName: 'LinkGroup',
 
   mixins: [Router.State],
 
-  getDefaultProps() {
-    return {
-      style: {},
-    };
-  },
-
   getChildren() {
     let children = [];
 
     React.Children.forEach(this.props.children, (child, index) => {
-      let className = child.props.className ? child.props.className : '';
+      const active = child.props && (!_.size(this.getQuery()) && child.props.default);
 
+      let className = cx({
+        [this.props.className]: child.props.className,
+        [styles.Link]: !child.props.className,
+        [styles.LinkActive]: active,
+      });
 
-      if (child.props && (!_.size(this.getQuery()) && child.props.default)) {
-        className = className + ' active';
-      }
-
-      children.push(React.addons.cloneWithProps(child, {className: className}));
+      children.push(React.addons.cloneWithProps(child, {className: className, activeClassName: styles.LinkActive}));
     });
 
     return children;
@@ -36,7 +32,7 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <div className="LinkGroup" style={this.props.style}>
+      <div>
         {this.getChildren()}
       </div>
     );
