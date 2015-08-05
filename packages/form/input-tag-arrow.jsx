@@ -36,7 +36,7 @@ module.exports = React.createClass({
 
     return (
       <div className={classes}>
-        <div onClick={this.changeHandler} className="droparrow-trigger" >{this.props.label}<div/></div>
+        <button onClick={this.changeHandler} className="button-trigger" >{this.props.label}<div/></button>
         {layer}
         <Widgets.Multiselect
           {...this.props}

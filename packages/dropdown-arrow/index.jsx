@@ -30,7 +30,7 @@ module.exports = React.createClass({
 
   	return (
   		<div className="dropdown-arrow-container">
-  			<button onClick={this.changeHandler} className="trigger" >{this.props.label}<div/></button>
+  			<button onClick={this.changeHandler} className="button-trigger" >{this.props.label}<div/></button>
         {layer}
         <Widgets.DropdownList
   				onSelect={this.changeHandler}
