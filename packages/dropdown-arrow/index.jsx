@@ -11,11 +11,17 @@ module.exports = React.createClass({
   displayName: 'DropDownArrow',
 
   getInitialState() {
-    return { open: false, overlayShown: false  };
+    return {
+      open: false,
+      overlayShown: false,
+    }
   },
 
   changeHandler() {
-  	this.setState({ open: !this.state.open, overlayShown: !this.state.open});
+  	this.setState({
+      open: !this.state.open,
+      overlayShown: !this.state.open,
+    });
   },
 
   render() {
@@ -24,13 +30,13 @@ module.exports = React.createClass({
 
     if (this.state.overlayShown) {
       layer = (
-        <div onClick={this.changeHandler} className="overlay"></div>
+        <div onClick={this.changeHandler} className="overlay" />
       );
     }
 
   	return (
   		<div className="dropdown-arrow-container">
-  			<button onClick={this.changeHandler} className="button-trigger" >{this.props.label}<div/></button>
+  			<button onClick={this.changeHandler} className="button-trigger">{this.props.label}<div/></button>
         {layer}
         <Widgets.DropdownList
   				onSelect={this.changeHandler}

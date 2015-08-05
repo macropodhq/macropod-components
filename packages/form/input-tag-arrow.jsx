@@ -11,11 +11,17 @@ module.exports = React.createClass({
   displayName: 'InputTagArrow',
 
   getInitialState() {
-    return { open: false, layerShown: false };
+    return {
+      open: false,
+      layerShown: false
+    }
   },
 
   changeHandler() {
-    this.setState({ open: !this.state.open, overlayShown: !this.state.open});
+    this.setState({
+      open: !this.state.open,
+      overlayShown: !this.state.open,
+    });
   },
 
   render() {
@@ -24,7 +30,7 @@ module.exports = React.createClass({
 
     if (this.state.overlayShown) {
       layer = (
-        <div onClick={this.changeHandler} className="overlay"></div>
+        <div onClick={this.changeHandler} className="overlay" />
       );
     }
 
@@ -35,7 +41,7 @@ module.exports = React.createClass({
 
     return (
       <div className={classes}>
-        <button onClick={this.changeHandler} className="button-trigger" >{this.props.label}<div/></button>
+        <button onClick={this.changeHandler} className="button-trigger">{this.props.label}<div/></button>
         {layer}
         <Widgets.Multiselect
           {...this.props}
@@ -47,10 +53,3 @@ module.exports = React.createClass({
     );
   },
 });
-
-
-
-
-
-
-
