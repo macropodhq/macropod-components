@@ -60,7 +60,9 @@ module.exports = React.createClass({
   },
 
   handleClose(evt) {
-    evt.preventDefault();
+    if (evt) {
+      evt.preventDefault();
+    }
     if (!this.isMounted()) {
       return;
     }
