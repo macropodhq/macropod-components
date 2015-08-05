@@ -1,10 +1,5 @@
 # Macropod Components Changelog
 
-## [v0.0.32](https://github.com/macropodhq/react-playground/releases/tag/0.0.32)
-
-### Improvements
-* [#338](https://github.com/macropodhq/macropod-components/pull/338): Added `dropDownArrow` and `inputTagArrow` components
-
 ## [v0.0.31](https://github.com/macropodhq/react-playground/releases/tag/0.0.31)
 
 ### Improvements

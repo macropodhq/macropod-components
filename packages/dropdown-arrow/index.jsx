@@ -20,7 +20,7 @@ module.exports = React.createClass({
 
   render() {
 
-    var layer = null;
+    let layer = null;
 
     if (this.state.overlayShown) {
       layer = (

@@ -46,8 +46,6 @@
     }
   }
 
-  .rw-select{
-  }
   .rw-popup-container{
     min-width: 140px;
     max-width: 200px;
@@ -81,8 +79,6 @@
           pointer-events: none;
           height: 1px;
           position: absolute;
-          -webkit-transform: rotate(-45deg);
-          -ms-transform: rotate(-45deg);
           transform: rotate(-135deg);
           background-color: #adb7c6;
         }
@@ -95,8 +91,6 @@
           background-color: #adb7c6;
           height: 1px;
           position: absolute;
-          -webkit-transform: rotate(-45deg);
-          -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
         }
       }

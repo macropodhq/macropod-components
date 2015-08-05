@@ -2,6 +2,7 @@
 
 import React from 'react';
 const Widgets = require('react-widgets');
+const cx = require('classnames');
 
 require('./input-tag-arrow.scss');
 
@@ -19,7 +20,7 @@ module.exports = React.createClass({
 
   render() {
 
-    var layer = null;
+    let layer = null;
 
     if (this.state.overlayShown) {
       layer = (
@@ -27,9 +28,7 @@ module.exports = React.createClass({
       );
     }
 
-    var cx = React.addons.classSet;
-
-    var classes = cx({
+    let classes = cx({
       'empty': this.state.isEmpty,
       'multiselect-arrow-container':true
     });
