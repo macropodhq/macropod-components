@@ -61,55 +61,51 @@ $input-state-error: #d46060;
   font-size: 12px;
   padding: 5px 10px 5px 0px;
   position: relative;
-  &:after{
-    width: 5px;
+
+  &:after, &:before {
+     width: 5px;
+     position: absolute;
+     top: 11px;
+     content: ' ';
+     height: 1px;
+     pointer-events: none;
+     background-color: #969798;
+     -webkit-backface-visibility: hidden;
+  }
+
+  &:after {
     right: 0;
-    top: 11px;
-    content: '';
-    pointer-events: none;
-    height: 1px;
-    position: absolute;
     transform: rotate(-135deg);
-    background-color: #969798;
-    -webkit-backface-visibility: hidden;
   }
-  &:before{
-    width: 5px;
+
+  &:before {
     right: 3px;
-    top: 11px;
-    content: '';
-    pointer-events: none;
-    height: 1px;
-    position: absolute;
     transform: rotate(-45deg);
-    background-color: #969798;
-    -webkit-backface-visibility: hidden;
   }
+
   div{
-    &:after{
+
+    &:after, &:before {
       width: 5px;
-      right: 0;
       top: 16px;
       content: '';
       pointer-events: none;
-      height: 1px;
       position: absolute;
-      transform: rotate(-225deg);
       background-color: #969798;
+      height: 1px;
       -webkit-backface-visibility: hidden;
     }
+
+    &:after{
+      right: 0;
+      transform: rotate(-225deg);
+    }
+
     &:before{
-      width: 5px;
       right: 3px;
-      top: 16px;
-      content: '';
-      pointer-events: none;
-      height: 1px;
-      position: absolute;
       transform: rotate(-135deg);
-      background-color: #969798;
-      -webkit-backface-visibility: hidden;
 
     }
+
   }
 }
