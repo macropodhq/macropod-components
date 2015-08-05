@@ -21,15 +21,16 @@ module.exports = React.createClass({
   render() {
 
     var layer = null;
+
     if (this.state.overlayShown) {
-        layer = (
-            <div onClick={this.changeHandler} className="overlay"></div>
-        );
+      layer = (
+        <div onClick={this.changeHandler} className="overlay"></div>
+      );
     }
 
   	return (
   		<div className="dropdown-arrow-container">
-  			<button onClick={this.changeHandler} className="trigger" >{this.props.label}</button>
+  			<button onClick={this.changeHandler} className="trigger" >{this.props.label}<div/></button>
         {layer}
         <Widgets.DropdownList
   				onSelect={this.changeHandler}

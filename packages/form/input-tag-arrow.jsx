@@ -18,6 +18,7 @@ module.exports = React.createClass({
   },
 
   render() {
+
     var layer = null;
 
     if (this.state.overlayShown) {
@@ -25,14 +26,17 @@ module.exports = React.createClass({
         <div onClick={this.changeHandler} className="overlay"></div>
       );
     }
+
     var cx = React.addons.classSet;
+
     var classes = cx({
       'empty': this.state.isEmpty,
       'multiselect-arrow-container':true
     });
+
     return (
       <div className={classes}>
-        <div onClick={this.changeHandler} className="droparrow-trigger" >{this.props.label}</div>
+        <div onClick={this.changeHandler} className="droparrow-trigger" >{this.props.label}<div/></div>
         {layer}
         <Widgets.Multiselect
           {...this.props}

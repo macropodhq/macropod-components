@@ -127,10 +127,55 @@
     font-size: 12px;
     padding: 5px 0px;
     &:after{
-      /*color: #adadad;*/
-      content: '▼';
-      font-size: 10px;
-      padding-left: 3px;
+      width: 5px;
+      right: 0;
+      top: 11px;
+      content: '';
+      pointer-events: none;
+      height: 1px;
+      position: absolute;
+      transform: rotate(-135deg);
+      background-color: #969798;
+      -webkit-backface-visibility: hidden;
+    }
+    &:before{
+      width: 5px;
+      right: 3px;
+      top: 11px;
+      content: '';
+      pointer-events: none;
+      height: 1px;
+      position: absolute;
+      transform: rotate(-45deg);
+      background-color: #969798;
+      -webkit-backface-visibility: hidden;
+    }
+    div{
+      &:after{
+        width: 5px;
+        right: 0;
+        top: 16px;
+        content: '';
+        pointer-events: none;
+        height: 1px;
+        position: absolute;
+        transform: rotate(-225deg);
+        background-color: #969798;
+        -webkit-backface-visibility: hidden;
+      }
+      &:before{
+        width: 5px;
+        right: 3px;
+        top: 16px;
+        content: '';
+        pointer-events: none;
+        height: 1px;
+        position: absolute;
+        transform: rotate(-135deg);
+        background-color: #969798;
+        -webkit-backface-visibility: hidden;
+
+      }
     }
   }
 }
