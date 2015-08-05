@@ -138,6 +138,12 @@ you've got to put paragraph tags in your blockquotes:
   placeholder="Yo..."
 />`}
         </pre>
+
+        <h3>Placeholder</h3>
+        <CancelableEdit placeholder="Markdown Edit" markdown=""/>
+        <pre>
+{`<CancelableEdit placeholder="Markdown Edit" markdown=""/>`}
+        </pre>
       </div>
     );
   },

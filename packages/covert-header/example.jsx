@@ -18,7 +18,7 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <iframe src="/#/covert-header-content?iframe=true" frameBorder={0} style={style.iframe} />
+      <iframe src="#/covert-header-content?iframe=true" frameBorder={0} style={style.iframe} />
     );
   },
 });

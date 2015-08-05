@@ -1,17 +1,16 @@
 @import "colors";
-@import "pixels-to-em";
 
 $input-base-color: #243b5d;
 $input-background-color: #fdfdff;
 $input-border-color: rgba($input-base-color, .25);
-$input-border-radius: pixelsToEm(3);
-$input-border-width: pixelsToEm(1);
+$input-border-radius: 3px;
+$input-border-width: 1px;
 
 $input-text-color: inherit;
 $input-placeholder-color: inherit;
 
-$input-height: pixelsToEm(38);
-$input-padding: pixelsToEm(8) pixelsToEm(10);
+$input-height: 38px;
+$input-padding: 8px 10px;
 $input-line-height: 1.3;
 
 $input-state-hover: rgba($input-base-color, .10);
@@ -37,6 +36,11 @@ $input-state-error: #d46060;
   transition: all .1s;
   font-family: inherit;
   font-size: inherit;
+  /* Hide inner shadow on iOS */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
 
   &::placeholder {
     color: $input-placeholder-color;

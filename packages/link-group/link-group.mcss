@@ -1,0 +1,52 @@
+~color: "../../constants/inputs.js";
+~border: "../../constants/inputs.js";
+~box: "../../constants/inputs.js";
+~text: "../../constants/inputs.js";
+
+.Link {
+  composes: Link from '../link/link.mcss';
+  border: width from ~border solid border from ~color;
+  border-right-width: 0;
+  height: height from ~box;
+  padding: padding from ~box;
+  display: inline-block;
+  color: text from ~color;
+  transition: background .2s;
+  line-height: lineHeight from ~text;
+}
+
+.Link:hover {
+  background: hover from ~color;
+  color: inherit;
+}
+
+.Link:first-child {
+  border-radius: radius from ~border 0 0 radius from ~border;
+}
+
+.Link:last-child {
+  border-radius: 0 radius from ~border radius from ~border 0;
+  border-right-width: width from ~border;
+}
+
+.LinkActive {
+  composes: Link;
+  background: focus from ~color;
+  color: focusText from ~color;
+  border-right-width: width from ~border;
+  cursor: default;
+}
+
+.LinkActive + .Link {
+  border-left-width: 0;
+}
+
+.LinkActive:last-child {
+  border-right-width: width from ~border;
+}
+
+.LinkActive:hover {
+  color: focusText from ~color;
+  background: focus from ~color;
+  opacity: 0.8;
+}

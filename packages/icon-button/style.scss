@@ -1,5 +1,4 @@
 @import "colors";
-@import "pixels-to-em";
 
 $icon-button-size: 1.65em;
 
@@ -25,7 +24,7 @@ $color-icon-button-background-hover: $color-fountain-blue !default;
   outline: none;
 
   &:focus {
-    box-shadow: 0 0 0 pixelsToEm(1) rgba(0,0,0,.1),0 0 pixelsToEm(6) rgba(0,0,0,.3);
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1),0 0 6px rgba(0,0,0,.3);
   }
 
   &:focus,

@@ -6,16 +6,7 @@ const Bar = require('../bar');
 const Tray = require('../tray');
 const CovertHeader = require('../covert-header');
 
-const style = {
-  clickOverlay: {
-    position: 'fixed',
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
-    zIndex: 99,
-  },
-};
+import styles from './navigation.mcss';
 
 module.exports = React.createClass({
   displayName: 'Navigation',
@@ -39,7 +30,7 @@ module.exports = React.createClass({
       rightTrayContent: [],
       leftTrayContent: [],
       scrollOffset: 0,
-      style: {},
+      className: '',
     };
   },
 
@@ -89,13 +80,13 @@ module.exports = React.createClass({
     return (
       <div>
         <CovertHeader offset={this.props.scrollOffset} forceShow={this.props.showLeftTray || this.props.showRightTray}>
-          <Bar style={this.props.style}>
+          <Bar className={this.props.className}>
             {this.props.barItems}
           </Bar>
         </CovertHeader>
 
         { (this.props.showLeftTray || this.props.showRightTray) &&
-            <div style={style.clickOverlay} onClick={this.props.onTrayBlur}/>
+            <div className={styles.clickOverlay} onClick={this.props.onTrayBlur}/>
         }
 
         { this.props.showLeftTray &&
