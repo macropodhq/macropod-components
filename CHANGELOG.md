@@ -1,5 +1,17 @@
 # Macropod Components Changelog
 
+## [v0.0.31](https://github.com/macropodhq/react-playground/releases/tag/0.0.31)
+
+### Improvements
+* [#330](https://github.com/macropodhq/macropod-components/pull/330): Convert `navigation` to `mcss`
+* [#331](https://github.com/macropodhq/macropod-components/pull/331): Convert `link-group` to `mcss`
+* [#334](https://github.com/macropodhq/macropod-components/pull/334): Remove `table` component
+* [#335](https://github.com/macropodhq/macropod-components/pull/335): Add `a11y`
+
+### Fixes
+
+* [#337](https://github.com/macropodhq/macropod-components/pull/337): Fix iframe demos on GitHub
+
 ## [v0.0.30](https://github.com/macropodhq/react-playground/releases/tag/0.0.30)
 
 ### Improvements
