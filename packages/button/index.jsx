@@ -4,7 +4,7 @@ require('./button.scss');
 
 const React = require('react/addons');
 const SuitClassSet = require('../suit-class-set');
-const _ = require('lodash-node');
+const _ = require('lodash');
 
 const validTypes = [
   'submit',

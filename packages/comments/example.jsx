@@ -1,7 +1,7 @@
 'use strict';
 
 const React = require('react');
-const _ = require('lodash-node');
+const _ = require('lodash');
 const Comments = require('./');
 const Button = require('../button');
 const InputTextarea = require('../form/input-textarea');
