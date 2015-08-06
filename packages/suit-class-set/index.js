@@ -1,6 +1,6 @@
 'use strict';
 
-const _ = require('lodash-node');
+const _ = require('lodash');
 const empty = '';
 const space = ' ';
 const dash = '-';

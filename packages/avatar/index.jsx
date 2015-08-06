@@ -4,7 +4,7 @@ const md5 = require('MD5');
 const React = require('react/addons');
 const keyMirror = require('react/lib/keyMirror');
 const SuitClassSet = require('../suit-class-set');
-const _ = require('lodash-node');
+const _ = require('lodash');
 
 require('./avatar.scss');
 
