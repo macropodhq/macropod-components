@@ -15,8 +15,13 @@ module.exports = React.createClass({
     return {
       label: '',
       arrow: false,
-      open: false,
       layerShown: false,
+    };
+  },
+
+  getInitialState() {
+    return {
+      open: false,
     };
   },
 
@@ -84,10 +89,10 @@ module.exports = React.createClass({
   },
 
   render() {
-    const arrow = this.props.arrow;
+    if (this.props.arrow) {
+      return this.arrowWrapper();
+    }
 
-    return (
-      { arrow ? this.arrowWrapper() : this.inputWrapper() }
-    );
+    return this.inputWrapper();
   },
 });
