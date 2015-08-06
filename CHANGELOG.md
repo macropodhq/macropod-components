@@ -1,4 +1,8 @@
 # Macropod Components Changelog
+## [v0.0.32](https://github.com/macropodhq/macropod-components/releases/tag/0.0.32)
+
+### Fixes
+* [#330](https://github.com/macropodhq/macropod-components/pull/339): Fix error when closing modal with esc key
 
 ## [v0.0.31](https://github.com/macropodhq/react-playground/releases/tag/0.0.31)
 
