@@ -1,12 +1,9 @@
-'use strict';
+import React from 'react/addons';
+import md5 from 'MD5';
+import keyMirror from 'react/lib/keyMirror';
+import SuitClassSet from '../suit-class-set';
 
-const md5 = require('MD5');
-const React = require('react/addons');
-const keyMirror = require('react/lib/keyMirror');
-const SuitClassSet = require('../suit-class-set');
-const _ = require('lodash');
-
-require('./avatar.scss');
+import './avatar.scss';
 
 const sizes = {
   's': 20,
@@ -22,26 +19,35 @@ const validateSize = (props, propName) => {
   }
 };
 
-module.exports = React.createClass({
+export default React.createClass({
   displayName: 'Avatar',
 
   propTypes: {
     size: validateSize,
-    firstName: React.PropTypes.string,
-    lastName: React.PropTypes.string,
+    firstName(props, propName) {
+      if (propName in props) {
+        return new Error(`Avatar's \`${propName}\` property is deprecated. Please use \`title\` instead.`);
+      }
+    },
+    lastName(props, propName) {
+      if (propName in props) {
+        return new Error(`Avatar's \`${propName}\` property is deprecated. Please use \`title\` instead.`);
+      }
+    },
     src: React.PropTypes.string,
     email: React.PropTypes.string,
     circle: React.PropTypes.bool,
-    model(props, propName) {
-      if (propName in props) {
-        return new Error('Avatar\'s model property is deprecated. Please use the explicit properties instead.');
-      }
-    },
   },
 
   statics: {
     sizes: sizeConstants,
     validateSize: validateSize,
+  },
+
+  getInitialState() {
+    return {
+      showImage: false,
+    };
   },
 
   getDefaultProps() {
@@ -54,16 +60,20 @@ module.exports = React.createClass({
     };
   },
 
-  getBackgroundImage(src, email) {
+  getAvatarUrl(src, email) {
     const ratio = (window && window.devicePixelRatio) || 1;
     let url = '';
 
     if (src !== '') {
       url = src;
     } else if (email !== '') {
-      url = `//www.gravatar.com/avatar/${md5(email)}?d=blank&s=${(sizes[this.props.size] * ratio).toString(10)}`;
+      url = `//www.gravatar.com/avatar/${md5(email)}?d=404&s=${(sizes[this.props.size] * ratio).toString(10)}`;
     }
 
+    return url;
+  },
+
+  getBackgroundImage(url) {
     return `url(${url})`;
   },
 
@@ -71,29 +81,37 @@ module.exports = React.createClass({
     return `hsl(${parseInt(md5(str).substr(2, 4), 16)}, 80%, 45%)`;
   },
 
-  getInitials(firstName, lastName) {
-    return firstName.charAt(0).toUpperCase() + lastName.charAt(0).toUpperCase();
+  getInitials(name, lastName) {
+    return name.charAt(0).toUpperCase() + lastName.charAt(0).toUpperCase();
+  },
+
+  handleImageLoadComplete() {
+    if (this.isMounted()) {
+      this.setState({
+        showImage: true,
+      });
+    }
   },
 
   render() {
-    let name;
     let firstName = this.props.firstName;
     let lastName = this.props.lastName;
     let email = this.props.email;
     let src = this.props.src;
 
-    if (this.props.model) {
-      name = _.has(this.props.model, 'name') ? this.props.model.name : '';
-      firstName = _.has(this.props.model, 'firstName') ? this.props.model.firstName : name;
-      lastName = _.has(this.props.model, 'lastName') ? this.props.model.lastName : '';
+    firstName = this.props.title || firstName;
+    lastName = lastName || '';
 
-      if (this.props.email === '') {
-        email = _.has(this.props.model, 'email') ? this.props.model.email : '';
-      }
+    const hashName = (firstName + lastName).replace(/\s*/g, '');
 
-      if (this.props.src === '') {
-        src = _.has(this.props.model, 'avatar_url') ? this.props.model.avatar_url : '';
-      }
+    const imageUrl = this.getAvatarUrl(src, email);
+    const avatarStyle = {};
+
+    if (this.state.showImage) {
+      avatarStyle.backgroundImage = this.getBackgroundImage(imageUrl);
+      avatarStyle.color = 'transparent';
+    } else {
+      avatarStyle.backgroundColor = this.getColor(hashName);
     }
 
     const containerClass = new SuitClassSet('Avatar');
@@ -104,15 +122,20 @@ module.exports = React.createClass({
       [this.props.size]: true,
     });
 
-    firstName = this.props.title || firstName;
-    lastName = lastName || '';
-
     return (
-      <span title={`${firstName}’s avatar`}
+      <span
+        title={`${firstName}’${firstName.charAt(firstName.length - 1).toLowerCase() === 's' ? '' : 's'} avatar`}
         className={containerClass.toString()}
-        style={{backgroundColor: this.getColor(firstName + lastName)}}>
-        <span className="Avatar-initials" aria-hidden="true">{this.getInitials(firstName, lastName)}</span>
-        <span className="Avatar-image" aria-hidden="true" style={{backgroundImage: this.getBackgroundImage(src, email)}}></span>
+        style={avatarStyle}
+      >
+        <img
+          src={imageUrl}
+          onLoad={this.handleImageLoadComplete}
+          style={{position: 'absolute', maxWidth: 0, maxHeight: 0, opacity: 0}}
+          aria-hidden="true"
+          alt=""
+        />
+        {this.getInitials(firstName, lastName)}
       </span>
     );
   },
