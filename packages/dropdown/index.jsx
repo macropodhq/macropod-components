@@ -7,19 +7,25 @@ const Widgets = require('react-widgets');
 require('./dropdown.scss');
 
 module.exports = React.createClass({
+
+  propTypes: {
+    label: React.PropTypes.string,
+    arrow: React.PropTypes.bool,
+  },
+
   displayName: 'Dropdown',
 
   getDefaultProps() {
     return {
-      label: '',
+      label: 'Choose one',
       arrow: false,
-      overlayShown: false,
     };
   },
 
   getInitialState() {
     return {
       open: false,
+      overlayShown: false,
     }
   },
 

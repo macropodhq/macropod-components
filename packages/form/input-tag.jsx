@@ -9,19 +9,24 @@ require('./input-tag.scss');
 
 module.exports = React.createClass({
 
+  propTypes: {
+    label: React.PropTypes.string,
+    arrow: React.PropTypes.bool,
+  },
+
   displayName: 'InputTag',
 
   getDefaultProps() {
     return {
-      label: '',
+      label: 'Select options',
       arrow: false,
-      layerShown: false,
     };
   },
 
   getInitialState() {
     return {
       open: false,
+      overlayShown: false,
     };
   },
 

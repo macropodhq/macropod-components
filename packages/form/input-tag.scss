@@ -245,14 +245,16 @@
       &.rw-list>li.rw-list-option:hover,
       &.rw-list>li.rw-list-option.rw-state-focus:hover {
         background: #e6e9ee;
-        &:before {
-          width: 6px;
-          top: 14px;
-          left: 4px;
+        &:before, &:after{
           content: '';
           pointer-events: none;
           height: 1px;
           position: absolute;
+        }
+        &:before {
+          width: 6px;
+          top: 14px;
+          left: 4px;
           transform: rotate(-135deg);
           background-color: #adb7c6;
         }
@@ -260,11 +262,7 @@
           width: 10px;
           top: 13px;
           left: 7px;
-          content: '';
-          pointer-events: none;
           background-color: #adb7c6;
-          height: 1px;
-          position: absolute;
           transform: rotate(-45deg);
         }
       }
