@@ -32,7 +32,7 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <div>
+      <div className={this.props.className}>
         {this.getChildren()}
       </div>
     );
