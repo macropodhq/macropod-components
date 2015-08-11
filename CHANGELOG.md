@@ -1,4 +1,12 @@
 # Macropod Components Changelog
+
+## [v0.0.33](https://github.com/macropodhq/macropod-components/releases/tag/0.0.33)
+
+### Fixes
+* [#341](https://github.com/macropodhq/macropod-components/pull/341): `lodash-node` -> `lodash`
+* [#344](https://github.com/macropodhq/macropod-components/pull/344): Remove `Inlay` component  
+* [#345](https://github.com/macropodhq/macropod-components/pull/345): Transfer className to `LinkGroup`
+
 ## [v0.0.32](https://github.com/macropodhq/macropod-components/releases/tag/0.0.32)
 
 ### Fixes
