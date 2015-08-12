@@ -38,7 +38,24 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <Dropdown data={options} value={this.state.selection} onChange={this.handleChange} textField="name" valueField="id" duration={0} />
+      <Dropdown
+        data={options}
+        value={this.state.selection}
+        onChange={this.handleChange}
+        textField="name"
+        valueField="id"
+        duration={0}
+      />
+      <Dropdown
+        data={options}
+        value={this.state.selection}
+        onChange={this.handleChange}
+        textField="name"
+        label = "Options"
+        valueField="id"
+        duration={0}
+        arrow={true}
+      />
     );
   },
 });
