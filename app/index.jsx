@@ -1,6 +1,6 @@
 'use strict';
 
-const _ = require('lodash-node');
+const _ = require('lodash');
 const React = require('react');
 const Router = require('react-router');
 const Route = Router.Route;

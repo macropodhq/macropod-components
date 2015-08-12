@@ -2,7 +2,7 @@
 
 const React = require('react');
 const Router = require('react-router');
-const _ = require('lodash-node');
+const _ = require('lodash');
 const cx = require('classnames');
 
 import styles from './link-group.mcss';
@@ -32,7 +32,7 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <div>
+      <div className={this.props.className}>
         {this.getChildren()}
       </div>
     );

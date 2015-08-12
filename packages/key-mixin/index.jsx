@@ -1,4 +1,4 @@
-const _ = require('lodash-node');
+const _ = require('lodash');
 
 module.exports = {
   _keyMixinHandleKeyDown(eventMaskCbPairs, evt) {

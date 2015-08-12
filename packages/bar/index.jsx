@@ -1,7 +1,7 @@
 'use strict';
 
 const React = require('react');
-const _ = require('lodash-node');
+const _ = require('lodash');
 const cx = React.addons.classSet;
 
 import styles from './bar.mcss';

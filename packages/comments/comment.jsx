@@ -1,6 +1,6 @@
 'use strict';
 const React = require('react/addons');
-const _ = require('lodash-node');
+const _ = require('lodash');
 const InputTextarea = require('../form/input-textarea');
 const SuitClassSet = require('../suit-class-set');
 
