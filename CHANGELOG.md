@@ -1,4 +1,8 @@
 # Macropod Components Changelog
+## [v0.0.34](https://github.com/macropodhq/macropod-components/releases/tag/0.0.34)
+
+### Fixes
+* [#348](https://github.com/macropodhq/macropod-components/pull/348): Don't call preventDefault in Prompt
 
 ## [v0.0.33](https://github.com/macropodhq/macropod-components/releases/tag/0.0.33)
 
