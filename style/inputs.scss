@@ -56,3 +56,65 @@ $input-state-error: #d46060;
     }
   }
 }
+
+.button-trigger{
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  text-align: right;
+  color: #666;
+  -webkit-font-smoothing: antialiased;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 5px 10px 5px 0px;
+  position: relative;
+
+  &:after, &:before {
+     width: 5px;
+     position: absolute;
+     top: 11px;
+     content: ' ';
+     height: 1px;
+     pointer-events: none;
+     background-color: #969798;
+     -webkit-backface-visibility: hidden;
+  }
+
+  &:after {
+    right: 0;
+    transform: rotate(-135deg);
+  }
+
+  &:before {
+    right: 3px;
+    transform: rotate(-45deg);
+  }
+
+  div{
+
+    &:after, &:before {
+      width: 5px;
+      top: 16px;
+      content: '';
+      pointer-events: none;
+      position: absolute;
+      background-color: #969798;
+      height: 1px;
+      -webkit-backface-visibility: hidden;
+    }
+
+    &:after{
+      right: 0;
+      transform: rotate(-225deg);
+    }
+
+    &:before{
+      right: 3px;
+      transform: rotate(-135deg);
+
+    }
+
+  }
+}

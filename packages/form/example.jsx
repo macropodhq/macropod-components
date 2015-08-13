@@ -174,6 +174,21 @@ module.exports = React.createClass({
           }
         />
 
+        <InputTag
+          label="InputTagArrow"
+          value={this.state.tags}
+          onChange={this.handleTagChange}
+          data={tagOptions}
+          placeholder="Make some breakfast..."
+          duration={0}
+          textField="name"
+          valueField="id"
+          description={
+            <span>This is a tag input, it's using <a href="http://jquense.github.io/react-widgets/docs/#/multiselect" target="_blank">React Widgets' <code>MultiSelect</code></a></span>
+          }
+          arrow={true}
+        />
+
         <InputText
           label="InputText"
           placeholder="Input some text..."

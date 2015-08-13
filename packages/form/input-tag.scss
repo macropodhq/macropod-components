@@ -173,3 +173,111 @@
 .rw-select-list .rw-select-wrapper {
   border: 0;
 }
+
+.multiselect-arrow-container{
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  .rw-multiselect {
+    border-radius: 0px;
+    border-color: #b2bdc9;
+    border-bottom: none;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    padding: 7px 7px;
+    box-shadow: 1px 1px 2px rgba(0,0,0,.15);
+    &.rw-widget {
+      min-height: 24px;
+      min-width: 150px;
+      position: absolute;
+      z-index: 1;
+      right: 0;
+      display: none;
+      margin-right: 5px;
+      .rw-input {
+        padding: 4px 10px !important;
+        height: inherit !important;
+      }
+      &.rw-open {
+        display: block;
+      }
+    }
+    .rw-multiselect-wrapper {
+      padding: 0px;
+      border: 1px solid #b2bdc9;
+      border-bottom-right-radius: 3px;
+      border-bottom-left-radius: 3px;
+      min-height: 28px;
+      input {
+        display: none;
+      }
+    }
+  }
+
+  .rw-popup-container {
+    min-width: 140px;
+    max-width: 200px;
+    margin-top: 0px;
+  }
+  .rw-popup {
+    border-color: #b2bdc9;
+    padding-top: 0px;
+    box-shadow: 1px 1px 2px rgba(0,0,0,.15);
+    ul {
+      padding-top: 0px;
+      &.rw-list>li.rw-list-option,
+      &.rw-list>li.rw-list-option.rw-state-focus,
+      li {
+        background: #fff;
+        font-size: 13px;
+        color: #606060;
+        padding-left: 18px;
+        position: relative;
+
+      }
+      &.rw-list>li.rw-list-option:hover,
+      &.rw-list>li.rw-list-option.rw-state-focus:hover {
+        background: #e6e9ee;
+        &:before, &:after{
+          content: '';
+          pointer-events: none;
+          height: 1px;
+          position: absolute;
+        }
+        &:before {
+          width: 6px;
+          top: 14px;
+          left: 4px;
+          transform: rotate(-135deg);
+          background-color: #adb7c6;
+        }
+        &:after {
+          width: 10px;
+          top: 13px;
+          left: 7px;
+          background-color: #adb7c6;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+  .rw-multiselect-taglist {
+
+    li {
+      padding: 2px 21px 3px 7px;
+      font-size: 12px;
+      max-width: 95%;
+      .rw-btn {
+        top: 3px;
+      }
+    }
+
+  }
+}
