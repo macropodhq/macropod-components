@@ -47,8 +47,6 @@ module.exports = React.createClass({
           valueField="id"
           duration={0}
         />
-      </div>
-      <div>
         <Dropdown
           data={options}
           value={this.state.selection}
