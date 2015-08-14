@@ -33,7 +33,7 @@ module.exports = React.createClass({
         <Button onClick={this.handleClick}>Serve up one with all the trimmings</Button>
         {this.state.showModal &&
           <Modal ref="modal" onClose={this.handleClose}
-            closeButton="true"
+            closeButton={false}
             maxWidth="400px"
             maxHeight="100%"
             title={
