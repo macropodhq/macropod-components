@@ -13,9 +13,26 @@ module.exports = React.createClass({
 
   mixins: [LayeredComponentMixin],
 
+  propTypes: {
+    forceMobile: React.PropTypes.bool,
+    onClose: React.PropTypes.func,
+    title: React.PropTypes.string,
+    footer: React.PropTypes.node,
+    className: React.PropTypes.string,
+    dialogClassName: React.PropTypes.string,
+    maxWidth: React.PropTypes.string,
+    maxHeight: React.PropTypes.string,
+    closeButton: React.PropTypes.bool,
+    canClickAway: React.PropTypes.bool,
+  },
+
   getDefaultProps() {
     return {
       onClose: () => {},
+      canClickAway: true,
+      forceMobile: false,
+      title: '',
+      closeButton: false,
     };
   },
 
@@ -59,6 +76,12 @@ module.exports = React.createClass({
     });
   },
 
+  handleClickAwayClose(evt) {
+    if (this.props.canClickAway) {
+      this.handleClose(evt);
+    }
+  },
+
   handleClose(evt) {
     if (evt) {
       evt.preventDefault();
@@ -66,6 +89,7 @@ module.exports = React.createClass({
     if (!this.isMounted()) {
       return;
     }
+
     this.setState({
       showModal: false,
     });
@@ -94,7 +118,7 @@ module.exports = React.createClass({
     });
 
     return (
-      <div className={modalClasses.toString() + (this.props.className ? ` ${this.props.className}` : '')} onClick={this.handleClose} onScroll={this.stopPropagation}>
+      <div className={modalClasses.toString() + (this.props.className ? ` ${this.props.className}` : '')} onClick={this.handleClickAwayClose} onScroll={this.stopPropagation}>
         <div className={dialogClasses.toString() + (this.props.dialogClassName ? ` ${this.props.dialogClassName}` : '')} onClick={this.stopPropagation} style={{maxWidth: this.props.maxWidth, maxHeight: this.props.maxHeight}}>
           {this.props.closeButton &&
             <a className="Modal-close" href="#" onClick={this.handleClose}> &#215; </a>
