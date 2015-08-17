@@ -1,7 +1,7 @@
 import React from 'react';
-import SuitClassSet from '../suit-class-set';
+import cx from 'classnames';
 
-import './input-wrapper.scss';
+import styles from './input-wrapper.mcss';
 
 const PUBLIC_PROPS = {
   description: React.PropTypes.node,
@@ -55,26 +55,24 @@ const InputWrapper = React.createClass({
   },
 
   render() {
-    const wrapperClass = new SuitClassSet('Form-item');
     const camelCaseLabel = InputWrapper.camelCase(this.props.label);
-
-    wrapperClass.addModifier({
-      'error': this.props.errorMessage,
-      [camelCaseLabel]: camelCaseLabel,
+    const labelClass = cx({
+      [styles.label]: !this.props.errorMessage,
+      [styles.labelError]: !!this.props.errorMessage,
     });
 
     return (
-      <div className={wrapperClass}>
+      <div className={styles.Item}>
         {this.props.showLabel &&
           <label
-            className="Form-item-label"
+            className={labelClass}
             htmlFor={`Input--${this.props.inputType}--${camelCaseLabel}`}
           >
             {this.props.label}
           </label>
         }
         {this.props.description &&
-          <div className="Form-item-description">
+          <div className={styles.description}>
             {this.props.description}
           </div>
         }
@@ -82,7 +80,7 @@ const InputWrapper = React.createClass({
         {this.props.children}
 
         {this.props.errorMessage &&
-          <div className="Form-item-error">
+          <div className={styles.error}>
             {this.props.errorMessage}
           </div>
         }

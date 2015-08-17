@@ -1,0 +1,35 @@
+~color: "../../constants/inputs.js";
+
+.Item {
+  margin-bottom: 10px;
+}
+
+.Item :global(label) {
+  display: inline-block;
+}
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.labelError {
+  composes: label;
+  color: error from ~color;
+}
+
+.description, .error {
+  display: block;
+  max-width: 100%;
+  font-size: 90%;
+}
+
+.description {
+  margin-bottom: 5px;
+}
+
+.error {
+  margin-top: 5px;
+  color: error from ~color;
+}

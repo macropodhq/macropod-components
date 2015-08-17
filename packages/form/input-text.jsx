@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'classnames';
 import InputWrapper from './input-wrapper';
 
 import styles from '../../style/input.mcss';
@@ -13,12 +14,14 @@ export default React.createClass({
     ]),
     onChange: React.PropTypes.function,
     type: React.PropTypes.string.isRequired,
+    error: React.PropTypes.bool,
   }),
 
   getDefaultProps() {
     return Object.assign({}, InputWrapper.getDefaultProps(), {
       type: 'text',
       onChange: () => {},
+      error: false,
     });
   },
 
@@ -91,6 +94,12 @@ export default React.createClass({
     const normalisedProps = InputWrapper.normaliseProps(this.props);
     const camelCaseLabel = InputWrapper.camelCase(normalisedProps.label);
 
+    const inputClass = cx({
+      [styles.Input]: !this.props.className,
+      'error': this.props.errorMessage,
+      [this.props.className]: this.props.className,
+    });
+
     return (
       <InputWrapper
         {...normalisedProps}
@@ -102,7 +111,7 @@ export default React.createClass({
           ref="input"
           type={normalisedProps.type}
           id={`Input--text--${camelCaseLabel}`}
-          className={this.props.className || styles.Input}
+          className={inputClass}
         />
       </InputWrapper>
     );

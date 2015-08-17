@@ -40,3 +40,7 @@
   color: inherit;
   opacity: .15;
 }
+
+.Input:global(.error) {
+  border-color: error from ~color !important;
+}
