@@ -1,0 +1,52 @@
+.Alert {
+  width: 400px;
+  height: initial;
+  min-height: 0px;
+  margin-top: 90px;
+}
+
+.header {
+  padding: 20px 20px 0px;
+}
+
+.header a {
+  float: right;
+  margin-top: -2px;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1;
+  color: black;
+  opacity: 0.2;
+}
+
+.header h3 {
+  margin: 0px;
+  line-height: 1.42;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.body {
+  margin: 0px;
+  line-height: 1.2;
+  padding: 10px 20px;
+  color: #2e3842;
+}
+.body p {
+  margin: 0px 0px 10px;
+}
+
+.body input[type=text] {
+  width: 100%;
+}
+
+.actions {
+  margin: 25px -20px -10px;
+  padding: 10px 20px;
+  text-align: right;
+  background-color: #f4f7fa;
+}
+
+.actions  > * {
+  margin-left: 0.5em;
+}

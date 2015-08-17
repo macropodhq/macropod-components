@@ -1,0 +1,153 @@
+.isUnscrollable {
+  overflow: hidden;
+}
+
+.Modal {
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 1;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.Modal * {
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  padding: 5px;
+}
+
+.dialog {
+  position: relative;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  background: white;
+  border-radius: 2px;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.forceMobile {
+  composes: dialog;
+  padding: 5px;
+}
+
+.withHeader {
+  padding-top: 0;
+  height: calc(100% - 45px);
+}
+
+.withFooter {
+  padding-bottom: 0;
+  height: calc(100% - 55px);
+}
+
+.withHeaderAndFooter{
+  height: calc(100% - (45px + 55px));
+}
+
+.visible {
+  composes: dialog;
+  opacity: 1;
+  animation: scaleIn 0.3s;
+}
+
+.invisible {
+  composes: dialog;
+  opacity: 0;
+  animation: scaleOut 0.3s;
+}
+
+.forceMobile {
+  border-radius: 2px;
+  height: 100%;
+  width: 100%;
+  max-width: 100% !important;
+  min-height: 1px;
+  border: 0;
+}
+
+@media (max-width: 600px) {
+  border-radius: 2px;
+  height: 100%;
+  width: 100%;
+  max-width: 100% !important;
+  min-height: 1px;
+  border: 0;
+}
+
+.header {
+  padding: 10px 20px;
+  height: 45px;
+  line-height: 45px - 20px;
+}
+
+.header h2 {
+  display: inline-block;
+  margin: 0;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-decoration: none;
+  color: rgba(158, 175, 186, 1);;
+  line-height: 45px - 20px;
+}
+
+.close:hover {
+  color: rgba(32, 32, 32, 1);
+}
+
+.content {
+  composes: dialog;
+  overflow: auto;
+}
+
+.footer {
+  composes: dialog;
+  padding: 10px 20px 20px;
+  text-align: right;
+  height: 55px;
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: translateY(3%);
+    opacity: .3;
+  }
+  99%  {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: none;
+    opacity: auto;
+  }
+}
+
+@keyframes scaleOut {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  99%  {
+    transform: translateY(3%);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: auto;
+  }
+}

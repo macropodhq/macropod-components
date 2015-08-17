@@ -33,7 +33,8 @@ module.exports = React.createClass({
         <Button onClick={this.handleClick}>Serve up one with all the trimmings</Button>
         {this.state.showModal &&
           <Modal ref="modal" onClose={this.handleClose}
-            closeButton={false}
+            closeButton={true}
+            canClickAway={true}
             maxWidth="400px"
             maxHeight="100%"
             title={
@@ -42,7 +43,7 @@ module.exports = React.createClass({
             footer={
               <Button>save</Button>
             }>
-            <div className="Modal-body">
+            <div style={{padding: '10px 20px'}}>
               Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec id elit non mi porta gravida at eget metus. Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur. Maecenas sed diam eget risus letius blandit sit amet non magna.
 
 Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean lacinia bibendum nulla sed consectetur. Sed posuere consectetur est at lobortis. Donec id elit non mi porta gravida at eget metus.

@@ -6,7 +6,7 @@ const Modal = require('../modal');
 const Steps = require('../steps');
 const Button = require('../button');
 
-require('./guider.scss');
+const style = require('./guider.mcss');
 
 const noop = () => {};
 
@@ -29,31 +29,29 @@ module.exports = React.createClass({
     };
   },
 
-  handleClose(evt) {
-    evt.preventDefault();
+  handleClose() {
     this.props.onClose();
   },
 
-  handleNext(evt) {
-    evt.preventDefault();
+  handleNext() {
     this.props.onNext();
   },
 
   render() {
     return (
       <div>
-        <Modal dialogClassName="Guider" onClose={this.handleClose}>
-          <div className="Guider-header">
-            <a href="#" onClick={this.handleClose}>×</a>
-            <h3>{this.props.title}</h3>
-          </div>
-          <div className="Guider-body">
-            <p>{this.props.content}</p>
-            <div className="Guider-actions">
-              <Steps count={this.props.steps} current={this.props.current} />
-              <Button onClick={this.handleNext}>next</Button>
+        <Modal dialogClassName={style.Guider} onClose={this.handleClose}>
+            <div className={style.header}>
+              <a href="#" onClick={this.handleClose}>×</a>
+              <h3>{this.props.title}</h3>
             </div>
-          </div>
+            <div className={style.body}>
+              <p>{this.props.content}</p>
+              <div className={style.actions}>
+                <Steps count={this.props.steps} current={this.props.current} />
+                <Button onClick={this.handleNext}>next</Button>
+              </div>
+            </div>
         </Modal>
       </div>
     );

@@ -5,7 +5,7 @@ const React = require('react/addons');
 const Modal = require('../modal');
 const Button = require('../button');
 
-require('./alert.scss');
+const style = require('./alert.mcss');
 
 const noop = () => {};
 
@@ -43,12 +43,10 @@ module.exports = React.createClass({
   },
 
   handleCancel(evt) {
-    evt.preventDefault();
     this.props.onCancel();
   },
 
-  handleOk(evt) {
-    evt.preventDefault();
+  handleOk() {
     this.props.onOk();
   },
 
@@ -58,10 +56,10 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <Modal dialogClassName="Alert" onClose={this.handleCancel} title={this.props.title} closeButton={true}>
-        <div className="Alert-body">
+      <Modal dialogClassName={style.Alert} onClose={this.handleCancel} title={this.props.title} closeButton={true}>
+        <div className={style.body}>
           {this.props.children}
-          <div className="Alert-actions">
+          <div className={style.actions}>
             {this.props.cancelable && <Button cancel onClick={this.handleCancel}>{this.props.cancelText}</Button>}
             <Button ref="ok" onClick={this.handleOk} danger={this.props.danger} disabled={this.props.okDisabled}>{this.props.okText}</Button>
           </div>

@@ -4,9 +4,8 @@ const React = require('react/addons');
 const LayeredComponentMixin = require('react-components/layered-component-mixin');
 
 const animationCallback = require('../style-utilities').animationCallback;
-const SuitClassSet = require('../suit-class-set');
-
-require('./modal.scss');
+const classnames = require('classnames');
+const style = require('./modal.mcss');
 
 module.exports = React.createClass({
   displayName: 'Modal',
@@ -39,7 +38,6 @@ module.exports = React.createClass({
   getInitialState() {
     return {
       showModal: false,
-      modalVisible: false,
     };
   },
 
@@ -47,33 +45,29 @@ module.exports = React.createClass({
     this.setState({
       showModal: true,
     });
-    this.setVisibleState();
-    document.body.classList.add('isUnscrollable');
+    document.body.classList.add(style.isUnscrollable);
+  },
+
+  force(){
+    if (this.isMounted()){
+      this.forceUpdate();
+    }
   },
 
   layerDidMount() {
-    animationCallback(this._layer.querySelector('.Modal-dialog'), this.setVisibleState);
+    animationCallback(React.findDOMNode(this.dialog), this.force);
     window.addEventListener('keydown', this.handleKeyDown);
   },
 
   layerWillUnmount() {
     window.removeEventListener('keydown', this.handleKeyDown);
-    document.body.classList.remove('isUnscrollable');
+    document.body.classList.remove(style.isUnscrollable);
   },
 
   handleKeyDown(e) {
     if (e.keyCode === 27) {
       this.handleClose();
     }
-  },
-
-  setVisibleState() {
-    if (!this.isMounted()) {
-      return;
-    }
-    this.setState({
-      modalVisible: true,
-    });
   },
 
   handleClickAwayClose(evt) {
@@ -93,8 +87,7 @@ module.exports = React.createClass({
     this.setState({
       showModal: false,
     });
-
-    animationCallback(this._layer.querySelector('.Modal-dialog'), this.props.onClose);
+    animationCallback(React.findDOMNode(this.dialog), this.props.onClose);
   },
 
   stopPropagation(event) {
@@ -102,39 +95,41 @@ module.exports = React.createClass({
   },
 
   renderLayer() {
-    const modalClasses = new SuitClassSet('Modal');
-
-    modalClasses.addModifier({
-      'visible': this.state.showModal,
-      'invisible': !this.state.showModal,
-      'forceMobile': this.props.forceMobile === true,
+    let ModalClassName = classnames({
+      [style.forceMobile]: false, //this.props.forceMobile === true,
     });
 
-    const dialogClasses = modalClasses.createDescendent('dialog');
 
-    dialogClasses.addModifier({
-      'withHeader': this.props.title,
-      'withFooter': this.props.footer,
+    let DialogClassName = classnames({
+      [style.visible]: this.state.showModal,
+      [style.invisible]: !this.state.showModal,
     });
+
+    let contentClassName = classnames({
+      [style.content]: true,
+      [style.withHeader]: this.props.title !== '',
+      [style.withFooter]: this.props.footer,
+      [style.withHeaderAndFooter]: this.props.title !== '' && this.props.footer
+    })
 
     return (
-      <div className={modalClasses.toString() + (this.props.className ? ` ${this.props.className}` : '')} onClick={this.handleClickAwayClose} onScroll={this.stopPropagation}>
-        <div className={dialogClasses.toString() + (this.props.dialogClassName ? ` ${this.props.dialogClassName}` : '')} onClick={this.stopPropagation} style={{maxWidth: this.props.maxWidth, maxHeight: this.props.maxHeight}}>
+      <div className={style.Modal + (this.props.className ? ` ${this.props.className}` : '')} onClick={this.handleClickAwayClose} onScroll={this.stopPropagation}>
+        <div ref={(ref) => {this.dialog = ref;}} className={DialogClassName + (this.props.dialogClassName ? ` ${this.props.dialogClassName}` : '')} onClick={this.stopPropagation} style={{maxWidth: this.props.maxWidth, maxHeight: this.props.maxHeight}}>
           {this.props.closeButton &&
-            <a className="Modal-close" href="#" onClick={this.handleClose}> &#215; </a>
+            <a className={style.close} href="#" onClick={this.handleClose}> &#215; </a>
           }
           {this.props.title &&
-            <div className="Modal-header">
-              <h2 className="Modal-title">{this.props.title}</h2>
+            <div className={style.header}>
+              <h2 className={style.title}>{this.props.title}</h2>
             </div>
           }
 
-          <div className="Modal-content">
+          <div className={contentClassName}>
             {this.props.children}
           </div>
 
           {this.props.footer &&
-            <div className="Modal-footer">
+            <div className={style.footer}>
               {this.props.footer}
             </div>
           }
