@@ -1,7 +1,15 @@
 # Macropod Components Changelog
-## [v0.1.00](https://github.com/macropodhq/macropod-components/releases/tag/0.1.00)
+
+## [v0.1.1](https://github.com/macropodhq/macropod-components/releases/tag/0.1.1)
 
 ### Improvements
+
+* [#354](https://github.com/macropodhq/macropod-components/pull/354): Update Pointer icon with friendlier design
+
+## [v0.1.0](https://github.com/macropodhq/macropod-components/releases/tag/0.1.0)
+
+### Improvements
+
 * [#351](https://github.com/macropodhq/macropod-components/pull/351): Add canClickAway prop to Modal
 * [#352](https://github.com/macropodhq/macropod-components/pull/352): Some `form/*` components are `mcss`
 * [#353](https://github.com/macropodhq/macropod-components/pull/353): `Button` is `mcss`
@@ -9,11 +17,13 @@
 ## [v0.0.34](https://github.com/macropodhq/macropod-components/releases/tag/0.0.34)
 
 ### Fixes
+
 * [#348](https://github.com/macropodhq/macropod-components/pull/348): Don't call preventDefault in Prompt
 
 ## [v0.0.33](https://github.com/macropodhq/macropod-components/releases/tag/0.0.33)
 
 ### Fixes
+
 * [#341](https://github.com/macropodhq/macropod-components/pull/341): `lodash-node` -> `lodash`
 * [#344](https://github.com/macropodhq/macropod-components/pull/344): Remove `Inlay` component  
 * [#345](https://github.com/macropodhq/macropod-components/pull/345): Transfer className to `LinkGroup`
@@ -21,6 +31,7 @@
 ## [v0.0.32](https://github.com/macropodhq/macropod-components/releases/tag/0.0.32)
 
 ### Fixes
+
 * [#330](https://github.com/macropodhq/macropod-components/pull/339): Fix error when closing modal with esc key
 
 ## [v0.0.31](https://github.com/macropodhq/react-playground/releases/tag/0.0.31)
