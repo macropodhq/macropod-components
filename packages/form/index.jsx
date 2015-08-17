@@ -2,14 +2,14 @@
 
 const React = require('react');
 
-require('./index.scss');
+import styles from './index.mcss';
 
 module.exports = React.createClass({
   displayName: 'Form',
 
   render() {
     return (
-      <form {...this.props} className="Form">
+      <form {...this.props} className={styles.Form}>
         {this.props.children}
       </form>
     );

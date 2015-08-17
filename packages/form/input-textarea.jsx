@@ -2,7 +2,7 @@ import React from 'react';
 import InputWrapper from './input-wrapper';
 import TextareaAutosize from 'react-textarea-autosize';
 
-import './input-textarea.scss';
+import styles from './input-textarea.mcss';
 
 export default React.createClass({
   displayName: 'InputTextarea',
@@ -39,7 +39,7 @@ export default React.createClass({
           {...normalisedProps}
           ref="input"
           id={`Input--Textarea--${camelCaseLabel}`}
-          className={`Input Input--Textarea Input--Textarea--${camelCaseLabel}`}
+          className={this.props.className || styles.Textarea}
         />
       </InputWrapper>
     );

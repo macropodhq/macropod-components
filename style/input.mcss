@@ -1,0 +1,42 @@
+~color: "../constants/inputs.js";
+~border: "../constants/inputs.js";
+~box: "../constants/inputs.js";
+~text: "../constants/inputs.js";
+
+.Input {
+  display: block;
+  width: 100%;
+  height: height from ~box;
+  min-height: height from ~box;
+  padding: padding from ~box;
+  line-height: lineHeight from ~text;
+  color: text from ~color;
+  background-color: background from ~color;
+  background-image: none;
+  border: width from ~border solid border from ~color;
+  border-radius: radius from ~border;
+  outline: none;
+  box-sizing: border-box;
+  transition: all .1s;
+  font-family: inherit;
+  font-size: inherit;
+  /* Hide inner shadow on iOS */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
+.Input::placeholder {
+  color: placeholder from ~color;
+  opacity: .4;
+}
+
+.Input:focus {
+    border-color: focus from ~color;
+}
+
+.Input:focus::placeholder {
+  color: inherit;
+  opacity: .15;
+}

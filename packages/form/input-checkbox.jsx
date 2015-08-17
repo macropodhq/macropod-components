@@ -3,6 +3,8 @@
 const React = require('react');
 const InputWrapper = require('./input-wrapper');
 
+import styles from './input-checkbox.mcss';
+
 module.exports = React.createClass({
   displayName: 'InputCheckbox',
 
@@ -31,7 +33,7 @@ module.exports = React.createClass({
             ref="input"
             type="checkbox"
             id={`Input--checkbox--${camelCaseLabel}`}
-            className={`Input Input--checkbox Input--checkbox--${camelCaseLabel}`}
+            className={this.props.className || styles.Checkbox}
           />
           {this.props.checkboxLabel}
         </label>

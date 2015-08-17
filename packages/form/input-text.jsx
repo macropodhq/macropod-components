@@ -1,7 +1,7 @@
 import React from 'react';
 import InputWrapper from './input-wrapper';
 
-import './input-text.scss';
+import styles from '../../style/input.mcss';
 
 export default React.createClass({
   displayName: 'InputText',
@@ -102,7 +102,7 @@ export default React.createClass({
           ref="input"
           type={normalisedProps.type}
           id={`Input--text--${camelCaseLabel}`}
-          className={`Input Input--text Input--text--${camelCaseLabel}`}
+          className={this.props.className || styles.Input}
         />
       </InputWrapper>
     );
