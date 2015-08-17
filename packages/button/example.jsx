@@ -1,9 +1,9 @@
 'use strict';
 
 const React = require('react');
-
 const Button = require('./');
-require('./example.scss');
+
+import styles from './example.mcss';
 
 module.exports = React.createClass({
   displayName: 'ButtonExample',
@@ -20,14 +20,14 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <div className="ButtonExample">
+      <div className={styles.ButtonExample}>
         <h4>Button Types</h4>
 
-        <Button onClick={this.handleClick}>Default</Button><br />
-        <Button success onClick={this.handleClick}>Success</Button><br />
-        <Button danger onClick={this.handleClick}>Danger</Button><br />
-        <Button cancel onClick={this.handleClick}>Cancel</Button><br />
-        <Button skeleton onClick={this.handleClick}>
+        <Button className={styles.Button} onClick={this.handleClick}>Default</Button><br />
+        <Button success className={styles.Button} onClick={this.handleClick}>Success</Button><br />
+        <Button danger className={styles.Button} onClick={this.handleClick}>Danger</Button><br />
+        <Button cancel className={styles.Button} onClick={this.handleClick}>Cancel</Button><br />
+        <Button skeleton className={styles.Button} onClick={this.handleClick}>
           Skeleton<br />
           (no border, outline or background)
         </Button>
@@ -35,8 +35,8 @@ module.exports = React.createClass({
         <h4>Modifiers</h4>
 
         <p>Can be used on any Button type. Here they're used on the Default.</p>
-        <Button small onClick={this.handleClick}>Small</Button><br />
-        <Button disabled onClick={this.handleClick}>
+        <Button small className={styles.Button} onClick={this.handleClick}>Small</Button><br />
+        <Button disabled className={styles.Button} onClick={this.handleClick}>
           Disabled<br />
           (fades out colour of button type)
         </Button>
@@ -44,7 +44,7 @@ module.exports = React.createClass({
         <h4>Novelties</h4>
 
         <p>This button demonstrates that the Button component gracefully supports any <code>background-color</code></p>
-        <Button className="Button--custom" onClick={this.handleClick}>Custom</Button>
+        <Button className={styles.custom} onClick={this.handleClick}>Custom</Button>
         <br/>
         You've clicked {this.state.count} button{this.state.count === 1 ? '' : 's'}
       </div>

@@ -2,11 +2,13 @@
   text-align: center;
 }
 
-.ButtonExample .Button {
+.Button {
+  composes: Button from './button.mcss';
   margin-bottom: 15px;
 }
 
-.ButtonExample .Button--custom {
+.custom {
+  composes: Button from './button.mcss';
   animation: hue-rotate 60s linear infinite;
 }
 
