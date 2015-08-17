@@ -1,4 +1,11 @@
 # Macropod Components Changelog
+## [v0.1.00](https://github.com/macropodhq/macropod-components/releases/tag/0.1.00)
+
+### Improvements
+* [#351](https://github.com/macropodhq/macropod-components/pull/351): Add canClickAway prop to Modal
+* [#352](https://github.com/macropodhq/macropod-components/pull/352): Some `form/*` components are `mcss`
+* [#353](https://github.com/macropodhq/macropod-components/pull/353): `Button` is `mcss`
+
 ## [v0.0.34](https://github.com/macropodhq/macropod-components/releases/tag/0.0.34)
 
 ### Fixes
