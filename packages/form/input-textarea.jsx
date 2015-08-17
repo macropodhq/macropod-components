@@ -1,8 +1,9 @@
 import React from 'react';
+import cx from 'classnames';
 import InputWrapper from './input-wrapper';
 import TextareaAutosize from 'react-textarea-autosize';
 
-import './input-textarea.scss';
+import styles from './input-textarea.mcss';
 
 export default React.createClass({
   displayName: 'InputTextarea',
@@ -30,6 +31,12 @@ export default React.createClass({
     const camelCaseLabel = InputWrapper.camelCase(normalisedProps.label);
     const TextareaField = this.props.autoSize ? TextareaAutosize : 'textarea';
 
+    const textareaClass = cx({
+      [styles.Textarea]: !this.props.className,
+      'error': this.props.errorMessage,
+      [this.props.className]: this.props.className,
+    });
+
     return (
       <InputWrapper
         {...normalisedProps}
@@ -39,7 +46,7 @@ export default React.createClass({
           {...normalisedProps}
           ref="input"
           id={`Input--Textarea--${camelCaseLabel}`}
-          className={`Input Input--Textarea Input--Textarea--${camelCaseLabel}`}
+          className={textareaClass}
         />
       </InputWrapper>
     );

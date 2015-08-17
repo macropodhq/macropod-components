@@ -1,7 +1,5 @@
-@import 'inputs';
-
-.Input.Input--Textarea {
-  @include text-input-style;
+.Textarea {
+  composes: Input from '../../style/input.mcss';
   height: auto;
   outline: 0;
   font-weight: 400;
