@@ -1,10 +1,10 @@
 'use strict';
 
-require('./button.scss');
-
 const React = require('react/addons');
-const SuitClassSet = require('../suit-class-set');
+const cx = require('classnames');
 const _ = require('lodash');
+
+import styles from './button.mcss';
 
 const validTypes = [
   'submit',
@@ -43,21 +43,21 @@ module.exports = React.createClass({
   },
 
   render() {
-    const buttonClass = new SuitClassSet('Button');
-
-    buttonClass.addModifier({
+    const buttonClass = cx({
+      [styles.Button]: !this.props.className,
       'small': !!this.props.small,
       'skeleton': !!this.props.skeleton,
       'success': !!this.props.success,
       'cancel': !!this.props.cancel,
       'danger': !!this.props.danger,
       [this.props.type]: !!this.props.type,
+      [this.props.className]: this.props.className,
     });
 
     return (
       <button
         {...this.props}
-        className={buttonClass.toString() + (this.props.className ? ` ${this.props.className}` : '')}
+        className={buttonClass}
         onTouchStart={() => {}}
       >
         {this.props.children}
