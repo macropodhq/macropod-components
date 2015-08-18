@@ -1,4 +1,5 @@
 const React = require('react/addons');
+const cx = require('classnames');
 
 const InputText = require('../form/input-text');
 const InputTextarea = require('../form/input-textarea');
@@ -7,9 +8,8 @@ const Alert = require('../alert');
 const Button = require('../button');
 const Link = require('../link');
 const KeyMixin = require('../key-mixin');
-const SuitClassSet = require('../suit-class-set');
 
-require('./style');
+import styles from './cancelable-edit.mcss';
 
 const noop = () => {};
 
@@ -197,15 +197,10 @@ module.exports = React.createClass({
     return hk;
   },
 
-  renderContent(parentClassName) {
-    const editClassName = parentClassName.createDescendent('edit');
-
-    editClassName.addModifier({
-      'em': this.props.em,
-    });
-
-    editClassName.addState({
-      'editing': this.state.editing,
+  renderContent() {
+    const inputClass = cx({
+      [styles.Input]: true,
+      [styles.inactiveInput]: !this.state.editing,
     });
 
     if (this.props.creating && !this.state.editing) {
@@ -222,6 +217,7 @@ module.exports = React.createClass({
         <InputField
           ref="input"
           key="input"
+          className={inputClass}
           maxLength={this.props.maxLength}
           rows={((this.props.em || this.props.singleLine) ? 1 : this.props.rows)}
           spellCheck={false}
@@ -240,21 +236,16 @@ module.exports = React.createClass({
   },
 
   render() {
-    const className = new SuitClassSet('CancelableEdit');
-
-    className.addState({
-      'active': this.state.editing,
-    });
-
-    className.addModifier({
-      'inline': this.props.inline,
+    const cancelableEditClass = cx({
+      [styles.CancelableEdit]: !this.props.className,
+      [this.props.className]: this.props.className,
     });
 
     return (
-      <div className={className.toString() + (this.props.className ? ` ${this.props.className}` : '')} onBlur={this.handleBlur}>
-        { this.renderContent(className) }
+      <div className={cancelableEditClass} onBlur={this.handleBlur}>
+        { this.renderContent() }
         { this.state.editing &&
-          <div className="CancelableEdit-control">
+          <div>
             <Button
                 disabled={!this.validInput()}
                 title={this.validInput() ? this.props.saveButtonTitle : this.props.saveButtonTitleInvalid}

@@ -1,0 +1,14 @@
+~color: "../../constants/inputs.js";
+
+.Input {
+  composes: Input from "../../style/input.mcss";
+}
+
+.inactiveInput:hover {
+  background: hover from ~color;
+}
+
+.inactiveInput {
+  cursor: pointer;
+  border-color: transparent;
+}
