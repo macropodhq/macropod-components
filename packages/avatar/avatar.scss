@@ -8,27 +8,14 @@ $avatar-l: 50px;
   display: inline-block;
   padding: 0;
   margin: 0;
-  font-size: 0;
+  text-align: center;
   vertical-align: middle;
   overflow: hidden;
-
-  .Avatar-image, .Avatar-initials {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    color: #fff;
-    font-weight: 300;
-    text-align: center;
-    margin: 0;
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  .Avatar-image {
-    background-size: 100%;
-  }
+  color: #fff;
+  font-weight: 300;
+  background-size: 100%;
+  user-select: none;
+  cursor: default;
 
   &.Avatar--bordered {
     &:after {
@@ -58,11 +45,7 @@ $avatar-l: 50px;
       width: $size;
       height: $size;
       line-height: $size;
-      .Avatar-image, .Avatar-initials {
-        font-size: $size / 2.25;
-        width: $size;
-        height: $size;
-      }
+      font-size: $size / 2.25;
     }
   }
 }
