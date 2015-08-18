@@ -24,6 +24,7 @@ module.exports = React.createClass({
     onNameChange: React.PropTypes.func.isRequired,
     onCompletionChange: React.PropTypes.func.isRequired,
     onDelete: React.PropTypes.func.isRequired,
+    maxLength: React.PropTypes.number,
   },
 
   renderSubtask(subtask) {
@@ -67,6 +68,7 @@ module.exports = React.createClass({
             saveButtonTitleInvalid="Todo items can not be empty"
             placeholder="Create a new todo..."
             onSave={this.props.onCreate}
+            maxLength={this.props.maxLength}
           />
         </div>
       </div>
