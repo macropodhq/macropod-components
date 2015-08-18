@@ -57,6 +57,7 @@ module.exports = React.createClass({
         onNameChange={this.handleNameChange}
         onCompletionChange={this.handleCompletionChange}
         onDelete={this.handleDelete}
+        maxLength={50}
       />
     );
   },
