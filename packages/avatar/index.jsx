@@ -35,7 +35,11 @@ export default React.createClass({
       }
     },
     src: React.PropTypes.string,
-    email: React.PropTypes.string,
+    email(props, propName) {
+      if (propName in props) {
+        return new Error(`Avatar's \`${propName}\` property is deprecated. Please specify the \`src\` instead.`);
+      }
+    },
     circle: React.PropTypes.bool,
   },
 
