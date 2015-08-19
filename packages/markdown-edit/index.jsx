@@ -1,15 +1,15 @@
 const React = require('react/addons');
 const InputTextarea = require('../form/input-textarea');
+const cx = require('classnames');
 
 const Alert = require('../alert');
 const Button = require('../button');
 const IconButton = require('../icon-button');
 const Link = require('../link');
 const KeyMixin = require('../key-mixin');
-const SuitClassSet = require('../suit-class-set');
 const MarkdownSnippet = require('../markdown-snippet');
 
-require('./style');
+import styles from './markdown-edit.mcss';
 
 const noop = () => {};
 
@@ -208,13 +208,7 @@ module.exports = React.createClass({
     }, 0);
   },
 
-  renderContent(parentClassName) {
-    const editClassName = parentClassName.createDescendent('edit');
-
-    editClassName.addState({
-      'editing': this.state.editing,
-    });
-
+  renderContent() {
     if (this.props.creating && !this.state.editing) {
       return (
         <Link tabIndex="0" href="#" fill={this.props.fill} onClick={this.handleClick}>
@@ -230,7 +224,13 @@ module.exports = React.createClass({
 
       return [
         <label key="label" style={{'display': 'none'}}>{this.props.name}</label>,
-        <MarkdownSnippet key="markdown" markdown={value} linkTarget={this.props.linkTarget} defaultStyles={this.props.defaultStyles} />,
+        <MarkdownSnippet
+          className={styles.MarkdownSnippet}
+          key="markdown"
+          markdown={value}
+          linkTarget={this.props.linkTarget}
+          defaultStyles={this.props.defaultStyles}
+        />,
       ];
     } else {
       const value = this.state.editing ? this.state.pendingValue : this.props.value;
@@ -243,7 +243,6 @@ module.exports = React.createClass({
           maxLength={this.props.maxLength}
           rows={this.props.rows}
           onKeyDown={this.keyHandler(hotKeys)}
-          className={editClassName}
           value={value}
           onChange={this.handleChange}
           name={this.props.name}
@@ -257,19 +256,16 @@ module.exports = React.createClass({
   },
 
   render() {
-    const className = new SuitClassSet('CancelableEdit-markdown');
-
-    className.addState({
+    const markdownEditClass = cx({
+      [styles.MarkdownEdit]: !this.props.className,
       'active': this.state.editing,
-      'placeholder': !this.state.editing && (typeof this.props.value !== 'string' || this.props.value.length < 1),
-    });
-
-    className.addModifier({
       'inline': this.props.inline,
+      'placeholder': !this.state.editing && (typeof this.props.value !== 'string' || this.props.value.length < 1),
+      [this.props.className]: this.props.className,
     });
 
     return (
-      <div className={className.toString() + (this.props.className ? ` ${this.props.className}` : '')} onBlur={this.handleBlur}>
+      <div className={markdownEditClass} onBlur={this.handleBlur}>
         { !this.props.creating && !this.state.editing &&
           <IconButton
             style={{'float': 'right'}}
@@ -278,9 +274,9 @@ module.exports = React.createClass({
             onClick={this.handleClick}
           />
         }
-        { this.renderContent(className) }
+        { this.renderContent() }
         { this.state.editing &&
-          <div className="CancelableEdit-control">
+          <div>
             <Button
               disabled={!this.validInput()}
               title={this.validInput() ? this.props.saveButtonTitle : this.props.saveButtonTitleInvalid}

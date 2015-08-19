@@ -1,9 +1,8 @@
 import React from 'react/addons';
 import marked from 'marked';
+import cx from 'classnames';
 
-import SuitClassSet from '../suit-class-set';
-
-import './style';
+import styles from './markdown-snippet.mcss';
 
 class MarkdownSnippet extends React.Component {
   static propTypes = {
@@ -38,23 +37,16 @@ class MarkdownSnippet extends React.Component {
   }
 
   render() {
-    const classSet = new SuitClassSet('MarkdownSnippet');
-
-    classSet.addModifier({
-      'defaultStyles': this.props.defaultStyles,
-    });
-
     this.renderer.link.linkTarget = this.props.linkTarget;
 
-    let classNames = [classSet.toString()];
-
-    if (this.props.className) {
-      classNames.push(this.props.className);
-    }
+    const markdownSnippetClass = cx({
+      [styles.MarkdownSnippet]: !this.props.className,
+      [this.props.className]: this.props.className,
+    })
 
     return (
       <div
-        className={classNames.join(' ')}
+        className={markdownSnippetClass}
         dangerouslySetInnerHTML={{
           __html: marked(this.props.markdown, {sanitize: true, renderer: this.renderer}),
         }}
