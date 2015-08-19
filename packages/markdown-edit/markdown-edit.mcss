@@ -1,0 +1,12 @@
+~box: "../../constants/inputs.js";
+
+.MarkdownSnippet {
+  composes: MarkdownSnippet from "../markdown-snippet/markdown-snippet.mcss";
+  padding: padding from ~box;
+}
+
+.MarkdownEdit:global(.placeholder) .MarkdownSnippet {
+  opacity: 0.5;
+  user-select: none;
+  pointer-events: none;
+}
