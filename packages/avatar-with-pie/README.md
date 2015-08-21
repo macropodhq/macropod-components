@@ -9,9 +9,8 @@ A user `Avatar` which has an attached `PieBadge` component.
   complete={4}
   total={9}
   backgroundColor="#21323a"
-  src="http://www.gravatar.com/avatar/82dccacb221d0a037aa2b60f3cf94d5d?s=50"
-  firstName="Nathan"
-  lastName="Hutchison"
+  src="http://www.gravatar.com/avatar/82dccacb221d0a037aa2b60f3cf94d5d?s=50&d=404"
+  title="Nathan Hutchison"
   size={Avatar.sizes.l}
 />
 ```
@@ -32,23 +31,13 @@ A CSS colour to display around the pie badge. This lets it fake transparency.
 
 ### `size`
 
-The size of the avatar to display; either `'s'`, `'m'` or `'l'`.
-
-### `firstName`
-
-The first name of the user whose avatar this is.
-
-### `lastName`
-
-The last name of the user whose avatar this is.
+The size of the avatar to display; either `'s'` (20px), `'m'` (35px) or `'l'` (50px).
 
 ### `src`
 
 The URL of this user's avatar.
 
-### `email`
-
-This user's email address. Will be used to determing the Gravatar URL if no `src` attribute is supplied.
+_**Note**: If you are using Gravatars, you should use the appropriate size for the display (see `size` above for the appropriate sizes), multiplied by `window.devicePixelRatio` for high-resolution display support. You should also specify for the method for missing avatars for be 404 (`d=404`)._
 
 ### `circle`
 
@@ -58,13 +47,14 @@ Boolean property; if set, the avatar will be rendered in a circle.
 
 The full name of the user. Overrides the value of the `firstName` property if supplied.
 
-### `model` (deprecated)
+### `firstName` (deprecated)
 
-User model object from which to retrieve user properties.
+The first name of the user whose avatar this is.
 
-If not supplied individually, the following attributes will be taken from this object;
+### `lastName` (deprecated)
 
-* `firstName`
-* `lastName`
-* `email`
-* `avatar_url` (used in the same way as `src`)
+The last name of the user whose avatar this is.
+
+### `email` (deprecated)
+
+This user's email address. Will be used to determing the Gravatar URL if no `src` attribute is supplied.
