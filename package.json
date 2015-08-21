@@ -30,7 +30,8 @@
   "scripts": {
     "start": "macropod-start",
     "build": "macropod-prod",
-    "lint": "macropod-lint"
+    "lint": "macropod-lint",
+    "prepublish": "babel -stage 0 packages -d packages"
   },
   "repository": {
     "type": "git",
