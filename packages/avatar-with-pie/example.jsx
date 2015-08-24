@@ -11,9 +11,9 @@ module.exports = React.createClass({
     return (
       <div>
         <h3>Square (default)</h3>
-        <AvatarWithPie complete="1" total="4" src="//www.gravatar.com/avatar/d27bae51ba163785869161126434ea56?s=50&d=404" title="Conrad Pankoff" size={Avatar.sizes.l} />
-        <AvatarWithPie complete="2" total="4" src="//www.gravatar.com/avatar/82dccacb221d0a037aa2b60f3cf94d5d?s=35&d=404" title="Nathan Hutchison" size={Avatar.sizes.m} />
-        <AvatarWithPie complete="3" total="4" src="//www.gravatar.com/avatar/12c884c7f3e99ac579e120318eb9d888?s=20&d=404" title="Matt Milosavljevic" size={Avatar.sizes.s} />
+        <AvatarWithPie complete="1" total="4" src="//www.gravatar.com/avatar/d27bae51ba163785869161126434ea56?s=50&d=404" title="Conrad Pankoff" size="l" />
+        <AvatarWithPie complete="2" total="4" src="//www.gravatar.com/avatar/82dccacb221d0a037aa2b60f3cf94d5d?s=35&d=404" title="Nathan Hutchison" size="m" />
+        <AvatarWithPie complete="3" total="4" src="//www.gravatar.com/avatar/12c884c7f3e99ac579e120318eb9d888?s=20&d=404" title="Matt Milosavljevic" size="s" />
 
         <h3>Circular</h3>
         <AvatarWithPie complete="1" total="5" src="//www.gravatar.com/avatar/31314479ddd7c881144bfe54d400bb22?s=50&d=404" title="James Coleman" size="l" circle={true} />
