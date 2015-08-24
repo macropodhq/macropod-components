@@ -1,5 +1,19 @@
 # Macropod Components Changelog
 
+## [v0.1.3](https://github.com/macropodhq/macropod-components/releases/tag/0.1.3)
+
+### Changes
+
+* [#358](https://github.com/macropodhq/macropod-components/pull/358): Deprecate Gravatar method of Avatar components
+
+### Improvements
+
+* [#359](https://github.com/macropodhq/macropod-components/pull/359): Transpile js to avoid shipping ES6 to registry
+
+### Fixes
+
+* [#361](https://github.com/macropodhq/macropod-components/pull/361): Fix prod breakage from #358
+
 ## [v0.1.1](https://github.com/macropodhq/macropod-components/releases/tag/0.1.1)
 
 ### Improvements
