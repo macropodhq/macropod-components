@@ -15,13 +15,14 @@
     "react-window-mixins": "^0.0.6"
   },
   "devDependencies": {
+    "babel": "^5.8.21",
     "html-loader": "^0.2.3",
     "macropod-tools": "https://github.com/macropodhq/macropod-tools.git#0.0.26",
     "markdown-loader": "^0.1.2",
     "normalize.css": "~3.0.2",
     "react": ">=0.12.0",
-    "react-router": ">=0.12.0",
-    "react-a11y": "^0.2.6"
+    "react-a11y": "^0.2.6",
+    "react-router": ">=0.12.0"
   },
   "peerDependencies": {
     "react": ">=0.12.0",
