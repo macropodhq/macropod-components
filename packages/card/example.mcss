@@ -1,0 +1,13 @@
+.container {
+  padding: 20px;
+  background: #f5f7f9;
+}
+
+.custom {
+  margin-top: 5px;
+}
+
+.users :global(.Avatar) {
+  float: right;
+  margin: 0 2px;
+}

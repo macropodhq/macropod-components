@@ -1,0 +1,30 @@
+.Card {
+  composes: clear from '../../style/helpers.mcss';
+  background: white;
+  box-shadow: 0 1px rgba(136, 153, 172, 0.24);
+  border-radius: 2px;
+  transition: box-shadow 0.2s;
+  padding: 16px 16px 16px 27px;
+  position: relative;
+}
+
+.Card:hover {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.title {
+  font-size: 15px;
+  color: #616161;
+  margin: 0;
+  float: left;
+}
+
+.indicator {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  bottom: 4px;
+  width: 3px;
+  display: block;
+}
