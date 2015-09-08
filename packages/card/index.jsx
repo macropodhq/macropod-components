@@ -1,61 +1,34 @@
-'use strict';
+import React from 'react';
 
-const React = require('react');
-const DropdownMenu = require('../dropdown-menu');
-const Icon = require('../icon');
+import styles from './card.mcss';
 
-require('./card.scss');
+export default class Card extends React.Component {
+  static propTypes = {
+    title: React.PropTypes.string.isRequired,
+    indicator: React.PropTypes.string,
+  }
 
-module.exports = React.createClass({
-  displayName: 'Card',
+  static defaultProps = {
+    title: '',
+  }
 
-  propTypes: {
-    actions: React.PropTypes.arrayOf(React.PropTypes.node),
-    title: React.PropTypes.node,
-    headerContent: React.PropTypes.node,
-    children: React.PropTypes.node,
-  },
+  getIndicator() {
+    if (this.props.indicator) {
+      return (
+        <span className={styles.indicator} style={{background: this.props.indicator}} />
+      );
+    }
 
-  getInitialState() {
-    return {
-      showActions: false,
-    };
-  },
-
-  getDefaultProps() {
-    return {
-      actions: null,
-    };
-  },
-
-  toggleActions(e) {
-    this.setState({showActions: !this.state.showActions});
-    e.preventDefault();
-  },
+    return null;
+  }
 
   render() {
     return (
-      <div className="Card">
-        <div className="Card-header">
-          <h4 className="Card-title">{this.props.title}</h4>
-          {this.props.actions &&
-            <span>
-              <Icon ref="actionLink" className="Card-action" type="settings" font={false} onClick={this.toggleActions} />
-              <DropdownMenu anchor={this.refs.actionLink} visible={this.state.showActions} className="Card-action-dropdown">
-                {this.props.actions}
-              </DropdownMenu>
-            </span>
-          }
-          {this.props.headerContent &&
-            <div className="Card-header-content">
-              {this.props.headerContent}
-            </div>
-          }
-        </div>
-        <div className="Card-content">
-          {this.props.children}
-        </div>
+      <div className={this.props.className || styles.Card}>
+        { this.getIndicator() }
+        <h2 className={styles.title}>{this.props.title}</h2>
+        { this.props.children }
       </div>
     );
-  },
-});
+  }
+}
