@@ -12,7 +12,7 @@ export default React.createClass({
       React.PropTypes.string,
       React.PropTypes.bool,
     ]),
-    onChange: React.PropTypes.function,
+    onChange: React.PropTypes.func,
     type: React.PropTypes.string.isRequired,
     error: React.PropTypes.bool,
   }),
