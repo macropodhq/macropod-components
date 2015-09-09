@@ -2,7 +2,7 @@
 
 const React = require('react');
 const Router = require('react-router');
-const cx = React.addons.classSet;
+const cx = require('classnames');
 
 import styles from './link.mcss';
 
