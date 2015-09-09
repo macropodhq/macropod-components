@@ -2,7 +2,7 @@
 
 const React = require('react');
 const _ = require('lodash');
-const cx = React.addons.classSet;
+const cx = require('classnames');
 
 import styles from './bar.mcss';
 
