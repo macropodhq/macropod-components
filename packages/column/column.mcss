@@ -1,0 +1,56 @@
+.Column {
+  background: white;
+  border-radius: 2px 2px 0 0;
+}
+
+.header {
+  background: rgb(109, 129, 151);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 2px 2px 0 0;
+  position: relative;
+  max-height: 44px;
+}
+
+.subTitle {
+  margin-left: 12px;
+  opacity: 0.56;
+}
+
+.action {
+  position: absolute;
+  right: 20px;
+}
+
+.body {
+  padding: 9px 9px 0 9px;
+  /*max-height: calc(100% - 44px);  44px header height, look into better ways? */
+  height: 100%;
+  overflow: auto;
+}
+
+.body :global(.Scrollbar) {
+  background: transparent !important;
+  opacity: 0 !important;
+}
+
+.body:hover :global(.Scrollbar) {
+  opacity: 1 !important;
+}
+
+.body:hover :global(.Scrollbar-stick) {
+  background: rgb(173, 184, 197) !important;
+  border-radius: 2px !important;
+}
+
+:global(.ScrollbarContainer) {
+  height: calc(100% - 44px);
+}
+
+.footer {
+  padding: 9px;
+}
+
+.footer :global(>div) {
+  margin: 0;
+}

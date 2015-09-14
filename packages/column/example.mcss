@@ -1,0 +1,39 @@
+.container {
+  padding: 20px;
+  background: #CCC;
+  height: 500px;
+}
+
+.Column {
+  composes: Column from './column.mcss';
+  background: #e8edf0;
+  height: 100%;
+  width: 300px;
+  float: left;
+  margin: 0 3px;
+}
+
+.ColumnWithFooter {
+  composes: Column;
+  padding-bottom: 54px;
+}
+
+.Card {
+  composes: Card from '../card/card.mcss';
+  margin-bottom: 8px;
+}
+
+.Card:last-child {
+  margin-bottom: 0;
+}
+
+.footer {
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+  border-radius: 3px;
+}
+
+.InputText {
+  composes: Input from '../../style/input.mcss';
+  border-color: transparent;
+  border-bottom: 2px solid rgb(210, 218, 224);
+}
