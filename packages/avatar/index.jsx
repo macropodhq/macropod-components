@@ -25,18 +25,18 @@ export default React.createClass({
   propTypes: {
     size: validateSize,
     firstName(props, propName) {
-      if (propName in props) {
+      if (propName in props && props[propName] != '') {
         return new Error(`Avatar's \`${propName}\` property is deprecated. Please use \`title\` instead.`);
       }
     },
     lastName(props, propName) {
-      if (propName in props) {
+      if (propName in props && props[propName] != '') {
         return new Error(`Avatar's \`${propName}\` property is deprecated. Please use \`title\` instead.`);
       }
     },
     src: React.PropTypes.string,
     email(props, propName) {
-      if (propName in props) {
+      if (propName in props && props[propName] != '') {
         return new Error(`Avatar's \`${propName}\` property is deprecated. Please specify the \`src\` instead.`);
       }
     },
