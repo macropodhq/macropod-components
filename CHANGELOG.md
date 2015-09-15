@@ -1,5 +1,20 @@
 # Macropod Components Changelog
 
+## [v0.1.4](https://github.com/macropodhq/macropod-components/releases/tag/0.1.4)
+
+### Improvements
+
+* [#363](https://github.com/macropodhq/macropod-components/pull/363): Increase `modal` padding.
+* [#364](https://github.com/macropodhq/macropod-components/pull/364): Add mcss conversion analysis thing.
+* [#368](https://github.com/macropodhq/macropod-components/pull/368): New `card` component, fresh and clean.
+* [#369](https://github.com/macropodhq/macropod-components/pull/369): Remove last depricated classSets.
+
+### Fixes
+
+* [#371](https://github.com/macropodhq/macropod-components/pull/371): Fix `avatar` prop validations.
+* [#372](https://github.com/macropodhq/macropod-components/pull/372): Fix `icon` in Safari.
+
+
 ## [v0.1.3](https://github.com/macropodhq/macropod-components/releases/tag/0.1.3)
 
 ### Changes
