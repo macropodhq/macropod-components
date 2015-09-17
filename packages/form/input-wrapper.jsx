@@ -8,6 +8,7 @@ const PUBLIC_PROPS = {
   errorMessage: React.PropTypes.string.isRequired,
   label: React.PropTypes.string,
   showLabel: React.PropTypes.bool.isRequired,
+  wrapperClassName: React.PropTypes.string,
 };
 
 const InputWrapper = React.createClass({
@@ -62,7 +63,7 @@ const InputWrapper = React.createClass({
     });
 
     return (
-      <div className={styles.Item}>
+      <div className={this.props.wrapperClassName || styles.Item}>
         {this.props.showLabel &&
           <label
             className={labelClass}
