@@ -1,5 +1,15 @@
 # Macropod Components Changelog
 
+## [v0.1.5](https://github.com/macropodhq/macropod-components/releases/tag/0.1.5)
+
+### Improvements
+
+* [#373](https://github.com/macropodhq/macropod-components/pull/373): Allow overriding Input wrapper class name.
+
+### Fixes
+
+* [#374](https://github.com/macropodhq/macropod-components/pull/374): Remove default button margin in Safari.
+
 ## [v0.1.4](https://github.com/macropodhq/macropod-components/releases/tag/0.1.4)
 
 ### Improvements
