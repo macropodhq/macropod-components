@@ -15,10 +15,9 @@ export default class Loading extends React.Component {
 
   render() {
     const loadingClass = cx({
-      [styles.Loading]: !this.props.className && !this.props.size,
+      [styles.Loading]: !this.props.size,
       [styles.LoadingSmall]: this.props.size === 'small',
       [styles.LoadingMedium]: this.props.size === 'medium',
-      [this.props.className]: this.props.className,
     });
 
     // TODO: This could probably just return an `svg` element. Investigate possible caveats?
