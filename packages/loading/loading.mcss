@@ -1,0 +1,30 @@
+.Loading, .LoadingMedium, .LoadingSmall {
+  width: 100%;
+  text-align: center;
+}
+
+.Loading :global(svg) {
+  width: 40px;
+  height: 40px;
+  animation: rotate 0.8s infinite linear;
+  transform-origin: center;
+}
+
+.LoadingMedium :global(svg) {
+  animation: rotate 0.8s infinite linear;
+  transform-origin: center;
+  width: 29px;
+  height: 29px;
+}
+
+.LoadingSmall :global(svg) {
+  animation: rotate 0.8s infinite linear;
+  transform-origin: center;
+  width: 16px;
+  height: 16px;
+}
+
+@keyframes rotate {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(359deg); }
+}
