@@ -1,0 +1,21 @@
+.example {
+  column-width: 14em;
+  list-style: none;
+  padding: 0;
+  margin: -1.5em;
+}
+
+.example :global(li:not(:hover)) {
+  color: black !important;
+}
+
+.Icon {
+  composes: Icon from "./icon.mcss";
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.IconLarge {
+  composes: Icon;
+  font-size: 2em;
+}

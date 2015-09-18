@@ -1,0 +1,10 @@
+.Icon {
+  display: inline-block;
+}
+
+.Icon :global(svg) {
+  height: 1em;
+  width: 1em;
+  fill: currentColor;
+  vertical-align: inherit;
+}
