@@ -39,6 +39,7 @@ module.exports = React.createClass({
             title={
               "Header"
             }
+            canEscClose={true}
             footer={
               <Button>save</Button>
             }>

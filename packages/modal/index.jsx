@@ -24,6 +24,7 @@ module.exports = React.createClass({
     maxHeight: React.PropTypes.string,
     closeButton: React.PropTypes.bool,
     canClickAway: React.PropTypes.bool,
+    canEscClose: React.PropTypes.bool,
   },
 
   getDefaultProps() {
@@ -33,6 +34,7 @@ module.exports = React.createClass({
       forceMobile: false,
       title: '',
       closeButton: false,
+      canEscClose: true,
     };
   },
 
@@ -62,7 +64,7 @@ module.exports = React.createClass({
   },
 
   handleKeyDown(e) {
-    if (e.keyCode === 27) {
+    if (e.keyCode === 27 && this.props.canEscClose) {
       this.handleClose();
     }
   },
