@@ -18,6 +18,8 @@
   color: #616161;
   margin: 0;
   float: left;
+  max-width: 100%;
+  word-wrap: break-word;
 }
 
 .indicator {
