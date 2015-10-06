@@ -16,6 +16,7 @@ module.exports = React.createClass({
   propTypes: {
     forceMobile: React.PropTypes.bool,
     onClose: React.PropTypes.func,
+    onWillClose: React.PropTypes.func,
     title: React.PropTypes.string,
     footer: React.PropTypes.node,
     className: React.PropTypes.string,
@@ -30,6 +31,7 @@ module.exports = React.createClass({
   getDefaultProps() {
     return {
       onClose: () => {},
+      onWillClose: () => {},
       canClickAway: true,
       forceMobile: false,
       title: '',
@@ -63,9 +65,9 @@ module.exports = React.createClass({
     document.body.classList.remove('isUnscrollable');
   },
 
-  handleKeyDown(e) {
-    if (e.keyCode === 27 && this.props.canEscClose) {
-      this.handleClose();
+  handleKeyDown(evt) {
+    if (evt.keyCode === 27 && this.props.canEscClose) {
+      this.handleClose(evt);
     }
   },
 
@@ -85,12 +87,17 @@ module.exports = React.createClass({
   },
 
   handleClose(evt) {
-    if (evt) {
-      evt.preventDefault();
-    }
     if (!this.isMounted()) {
       return;
     }
+
+    this.props.onWillClose(evt);
+
+    if (evt.defaultPrevented) {
+      return;
+    }
+
+    evt.preventDefault();
 
     this.setState({
       showModal: false,
@@ -120,11 +127,20 @@ module.exports = React.createClass({
     });
 
     return (
-      <div className={modalClasses.toString() + (this.props.className ? ` ${this.props.className}` : '')} onClick={this.handleClickAwayClose} onScroll={this.stopPropagation}>
-        <div className={dialogClasses.toString() + (this.props.dialogClassName ? ` ${this.props.dialogClassName}` : '')} onClick={this.stopPropagation} style={{maxWidth: this.props.maxWidth, maxHeight: this.props.maxHeight}}>
+      <div
+        className={modalClasses.toString() + (this.props.className ? ` ${this.props.className}` : '')}
+        onClick={this.handleClickAwayClose}
+        onScroll={this.stopPropagation}
+      >
+        <div
+          className={dialogClasses.toString() + (this.props.dialogClassName ? ` ${this.props.dialogClassName}` : '')}
+          onClick={this.stopPropagation}
+          style={{maxWidth: this.props.maxWidth, maxHeight: this.props.maxHeight}}
+        >
           {this.props.closeButton &&
             <a className="Modal-close" href="#" onClick={this.handleClose}> &#215; </a>
           }
+
           {this.props.title &&
             <div className="Modal-header">
               <h2 className="Modal-title">{this.props.title}</h2>
@@ -140,7 +156,6 @@ module.exports = React.createClass({
               {this.props.footer}
             </div>
           }
-
         </div>
       </div>
     );
