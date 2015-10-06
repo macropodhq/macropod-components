@@ -1,5 +1,19 @@
 # Macropod Components Changelog
 
+## [v0.1.6](https://github.com/macropodhq/macropod-components/releases/tag/0.1.6)
+
+### Improvements
+
+* [#375](https://github.com/macropodhq/macropod-components/pull/375): Update `Loading` to ES6 and mcss.
+* [#379](https://github.com/macropodhq/macropod-components/pull/379): Update .gitignore to ignore built package files.
+* [#380](https://github.com/macropodhq/macropod-components/pull/380): Update macropod-tools to v0.0.28.
+* [#381](https://github.com/macropodhq/macropod-components/pull/381): Add a prop to `Modal` to specify whether the Modal should be closable by pressing esc.
+
+### Fixes
+
+* [#382](https://github.com/macropodhq/macropod-components/pull/382): Make text wrap on `Card`.
+* [#383](https://github.com/macropodhq/macropod-components/pull/383): Align text left on rw-widgets.
+
 ## [v0.1.5](https://github.com/macropodhq/macropod-components/releases/tag/0.1.5)
 
 ### Improvements
