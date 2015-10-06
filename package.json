@@ -13,7 +13,7 @@
     "react-textarea-autosize": "^1.0.6",
     "react-widgets": "2.3.0",
     "react-window-mixins": "^0.0.6",
-    "react-scrollbars": "git://github.com/ojame/react-scrollbars.git#cobwebs"
+    "react-scrollbars": "git://github.com/ojame/react-scrollbars.git#clean"
   },
   "devDependencies": {
     "css-modules-conversion-analysis": "0.0.1",

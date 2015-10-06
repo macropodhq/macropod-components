@@ -23,22 +23,23 @@
 }
 
 .body {
-  padding: 9px 9px 0 9px;
-  /*max-height: calc(100% - 44px);  44px header height, look into better ways? */
+  padding: 9px 0 0 0;
+  max-height: calc(100% - 44px);  /*44px header height, look into better ways?*/
   height: 100%;
   overflow: auto;
 }
 
-.body :global(.Scrollbar) {
+.body :global(.rs-bar) {
   background: transparent !important;
   opacity: 0 !important;
 }
 
-.body:hover :global(.Scrollbar) {
+.body:hover :global(.rs-bar) {
   opacity: 1 !important;
 }
 
-.body:hover :global(.Scrollbar-stick) {
+.body:hover :global(.rs-stick) {
+  width: 4px !important;
   background: rgb(173, 184, 197) !important;
   border-radius: 2px !important;
 }
@@ -53,4 +54,14 @@
 
 .footer :global(>div) {
   margin: 0;
+}
+
+.scrollable {
+  height: 100%;
+  overflow: auto;
+  padding: 0 9px;
+}
+
+:global(.rs-container), :global(.rs-content) {
+  height: 100%;
 }

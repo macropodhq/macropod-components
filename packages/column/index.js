@@ -27,13 +27,13 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactScrollbars = require('react-scrollbars');
-
-var _reactScrollbars2 = _interopRequireDefault(_reactScrollbars);
+//import ScrollbarWrapper from 'react-scrollbars';
 
 var _columnMcss = require('./column.mcss');
 
 var _columnMcss2 = _interopRequireDefault(_columnMcss);
+
+var ScrollbarWrapper = require('react-scrollbars').ScrollbarWrapper;
 
 var Column = (function (_React$Component) {
   _inherits(Column, _React$Component);
@@ -99,13 +99,9 @@ var Column = (function (_React$Component) {
           this.getAction()
         ),
         _react2['default'].createElement(
-          _reactScrollbars2['default'],
-          null,
-          _react2['default'].createElement(
-            'div',
-            { className: _columnMcss2['default'].body },
-            this.props.children
-          )
+          ScrollbarWrapper,
+          { className: _columnMcss2['default'].body, scrollbarThickness: 4 },
+          this.props.children
         ),
         this.getFooter()
       );

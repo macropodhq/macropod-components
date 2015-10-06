@@ -1,8 +1,20 @@
 import React from 'react';
 //import ScrollbarWrapper from 'react-scrollbars';
-var ScrollbarWrapper = require('react-scrollbars').ScrollbarWrapper;
+//var ScrollbarWrapper = require('react-scrollbars').ScrollbarWrapper;
+
+import {Scrollbars} from 'react-scrollbars';
 
 import styles from './column.mcss';
+
+const Children = Scrollbars(React.createClass({
+  render() {
+    return (
+      <div className={styles.scrollable}>
+        {this.props.children}
+      </div>
+    )
+  }
+}));
 
 export default class Column extends React.Component {
   static propTypes = {
@@ -38,7 +50,6 @@ export default class Column extends React.Component {
 
   render() {
     // TODO: CHECK TITLE LENGTH?
-
     return (
       <div className={this.props.className || styles.Column}>
         <header className={styles.header}>
@@ -47,9 +58,11 @@ export default class Column extends React.Component {
           { this.getAction() }
         </header>
 
-        <ScrollbarWrapper className={styles.body} scrollbarThickness={4}>
-          { this.props.children }
-        </ScrollbarWrapper>
+        <div className={styles.body}>
+          <Children>
+            {this.props.children}
+          </Children>
+        </div>
 
         { this.getFooter() }
       </div>
