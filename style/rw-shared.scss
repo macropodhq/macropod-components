@@ -33,7 +33,7 @@ $input-border:              $input-border-color;
 $input-bg-hover:            $input-state-hover;
 $input-border-hover:        $input-state-hover;
 
-$input-border-focus:        $input-state-focus; 
+$input-border-focus:        $input-state-focus;
 
 $dropdown-bg:               $input-bg;
 $dropdown-border:           $input-border;
@@ -115,7 +115,7 @@ $popup-zindex:              1005;
 @mixin clearfix() {
   &:before,
   &:after {
-    content: " "; 
+    content: " ";
     display: table;
   }
   &:after {
@@ -127,6 +127,7 @@ $popup-zindex:              1005;
 .rw-widget {
   outline: 0;
   background-clip: border-box;
+  text-align: left;
 }
 
 .rw-btn {
@@ -185,7 +186,7 @@ $popup-zindex:              1005;
     background-color: #fff;
     opacity: 0.7;
     top: 0;
-    left: 0; 
+    left: 0;
     height: 100%;
     width: 100%;
   }
@@ -468,23 +469,23 @@ $focus-rgba: rgba(red($input-border-focus), green($input-border-focus), blue($in
   width: 100%;
 }
 
-.rw-i-calendar { 
-  background-image: url('../icon/svgs/icon-calendar.svg'); 
+.rw-i-calendar {
+  background-image: url('../icon/svgs/icon-calendar.svg');
 }
-.rw-i-caret-down { 
-  background-image: url('../icon/svgs/icon-nav-down.svg'); 
+.rw-i-caret-down {
+  background-image: url('../icon/svgs/icon-nav-down.svg');
 }
-.rw-i-caret-up { 
-  background-image: url('../icon/svgs/icon-nav-up.svg'); 
+.rw-i-caret-up {
+  background-image: url('../icon/svgs/icon-nav-up.svg');
 }
-.rw-i-caret-left { 
-  background-image: url('../icon/svgs/icon-nav-left.svg'); 
+.rw-i-caret-left {
+  background-image: url('../icon/svgs/icon-nav-left.svg');
 }
-.rw-i-caret-right { 
-  background-image: url('../icon/svgs/icon-nav-right.svg'); 
+.rw-i-caret-right {
+  background-image: url('../icon/svgs/icon-nav-right.svg');
 }
-.rw-i-clock-o { 
-  background-image: url('../icon/svgs/icon-clock.svg'); 
+.rw-i-clock-o {
+  background-image: url('../icon/svgs/icon-clock.svg');
 }
 
 .rw-sr {
@@ -508,7 +509,7 @@ $focus-rgba: rgba(red($input-border-focus), green($input-border-focus), blue($in
   background:       $popup-bg;
   padding:          2px;
   overflow:         auto;
-  
+
   // the offsets allows for drop shadow to not be clipped by the container
   margin-bottom:    10px;
   left:             0;
@@ -520,7 +521,7 @@ $focus-rgba: rgba(red($input-border-focus), green($input-border-focus), blue($in
     @include border-top-radius($input-border-radius);
     @include border-bottom-radius(0);
   }
-  
+
 }
 
 .rw-popup-container {
@@ -533,7 +534,7 @@ $focus-rgba: rgba(red($input-border-focus), green($input-border-focus), blue($in
 
   &.rw-dropup {
     top:    auto;
-    bottom: 100%;    
+    bottom: 100%;
   }
 }
 
