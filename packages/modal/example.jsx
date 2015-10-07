@@ -20,6 +20,16 @@ module.exports = React.createClass({
     });
   },
 
+  handleWillClose(evt) {
+    if (evt instanceof KeyboardEvent) {
+      return;
+    } else {
+      if (!window.confirm('Are you sure you want to close this dialog?')) {
+        evt.preventDefault();
+      }
+    }
+  },
+
   handleClose() {
     this.setState({
       showModal: false,
@@ -32,8 +42,11 @@ module.exports = React.createClass({
       <div>
         <Button onClick={this.handleClick}>Serve up one with all the trimmings</Button>
         {this.state.showModal &&
-          <Modal ref="modal" onClose={this.handleClose}
-            closeButton={false}
+          <Modal
+            ref="modal"
+            onWillClose={this.handleWillClose}
+            onClose={this.handleClose}
+            closeButton={true}
             maxWidth="400px"
             maxHeight="100%"
             title={
