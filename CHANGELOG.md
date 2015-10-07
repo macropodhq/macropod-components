@@ -1,5 +1,15 @@
 # Macropod Components Changelog
 
+## [v0.1.7](https://github.com/macropodhq/macropod-components/releases/tag/0.1.7)
+
+### Improvements
+
+* [#385](https://github.com/macropodhq/macropod-components/pull/385): Add `onWillClose` callback to `Modal`.
+
+### Fixes
+
+* [#384](https://github.com/macropodhq/macropod-components/pull/384): Fix an issue with the hot reload.
+
 ## [v0.1.6](https://github.com/macropodhq/macropod-components/releases/tag/0.1.6)
 
 ### Improvements
