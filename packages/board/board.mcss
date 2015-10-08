@@ -1,0 +1,37 @@
+.container {
+  padding: 20px;
+  background: #CCC;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+}
+
+.Column {
+  composes: Column from '../column/column.mcss';
+  background: #e8edf0;
+  height: 100%;
+  flex: 1;
+  min-width: 300px;
+  margin: 0 3px;
+}
+
+.Card {
+  composes: Card from '../card/card.mcss';
+  margin: 8px 0;
+}
+
+.Card:last-child {
+  margin-bottom: 0;
+}
+
+.footer {
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+  border-radius: 3px;
+}
+
+.InputText {
+  composes: Input from '../../style/input.mcss';
+  border-color: transparent;
+  border-bottom: 2px solid rgb(210, 218, 224);
+}
