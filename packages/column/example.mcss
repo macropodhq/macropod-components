@@ -13,14 +13,9 @@
   margin: 0 3px;
 }
 
-.ColumnWithFooter {
-  composes: Column;
-  padding-bottom: 54px;
-}
-
 .Card {
   composes: Card from '../card/card.mcss';
-  margin-bottom: 8px;
+  margin: 8px 0;
 }
 
 .Card:last-child {

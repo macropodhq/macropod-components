@@ -15,6 +15,7 @@ export default class ColumnExample extends React.Component {
     return (
       <div className={styles.footer}>
         <InputText
+          wrapperClassName={' '}
           className={styles.InputText}
           placeholder="Create new task"
           onChange={function() {}}
@@ -41,7 +42,7 @@ export default class ColumnExample extends React.Component {
         </Column>
 
         <Column
-          className={styles.ColumnWithFooter}
+          className={styles.Column}
           title="Backlog"
           subTitle="9"
           action={<Icon type="settings-filled" />}

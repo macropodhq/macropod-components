@@ -1,6 +1,8 @@
 .Column {
   background: white;
   border-radius: 2px 2px 0 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
@@ -9,7 +11,7 @@
   padding: 12px 20px;
   border-radius: 2px 2px 0 0;
   position: relative;
-  max-height: 44px;
+  flex: none;
 }
 
 .subTitle {
@@ -23,9 +25,9 @@
 }
 
 .body {
+  position: relative;
+  flex: auto;
   padding: 9px 0 0 0;
-  max-height: calc(100% - 44px);  /*44px header height, look into better ways?*/
-  height: 100%;
   overflow: auto;
 }
 
@@ -50,6 +52,7 @@
 
 .footer {
   padding: 9px;
+  flex: none;
 }
 
 .footer :global(>div) {
@@ -62,6 +65,14 @@
   padding: 0 9px;
 }
 
-:global(.rs-container), :global(.rs-content) {
+:global(.rs-content) {
   height: 100%;
+}
+
+:global(.rs-container) {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }

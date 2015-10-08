@@ -1,7 +1,4 @@
 import React from 'react';
-//import ScrollbarWrapper from 'react-scrollbars';
-//var ScrollbarWrapper = require('react-scrollbars').ScrollbarWrapper;
-
 import {Scrollbars} from 'react-scrollbars';
 
 import styles from './column.mcss';
