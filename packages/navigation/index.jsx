@@ -80,7 +80,7 @@ module.exports = React.createClass({
     return (
       <div>
         <CovertHeader offset={this.props.scrollOffset} forceShow={this.props.showLeftTray || this.props.showRightTray}>
-          <Bar className={this.props.className}>
+          <Bar {...this.props}>
             {this.props.barItems}
           </Bar>
         </CovertHeader>

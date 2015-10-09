@@ -19,7 +19,7 @@ _Optional_. Callback function for when a user wants to close the tray (clicking 
 
 #### `barItems`
 
-_Required_. `Array` of `Bar.Item`'s to show in the navigation bar. Options are;
+_Required_. `Array` of elements to show in the navigation bar. See [`Bar`](#Bar). Options are;
 
 * `Array`
 
