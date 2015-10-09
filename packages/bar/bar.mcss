@@ -2,6 +2,7 @@
   composes: clear from "../../style/helpers.mcss";
   background: rgb(39, 61, 64);
   overflow: visible;
+  display: flex;
 }
 
 .left,
@@ -9,12 +10,12 @@
 .right {
   float: left;
   min-height: 1px;
-  width: 40%;
+  flex: none;
 }
 
 .center {
   text-align: center;
-  width: 20%;
+  flex: auto;
 }
 
 .right {
