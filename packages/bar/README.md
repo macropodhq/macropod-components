@@ -6,7 +6,7 @@ A component that acts a lot like a 'header'.
 
 ```
 <Bar>
-  <Bar.Item />
+  <div align={{Bar.align.left}} />
 </Bar>
 ```
 
@@ -14,25 +14,28 @@ A component that acts a lot like a 'header'.
 
 ### Bar
 
-#### `leftWidth`
+#### `classes`
 
-_Optional_. Width of the `Bar-Left` element, **representing a percentage of the parent**. Options are;
+_Optional_. Supply classnames for the `left`, `center` and `right` wrappers. Options are;
 
-* Not supplied: `40`
-* Any integer
+* Not supplied: `left`, `center`, `right` from `./bar.mcss`
+* Object with `left`, `center`, `right` keys with strings as values:
 
-#### `rightWidth`
+```js
+classes={{
+  left: 'leftClass'
+  right: styles.rightClass
+}}
+```
 
-_Optional_. Width of the `Bar-Right` element, **representing a percentage of the parent**. Options are;
+## Statics
 
-* Not supplied: `40`
-* Any integer
+### `align`
 
-### Item
+Defines which wrapper you want the child element inserted into (`left`, `center` or `right`):
 
-#### `align`
-
-_Optional_. Align the item within the `Bar`. Options are;
-
-* Not supplied: `Bar.Item.align.LEFT`
-* `Bar.Item.align.LEFT`, `Bar.Item.align.CENTER` or `Bar.Item.align.RIGHT`
+```js
+<Bar>
+  <div align={{Bar.align.left}} />
+</Bar>
+```
