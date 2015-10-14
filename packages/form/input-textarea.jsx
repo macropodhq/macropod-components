@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import cx from 'classnames';
 import InputWrapper from './input-wrapper';
 import TextareaAutosize from 'react-textarea-autosize';
@@ -19,11 +20,11 @@ export default React.createClass({
   },
 
   focusInput() {
-    this.refs.input.getDOMNode().focus();
+    ReactDOM.findDOMNode(this.refs.input).focus();
   },
 
   selectInputValue() {
-    this.refs.input.getDOMNode().select();
+    ReactDOM.findDOMNode(this.refs.input).select();
   },
 
   render() {

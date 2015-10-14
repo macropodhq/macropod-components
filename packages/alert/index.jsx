@@ -1,7 +1,7 @@
 'use strict';
 
-const React = require('react/addons');
-
+const React = require('react');
+const ReactDOM = require('react-dom');
 const Modal = require('../modal');
 const Button = require('../button');
 
@@ -53,7 +53,7 @@ module.exports = React.createClass({
   },
 
   componentDidMount() {
-    this.refs.ok.getDOMNode().focus();
+    ReactDOM.findDOMNode(this.refs.ok).focus();
   },
 
   render() {

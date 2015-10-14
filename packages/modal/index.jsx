@@ -1,6 +1,6 @@
 'use strict';
 
-const React = require('react/addons');
+const React = require('react');
 const LayeredComponentMixin = require('react-components/layered-component-mixin');
 
 const animationCallback = require('../style-utilities').animationCallback;

@@ -1,5 +1,6 @@
 'use strict';
-const React = require('react/addons');
+const React = require('react');
+const ReactDOM = require('react-dom');
 const _ = require('lodash');
 const InputTextarea = require('../form/input-textarea');
 const SuitClassSet = require('../suit-class-set');
@@ -149,7 +150,7 @@ module.exports = React.createClass({
       editValue: this.props.comment.entry,
     }, () => {
       if (this.state.editing) {
-        let editInput = this.refs.editInput.getDOMNode();
+        let editInput = ReactDOM.findDOMNode(this.refs.editInput);
         editInput.focus();
         editInput.setSelectionRange(this.state.editValue.length, this.state.editValue.length);
       }
@@ -158,7 +159,7 @@ module.exports = React.createClass({
 
   componentDidMount() {
     if (this.props.comment.scrollIntoView) {
-      setTimeout(() => this.getDOMNode().scrollIntoView(), 1);
+      setTimeout(() => ReactDOM.findDOMNode(this).scrollIntoView(), 1);
     }
   },
 
@@ -172,7 +173,7 @@ module.exports = React.createClass({
 
   componentDidUpdate() {
     if (this.state.scrollIntoView) {
-      this.getDOMNode().scrollIntoView();
+      ReactDOM.findDOMNode(this).scrollIntoView();
 
       this.setState({
         scrollIntoView: false,

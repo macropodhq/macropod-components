@@ -24,7 +24,7 @@ module.exports = React.createClass({
         [styles.LinkActive]: active,
       });
 
-      children.push(React.addons.cloneWithProps(child, {className: className, activeClassName: styles.LinkActive}));
+      children.push(React.cloneElement(child, {className: className, activeClassName: styles.LinkActive}));
     });
 
     return children;

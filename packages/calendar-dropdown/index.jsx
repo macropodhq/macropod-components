@@ -1,6 +1,6 @@
 'use strict';
 
-const React = require('react/addons');
+const React = require('react');
 const Widgets = require('react-widgets');
 
 require('./calendar-dropdown.scss');

@@ -1,7 +1,7 @@
 'use strict';
 
 const React = require('react');
-
+const ReactDOM = require('react-dom');
 const Lightbox = require('./');
 const Button = require('../button');
 
@@ -71,7 +71,7 @@ module.exports = React.createClass({
   },
 
   toggleFullscreenLightbox() {
-    this.setState({activeAsset: this.refs.assetSwitcher.getDOMNode().value});
+    this.setState({activeAsset: ReactDOM.findDOMNode(this.refs.assetSwitcher).value});
     this.setState({open: !this.state.open});
   },
 

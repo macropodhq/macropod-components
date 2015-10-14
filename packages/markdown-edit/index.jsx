@@ -1,4 +1,5 @@
-const React = require('react/addons');
+const React = require('react');
+const ReactDOM = require('react-dom');
 const InputTextarea = require('../form/input-textarea');
 const cx = require('classnames');
 
@@ -198,7 +199,7 @@ module.exports = React.createClass({
     setTimeout(() => {
       if (
         !this.state.showAlert &&
-        !isChildOf(document.activeElement, this.getDOMNode()) &&
+        !isChildOf(document.activeElement, ReactDOM.findDOMNode(this)) &&
         ((this.state.pendingValue.length < 1) || !this.unsaved())
       ) {
         this.setState({

@@ -1,5 +1,5 @@
 'use strict';
-const React = require('react/addons');
+const React = require('react');
 const Avatar = require('../avatar');
 const DateFormatter = require('../datetime-format');
 

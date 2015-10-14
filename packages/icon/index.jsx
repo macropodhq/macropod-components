@@ -1,6 +1,6 @@
 'use strict';
 
-const React = require('react/addons');
+const React = require('react');
 const _ = require('lodash');
 const keyMirror = require('keymirror');
 

@@ -1,6 +1,7 @@
 'use strict';
 
 const React = require('react');
+const ReactDOM = require('react-dom');
 const InputWrapper = require('./input-wrapper');
 
 import styles from './input-checkbox.mcss';
@@ -15,7 +16,7 @@ module.exports = React.createClass({
   },
 
   focusInput() {
-    this.refs.input.getDOMNode().focus();
+    ReactDOM.findDOMNode(this.refs.input).focus();
   },
 
   render() {

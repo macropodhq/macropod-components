@@ -35,7 +35,7 @@ const Item = React.createClass({
         return element;
       }
 
-      return React.addons.cloneWithProps(element, {className: element.props.className || styles['Item-child']});
+      return React.cloneElement(element, {className: element.props.className || styles['Item-child']});
     });
 
     return children;

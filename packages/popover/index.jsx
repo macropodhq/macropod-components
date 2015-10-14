@@ -1,5 +1,6 @@
 'use strict';
-const React = require('react/addons');
+const React = require('react');
+const ReactDOM = require('react-dom');
 const _ = require('lodash');
 const Layer = require('react-components/layered-component-mixin');
 
@@ -29,8 +30,8 @@ const PopoverContent = React.createClass({
   },
 
   getBoundingRects() {
-    this.anchorRect = this.props.anchor.getDOMNode().getBoundingClientRect();
-    this.dropdownRect = this.refs.Popover.getDOMNode().getBoundingClientRect();
+    this.anchorRect = ReactDOM.findDOMNode(this.props.anchor).getBoundingClientRect();
+    this.dropdownRect = ReactDOM.findDOMNode(this.refs.Popover).getBoundingClientRect();
   },
 
   getClientDimensions() {

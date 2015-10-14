@@ -1,4 +1,4 @@
-import React from 'react/addons';
+import React from 'react';
 import md5 from 'MD5';
 import keyMirror from 'keymirror';
 import SuitClassSet from '../suit-class-set';

@@ -1,4 +1,5 @@
-const React = require('react/addons');
+const React = require('react');
+const ReactDOM = require('react-dom');
 const cx = require('classnames');
 
 const InputText = require('../form/input-text');
@@ -104,7 +105,7 @@ module.exports = React.createClass({
   handleConfirmCancel() {
     this.setState({
       showAlert: false,
-    }, () => this.refs.input.getDOMNode().focus());
+    }, () => ReactDOM.findDOMNode(this.refs.input).focus());
   },
 
   handleConfirmOk() {
@@ -116,7 +117,7 @@ module.exports = React.createClass({
 
   handleCancel() {
     if (this.unsaved()) {
-      this.refs.input.getDOMNode().blur();
+      ReactDOM.findDOMNode(this.refs.input).blur();
       this.setState({
         showAlert: true,
       });
@@ -176,7 +177,7 @@ module.exports = React.createClass({
 
   handleBlur() {
     setTimeout(() => {
-      if (!isChildOf(document.activeElement, this.getDOMNode()) && ((this.state.pendingValue.length < 1) || !this.unsaved())) {
+      if (!isChildOf(document.activeElement, ReactDOM.findDOMNode(this)) && ((this.state.pendingValue.length < 1) || !this.unsaved())) {
         this.setState({
           editing: false,
         }, () => this.props.onCancel());

@@ -121,7 +121,7 @@ module.exports = React.createClass({
   replaceNodeStyle(node, newStyle = {}) {
     const nodeStyle = node.props && node.props.style || {};
     newStyle = Object.assign({}, nodeStyle, newStyle);
-    return React.addons.cloneWithProps(node, {style: newStyle});
+    return React.cloneElement(node, {style: newStyle});
   },
 
   getTrayStyle() {

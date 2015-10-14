@@ -1,6 +1,6 @@
 'use strict';
 
-const React = require('react/addons');
+const React = require('react');
 const cx = require('classnames');
 const _ = require('lodash');
 

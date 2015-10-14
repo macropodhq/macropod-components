@@ -1,6 +1,7 @@
 'use strict';
 
-const React = require('react/addons');
+const React = require('react');
+const ReactDOM = require('react-dom');
 const OnResize = require('react-window-mixins').OnResize;
 const SuitClassSet = require('../suit-class-set');
 const Icon = require('../icon');
@@ -31,7 +32,7 @@ const AssetImage = React.createClass({
   },
 
   checkImageSize() {
-    const node = this.getDOMNode();
+    const node = ReactDOM.findDOMNode(this);
     const parentElementWidth = node.parentNode ?
       node.parentNode.clientWidth :
       Infinity;

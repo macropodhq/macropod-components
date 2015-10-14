@@ -1,6 +1,6 @@
 'use strict';
 
-const React = require('react/addons');
+const React = require('react');
 const SuitClassSet = require('../suit-class-set');
 
 require('./pie-badge.scss');

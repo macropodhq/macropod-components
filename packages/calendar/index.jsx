@@ -1,6 +1,6 @@
 'use strict';
 
-const React = require('react/addons');
+const React = require('react');
 const Widgets = require('react-widgets');
 const moment = require('moment')
 const momentLocalizer = require('react-widgets-moment-localizer')

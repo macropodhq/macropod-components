@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import cx from 'classnames';
 import InputWrapper from './input-wrapper';
 
@@ -59,7 +60,7 @@ export default React.createClass({
   },
 
   handleUnmanagedChange() {
-    const target = this.refs.input.getDOMNode();
+    const target = ReactDOM.findDOMNode(this.refs.input);
 
     if (target.value !== this.handleUnmanagedChange.lastValue) {
       if (typeof this.handleUnmanagedChange.lastValue !== 'undefined') {
@@ -83,11 +84,11 @@ export default React.createClass({
   },
 
   focusInput() {
-    this.refs.input.getDOMNode().focus();
+    ReactDOM.findDOMNode(this.refs.input).focus();
   },
 
   selectInputValue() {
-    this.refs.input.getDOMNode().select();
+    ReactDOM.findDOMNode(this.refs.input).select();
   },
 
   render() {

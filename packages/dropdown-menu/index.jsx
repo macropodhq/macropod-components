@@ -1,5 +1,5 @@
 'use strict';
-const React = require('react/addons');
+const React = require('react');
 const Popover = require('../popover');
 const SuitClassSet = require('../suit-class-set');
 require('./dropdown-menu.scss');

@@ -1,6 +1,7 @@
 'use strict';
 
 const React = require('react');
+const ReactDOM = require('react-dom');
 const _ = require('lodash');
 const Comments = require('./');
 const Button = require('../button');
@@ -164,10 +165,10 @@ module.exports = React.createClass({
       e.preventDefault();
     }
 
-    this.handleNewComment(this.refs.newDiscussionInput.getDOMNode().value);
+    this.handleNewComment(ReactDOM.findDOMNode(this.refs.newDiscussionInput).value);
 
-    this.refs.newDiscussionInput.getDOMNode().value = '';
-    this.refs.newDiscussionInput.getDOMNode().style.height = 'auto';
+    ReactDOM.findDOMNode(this.refs.newDiscussionInput).value = '';
+    ReactDOM.findDOMNode(this.refs.newDiscussionInput).style.height = 'auto';
   },
 
   handleDelete(id) {

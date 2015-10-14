@@ -1,4 +1,4 @@
-import React from 'react/addons';
+import React from 'react';
 import {Router, Link} from 'react-router';
 
 export default function LinkPreservingQueryParametersFactory(queryParameters) {
