@@ -1,6 +1,6 @@
 import React from 'react/addons';
 import md5 from 'MD5';
-import keyMirror from 'react/lib/keyMirror';
+import keyMirror from 'keymirror';
 import SuitClassSet from '../suit-class-set';
 
 import './avatar.scss';

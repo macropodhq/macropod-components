@@ -1,5 +1,5 @@
 import React from 'react/addons';
-import Router from 'react-router';
+import {Router, Link} from 'react-router';
 
 export default function LinkPreservingQueryParametersFactory(queryParameters) {
 
@@ -22,7 +22,7 @@ export default function LinkPreservingQueryParametersFactory(queryParameters) {
 
       props.query = Object.assign({}, preservedQuery, props.query);
 
-      return <Router.Link {...props} />;
+      return <Link {...props} />;
     },
   });
 

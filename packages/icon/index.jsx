@@ -2,7 +2,7 @@
 
 const React = require('react/addons');
 const _ = require('lodash');
-const keyMirror = require('react/lib/keyMirror');
+const keyMirror = require('keymirror');
 
 require('./icon.scss');
 

@@ -2,14 +2,13 @@
 
 const _ = require('lodash');
 const React = require('react');
-const Router = require('react-router');
-const Route = Router.Route;
-const Link = Router.Link;
+const ReactDOM = require('react-dom');
+import { Router, Route, Link } from 'react-router';
 const RouteHandler = Router.RouteHandler;
 const SuitClassSet = require('../packages/suit-class-set');
 
 if (process.env.NODE_ENV !== 'production') {
-  require('react-a11y')(React);
+  //require('react-a11y')(React);
 }
 
 require('normalize.css/normalize.css');
@@ -76,8 +75,8 @@ const App = React.createClass({
   mixins: [Router.State],
 
   render() {
-    if (this.getQuery().iframe) {
-      return <RouteHandler />;
+    if (this.props.location.query.iframe) {
+      return <div>{this.props.children}</div>
     } else {
       return (
         <div>
@@ -86,7 +85,7 @@ const App = React.createClass({
             <li><Link to="/">All</Link></li>
             {packages.map(component => <li key={component.path}><Link to={`/${component.name}`}>{component.friendlyName}</Link></li>)}
           </ul>
-          <RouteHandler />
+          <div>{this.props.children}</div>
         </div>
       );
     }
@@ -104,8 +103,7 @@ const AllComponentsHandler = React.createClass({
     );
   },
 });
-
-Router.run(
+ReactDOM.render(<Router>
   <Route name="app" path="/" handler={App}>
     <Route name="all" path="/" handler={AllComponentsHandler}/>
     {packages.map(component =>
@@ -118,11 +116,7 @@ Router.run(
     )}
     <Route name="navigation-content" path="/navigation-content" handler={require('../packages/navigation/content')} />
     <Route name="covert-header-content" path="/covert-header-content" handler={require('../packages/covert-header/content')} />
-  </Route>,
-  Handler => {
-    React.render(
-      <Handler />,
-      document.body
-   );
-  }
+  </Route>
+  </Router>,
+  document.body
 );
