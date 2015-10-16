@@ -5,6 +5,7 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 import { Router, Route, Link } from 'react-router';
 const RouteHandler = Router.RouteHandler;
+import createBrowserHistory from 'history/lib/createBrowserHistory'
 const SuitClassSet = require('../packages/suit-class-set');
 
 if (process.env.NODE_ENV !== 'production') {
@@ -103,19 +104,19 @@ const AllComponentsHandler = React.createClass({
     );
   },
 });
-ReactDOM.render(<Router>
-  <Route name="app" path="/" handler={App}>
-    <Route name="all" path="/" handler={AllComponentsHandler}/>
+ReactDOM.render(<Router history={createBrowserHistory()}>
+  <Route name="app" path="/" component={App}>
+    <Route name="all" path="/" component={AllComponentsHandler}/>
     {packages.map(component =>
-      <Route key={component.name} name={component.name} path={`/${component.name}`} handler={React.createClass({
+      <Route key={component.name} name={component.name} path={`/${component.name}`} component={React.createClass({
         displayName: `${component.friendlyName.split(' ').join('')}ExampleRouteHandler`,
         render() {
           return wrapPackage(component);
         },
       })}/>
     )}
-    <Route name="navigation-content" path="/navigation-content" handler={require('../packages/navigation/content')} />
-    <Route name="covert-header-content" path="/covert-header-content" handler={require('../packages/covert-header/content')} />
+    <Route name="navigation-content" path="/navigation-content" component={require('../packages/navigation/content')} />
+    <Route name="covert-header-content" path="/covert-header-content" component={require('../packages/covert-header/content')} />
   </Route>
   </Router>,
   document.body
