@@ -3,7 +3,7 @@
 const React = require('react');
 const Widgets = require('react-widgets');
 const moment = require('moment')
-const momentLocalizer = require('react-widgets-moment-localizer')
+const momentLocalizer = require('../../util/english-localizer');
 
 Widgets.setDateLocalizer(momentLocalizer(moment));
 
