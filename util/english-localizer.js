@@ -1,5 +1,5 @@
 'use strict';
-
+// slightly modified version of https://github.com/jquense/react-widgets-moment-localizer.git
 
 module.exports = function(moment){
   if (typeof moment !== 'function')
