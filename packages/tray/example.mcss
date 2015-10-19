@@ -1,0 +1,4 @@
+.item {
+  composes: item from '../bar/bar.mcss';
+  color: rgba(255,255,255,0.5);
+}
