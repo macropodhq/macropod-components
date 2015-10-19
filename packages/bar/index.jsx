@@ -1,8 +1,5 @@
-'use strict';
-
-const React = require('react');
-const _ = require('lodash');
-const cx = require('classnames');
+import React from 'react';
+import _ from 'lodash';
 
 import styles from './bar.mcss';
 
@@ -12,80 +9,20 @@ const align = {
   RIGHT: 'RIGHT',
 };
 
-const Item = React.createClass({
-  displayName: 'BarItem',
+export default class Bar extends React.Component {
+  static align = align;
 
-  statics: {
-    align: align,
-  },
+  static propTypes = {
+    classes: React.PropTypes.shape({
+      left: React.PropTypes.string,
+      center: React.PropTypes.string,
+      right: React.PropTypes.string,
+    }),
+  };
 
-  propTypes: {
-    align: React.PropTypes.oneOf(Object.keys(align)),
-  },
-
-  getDefaultProps() {
-    return {
-      align: align.LEFT,
-    };
-  },
-
-  getChildren() {
-    const children = React.Children.map(this.props.children, (element) => {
-      if (typeof element === 'string') {
-        return element;
-      }
-
-      return React.addons.cloneWithProps(element, {className: element.props.className || styles['Item-child']});
-    });
-
-    return children;
-  },
-
-  render() {
-    const itemClass = cx({
-      [styles.Item]: !this.props.className,
-      [styles['Item--left']]: this.props.align === align.LEFT,
-      [styles['Item--right']]: this.props.align === align.RIGHT,
-      [styles['Item--string']]: typeof this.props.children === 'string',
-      [this.props.className]: this.props.className,
-    });
-
-    return (
-      <span {...this.props} className={itemClass}>
-        {this.getChildren()}
-      </span>
-    );
-  },
-});
-
-module.exports = React.createClass({
-  displayName: 'Bar',
-
-  statics: {
-    Item: Item,
-  },
-
-  propTypes: {
-    leftWidth(props, propName) {
-      if (props[propName]) {
-        if (typeof props[propName] !== 'number') {
-          return new Error(propName + ' should be a number.');
-        }
-
-        if ((props[propName] + props.rightWidth) > 100) {
-          return new Error(propName + ' (' + props[propName] + ') + rightWidth (' + props.rightWidth + ') shouldn\'t add to more than 100%.');
-        }
-      }
-    },
-    rightWidth: React.PropTypes.number,
-  },
-
-  getDefaultProps() {
-    return {
-      leftWidth: 40,
-      rightWidth: 40,
-    };
-  },
+  static defaultProps = {
+    classes: {},
+  };
 
   buildChildren(alignment) {
     const children = React.Children.map(this.props.children, (element) => {
@@ -97,41 +34,23 @@ module.exports = React.createClass({
     });
 
     return children;
-  },
-
-  getLeftStyle() {
-    return {
-      width: this.props.leftWidth + '%',
-    };
-  },
-
-  getCenterStyle() {
-    return {
-      width: 100 - (this.props.leftWidth + this.props.rightWidth) + '%',
-    };
-  },
-
-  getRightStyle() {
-    return {
-      width: this.props.rightWidth + '%',
-    };
-  },
+  }
 
   render() {
     return (
       <header className={this.props.className || styles.Bar}>
-        <div className={styles['Bar-left']} style={this.getLeftStyle()}>
+        <div className="left">
           {this.buildChildren(align.LEFT)}
         </div>
 
-        <div className={styles['Bar-center']} style={this.getCenterStyle()}>
+        <div className="center">
           {this.buildChildren(align.CENTER)}
         </div>
 
-        <div className={styles['Bar-right']} style={this.getRightStyle()}>
+        <div className="right">
           {this.buildChildren(align.RIGHT)}
         </div>
       </header>
     );
-  },
-});
+  };
+};

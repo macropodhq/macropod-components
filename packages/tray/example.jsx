@@ -8,6 +8,8 @@ const Bar = require('../bar');
 const Icon = require('../icon');
 const Link = require('../link');
 
+import styles from './example.mcss';
+
 const style = {
   bubble: {
     background: 'rgba(199, 201, 209, 0.4)',
@@ -102,9 +104,9 @@ module.exports = React.createClass({
                 </Tray.Group>
               </Tray>
               <Tray align={Tray.align.RIGHT}>
-                <Bar sticky leftWidth={70} rightWidth={30}>
-                  <Bar.Item style={{border: 0}}>Comment Feed</Bar.Item>
-                  <Bar.Item align={Bar.Item.align.RIGHT}><Icon type="refresh" /></Bar.Item>
+                <Bar sticky>
+                  <span className={styles.item} align={Bar.align.LEFT}>Comment Feed</span>
+                  <Icon className={styles.item} align={Bar.align.RIGHT} type="refresh" />
                 </Bar>
 
                 <Tray.Group>

@@ -1,0 +1,28 @@
+.container {
+  padding-top: 52px;
+}
+
+.Link {
+  color: inherit;
+  font-size: 14px;
+}
+
+.item {
+  composes: Link from '../link/link.mcss';
+  composes: item from '../bar/bar.mcss';
+  color: rgba(255,255,255,0.5);
+  border-right: 1px solid rgba(255,255,255,0.5);
+}
+
+:global(.right) .item:first-child {
+  border-left: 1px solid rgba(255,255,255,0.5);
+}
+
+:global(.right) .item:last-child {
+  border-right: 0;
+}
+
+.logo {
+  padding: 8px 0 0 0;
+  opacity: 0.5;
+}
