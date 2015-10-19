@@ -5,19 +5,11 @@
   border-right: 1px solid rgba(255,255,255,0.5);
 }
 
-.right {
-  composes: right from './bar.mcss';
-}
-
-.left {
-  composes: left from './bar.mcss';
-}
-
-.right .item:first-child {
+:global(.right) .item:first-child {
   border-left: 1px solid rgba(255,255,255,0.5);
 }
 
-.right .item:last-child {
+:global(.right) .item:last-child {
   border-right: 0;
 }
 

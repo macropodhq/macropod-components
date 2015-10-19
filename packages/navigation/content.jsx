@@ -113,10 +113,6 @@ module.exports = React.createClass({
     return (
       <div className={styles.container}>
         <Navigation
-          classes={{
-            left: styles.left,
-            right: styles.right,
-          }}
           onTrayBlur={this.hideTrays}
           scrollOffset={52}
           barItems={[

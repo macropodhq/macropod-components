@@ -5,20 +5,20 @@
   display: flex;
 }
 
-.left,
-.center,
-.right {
+.Bar :global(.left),
+.Bar :global(.center),
+.Bar :global(.right) {
   float: left;
   min-height: 1px;
   flex: none;
 }
 
-.center {
+.Bar :global(.center) {
   text-align: center;
   flex: auto;
 }
 
-.right {
+.Bar :global(.right) {
   text-align: right;
 }
 

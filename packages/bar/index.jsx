@@ -39,15 +39,15 @@ export default class Bar extends React.Component {
   render() {
     return (
       <header className={this.props.className || styles.Bar}>
-        <div className={this.props.classes.left || styles.left}>
+        <div className="left">
           {this.buildChildren(align.LEFT)}
         </div>
 
-        <div className={this.props.classes.center || styles.center}>
+        <div className="center">
           {this.buildChildren(align.CENTER)}
         </div>
 
-        <div className={this.props.classes.right || styles.right}>
+        <div className="right">
           {this.buildChildren(align.RIGHT)}
         </div>
       </header>
