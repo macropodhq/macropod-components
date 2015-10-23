@@ -1,6 +1,12 @@
 # Macropod Components Changelog
 
-## [v0.1.7](https://github.com/macropodhq/macropod-components/releases/tag/0.1.7)
+## [v0.1.9](https://github.com/macropodhq/macropod-components/releases/tag/0.1.9)
+
+### Improvements
+
+* [#387](https://github.com/macropodhq/macropod-components/pull/387): Lock React to `0.13.x`.
+
+## [v0.1.8](https://github.com/macropodhq/macropod-components/releases/tag/0.1.8)
 
 ### Improvements
 
