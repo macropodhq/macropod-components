@@ -13,8 +13,7 @@
     "open-sands": "^1.0.3",
     "react-components": "^0.4.0",
     "react-textarea-autosize": "^3.0.0",
-    "react-widgets": "3.0.0-beta.1",
-    "react-widgets-moment-localizer": "jquense/react-widgets-moment-localizer",
+    "react-widgets": "3.0.0",
     "react-window-mixins": "^0.0.6"
   },
   "devDependencies": {
