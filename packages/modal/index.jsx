@@ -1,7 +1,7 @@
 'use strict';
 
 const React = require('react/addons');
-const LayeredComponentMixin = require('react-components/layered-component-mixin');
+const LayeredComponentMixin = require('../layered-mixin');
 
 const animationCallback = require('../style-utilities').animationCallback;
 const SuitClassSet = require('../suit-class-set');
