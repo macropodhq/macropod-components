@@ -1,5 +1,11 @@
 # Macropod Components Changelog
 
+## [v0.1.11](https://github.com/macropodhq/macropod-components/releases/tag/0.1.11)
+
+### Improvements
+
+* [#389](https://github.com/macropodhq/macropod-components/pull/389): Remove `react-components` and have a local copy of the `layered-mixin` component.
+
 ## [v0.1.10](https://github.com/macropodhq/macropod-components/releases/tag/0.1.10)
 
 ### Improvements
