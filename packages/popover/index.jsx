@@ -1,7 +1,7 @@
 'use strict';
 const React = require('react/addons');
 const _ = require('lodash');
-const Layer = require('react-components/layered-component-mixin');
+const Layer = require('../layered-mixin');
 
 require('./popover.scss');
 
