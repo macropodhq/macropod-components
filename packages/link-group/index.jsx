@@ -10,13 +10,15 @@ import styles from './link-group.mcss';
 module.exports = React.createClass({
   displayName: 'LinkGroup',
 
-  mixins: [Router.State],
+  contextTypes: {
+    location: React.PropTypes.object,
+  },
 
   getChildren() {
     let children = [];
 
     React.Children.forEach(this.props.children, (child, index) => {
-      const active = child.props && (!_.size(this.getQuery()) && child.props.default);
+      const active = child.props && (!_.size(this.context.location.query && child.props.default);
 
       let className = cx({
         [this.props.className]: child.props.className,

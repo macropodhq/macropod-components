@@ -10,12 +10,14 @@ export default function LinkPreservingQueryParametersFactory(queryParameters) {
   return React.createClass({
     displayName: 'LinkPreservingQueryParameters',
 
-    mixins: [Router.State],
+    contextTypes: {
+      location: React.PropTypes.object,
+    },
 
     render() {
       const props = Object.assign({}, this.props); // cloned to avoid React warnings
 
-      const currentQuery = this.getQuery();
+      const currentQuery = this.context.location.search;
       const preservedQuery = {};
 
       queryParameters.forEach((param) => preservedQuery[param] = currentQuery[param]);
