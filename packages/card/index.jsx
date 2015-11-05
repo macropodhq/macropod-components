@@ -4,18 +4,23 @@ import styles from './card.mcss';
 
 export default class Card extends React.Component {
   static propTypes = {
-    title: React.PropTypes.string.isRequired,
-    indicator: React.PropTypes.string,
+    title: React.PropTypes.any,
+    indicatorColor: React.PropTypes.string,
   }
 
   static defaultProps = {
     title: '',
   }
 
-  getIndicator() {
-    if (this.props.indicator) {
+  renderIndicator() {
+    if (this.props.indicatorColor) {
       return (
-        <span className={styles.indicator} style={{background: this.props.indicator}} />
+        <span
+          className={styles.indicator}
+          style={{
+            background: this.props.indicatorColor
+          }}
+        />
       );
     }
 
@@ -23,11 +28,23 @@ export default class Card extends React.Component {
   }
 
   render() {
+    const {
+      title,
+      className,
+      style,
+      children,
+    } = this.props;
+
     return (
-      <div className={this.props.className || styles.Card}>
-        { this.getIndicator() }
-        <h2 className={styles.title}>{this.props.title}</h2>
-        { this.props.children }
+      <div
+        className={className || styles.Card}
+        style={style}
+      >
+        { this.renderIndicator() }
+        { title &&
+            <h2 className={styles.title}>{title}</h2>
+        }
+        { children }
       </div>
     );
   }

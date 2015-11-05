@@ -15,11 +15,11 @@ A card looking component.
 
 #### `title`
 
-_Required_. Card title. Options are;
+_Optional_. Card title. Options are;
 
 * Any string
 
-#### `indicator`
+#### `indicatorColor`
 
 _Optional_. Color of the stripe on the card. Options are;
 
