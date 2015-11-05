@@ -1,5 +1,11 @@
 # Macropod Components Changelog
 
+## [v0.1.12](https://github.com/macropodhq/macropod-components/releases/tag/0.1.12)
+
+### Improvements
+
+* [#390](https://github.com/macropodhq/macropod-components/pull/390): Cleaner and more logical `Card` implementation
+
 ## [v0.1.11](https://github.com/macropodhq/macropod-components/releases/tag/0.1.11)
 
 ### Improvements
