@@ -34,7 +34,7 @@ const translate = is3d ? (x, y) =>
 
 const vendorEvent = events => {
   const el = document.createElement('fakeElement');
-  for (let i in events) {
+  for (const i in events) {
     if (el.style[i] !== undefined) {
       return events[i];
     }
@@ -42,7 +42,7 @@ const vendorEvent = events => {
 };
 
 const cssCallback = (events, element, callback) => {
-  let cssEvent = vendorEvent(events);
+  const cssEvent = vendorEvent(events);
 
   let called = false;
   const wrap = () => {

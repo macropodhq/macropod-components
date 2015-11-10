@@ -18,7 +18,7 @@ export default class Card extends React.Component {
         <span
           className={styles.indicator}
           style={{
-            background: this.props.indicatorColor
+            background: this.props.indicatorColor,
           }}
         />
       );

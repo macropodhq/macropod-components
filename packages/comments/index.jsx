@@ -13,7 +13,7 @@ module.exports = React.createClass({
       <div className="Comments">
         {
           parentComments.map(comment => {
-            let replies = _.filter(this.props.comments, {parentId: comment.id});
+            const replies = _.filter(this.props.comments, {parentId: comment.id});
             return (
               <Comment
                 key={comment.id}

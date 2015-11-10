@@ -25,18 +25,18 @@ export default React.createClass({
   propTypes: {
     size: validateSize,
     firstName(props, propName) {
-      if (propName in props && props[propName] != '') {
+      if (propName in props && props[propName] != '') { // eslint-disable-line eqeqeq
         return new Error(`Avatar's \`${propName}\` property is deprecated. Please use \`title\` instead.`);
       }
     },
     lastName(props, propName) {
-      if (propName in props && props[propName] != '') {
+      if (propName in props && props[propName] != '') { // eslint-disable-line eqeqeq
         return new Error(`Avatar's \`${propName}\` property is deprecated. Please use \`title\` instead.`);
       }
     },
     src: React.PropTypes.string,
     email(props, propName) {
-      if (propName in props && props[propName] != '') {
+      if (propName in props && props[propName] != '') { // eslint-disable-line eqeqeq
         return new Error(`Avatar's \`${propName}\` property is deprecated. Please specify the \`src\` instead.`);
       }
     },
@@ -100,8 +100,8 @@ export default React.createClass({
   render() {
     let firstName = this.props.firstName;
     let lastName = this.props.lastName;
-    let email = this.props.email;
-    let src = this.props.src;
+    const email = this.props.email;
+    const src = this.props.src;
 
     firstName = this.props.title || firstName;
     lastName = lastName || '';

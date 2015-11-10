@@ -71,7 +71,6 @@ function wrapPackage(component) {
 }
 
 const App = React.createClass({
-  displayName: 'App',
 
   mixins: [Router.State],
 
@@ -94,8 +93,6 @@ const App = React.createClass({
 });
 
 const AllComponentsHandler = React.createClass({
-  displayName: 'AllComponentsHandler',
-
   render() {
     return (
       <div>

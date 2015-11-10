@@ -42,7 +42,7 @@ class MarkdownSnippet extends React.Component {
     const markdownSnippetClass = cx({
       [styles.MarkdownSnippet]: !this.props.className,
       [this.props.className]: this.props.className,
-    })
+    });
 
     return (
       <div
