@@ -6,8 +6,6 @@ const Lightbox = require('./');
 const Button = require('../button');
 
 const CustomContainer = React.createClass({
-  displayName: 'CustomContainer',
-
   render() {
     return (
       <pre style={{color: '#000000', textAlign: 'left', margin: '10px'}}>

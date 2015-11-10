@@ -12,8 +12,6 @@ const PUBLIC_PROPS = {
 };
 
 const InputWrapper = React.createClass({
-  displayName: 'InputWrapper',
-
   propTypes: Object.assign({}, PUBLIC_PROPS, {
     children: React.PropTypes.node.isRequired,
     inputType: React.PropTypes.string.isRequired,

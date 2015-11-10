@@ -37,7 +37,7 @@ const LayeredComponentMixin = {
         }
 
         React.unmountComponentAtNode(this._layer);
-    }
+    },
 };
 
 module.exports = LayeredComponentMixin;

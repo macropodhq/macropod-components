@@ -10,8 +10,6 @@ require('./lightbox.scss');
 const noop = () => {};
 
 const AssetImage = React.createClass({
-  displayName: 'AssetImage',
-
   mixins: [OnResize],
 
   getInitialState() {
@@ -78,8 +76,6 @@ const AssetImage = React.createClass({
 });
 
 const AssetIframe = React.createClass({
-  displayName: 'AssetIframe',
-
   render() {
     return (
       <iframe className="AssetIframe" src={this.props.asset.path} frameBorder="0" />
@@ -92,8 +88,6 @@ const AssetIframe = React.createClass({
 });
 
 const AssetLink = React.createClass({
-  displayName: 'AssetLink',
-
   render() {
     return (
       <a className="AssetLink" href={this.props.asset.path} target="_blank">Download <em>{this.props.asset.title}</em></a>
@@ -106,8 +100,6 @@ const AssetLink = React.createClass({
 });
 
 const Lightbox = React.createClass({
-  displayName: 'Lightbox',
-
   statics: {
     AssetImage: AssetImage,
     AssetIframe: AssetIframe,
@@ -167,8 +159,8 @@ const Lightbox = React.createClass({
       }
 
       for (let i = 0; i < this._containers.length; i++) {
-        let ac = this._containers[i].media.split('/', 2);
-        let bc = media.split('/', 2);
+        const ac = this._containers[i].media.split('/', 2);
+        const bc = media.split('/', 2);
 
         if (ac[0] === bc[0] && ac[1] === bc[1]) {
           return this._containers[i].container;
@@ -275,11 +267,11 @@ const Lightbox = React.createClass({
       'fullscreen': !!this.props.fullscreen,
     });
 
-    let currentAsset = this.getCurrentAsset();
+    const currentAsset = this.getCurrentAsset();
 
     let element = currentAsset.element;
     if (!element) {
-      let Container = currentAsset.container || Lightbox.containerFor(currentAsset.media);
+      const Container = currentAsset.container || Lightbox.containerFor(currentAsset.media);
 
       element = <Container asset={currentAsset} />;
     }

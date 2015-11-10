@@ -95,7 +95,7 @@ module.exports = React.createClass({
       let i = 0;
 
       content = _.transform(content, (result, value, key) => {
-        let nodeStyle = {};
+        const nodeStyle = {};
 
         if (i === firstIndex) {
           Object.assign(nodeStyle, Group.style.first);

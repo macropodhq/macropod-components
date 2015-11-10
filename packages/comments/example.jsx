@@ -135,7 +135,7 @@ module.exports = React.createClass({
   },
 
   handleNewComment(value, parentId) {
-    let updatedComments = this.state.comments;
+    const updatedComments = this.state.comments;
 
     updatedComments.push({
       id: this.state.comments.length + 1,
@@ -171,7 +171,7 @@ module.exports = React.createClass({
   },
 
   handleDelete(id) {
-    let updatedComments = _.reject(this.state.comments, {id: id});
+    const updatedComments = _.reject(this.state.comments, {id: id});
 
     this.setState({
       comments: updatedComments,
@@ -179,8 +179,8 @@ module.exports = React.createClass({
   },
 
   handleEdit(id, value) {
-    let updatedComments = _.reject(this.state.comments, {id: id});
-    let editedComment = _.filter(this.state.comments, {id: id});
+    const updatedComments = _.reject(this.state.comments, {id: id});
+    const editedComment = _.filter(this.state.comments, {id: id});
     editedComment[0].entry = value;
     updatedComments.push(editedComment[0]);
 

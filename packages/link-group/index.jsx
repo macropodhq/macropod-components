@@ -13,12 +13,12 @@ module.exports = React.createClass({
   mixins: [Router.State],
 
   getChildren() {
-    let children = [];
+    const children = [];
 
     React.Children.forEach(this.props.children, (child, index) => {
       const active = child.props && (!_.size(this.getQuery()) && child.props.default);
 
-      let className = cx({
+      const className = cx({
         [this.props.className]: child.props.className,
         [styles.Link]: !child.props.className,
         [styles.LinkActive]: active,

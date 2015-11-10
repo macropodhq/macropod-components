@@ -6,8 +6,6 @@ const Layer = require('../layered-mixin');
 require('./popover.scss');
 
 const PopoverContent = React.createClass({
-  displayName: 'PopoverContent',
-
   getInitialState() {
     return {
       showDropdown: false,

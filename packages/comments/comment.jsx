@@ -149,7 +149,7 @@ module.exports = React.createClass({
       editValue: this.props.comment.entry,
     }, () => {
       if (this.state.editing) {
-        let editInput = this.refs.editInput.getDOMNode();
+        const editInput = this.refs.editInput.getDOMNode();
         editInput.focus();
         editInput.setSelectionRange(this.state.editValue.length, this.state.editValue.length);
       }
