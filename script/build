@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+set -x
+
+echo "--- npm install"
+docker run --rm -i -t \
+  -v $PWD:/build \
+  -w /build \
+  node:0.10 /bin/sh -c "npm prune && npm install"
+
+echo "--- npm build"
+docker run --rm -i -t \
+  -v $PWD:/build \
+  -w /build \
+  node:0.10 npm run build
+
+echo "--- lint"
+docker run --rm -i -t \
+  -v $PWD:/build \
+  -w /build \
+  node:0.10 npm run lint
