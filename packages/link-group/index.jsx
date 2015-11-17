@@ -18,7 +18,7 @@ module.exports = React.createClass({
     let children = [];
 
     React.Children.forEach(this.props.children, (child, index) => {
-      const active = child.props && (!_.size(this.context.location.query && child.props.default);
+      const active = child.props && (!_.size(this.context.location.query && child.props.default));
 
       let className = cx({
         [this.props.className]: child.props.className,
