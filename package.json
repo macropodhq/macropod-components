@@ -23,8 +23,8 @@
     "macropod-tools": "0.0.29",
     "markdown-loader": "^0.1.2",
     "normalize.css": "~3.0.2",
-    "react": "0.14.0",
-    "react-dom": "0.14.0",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
     "react-router": "~1.0.0",
     "history": "~1",
     "node-sass": "^1.2.3"
