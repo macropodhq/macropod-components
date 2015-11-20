@@ -60,17 +60,18 @@ export default React.createClass({
 
   handleUnmanagedChange() {
     const target = this.refs.input.getDOMNode();
+    const lastValue = this.handleUnmanagedChange.lastValue;
 
     if (target.value !== this.handleUnmanagedChange.lastValue) {
-      if (typeof this.handleUnmanagedChange.lastValue !== 'undefined') {
+      this.handleUnmanagedChange.lastValue = target.value;
+
+      if (typeof lastValue !== 'undefined') {
         this.props.onChange({
           currentTarget: target,
           target,
           timeStamp: Date.now(),
         });
       }
-
-      this.handleUnmanagedChange.lastValue = target.value;
     }
   },
 
