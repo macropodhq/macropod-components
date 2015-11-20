@@ -1,6 +1,7 @@
 'use strict';
 
 const React = require('react');
+const ReactDOM = require('react-dom');
 const _ = require('lodash');
 const Item = require('./item');
 const Group = require('./group');
@@ -58,7 +59,7 @@ module.exports = React.createClass({
 
   componentDidMount() {
     this.setState({
-      stickyHeight: this.refs.sticky ? this.refs.sticky.getDOMNode().getBoundingClientRect().height : 0,
+      stickyHeight: this.refs.sticky ? ReactDOM.findDOMNode(this.refs.sticky).getBoundingClientRect().height : 0,
     });
   },
 

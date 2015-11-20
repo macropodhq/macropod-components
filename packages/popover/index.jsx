@@ -124,9 +124,7 @@ module.exports = React.createClass({
   mixins: [Layer],
 
   propTypes: {
-    anchor: React.PropTypes.shape({
-      getDOMNode: React.PropTypes.func.isRequired,
-    }),
+    anchor: React.PropTypes.node,
   },
 
   renderLayer() {
